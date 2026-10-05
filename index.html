@@ -265,6 +265,17 @@ a.cite:hover{border-bottom-style:solid}
 .r-foot{font-size:12.5px;color:var(--muted);max-width:90ch;display:grid;gap:6px}
 .r-foot p{margin:0}
 
+
+.map-h{flex-wrap:wrap}
+.map-sub{padding:0 12px 8px;font-size:12px;color:var(--muted)}
+.mapctl{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;font-size:12.5px}
+.mapctl .seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.mapctl .seg button{border:0;background:var(--panel);padding:5px 11px;cursor:pointer;font:600 12.5px var(--f-body);color:var(--muted)}
+.mapctl .seg button.on{background:var(--field);color:var(--panel)}
+.mapctl .tg{display:flex;align-items:center;gap:4px;color:var(--muted);cursor:pointer}
+#mapLegend{display:grid;gap:3px}
+#mapLegend b{color:var(--ink)}
+.wrap{padding-bottom:96px}
 /* live feedback */
 .canvas-box{position:relative}
 canvas.ov{position:absolute;left:12px;top:0;cursor:crosshair;touch-action:none}
@@ -338,7 +349,7 @@ canvas.ov{position:absolute;left:12px;top:0;cursor:crosshair;touch-action:none}
         <div class="gauges" id="gauges"></div>
       </section>
       <section class="card">
-        <div class="sec-h"><h2>Field map</h2><span class="hint" id="mapHint">|B| and flux lines, axisymmetric cross-section</span></div>
+        <div class="sec-h map-h"><h2>Field map</h2><div class="mapctl" id="mapCtl"></div></div><div class="hint map-sub" id="mapHint">Axisymmetric cross-section through the coil axis</div>
         <div class="canvas-box"><canvas id="mapC" height="460"></canvas><canvas class="ov" id="mapO"></canvas></div>
         <div class="legend" id="mapLegend"></div>
       </section>
@@ -1272,74 +1283,192 @@ function computeMap(S,g,loops,aspect,nxIn){
     B[j*(nx+1)+i]=Math.hypot(br,bz); PSI[j*(nx+1)+i]=ps; } }
   return {nx,ny,W,zmin,zmax,B,PSI};
 }
+/* ---------- field map (v2) ---------- */
+const MAPV={mode:'B',lines:true,bands:true};
+try{ Object.assign(MAPV, JSON.parse(localStorage.getItem('coilbench.mapv')||'{}')); }catch(e){}
+const RAMP_L=['#f8fbfb','#e6f2f3','#cfe7ea','#b0d8df','#8ec6d3','#6cb0c6','#5196b8','#417ca6','#386292','#324b7c'];
+const RAMP_D=['#0c151d','#10283a','#123c52','#155366','#196a76','#24827f','#3f9a83','#6db285','#a6c986','#e8df8c'];
+function hex2rgb(h){ const v=parseInt(h.slice(1),16); return [v>>16&255,v>>8&255,v&255]; }
+const RL=RAMP_L.map(hex2rgb), RD=RAMP_D.map(hex2rgb);
+function rampAt(t,dark){ const R_=dark?RD:RL; t=clamp(t,0,1)*(R_.length-1); const i=Math.min(R_.length-2,Math.floor(t)), u=t-i, a=R_[i], b=R_[i+1]; return [a[0]+(b[0]-a[0])*u,a[1]+(b[1]-a[1])*u,a[2]+(b[2]-a[2])*u]; }
+function isDark(){ const p=hex2rgb((css('--panel')||'#ffffff').padEnd(7,'f').slice(0,7)); return (0.299*p[0]+0.587*p[1]+0.114*p[2])<128; }
+function niceLevels(lo,hi){ const L=[]; for(let e=Math.floor(Math.log10(lo))-1;e<=Math.ceil(Math.log10(hi));e++) for(const m of [1,2,5]){ const v=m*10**e; if(v>=lo*0.999&&v<=hi*1.001) L.push(v); } return L; }
+function marching(grid,nx,ny,lv){ // grid indexed [j*(nx+1)+i], returns segments in grid coords
+  const segs=[];
+  for(let j=0;j<ny;j++) for(let i=0;i<nx;i++){
+    const p=[grid[j*(nx+1)+i],grid[j*(nx+1)+i+1],grid[(j+1)*(nx+1)+i+1],grid[(j+1)*(nx+1)+i]];
+    if(!(p[0]>-1e30&&p[1]>-1e30&&p[2]>-1e30&&p[3]>-1e30)) continue;
+    const xs=[i,i+1,i+1,i], ys=[j,j,j+1,j+1], pts=[];
+    for(let e=0;e<4;e++){ const a=p[e],b=p[(e+1)%4]; if((a<lv)!==(b<lv)){ const t=(lv-a)/(b-a); pts.push([xs[e]+t*(xs[(e+1)%4]-xs[e]), ys[e]+t*(ys[(e+1)%4]-ys[e])]); } }
+    if(pts.length>=2) segs.push([pts[0],pts[1]]); if(pts.length===4) segs.push([pts[2],pts[3]]);
+  }
+  return segs;
+}
+function haloText(x,txt,px,py,col,halo,align){ x.textAlign=align||'left'; x.lineWidth=3; x.strokeStyle=halo; x.lineJoin='round'; x.strokeText(txt,px,py); x.fillStyle=col; x.fillText(txt,px,py); }
+function pill(x,txt,px,py,fg,bg,border){ const w=x.measureText(txt).width+10, h=17; x.fillStyle=bg; x.strokeStyle=border||bg; x.lineWidth=1; x.beginPath(); x.roundRect?x.roundRect(px,py-h+4,w,h,4):x.rect(px,py-h+4,w,h); x.fill(); if(border) x.stroke(); x.fillStyle=fg; x.textAlign='left'; x.fillText(txt,px+5,py); return w; }
 function drawMap(){
-  const c=$('mapC'), {x,w,h}=setupCanvas(c), S=R.S, g=R.g;
-  const key=JSON.stringify([S.coil,S.Di,S.Lw,S.N,S.awg,S.wire,S.depth,S.mitOn,S.mitZr,Math.round(w/h*20)]);
-  if(mapCache.key!==key || (mapCache.low && !GEST.active)){ const low=GEST.active; mapCache={key,low,grid:computeMap(S,g,R.loops,w/h,low?34:72)}; }
-  const G=mapCache.grid, scale=R.sim.ipk*R.gEff*R.cal.kB;
-  const {nx,ny,W,zmin,zmax}=G, Hm=zmax-zmin;
-  const X=r=>w/2+r/W*(w/2), Y=z=>(z-zmin)/Hm*h;
-  // reference max: field just outside winding near face
-  let bmax=0; for(let k=0;k<G.B.length;k++){ const v=G.B[k]; if(isFinite(v)&&v>bmax) bmax=v; }
-  const bref=Math.max(Math.abs(R.Bpa0)*3, 1e-12); bmax=Math.min(bmax,bref);
-  const lo=Math.log10(bmax)-3;
-  const img=x.createImageData(Math.round(w),Math.round(h)); const iw=img.width, ih=img.height;
+  const c=$('mapC'), {x,w,h}=setupCanvas(c), S=R.S, g=R.g, dark=isDark();
+  const ink=css('--ink'), mut=css('--muted'), panel=css('--panel'), cop=css('--copper'), okc=css('--ok'), crit=css('--crit'), warn=css('--warn');
+  const pad={l:46,r:76,t:10,b:30}, pw=w-pad.l-pad.r, ph=h-pad.t-pad.b;
+  const key=JSON.stringify([S.coil,S.Di,S.Lw,S.N,S.awg,S.wire,S.depth,S.mitOn,S.mitZr,Math.round(pw/ph*20)]);
+  if(mapCache.key!==key || (mapCache.low && !GEST.active)){ const low=GEST.active; mapCache={key,low,grid:computeMap(S,g,R.loops,pw/ph,low?34:72)}; }
+  const G=mapCache.grid, {nx,ny,W,zmin,zmax}=G, Hm=zmax-zmin, N1=nx+1;
+  const cx=pad.l+pw/2, X=r=>cx+r/W*(pw/2), Y=z=>pad.t+(z-zmin)/Hm*ph;
+  const mode=MAPV.mode, helm=S.coil==='helmholtz';
+  const scaleB=R.sim.ipk*R.gEff*R.cal.kB, scaleE=R.sim.didtPk*R.core.gain*R.cal.kB;
+  // value grid (physical units) + log grid
+  const V=new Float32Array(N1*(ny+1)), LV=new Float32Array(N1*(ny+1));
+  let vmaxT=0;
+  for(let j=0;j<=ny;j++){ const z=zmin+Hm*j/ny; for(let i=0;i<=nx;i++){ const k=j*N1+i; const rho=W*i/nx+1e-7;
+    const v= mode==='B' ? G.B[k]*scaleB : Math.abs(G.PSI[k]/rho)*scaleE;
+    V[k]=v; LV[k]=v>0?Math.log10(v):-1e31; if((helm||z>=0)&&isFinite(v)&&v>vmaxT) vmaxT=v; } }
+  let vmax = mode==='B' ? (helm? Math.abs(R.B0)*3 : Math.max(Math.abs(R.B0)*1.6, vmaxT*0.6)) : vmaxT*1.05;
+  if(!(vmax>0)) vmax=1e-6;
+  let vmin=vmax/1000; const vt=mode==='B'?Math.abs(R.Bt):R.E; if(vt>0&&vt<vmin*1.5) vmin=vt/3;
+  const lvls=niceLevels(vmin,vmax), lmin=Math.log10(vmin), lmax=Math.log10(vmax);
+  const colorOf=v=>{ if(!(v>0)) return rampAt(0,dark); let t;
+    if(MAPV.bands){ let b=0; for(const L of lvls) if(v>=L) b++; const lo=b?Math.log10(lvls[b-1]):lmin, hi=b<lvls.length?Math.log10(lvls[b]):lmax; t=((lo+hi)/2-lmin)/(lmax-lmin); }
+    else t=(Math.log10(v)-lmin)/(lmax-lmin);
+    return rampAt(t,dark); };
+  // paint
+  x.clearRect(0,0,w,h); x.fillStyle=panel; x.fillRect(0,0,w,h);
+  const rs=GEST.active?1:Math.min(2,window.devicePixelRatio||1), iw=Math.round(pw*rs), ih=Math.round(ph*rs), img=x.createImageData(iw,ih);
   for(let py=0;py<ih;py++){ const fy=py/ih*ny, j=Math.min(ny-1,Math.floor(fy)), ty=fy-j;
     for(let px=0;px<iw;px++){ const fxr=Math.abs(px-iw/2)/(iw/2)*nx, i=Math.min(nx-1,Math.floor(fxr)), tx=fxr-i;
-      const a=G.B[j*(nx+1)+i], b=G.B[j*(nx+1)+i+1], c2=G.B[(j+1)*(nx+1)+i], d=G.B[(j+1)*(nx+1)+i+1];
-      const v=(a*(1-tx)+b*tx)*(1-ty)+(c2*(1-tx)+d*tx)*ty;
-      const t=(Math.log10(Math.max(v,1e-20))-lo)/3; const col=cmap(t); const o=(py*iw+px)*4;
+      const a=V[j*N1+i], b=V[j*N1+i+1], c2=V[(j+1)*N1+i], d=V[(j+1)*N1+i+1];
+      const v=(a*(1-tx)+b*tx)*(1-ty)+(c2*(1-tx)+d*tx)*ty; const col=colorOf(v); const o=(py*iw+px)*4;
       img.data[o]=col[0];img.data[o+1]=col[1];img.data[o+2]=col[2];img.data[o+3]=255; } }
-  x.putImageData(img,0,0);
-  // tissue zone
-  const tz0 = S.coil==='helmholtz'? null : 0;
-  if(tz0!==null){ x.fillStyle='rgba(120,200,170,0.10)'; x.fillRect(0,Y(0),w,h-Y(0)); x.strokeStyle='rgba(180,240,215,0.55)'; x.setLineDash([4,4]); x.beginPath(); x.moveTo(0,Y(0)); x.lineTo(w,Y(0)); x.stroke(); x.setLineDash([]);
-    x.fillStyle='rgba(210,245,230,0.85)'; x.font='12px "IBM Plex Sans",sans-serif'; x.fillText(TISSUES[S.tissue].name+' ↓',8,Y(0)+16); }
-  // flux lines via marching squares on psi
-  let pmax=0; const iz0=Math.round((0-zmin)/Hm*ny);
-  for(let k=0;k<G.PSI.length;k++) if(G.PSI[k]>pmax) pmax=G.PSI[k];
-  x.strokeStyle='rgba(255,255,255,0.42)'; x.lineWidth=1;
-  const nlev=14;
-  for(let L=1;L<=nlev;L++){ const lv=pmax*(L/(nlev+1))**1.6; x.beginPath();
-    for(let j=0;j<ny;j++) for(let i=0;i<nx;i++){
-      const p=[G.PSI[j*(nx+1)+i],G.PSI[j*(nx+1)+i+1],G.PSI[(j+1)*(nx+1)+i+1],G.PSI[(j+1)*(nx+1)+i]];
-      const xs=[i,i+1,i+1,i], ys=[j,j,j+1,j+1]; const pts=[];
-      for(let e=0;e<4;e++){ const a=p[e],b=p[(e+1)%4]; if((a<lv)!==(b<lv)){ const t=(lv-a)/(b-a); pts.push([xs[e]+t*(xs[(e+1)%4]-xs[e]), ys[e]+t*(ys[(e+1)%4]-ys[e])]); } }
-      if(pts.length>=2){ for(const sgn of [1,-1]){ x.moveTo(X(sgn*pts[0][0]/nx*W),Y(zmin+pts[0][1]/ny*Hm)); x.lineTo(X(sgn*pts[1][0]/nx*W),Y(zmin+pts[1][1]/ny*Hm)); } }
-    }
-    x.stroke(); }
-  // core
-  const mm=1e-3, cop=css('--copper')||'#c06a30';
-  if(S.core!=='air'&&S.coil==='solenoid'){ x.fillStyle='rgba(150,160,170,0.85)'; x.fillRect(X(-g.rin*mm),Y(-g.len*mm),X(g.rin*mm)-X(-g.rin*mm),Y(0)-Y(-g.len*mm)); }
-  if(S.core!=='air'&&S.coil==='pancake'){ const t=Math.max(1.5,g.dins*2)*mm; x.fillStyle='rgba(150,160,170,0.85)'; x.fillRect(X(-g.rout*mm*1.05),Y(-g.dins*mm-t),X(g.rout*mm*1.05)-X(-g.rout*mm*1.05),Y(0)-Y(t)); }
-  // windings
-  x.fillStyle=cop; x.strokeStyle='rgba(0,0,0,0.35)';
-  const boxes=[];
-  if(S.coil==='pancake') boxes.push([g.rin,-g.dins,g.rout,0]);
-  else if(S.coil==='solenoid') boxes.push([g.rin,-g.len,g.rout,0]);
-  else { const Rr=g.rm; for(const cz of [-Rr/2,Rr/2]) boxes.push([g.rin,cz-g.len/2,g.rout,cz+g.len/2]); }
-  for(const b of boxes) for(const sg of [1,-1]){ const x0=X(sg*b[0]*mm),x1=X(sg*b[2]*mm),y0=Y(b[1]*mm),y1=Y(b[3]*mm); const rx=Math.min(x0,x1), rw=Math.max(2,Math.abs(x1-x0)), ry=Math.min(y0,y1), rh=Math.max(2,Math.abs(y1-y0)); x.fillRect(rx,ry,rw,rh); x.strokeRect(rx,ry,rw,rh); }
-  // target + induced loop
-  const zt=S.depth*mm; x.strokeStyle='#ffffff'; x.lineWidth=1.5;
-  x.beginPath(); x.moveTo(X(0)-8,Y(zt)); x.lineTo(X(0)+8,Y(zt)); x.moveTo(X(0),Y(zt)-8); x.lineTo(X(0),Y(zt)+8); x.stroke();
-  x.setLineDash([3,3]); x.beginPath(); x.ellipse(X(0),Y(zt),Math.abs(X(S.rt*mm)-X(0)),4,0,0,Math.PI*2); x.stroke(); x.setLineDash([]);
-  x.fillStyle='#fff'; x.font='12px "IBM Plex Mono",monospace';
-  const rk=ghostRef(); const dB=rk&&rk.k.B>0?(Math.abs(R.Bt)/rk.k.B-1)*100:0;
-  const lbl=`${si(Math.abs(R.Bt),'T')} · E ${n(R.E)} V/m${Math.abs(dB)>=0.5?` (${dB>0?'▲':'▼'}${Math.abs(dB).toFixed(Math.abs(dB)>=10?0:1)}%)`:''}`; const tw=x.measureText(lbl).width;
-  x.fillText(lbl, Math.min(X(0)+12, w-tw-6), Y(zt)-8);
-  // MIT sample + receiver
-  if(R.mit){ const m=R.mit; x.strokeStyle='rgba(180,240,215,0.9)'; x.beginPath(); x.arc(X(0),Y(m.zs),Math.abs(X(m.a)-X(0)),0,Math.PI*2); x.stroke();
-    const rr=S.rrx*mm; x.fillStyle='rgba(127,179,227,0.95)'; x.fillRect(X(-rr)-2,Y(m.zr)-2,4,4); x.fillRect(X(rr)-2,Y(m.zr)-2,4,4);
-    x.strokeStyle='rgba(127,179,227,0.95)'; x.setLineDash([2,3]); x.beginPath(); x.moveTo(X(-rr),Y(m.zr)); x.lineTo(X(rr),Y(m.zr)); x.stroke(); x.setLineDash([]);
-    x.fillStyle='rgba(200,225,245,0.95)'; x.fillText('receiver',X(rr)+6,Y(m.zr)+4); x.fillText('sample',X(m.a)+6,Y(m.zs)); }
-  // scale bar
-  const sb=niceStep(W*0.5); x.fillStyle='rgba(255,255,255,0.85)'; x.fillRect(10,h-14,sb/W*(w/2),2); x.font='11px "IBM Plex Mono",monospace'; x.fillText(si(sb,'m',2),10,h-20);
-  // legend
-  const grad=`linear-gradient(90deg,${[0,.25,.5,.75,1].map(t=>'rgb('+cmap(t).map(Math.round).join(',')+')').join(',')})`;
-  $('mapLegend').innerHTML=`<span>|B| <span class="cbar" style="background:${grad}"></span> ${si(bmax*scale/1000,'T',2)} → ${si(bmax*scale,'T',2)} (log)</span><span>White lines: flux, equal spacing = equal flux</span><span>Dashed ellipse: induced-current loop r = ${S.rt} mm</span><span>Hover to read |B|; click in tissue to move the target</span>`;
-  $('mapHint').textContent = S.coil==='helmholtz'?'Helmholtz pair; target offset from centre':'Coil above, tissue below the face';
-  CH.map={X,Y,W,zmin,Hm,w,h,G,scale,nx,ny};
+  // putImageData ignores the transform: place it in device pixels via an offscreen canvas
+  const oc=drawMap.oc||(drawMap.oc=document.createElement('canvas')); oc.width=iw; oc.height=ih; oc.getContext('2d').putImageData(img,0,0);
+  x.imageSmoothingEnabled=!MAPV.bands; x.drawImage(oc,pad.l,pad.t,pw,ph); x.imageSmoothingEnabled=true;
+  x.save(); x.beginPath(); x.rect(pad.l,pad.t,pw,ph); x.clip();
+  // air region veil (non-Helmholtz): tissue reads at full strength
+  if(!helm){ x.fillStyle=dark?'rgba(21,28,32,0.38)':'rgba(248,250,251,0.38)'; x.fillRect(pad.l,pad.t,pw,Y(0)-pad.t);
+    x.save(); x.beginPath(); x.rect(pad.l,pad.t,pw,Y(0)-pad.t); x.clip(); x.strokeStyle=dark?'rgba(255,255,255,0.05)':'rgba(0,0,0,0.04)'; x.lineWidth=1; x.beginPath(); for(let q=-ph;q<pw;q+=9){ x.moveTo(pad.l+q,pad.t); x.lineTo(pad.l+q+ph,pad.t+ph); } x.stroke(); x.restore(); }
+  // band-edge isolines (subtle) and labelled decades
+  const gx=gi=>X(gi/nx*W), gy=gj=>Y(zmin+gj/ny*Hm), gxm=gi=>X(-gi/nx*W);
+  const lineCol=dark?'rgba(255,255,255,0.22)':'rgba(20,30,40,0.18)';
+  const zt0=S.depth*1e-3, tX=X(0), tY=Y(zt0), rL=Math.abs(X(S.rt*1e-3)-X(0)); const cbw0=Math.min(250,pw*0.55), cbh0=54;
+  let cbx0=tX+rL+14; if(cbx0+cbw0>pad.l+pw-4) cbx0=tX-rL-14-cbw0; if(cbx0<pad.l+4) cbx0=Math.min(pad.l+pw-cbw0-4,tX+14); const cby0=clamp(tY-cbh0/2,pad.t+4,pad.t+ph-cbh0-4);
+  const CALL={x:cbx0,y:cby0,w:cbw0,h:cbh0};
+  const labels=[], usedY=[];
+  const pickOnColumn=(segs,colPx,side)=>{ const gcol=Math.abs(colPx-cx)/(pw/2)*nx; const cands=[];
+    for(const [p,q] of segs){ if((p[0]-gcol)*(q[0]-gcol)>0||p[0]===q[0]) continue; const t=(gcol-p[0])/(q[0]-p[0]); const gyv=p[1]+t*(q[1]-p[1]); const sy=gy(gyv), zz=zmin+gyv/ny*Hm;
+      if(sy<pad.t+14||sy>pad.t+ph-28) continue; if(!helm&&zz<(10/ph)*Hm) continue; if(colPx>CALL.x-60&&colPx<CALL.x+CALL.w+60&&sy>CALL.y-14&&sy<CALL.y+CALL.h+14) continue; if(usedY.some(u=>Math.abs(u-sy)<20)) continue; cands.push(sy); }
+    if(!cands.length) return null; const sy=Math.max(...cands); usedY.push(sy); return [colPx,sy]; };
+  for(const L of lvls){ const decade=Math.abs(Math.log10(L)-Math.round(Math.log10(L)))<1e-6; const segs=marching(LV,nx,ny,Math.log10(L));
+    x.strokeStyle=decade?(dark?'rgba(255,255,255,0.5)':'rgba(20,30,40,0.42)'):lineCol; x.lineWidth=decade?1.1:0.7; x.beginPath();
+    for(const [p,q] of segs){ x.moveTo(gx(p[0]),gy(p[1])); x.lineTo(gx(q[0]),gy(q[1])); x.moveTo(gxm(p[0]),gy(p[1])); x.lineTo(gxm(q[0]),gy(q[1])); }
+    x.stroke();
+    if(decade&&segs.length){ let best=null; for(const f of [0.36,0.24,0.5,0.12]){ best=pickOnColumn(segs,cx+pw/2*f*2*0.5+pw*0.08,1); if(best) break; } if(best) labels.push([best,L]); }
+  }
+  // flux lines
+  if(MAPV.lines){ let pmax=0; for(let k=0;k<G.PSI.length;k++) if(G.PSI[k]>pmax) pmax=G.PSI[k];
+    const fa=mode==='E'?0.6:1; x.strokeStyle=dark?`rgba(255,255,255,${0.28*fa})`:`rgba(15,25,35,${0.30*fa})`; x.lineWidth=0.9; x.setLineDash([]);
+    for(let Lk=1;Lk<=9;Lk++){ const lv=pmax*(Lk/10)**1.7; const segs=marching(G.PSI,nx,ny,lv); x.beginPath();
+      for(const [p,q] of segs){ x.moveTo(gx(p[0]),gy(p[1])); x.lineTo(gx(q[0]),gy(q[1])); x.moveTo(gxm(p[0]),gy(p[1])); x.lineTo(gxm(q[0]),gy(q[1])); } x.stroke(); } }
+  // threshold contours
+  const P=PRESETS[S.preset]; const special=[], placed=[];
+  if(mode==='B'&&P){ special.push({v:P.t.B[0],col:okc,dash:[6,4],lab:`target min ${si(P.t.B[0],'T',2)}`}); }
+  if(mode==='E'){ if(R.feff<1e5) special.push({v:R.Eth,col:crit,dash:[],lab:`nerve threshold ${n(R.Eth,2)} V/m`}); special.push({v:0.1,col:warn,dash:[5,4],lab:'noise floor 0.1 V/m'}); }
+  for(const sp of special){ if(!(sp.v>0)) continue; const segs=marching(LV,nx,ny,Math.log10(sp.v)); if(!segs.length) continue;
+    x.strokeStyle=dark?'rgba(0,0,0,0.55)':'rgba(255,255,255,0.8)'; x.lineWidth=4; x.setLineDash(sp.dash); x.beginPath();
+    for(const [p,q] of segs){ x.moveTo(gx(p[0]),gy(p[1])); x.lineTo(gx(q[0]),gy(q[1])); x.moveTo(gxm(p[0]),gy(p[1])); x.lineTo(gxm(q[0]),gy(q[1])); } x.stroke();
+    x.strokeStyle=sp.col; x.lineWidth=2; x.stroke(); x.setLineDash([]);
+    let best=null; for(const f of [0.22,0.34,0.12,0.44]){ best=pickOnColumn(segs,cx-pw*f,-1); if(best) break; }
+    if(!best){ let bd=1e9; for(const [p,q] of segs){ const sx=gxm((p[0]+q[0])/2), sy=gy((p[1]+q[1])/2), zz=zmin+(p[1]+q[1])/2/ny*Hm; if(!helm&&zz<(14/ph)*Hm) continue; if(sy<pad.t+14||sy>pad.t+ph-30||usedY.some(u=>Math.abs(u-sy)<20)) continue; const dd=Math.abs(sy-(pad.t+ph*0.7)); if(dd<bd){bd=dd;best=[sx-40,sy];} } if(best) usedY.push(best[1]); }
+    if(best) placed.push(Object.assign({},sp,{at:best})); }
+  // tissue surface
+  if(!helm){ x.strokeStyle=ink; x.lineWidth=1.5; x.globalAlpha=0.85; x.beginPath(); x.moveTo(pad.l,Y(0)); x.lineTo(pad.l+pw,Y(0)); x.stroke(); x.globalAlpha=1; }
+  // core / former
+  const mm=1e-3, wireCol=cop, wireEdge=dark?'#1a0e06':'#5a2a0c';
+  if(S.core!=='air'&&S.coil==='solenoid'){ x.fillStyle=dark?'#7d8a93':'#9aa6ae'; x.strokeStyle=dark?'#2a3238':'#5b666d'; x.lineWidth=1; const rx0=X(-g.rin*mm), rw=X(g.rin*mm)-rx0, ry0=Y(-g.len*mm), rh=Y(0)-ry0; x.fillRect(rx0,ry0,rw,rh); x.strokeRect(rx0,ry0,rw,rh); }
+  if(S.core!=='air'&&S.coil==='pancake'){ const t=Math.max(1.5,g.dins*2)*mm; x.fillStyle=dark?'#7d8a93':'#9aa6ae'; const rx0=X(-g.rout*mm*1.05), rw=X(g.rout*mm*1.05)-rx0; x.fillRect(rx0,Y(-g.dins*mm-t),rw,Y(0)-Y(t)); }
+  // windings: individual wires when they resolve, else hatched block; ⊙ / ⊗ current direction
+  const dPx=Math.abs(X(g.dins*mm)-X(0));
+  const wires=[];
+  if(S.coil==='pancake'){ for(let k=0;k<S.N;k++) wires.push([g.rin+(k+0.5)*g.dins, -g.dins/2]); }
+  else { const centres= helm?[-g.rm/2,g.rm/2]:[null]; for(const cz of centres){ let rem=S.N; for(let L=0;L<g.layers&&rem>0;L++){ const nL=Math.min(g.tpl,rem); rem-=nL; for(let k=0;k<nL;k++){ const z = helm? cz-g.len/2+(k+0.5)*g.dins : -g.len+(k+0.5)*g.dins; wires.push([g.rin+(L+0.5)*g.dins, z]); } } } }
+  const drawWires = dPx>=2.2 && wires.length<=1500;
+  const boxes=[]; if(S.coil==='pancake') boxes.push([g.rin,-g.dins,g.rout,0]); else if(S.coil==='solenoid') boxes.push([g.rin,-g.len,g.rout,0]); else for(const cz of [-g.rm/2,g.rm/2]) boxes.push([g.rin,cz-g.len/2,g.rout,cz+g.len/2]);
+  if(drawWires){ x.fillStyle=wireCol; x.strokeStyle=wireEdge; x.lineWidth=Math.min(1,dPx*0.15); const r0=Math.max(1,dPx*0.46);
+    for(const [r,z] of wires) for(const sg of [1,-1]){ x.beginPath(); x.arc(X(sg*r*mm),Y(z*mm),r0,0,7); x.fill(); if(dPx>4) x.stroke(); } }
+  else { for(const b of boxes) for(const sg of [1,-1]){ const x0=X(sg*b[0]*mm),x1=X(sg*b[2]*mm),y0=Y(b[1]*mm),y1=Y(b[3]*mm); const rx=Math.min(x0,x1), rw=Math.max(3,Math.abs(x1-x0)), ry=Math.min(y0,y1), rh=Math.max(3,Math.abs(y1-y0));
+      x.fillStyle=wireCol; x.fillRect(rx,ry,rw,rh); x.strokeStyle=wireEdge; x.lineWidth=1; x.strokeRect(rx,ry,rw,rh);
+      x.save(); x.beginPath(); x.rect(rx,ry,rw,rh); x.clip(); x.strokeStyle='rgba(0,0,0,0.25)'; x.beginPath(); for(let q=-rh;q<rw+rh;q+=4){ x.moveTo(rx+q,ry); x.lineTo(rx+q+rh,ry+rh); } x.stroke(); x.restore(); } }
+  // current-direction badges on the outermost winding on each side
+  { const b=boxes[0]; const rr=7; const by=Math.max(pad.t+rr+2, Math.min(Y(b[1]*mm),Y(b[3]*mm))-rr-5);
+    for(const [sg,sym] of [[-1,'dot'],[1,'x']]){ const bx=X(sg*((b[0]+b[2])/2*mm)); x.fillStyle=panel; x.strokeStyle=ink; x.lineWidth=1.2; x.beginPath(); x.arc(bx,by,rr,0,7); x.fill(); x.stroke();
+      if(sym==='dot'){ x.fillStyle=ink; x.beginPath(); x.arc(bx,by,2.2,0,7); x.fill(); } else { x.beginPath(); x.moveTo(bx-3.5,by-3.5); x.lineTo(bx+3.5,by+3.5); x.moveTo(bx+3.5,by-3.5); x.lineTo(bx-3.5,by+3.5); x.stroke(); } } }
+  // target, induced loop, MIT
+  const zt=S.depth*mm, tx0=X(0), ty0=Y(zt), rl=Math.abs(X(S.rt*mm)-X(0));
+  x.strokeStyle=dark?'#fff':'#111'; x.lineWidth=1.5; x.setLineDash([4,3]); x.beginPath(); x.ellipse(tx0,ty0,rl,Math.max(3,rl*0.18),0,0,Math.PI*2); x.stroke(); x.setLineDash([]);
+  // circulation arrow on the loop
+  { const ax=tx0+rl*0.7, ay=ty0+Math.max(3,rl*0.18)*0.71; x.fillStyle=dark?'#fff':'#111'; x.beginPath(); x.moveTo(ax+5,ay); x.lineTo(ax-3,ay-4); x.lineTo(ax-3,ay+4); x.closePath(); x.fill(); }
+  x.fillStyle=panel; x.strokeStyle=ink; x.lineWidth=2; x.beginPath(); x.arc(tx0,ty0,6,0,7); x.fill(); x.stroke(); x.fillStyle=cop; x.beginPath(); x.arc(tx0,ty0,2.5,0,7); x.fill();
+  if(R.mit){ const m=R.mit; x.strokeStyle=dark?'#bfe9d6':'#1e6b4e'; x.lineWidth=1.5; x.setLineDash([2,2]); x.beginPath(); x.arc(tx0,Y(m.zs),Math.abs(X(m.a)-X(0)),0,7); x.stroke(); x.setLineDash([]);
+    const rr=S.rrx*mm; x.strokeStyle=css('--field'); x.lineWidth=3; x.beginPath(); x.moveTo(X(-rr),Y(m.zr)); x.lineTo(X(rr),Y(m.zr)); x.stroke(); }
+  x.restore();
+  // labels (outside clip so pills can sit on edges)
+  x.font='11px "IBM Plex Mono",monospace';
+  const halo=dark?'rgba(10,14,17,0.85)':'rgba(255,255,255,0.9)';
+  const chipBg=dark?'rgba(21,28,32,0.88)':'rgba(255,255,255,0.9)';
+  for(const [[lx,ly],L] of labels) pill(x,mode==='B'?si(L,'T',1):(L>=1?`${n(L,2)} V/m`:si(L,'V/m',1)),lx-14,ly+5,ink,chipBg);
+  x.font='600 11px "IBM Plex Sans",sans-serif';
+  for(const sp of placed){ const tw=x.measureText(sp.lab).width+10; pill(x,sp.lab,clamp(sp.at[0]-tw/2,pad.l+4,pad.l+pw-tw-4),sp.at[1]+5,sp.col,chipBg,sp.col); }
+  if(!helm){ x.font='600 11.5px "IBM Plex Sans",sans-serif'; pill(x,`↓ ${TISSUES[S.tissue].name}`,pad.l+6,pad.t+ph-8,ink,chipBg,css('--line')); x.font='11px "IBM Plex Sans",sans-serif'; haloText(x,'tissue surface',pad.l+pw-8,Y(0)-5,ink,halo,'right'); x.font='11px "IBM Plex Sans",sans-serif'; haloText(x,'air',pad.l+8,pad.t+14,mut,halo); }
+  if(R.mit){ x.font='11px "IBM Plex Sans",sans-serif'; const m=R.mit; haloText(x,'sample',X(m.a)+6,Y(m.zs),ink,halo); haloText(x,'receiver coil',X(S.rrx*mm)+8,Y(m.zr)+4,ink,halo); }
+  // target callout
+  { const rk=ghostRef(); const cur=mode==='B'?Math.abs(R.Bt):R.E, prev=rk?(mode==='B'?rk.k.B:rk.k.E):null; const dq=prev>0?(cur/prev-1)*100:0;
+    const l1=`Target · ${helm?'offset':'depth'} ${n(S.depth,3)} mm`, l2=`B ${si(Math.abs(R.Bt),'T')}   E ${n(R.E)} V/m`, l3=Math.abs(dq)>=0.5?`${dq>0?'▲':'▼'} ${Math.abs(dq).toFixed(Math.abs(dq)>=10?0:1)}% since last change`:`J ${si(R.Jt,'A/m²')} in ${TISSUES[S.tissue].name.toLowerCase()}`;
+    x.font='600 11.5px "IBM Plex Sans",sans-serif'; const bw=Math.max(x.measureText(l1).width, (x.font='600 12px "IBM Plex Mono",monospace', x.measureText(l2).width), x.measureText(l3).width)+16, bh=54;
+    let bx=CALL.x, by=CALL.y; if(bx<tx0) bx=CALL.x+CALL.w-bw; bx=clamp(bx,pad.l+4,pad.l+pw-bw-4);
+    x.strokeStyle=ink; x.lineWidth=1; x.beginPath(); x.moveTo(tx0+(bx>tx0?7:-7),ty0); x.lineTo(bx>tx0?bx:bx+bw,by+bh/2); x.stroke();
+    x.fillStyle=panel; x.strokeStyle=cop; x.lineWidth=1.5; x.beginPath(); x.roundRect?x.roundRect(bx,by,bw,bh,6):x.rect(bx,by,bw,bh); x.fill(); x.stroke();
+    x.textAlign='left'; x.fillStyle=mut; x.font='600 11px "IBM Plex Sans",sans-serif'; x.fillText(l1,bx+8,by+16);
+    x.fillStyle=ink; x.font='600 12px "IBM Plex Mono",monospace'; x.fillText(l2,bx+8,by+32);
+    x.fillStyle=Math.abs(dq)>=0.5?(dq>0?okc:crit):mut; x.font='11px "IBM Plex Mono",monospace'; x.fillText(l3,bx+8,by+47); }
+  // axes
+  x.strokeStyle=css('--line'); x.lineWidth=1; x.strokeRect(pad.l+0.5,pad.t+0.5,pw-1,ph-1);
+  x.fillStyle=mut; x.font='10.5px "IBM Plex Mono",monospace';
+  const zs=niceStep(Hm*1000/6), zlo=Math.ceil(zmin*1000/zs)*zs;
+  for(let zz=zlo; zz<=zmax*1000; zz+=zs){ const yy=Y(zz/1000); x.beginPath(); x.moveTo(pad.l-4,yy); x.lineTo(pad.l,yy); x.stroke(); x.textAlign='right'; x.fillText(String(+zz.toFixed(1)),pad.l-6,yy+3.5); }
+  const rstep=niceStep(W*1000/3); for(let rr=0; rr<=W*1000; rr+=rstep) for(const sg of rr?[1,-1]:[1]){ const xx=X(sg*rr/1000); x.beginPath(); x.moveTo(xx,pad.t+ph); x.lineTo(xx,pad.t+ph+4); x.stroke(); x.textAlign='center'; x.fillText(String(+(sg*rr).toFixed(1)),xx,pad.t+ph+15); }
+  x.save(); x.translate(12,pad.t+ph/2); x.rotate(-Math.PI/2); x.textAlign='center'; x.font='10.5px "IBM Plex Sans",sans-serif'; x.fillText(helm?'axial position z (mm)':'depth below coil face (mm)',0,0); x.restore();
+  x.textAlign='center'; x.font='10.5px "IBM Plex Sans",sans-serif'; x.fillText('radius (mm), coil axis at 0',cx,h-3);
+  // colour bar
+  const cbx=pad.l+pw+12, cbw=11, cby=pad.t+6, cbh=ph-12;
+  for(let q=0;q<cbh;q++){ const t=1-q/cbh; const v=10**(lmin+t*(lmax-lmin)); const col=colorOf(v); x.fillStyle=`rgb(${col[0]|0},${col[1]|0},${col[2]|0})`; x.fillRect(cbx,cby+q,cbw,1.2); }
+  x.strokeStyle=css('--line'); x.strokeRect(cbx+0.5,cby+0.5,cbw,cbh);
+  x.textAlign='left'; x.font='10px "IBM Plex Mono",monospace'; x.fillStyle=mut;
+  for(const L of lvls){ if(Math.abs(Math.log10(L)-Math.round(Math.log10(L)))>1e-6 && lvls.length>5) continue; const yy=cby+cbh*(1-(Math.log10(L)-lmin)/(lmax-lmin)); x.fillRect(cbx+cbw,yy,3,1); x.fillText(mode==='B'?si(L,'T',1):si(L,'V/m',1),cbx+cbw+5,yy+3.5); }
+  // target tick on colour bar
+  if(vt>0){ const yy=cby+cbh*(1-clamp((Math.log10(vt)-lmin)/(lmax-lmin),0,1)); x.fillStyle=cop; x.beginPath(); x.moveTo(cbx-1,yy); x.lineTo(cbx-7,yy-4); x.lineTo(cbx-7,yy+4); x.closePath(); x.fill(); }
+  // treatment-volume summary
+  const thr = mode==='B' ? (P?P.t.B[0]:null) : (R.feff<1e5?R.Eth:null);
+  let reach=null; if(thr&&!helm){ for(let j=0;j<=ny;j++){ const z=zmin+Hm*j/ny; if(z<0) continue; let mx=0; for(let i=0;i<=nx;i++) mx=Math.max(mx,V[j*N1+i]); if(mx>=thr) reach=z; } }
+  let reachE01=null; if(mode==='E'&&!helm){ for(let j=0;j<=ny;j++){ const z=zmin+Hm*j/ny; if(z<0) continue; let mx=0; for(let i=0;i<=nx;i++) mx=Math.max(mx,V[j*N1+i]); if(mx>=0.1) reachE01=z; } }
+  const sumTxt = helm ? `Uniform-field volume between the coils; |B| at centre ${si(Math.abs(R.B0),'T')}.` :
+    mode==='B' ? (thr? (reach!=null?`Field above the ${si(thr,'T',2)} target minimum reaches <b>${n(reach*1000,3)} mm</b> into tissue.`:`Field never reaches the ${si(thr,'T',2)} target minimum inside the tissue.`):'')
+    : `${R.feff<1e5?(reach!=null?`Induced E exceeds the nerve threshold to <b>${n(reach*1000,3)} mm</b>. `:'Induced E stays below the nerve threshold everywhere in tissue. '):''}${reachE01!=null?`Above the 0.1 V/m noise floor to <b>${n(reachE01*1000,3)} mm</b>.`:'Below 0.1 V/m everywhere in tissue.'}`;
+  $('mapLegend').innerHTML=`<span>${sumTxt}</span><span>${mode==='B'?'Colour bands':'Colour'}: ${mode==='B'?'|B|':'induced E = (dI/dt)·A<sub>φ</sub>'} at peak${mode==='E'?' dI/dt':' current'}, log scale · ${MAPV.lines?'thin lines = flux':'flux lines hidden'} · ⊙ ⊗ current out of / into the page</span><span>Hover to read values; click in tissue to move the target.</span>`;
+  CH.map={pad,pw,ph,cx,W,zmin,Hm,w,h,G,scaleB,scaleE,nx,ny,X,Y};
 }
+function mapValueAt(px,py){ const C=CH.map; if(!C) return null; const rho=Math.abs(px-C.cx)/(C.pw/2)*C.W, z=C.zmin+(py-C.pad.t)/C.ph*C.Hm;
+  const fi=rho/C.W*C.nx, fj=(z-C.zmin)/C.Hm*C.ny; const i=clamp(Math.floor(fi),0,C.nx-1), j=clamp(Math.floor(fj),0,C.ny-1), tx=clamp(fi-i,0,1), ty=clamp(fj-j,0,1), N=C.nx+1;
+  const bil=A=>(A[j*N+i]*(1-tx)+A[j*N+i+1]*tx)*(1-ty)+(A[(j+1)*N+i]*(1-tx)+A[(j+1)*N+i+1]*tx)*ty;
+  const B=bil(C.G.B)*C.scaleB, psi=bil(C.G.PSI), E=Math.abs(psi/Math.max(rho,1e-6))*C.scaleE;
+  const inside=px>=C.pad.l&&px<=C.pad.l+C.pw&&py>=C.pad.t&&py<=C.pad.t+C.ph; return {rho,z,B,E,inside}; }
+function buildMapControls(){
+  const el=$('mapCtl'); if(!el) return;
+  el.innerHTML=`<div class="seg" role="group" aria-label="Map quantity"><button type="button" data-m="B" class="${MAPV.mode==='B'?'on':''}">|B| field</button><button type="button" data-m="E" class="${MAPV.mode==='E'?'on':''}">Induced E</button></div>
+   <label class="tg"><input type="checkbox" id="mvBands" ${MAPV.bands?'checked':''}> bands</label><label class="tg"><input type="checkbox" id="mvLines" ${MAPV.lines?'checked':''}> flux lines</label>`;
+  const save=()=>{ try{ localStorage.setItem('coilbench.mapv',JSON.stringify(MAPV)); }catch(e){} drawMap(); };
+  el.querySelectorAll('[data-m]').forEach(b=>b.addEventListener('click',()=>{ MAPV.mode=b.dataset.m; buildMapControls(); save(); }));
+  $('mvBands').addEventListener('change',e=>{ MAPV.bands=e.target.checked; save(); });
+  $('mvLines').addEventListener('change',e=>{ MAPV.lines=e.target.checked; save(); });
+}
+
 function niceStep(v){ const p=Math.pow(10,Math.floor(Math.log10(v))); const m=v/p; return (m>=5?5:m>=2?2:1)*p; }
 function axes(x,w,h,pad,xl,yl){ }
 function drawWave(){
@@ -1521,14 +1650,16 @@ function syncControl(id){ for(const sec of CTRL) for(const c of sec.items) if(c.
     tip(x,[`t ${si(C.T[k],'s')}`,`I ${si(C.I[k],'A')}   v ${si(C.V[k],'V')}`,`B at target ${si(Math.abs(C.I[k])*C.bpa,'T')}`],px,py,C.w,C.h); });
   wo.addEventListener('pointerleave',()=>ovCtx('waveO'));
   const mo=$('mapO');
-  const mapAt=(px,py)=>{ const C=CH.map; const rho=Math.abs(px-C.w/2)/(C.w/2)*C.W, z=C.zmin+py/C.h*C.Hm; const fi=rho/C.W*C.nx, fj=(z-C.zmin)/C.Hm*C.ny; const i=clamp(Math.floor(fi),0,C.nx-1), j=clamp(Math.floor(fj),0,C.ny-1), tx=fi-i, ty=fj-j, G=C.G.B, N=C.nx+1;
-    const v=(G[j*N+i]*(1-tx)+G[j*N+i+1]*tx)*(1-ty)+(G[(j+1)*N+i]*(1-tx)+G[(j+1)*N+i+1]*tx)*ty; return {rho,z,B:v*C.scale}; };
-  mo.addEventListener('pointermove',e=>{ const C=CH.map; if(!C) return; const [px,py]=ovPos(e,mo); const x=ovCtx('mapO'); const p=mapAt(px,py);
-    x.strokeStyle='rgba(255,255,255,.8)'; x.beginPath(); x.arc(px,py,5,0,7); x.stroke();
-    const inT = S.coil==='helmholtz' || p.z>0;
-    tip(x,[`r ${n(p.rho*1000,3)} mm   ${S.coil==='helmholtz'?'z':'depth'} ${n(p.z*1000,3)} mm`,`|B| ${si(p.B,'T')}`].concat(inT?[`click: move target to ${n(Math.abs(p.z)*1000,3)} mm`]:[]),px,py,C.w,C.h); });
+  mo.addEventListener('pointermove',e=>{ const C=CH.map; if(!C) return; const [px,py]=ovPos(e,mo); const x=ovCtx('mapO'); const p=mapValueAt(px,py); if(!p||!p.inside) return;
+    const inT = S.coil==='helmholtz' || p.z>0; const sig=sigma(S.tissue,R.feff);
+    x.strokeStyle=isDark()?'rgba(255,255,255,.9)':'rgba(0,0,0,.8)'; x.lineWidth=1.5; x.beginPath(); x.arc(px,py,6,0,7); x.stroke();
+    x.setLineDash([2,3]); x.beginPath(); x.moveTo(C.pad.l,py); x.lineTo(C.pad.l+C.pw,py); x.stroke(); x.setLineDash([]);
+    const L=[`r ${n(p.rho*1000,3)} mm · ${S.coil==='helmholtz'?'z':'depth'} ${n(p.z*1000,3)} mm`,`|B| ${si(p.B,'T')}`];
+    if(inT) L.push(`E ${n(p.E)} V/m · J ${si(sig*p.E,'A/m²')}`); else L.push('in air (no tissue current)');
+    if(inT) L.push(`click: move target here`);
+    tip(x,L,px,py,C.w,C.h); });
   mo.addEventListener('pointerleave',()=>ovCtx('mapO'));
-  mo.addEventListener('click',e=>{ const C=CH.map; if(!C) return; const [px,py]=ovPos(e,mo); const p=mapAt(px,py); if(!(S.coil==='helmholtz'||p.z>0)) return;
+  mo.addEventListener('click',e=>{ const C=CH.map; if(!C) return; const [px,py]=ovPos(e,mo); const p=mapValueAt(px,py); if(!p||!p.inside||!(S.coil==='helmholtz'||p.z>0)) return;
     const d=+clamp(Math.abs(p.z)*1000,0,250).toFixed(1); noteChange('depth',S.coil==='helmholtz'?'Offset from centre':'Depth below coil face',S.depth,d,'mm'); S.depth=d; syncControl('depth'); schedule(); });
 })();
 
@@ -1545,7 +1676,7 @@ let rz, lastW=0; const redrawCharts=()=>{ if(!R||$('viewBench').hidden) return; 
 window.addEventListener('resize',()=>{ clearTimeout(rz); rz=setTimeout(()=>{ const w=$('mapC').parentElement.clientWidth; if(w!==lastW){ lastW=w; redrawCharts(); } },150); });
 try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>{ drawWave(); drawSpec(R.cal); drawMap(); }); }catch(e){}
 new MutationObserver(()=>{ drawWave(); drawSpec(R.cal); drawMap(); }).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
-buildPresets(); buildControls(); update();
+buildPresets(); buildControls(); buildMapControls(); update();
 /* ================= RESEARCH LIBRARY ================= */
 /* Bibliographic metadata verified against PubMed (NCBI). Summaries are paraphrased. */
 const RTYPES = {
