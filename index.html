@@ -276,6 +276,31 @@ a.cite:hover{border-bottom-style:solid}
 #mapLegend{display:grid;gap:3px}
 #mapLegend b{color:var(--ink)}
 .wrap{padding-bottom:96px}
+
+/* schematic */
+.wiring-card{margin-top:14px}
+.sch-wrap{overflow-x:auto;padding:0 12px 6px}
+svg.schem{display:block;min-width:1060px;width:100%;height:auto;background:var(--panel2);border:1px solid var(--line);border-radius:6px}
+.schem .w{stroke:var(--ink);stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.schem .w.thin{stroke-width:1.1}
+.schem .coilw{stroke:var(--copper);stroke-width:2.6}
+.schem .fillk{fill:var(--ink)}
+.schem .dot{fill:var(--ink)}
+.schem .icb{fill:var(--panel);stroke:var(--ink);stroke-width:1.6}
+.schem text{font-family:var(--f-mono);font-size:10.5px;fill:var(--ink)}
+.schem .ref{font-weight:600;font-size:11px;font-family:var(--f-body)}
+.schem .pn{fill:var(--copper);font-size:10.5px}
+.schem .val{fill:var(--muted);font-size:10px}
+.schem .pin{font-size:9.5px;fill:var(--muted)}
+.schem .rl{font-size:10px;font-weight:600;fill:var(--field)}
+.schem .pl{font-size:11px;font-weight:700}
+.schem .tag{fill:var(--field-soft);stroke:var(--field);stroke-width:1.1}
+.schem .tg{fill:var(--field);font-size:9.5px;font-weight:600}
+.bom td{white-space:normal;vertical-align:top;text-align:left}
+.bom td:first-child{white-space:nowrap}
+.bom th{text-align:left}
+.sch-notes{padding:0 12px 12px;font-size:12.5px;color:var(--muted)}
+.sch-notes p{margin:4px 0;max-width:90ch}
 /* live feedback */
 .canvas-box{position:relative}
 canvas.ov{position:absolute;left:12px;top:0;cursor:crosshair;touch-action:none}
@@ -371,6 +396,7 @@ canvas.ov{position:absolute;left:12px;top:0;cursor:crosshair;touch-action:none}
         <div class="sec-h"><h2>Signal chain</h2><span class="hint" id="chainHint"></span></div>
         <div class="chain" id="chain"></div>
       </section>
+
     </main>
 
     <aside class="readouts" aria-label="Results">
@@ -406,6 +432,13 @@ canvas.ov{position:absolute;left:12px;top:0;cursor:crosshair;touch-action:none}
     </aside>
   </div>
 
+      <section class="card wiring-card" id="wiring">
+        <div class="sec-h"><h2>Wiring diagram</h2><span class="hint" id="schHint"></span></div>
+        <div class="sch-wrap" id="sch"></div>
+        <div class="sec-h"><h2 style="font-size:15px">Bill of materials</h2><button class="btn sm" id="copyBom" type="button">Copy BOM (CSV)</button></div>
+        <div class="sens bom"><table id="bomT"></table></div>
+        <div class="sch-notes" id="schNotes"></div>
+      </section>
   <section class="theory" id="theory">
     <h2>Theory behind the numbers</h2>
     <p>Every readout above opens to show its formula with your values substituted. These notes explain why each choice moves the result the way it does.</p>
@@ -962,7 +995,7 @@ function update(){
   updateNotes();
   R.spec=spectrum(S,R,cal);
   renderChecks(); renderMetrics(); renderSi(); renderChain(); renderFw(); renderCal();
-  renderLive();
+  renderLive(); renderSchematic();
   if(!$('viewBench').hidden){ drawMap(); drawWave(); drawSpec(cal); }
   clearTimeout(update.sens); update.sens=setTimeout(()=>renderSens(R.cal), GEST.active?450:30);
 }
@@ -1184,8 +1217,10 @@ function renderFw(){
   L.push(`// Switching element: ${driverRec(R).name}. GPIO drives a gate, never the coil current itself.`);
   L.push('');
   if(siF) L.push('#include <Wire.h>','#include <si5351.h>','','Si5351 si5351;','const int SDA_PIN = 8, SCL_PIN = 9;');
-  if(S.wave==='burst') L.push(siF?'const int ENV_PIN = 4;      // -> 74LVC1G08 input B (carrier on input A)':`const int ENV_PIN = 4;      // -> ${S.gate==='direct'?S.Rg+' Ω -> MOSFET gate (10 kΩ gate pull-down)':'gate driver input'}`);
-  if(!siF){ if(S.wave==='square') L.push('const int IN1_PIN = 4, IN2_PIN = 5;   // -> DRV8871 IN1 / IN2'); else L.push(S.gate==='direct'?`const int GATE_PIN = 4;    // -> ${S.Rg} Ω -> logic-level MOSFET gate, 10 kΩ gate-to-source pull-down`:'const int GATE_PIN = 4;    // -> gate driver input (UCC27524)'); }
+  if(S.wave==='burst') L.push(siF?'const int ENV_PIN = 4;      // -> UCC27282 EN (gates the Si5351 carrier into bursts)':`const int ENV_PIN = 4;      // -> ${S.gate==='direct'?S.Rg+' Ω -> MOSFET gate (10 kΩ gate pull-down)':'gate driver input'}`);
+  const FB=schTopology(R)==='fullbridge';
+  if(siF && S.wave!=='burst') L.push('const int EN_PIN = 4;       // -> UCC27282 EN (high = run)');
+  if(!siF){ if(S.wave==='square') L.push(FB?'const int HI_A = 4, LI_A = 5, HI_B = 6, LI_B = 7;   // -> UCC27282 HI/LI, legs A and B':'const int IN1_PIN = 4, IN2_PIN = 5;   // -> DRV8871 IN1 / IN2'); else L.push(S.gate==='direct'?`const int GATE_PIN = 4;    // -> ${S.Rg} Ω -> logic-level MOSFET gate, 10 kΩ gate-to-source pull-down`:'const int GATE_PIN = 4;    // -> gate driver input (UCC27524)'); }
   L.push('const int ISENSE_PIN = 1;   // INA240 output -> ADC1_CH0');
   L.push('');
   if(S.wave==='burst'){ L.push(`const uint32_t CARRIER_HZ = ${Math.round(S.fc)};`,`const float    REP_HZ     = ${S.f};`,`const float    BURST_S    = ${(S.nb/S.fc).toPrecision(4)};   // ${S.nb} cycles`); }
@@ -1198,6 +1233,7 @@ function renderFw(){
     L.push(`  si5351.set_freq(${fq}, SI5351_CLK0);`,`  si5351.set_freq(${fq}, SI5351_CLK1);`,'  si5351.set_clock_invert(SI5351_CLK1, 1);          // complementary phase for the bridge','  si5351.drive_strength(SI5351_CLK0, SI5351_DRIVE_8MA);','  si5351.drive_strength(SI5351_CLK1, SI5351_DRIVE_8MA);');
     if(S.mitOn) L.push(`  // MIT: optional LO on CLK2 for heterodyne down-conversion to a 10 kHz IF`,`  si5351.set_freq(${fq} + 1000000ULL, SI5351_CLK2);`);
     L.push('  si5351.output_enable(SI5351_CLK0, 1);','  si5351.output_enable(SI5351_CLK1, 1);');
+    if(S.wave!=='burst') L.push('  pinMode(EN_PIN, OUTPUT); digitalWrite(EN_PIN, HIGH);   // enable the half-bridge driver');
   }
   if(S.wave==='burst' && !siF){
     L.push('  // Carrier below Si5351 range: ESP32 LEDC makes the carrier, loop() gates it into bursts','  ledcAttach(ENV_PIN, CARRIER_HZ, 12);','  ledcWrite(ENV_PIN, 0);');
@@ -1208,7 +1244,8 @@ function renderFw(){
     else L.push('  pinMode(ENV_PIN, OUTPUT);   // below 5 Hz: timed in loop()');
   } else if(!siF){
     if(S.f>=5){
-      if(S.wave==='square') L.push('  ledcAttach(IN1_PIN, (uint32_t)FREQ_HZ, 14);','  ledcAttach(IN2_PIN, (uint32_t)FREQ_HZ, 14);','  ledcOutputInvert(IN2_PIN, true);                 // IN2 = !IN1 -> bipolar drive','  ledcWrite(IN1_PIN, 8192);','  ledcWrite(IN2_PIN, 8192);');
+      if(S.wave==='square'&&FB) L.push('  // Leg A: HI_A = PWM, LI_A = inverted. Leg B is the inverse of leg A.','  for (int p : {HI_A, LI_A, HI_B, LI_B}) ledcAttach(p, (uint32_t)FREQ_HZ, 14);','  ledcOutputInvert(LI_A, true); ledcOutputInvert(HI_B, true);','  for (int p : {HI_A, LI_A, HI_B, LI_B}) ledcWrite(p, 8192);','  // Dead time comes from the RC + BAT54 networks on each driver input.');
+      else if(S.wave==='square') L.push('  ledcAttach(IN1_PIN, (uint32_t)FREQ_HZ, 14);','  ledcAttach(IN2_PIN, (uint32_t)FREQ_HZ, 14);','  ledcOutputInvert(IN2_PIN, true);                 // IN2 = !IN1 -> bipolar drive','  ledcWrite(IN1_PIN, 8192);','  ledcWrite(IN2_PIN, 8192);');
       else L.push(`  ledcAttach(GATE_PIN, (uint32_t)FREQ_HZ, 14);`,'  ledcWrite(GATE_PIN, (uint32_t)(DUTY * 16383));');
     } else L.push(S.wave==='square'?'  pinMode(IN1_PIN, OUTPUT); pinMode(IN2_PIN, OUTPUT);':'  pinMode(GATE_PIN, OUTPUT);','  // LEDC bottoms out near 5 Hz at 14-bit; slow timing runs in loop()');
   }
@@ -1663,10 +1700,310 @@ function syncControl(id){ for(const sec of CTRL) for(const c of sec.items) if(c.
     const d=+clamp(Math.abs(p.z)*1000,0,250).toFixed(1); noteChange('depth',S.coil==='helmholtz'?'Offset from centre':'Depth below coil face',S.depth,d,'mm'); S.depth=d; syncControl('depth'); schedule(); });
 })();
 
+/* ================= wiring diagram (adaptive schematic + BOM) ================= */
+const SCH={};
+/* ---- part catalog ---- */
+const FETS=[
+ {pn:'IRLML6244TRPbF',vds:20,id:6.3,rds:0.027,qg:8.9,pkg:'SOT-23',g3:true,note:'R_DS(on) 27 mΩ at V_GS 2.5 V'},
+ {pn:'AO3400A',vds:30,id:5.7,rds:0.04,qg:6,pkg:'SOT-23',g3:true,note:'≈40 mΩ at V_GS 2.5–3 V'},
+ {pn:'IRLB8721PbF',vds:30,id:62,rds:0.016,qg:7.6,pkg:'TO-220',g3:true,note:'16 mΩ at 4.5 V; usable from a 3.3 V pin at moderate current'},
+ {pn:'IRLZ44NPbF',vds:55,id:47,rds:0.025,qg:48,pkg:'TO-220',g3:false,note:'logic-level at 5 V, not 3.3 V'},
+ {pn:'IRF540NPbF',vds:100,id:33,rds:0.044,qg:71,pkg:'TO-220',g3:false,note:'needs 10–12 V gate drive'},
+ {pn:'IRFB4110PbF',vds:100,id:180,rds:0.0037,qg:150,pkg:'TO-220',g3:false,note:'very low R_DS(on), high gate charge'},
+ {pn:'IRFP260NPbF',vds:200,id:50,rds:0.04,qg:234,pkg:'TO-247',g3:false,note:'200 V class'},
+];
+const IRF510={pn:'IRF510PbF',vds:100,id:5.6,rds:0.54,qg:8.3,pkg:'TO-220',g3:false,note:'low gate charge; classic HF class-D/E switch'};
+const DIODES=[{pn:'1N5819',v:40,i:1,t:'Schottky'},{pn:'SS34',v:40,i:3,t:'Schottky'},{pn:'SS56',v:60,i:5,t:'Schottky'},{pn:'MBR10100',v:100,i:10,t:'Schottky'},{pn:'MUR460',v:600,i:4,t:'ultrafast'},{pn:'STTH8R06D',v:600,i:8,t:'ultrafast'}];
+const SMBJ=[[12,13.3,19.9],[15,16.7,24.4],[18,20,29.2],[24,26.7,38.9],[28,31.1,45.4],[33,36.7,53.3],[36,40,58.1],[48,53.3,77.4],[58,64.4,93.6],[70,77.8,113],[100,111,162],[150,167,243]];
+const CAPV=[16,25,35,50,63,100,160,250,400,630,1000,1600];
+const ESER=[1,1.2,1.5,1.8,2.2,2.7,3.3,3.9,4.7,5.6,6.8,8.2];
+const nextUp=(arr,v)=>arr.find(a=>a>=v)||arr[arr.length-1];
+function eRound(v){ if(!(v>0)) return v; const e=Math.floor(Math.log10(v)); const m=v/10**e; let best=ESER[0]; for(const s of ESER) if(Math.abs(Math.log(s/m))<Math.abs(Math.log(best/m))) best=s; return best*10**e; }
+const fmtR=v=>v>=1e6?`${+(v/1e6).toPrecision(3)} MΩ`:v>=1e3?`${+(v/1e3).toPrecision(3)} kΩ`:v>=1?`${+v.toPrecision(3)} Ω`:`${+(v*1e3).toPrecision(3)} mΩ`;
+const fmtC=v=>v>=1e-6?`${+(v*1e6).toPrecision(3)} µF`:v>=1e-9?`${+(v*1e9).toPrecision(3)} nF`:`${+(v*1e12).toPrecision(3)} pF`;
+const fmtL=v=>v>=1e-3?`${+(v*1e3).toPrecision(3)} mH`:`${+(v*1e6).toPrecision(3)} µH`;
+function pickFET(vNeed,iNeed,gate3,preferLowQg){ let L=FETS.filter(f=>f.vds>=vNeed&&f.id>=iNeed&&(!gate3||f.g3)); if(preferLowQg) L=L.slice().sort((a,b)=>a.qg-b.qg); return L[0]||null; }
+function pickDiode(v,i){ return DIODES.find(d=>d.v>=v&&d.i>=i)||DIODES[DIODES.length-1]; }
+function pickSMBJ(vbr){ const r=SMBJ.find(s=>s[1]>=vbr)||SMBJ[SMBJ.length-1]; return {pn:`SMBJ${r[0]}A`,vwm:r[0],vbr:r[1],vc:r[2]}; }
+function supplyTVS(V){ const r=SMBJ.find(s=>s[0]>=V*1.1)||SMBJ[SMBJ.length-1]; return {pn:`SMBJ${r[0]}A`,vwm:r[0],vc:r[2]}; }
+function bulkCap(V,I){ const v=nextUp(CAPV,V*1.5), uf=I>2?470:220; const code={16:'1C',25:'1E',35:'1V',50:'1H',63:'1J',100:'2A'}[v]; return {pn:code?`Panasonic EEU-FR${code}${uf===470?'471':'221'}`:`${uf} µF / ${v} V low-ESR aluminium electrolytic`,val:`${uf} µF ${v} V`}; }
+function buck5(V){ if(V<=23) return {pn:'MP1584EN buck module',note:'4.5–28 V in, set to 5.0 V'}; if(V<=38) return {pn:'LM2596S buck module',note:'4.5–40 V in, set to 5.0 V'}; if(V<=58) return {pn:'TI LMR36015 buck',note:'4.2–60 V in, 5 V out'}; return {pn:'TI LM5164 buck',note:'6–100 V in, 5 V out'}; }
+function vdd12(V){ if(V>=10.5&&V<=18) return {pn:'from +V via 10 Ω / 10 µF RC',note:'supply already in driver range'}; if(V>18&&V<=35) return {pn:'ST L7812CV (TO-220)',note:'12 V linear regulator'}; if(V>35&&V<=58) return {pn:'TI LMR36015 buck (12 V)',note:'12 V rail'}; if(V>58) return {pn:'TI LM5164 buck (12 V)',note:'12 V rail'}; return {pn:'12 V boost (e.g. MT3608 module)',note:'supply below gate-driver range'}; }
+function resPart(R,P,f){ const w=P*2; let pkg; if(w<=0.25) pkg='0.25 W metal film (1206 or axial)'; else if(w<=1) pkg='1 W metal film / 2512 thick film'; else if(f>1e4&&w<=30) pkg='Caddock MP930 non-inductive (TO-220, heatsink)'; else if(w<=5) pkg='5 W cement / metal-oxide'; else if(w<=25) pkg='Vishay RH-25 aluminium-housed wirewound'; else pkg='Vishay RH-50 aluminium-housed wirewound'; return {pkg,watts:w}; }
+function filmCap(C,Vpk){ const v=nextUp([63,100,160,250,400,630,1000,1600,2000],Math.max(2*Vpk,50)); if(C<1e-9) return {pn:`C0G/NP0 ${v>=1000?'1 kV':v+' V'} (1206 or disc)`,v}; return {pn:`Kemet R76 polypropylene film, ${v} V`,v}; }
+function shunt(Ipk){ const target=1.4/(50*Math.max(Ipk,1e-3)); const vals=[0.2,0.1,0.05,0.02,0.01,0.005,0.002]; const R_=vals.find(v=>v<=target)||0.002; return R_; }
+/* ---- topology decision ---- */
+function schTopology(r){
+  const S=r.S, fm=r.fm, siF=siFreq(r);
+  if(S.wave==='sine'&&fm<2290) return 'linear';
+  if(siF&&fm>2e6) return 'classE';
+  if(siF) return 'halfbridge';
+  if(S.wave==='pulse') return 'lowside';
+  if(r.sim.ipk<=3.4&&S.V>=6.5&&S.V<=42) return 'drv8871';
+  return 'fullbridge';
+}
+/* ---- SVG primitives ---- */
+const SV={ k:'var(--ink)' };
+function svgW(...p){ return `<polyline class="w" points="${p.map(q=>q.join(',')).join(' ')}"/>`; }
+function svgDot(x,y){ return `<circle class="dot" cx="${x}" cy="${y}" r="3"/>`; }
+function svgT(x,y,s,cls='t',a='start'){ return `<text class="${cls}" x="${x}" y="${y}" text-anchor="${a}">${escH(s)}</text>`; }
+function lab(x,y,ref,pn,val,a='start'){ return `<g class="lab">${svgT(x,y,ref,'ref',a)}${pn?svgT(x,y+12,pn,'pn',a):''}${val?svgT(x,y+(pn?24:12),val,'val',a):''}</g>`; }
+function resV(x,y){ // vertical 48 px from (x,y) down
+  let d=`M${x},${y} v8`; for(let i=0;i<6;i++) d+=` l${i%2?-6:6},2.7 l${i%2?6:-6},2.7`; d+=` v8`; return `<path class="w" d="M${x},${y} v8 l6,2.67 l-12,5.33 l12,5.33 l-12,5.33 l12,5.33 l-12,5.33 l6,2.67 v8"/>`; }
+function resH(x,y){ return `<path class="w" d="M${x},${y} h8 l2.67,-6 l5.33,12 l5.33,-12 l5.33,12 l5.33,-12 l5.33,12 l2.67,-6 h8"/>`; }
+function capV(x,y,polar){ return `<path class="w" d="M${x},${y} v17 M${x-11},${y+17} h22 M${x},${y+23} v17"/>`+(polar?`<path class="w" d="M${x-11},${y+25} q11,-5 22,0" fill="none"/>${svgT(x+9,y+14,'+','pl')}`:`<path class="w" d="M${x-11},${y+23} h22"/>`); }
+function capH(x,y){ return `<path class="w" d="M${x},${y} h17 M${x+17},${y-11} v22 M${x+23},${y-11} v22 M${x+23},${y} h17"/>`; }
+function indV(x,y,len=100,cls='w coilw'){ const n=5, l=len-16, s=l/n; let d=`M${x},${y} v8`; for(let i=0;i<n;i++) d+=` a${s/2},${s/2} 0 0 1 0,${s}`; d+=` v8`; return `<path class="${cls}" d="${d}" fill="none"/>`; }
+function indH(x,y,len=100,cls='w coilw'){ const n=5, l=len-16, s=l/n; let d=`M${x},${y} h8`; for(let i=0;i<n;i++) d+=` a${s/2},${s/2} 0 0 1 ${s},0`; d+=` h8`; return `<path class="${cls}" d="${d}" fill="none"/>`; }
+function diodeV(x,y,kind){ // anode at bottom (y+40), cathode at top (y): conducts upward
+  let bar=`M${x-9},${y+14} h18`; if(kind==='tvs') bar=`M${x-12},${y+11} l3,3 h18 l3,3`; if(kind==='schottky') bar=`M${x-12},${y+17} v-3 h3 M${x-9},${y+14} h18 M${x+9},${y+14} h3 v3`;
+  return `<path class="w" d="M${x},${y} v14 M${x},${y+30} v10"/><path class="w" d="${bar}"/><path class="fillk" d="M${x-9},${y+30} L${x+9},${y+30} L${x},${y+14} Z"/>`; }
+function diodeVk(x,y,kind){ // cathode at bottom (y+40), anode at top (y)
+  let bar=`M${x-9},${y+26} h18`; if(kind==='tvs') bar=`M${x-12},${y+29} l3,-3 h18 l3,-3`;
+  return `<path class="w" d="M${x},${y} v10 M${x},${y+26} v14"/><path class="w" d="${bar}"/><path class="fillk" d="M${x-9},${y+10} L${x+9},${y+10} L${x},${y+26} Z"/>`; }
+function diodeH(x,y,kind){ // anode left (x), cathode right (x+40)
+  let bar=`M${x+26},${y-9} v18`; if(kind==='schottky') bar=`M${x+23},${y-12} h3 v3 M${x+26},${y-9} v18 M${x+26},${y+9} v3 h3`;
+  return `<path class="w" d="M${x},${y} h10 M${x+26},${y} h14"/><path class="w" d="${bar}"/><path class="fillk" d="M${x+10},${y-9} L${x+10},${y+9} L${x+26},${y} Z"/>`; }
+function nmos(x,y){ // gate at (x,y); drain (x+40,y-30); source (x+40,y+30)
+  return `<g><path class="w" d="M${x},${y} h16 M${x+16},${y-14} v28"/><path class="w" d="M${x+22},${y-16} v8 M${x+22},${y-4} v8 M${x+22},${y+8} v8"/>
+   <path class="w" d="M${x+22},${y-12} h18 v-18 M${x+22},${y+12} h18 v18 M${x+22},${y} h18 v12"/><path class="fillk" d="M${x+23},${y} l8,-4 v8 Z"/>
+   <path class="w thin" d="M${x+40},${y-24} h14 v12 M${x+40},${y+24} h14 v-12"/><path class="fillk" d="M${x+48},${y+4} h12 l-6,-10 Z"/><path class="w thin" d="M${x+48},${y-6} h12"/></g>`; }
+function gnd(x,y){ return `<path class="w" d="M${x},${y} v8 M${x-10},${y+8} h20 M${x-6},${y+12} h12 M${x-2},${y+16} h4"/>`; }
+function rail(x,y,txt,up=true,side='r'){ const yy=y+(up?-10:10); return `<path class="w" d="M${x},${y} v${up?-10:10} M${x-8},${yy} h16"/>${side==='r'?svgT(x+11,yy+3.5,txt,'rl'):svgT(x-11,yy+3.5,txt,'rl','end')}`; }
+function tag(x,y,txt,dir='r'){ const w=txt.length*6.4+14; const p= dir==='r'?`M${x},${y} h${w-6} l6,-0 l-6,-8 M${x},${y}`:'';
+  if(dir==='r') return `<g class="tagg"><path class="tag" d="M${x},${y-8} h${w-7} l7,8 l-7,8 h${-(w-7)} Z"/>${svgT(x+5,y+3.5,txt,'tg')}</g>`;
+  return `<g class="tagg"><path class="tag" d="M${x},${y-8} h${-(w-7)} l-7,8 l7,8 h${w-7} Z"/>${svgT(x-5,y+3.5,txt,'tg','end')}</g>`; }
+function ic(x,y,w,h,ref,title,pl,pr,pt,pb,inner){ // pins: arrays of names; returns {svg,pin:{name:[x,y]}}
+  const pin={}; let s=`<rect class="icb" x="${x}" y="${y}" width="${w}" height="${h}" rx="3"/>`;
+  if(inner){ const tl=title.split('|'); s+=svgT(x+w/2,y+h/2-6-(tl.length-1)*6,ref,'ref','middle')+tl.map((t,i)=>svgT(x+w/2,y+h/2+8+i*12-(tl.length-1)*6,t,'pn','middle')).join(''); }
+  else s+=svgT(x,y-16,ref,'ref')+svgT(x,y-4,title,'pn');
+  const put=(arr,side)=>{ if(!arr) return; arr.forEach((nm,i)=>{ if(!nm) return; const n=arr.length;
+    if(side==='l'){ const py=y+h*(i+1)/(n+1); pin[nm]=[x-14,py]; s+=svgW([x-14,py],[x,py])+svgT(x+4,py+3.5,nm,'pin'); }
+    if(side==='r'){ const py=y+h*(i+1)/(n+1); pin[nm]=[x+w+14,py]; s+=svgW([x+w,py],[x+w+14,py])+svgT(x+w-4,py+3.5,nm,'pin','end'); }
+    if(side==='t'){ const px=x+w*(i+1)/(n+1); pin[nm]=[px,y-14]; s+=svgW([px,y-14],[px,y])+svgT(px,y+12,nm,'pin','middle'); }
+    if(side==='b'){ const px=x+w*(i+1)/(n+1); pin[nm]=[px,y+h+14]; s+=svgW([px,y+h],[px,y+h+14])+svgT(px,y+h-5,nm,'pin','middle'); } }); };
+  put(pl,'l'); put(pr,'r'); put(pt,'t'); put(pb,'b');
+  return {svg:s,pin}; }
+/* ---- builder ---- */
+function buildSchematic(r){
+  const S=r.S, V=S.V, Ipk=Math.max(r.sim.ipk,0.01), Irms=r.sim.irms, fm=r.fm, topo=schTopology(r);
+  const g=[], bom=[], notes=[];
+  const B=(ref,part,value,why)=>bom.push({ref,part,value,why});
+  const stage=[]; let tgt=g; const add=s=>tgt.push(s);
+  const coilLab=`N ${S.N} · AWG ${S.awg}${S.wire==='litz'?' litz':''} · ${S.coil}`;
+  const coilVal=`${fmtL(r.L)} · ${n(r.Rac)} Ω @ ${hz(fm)}`;
+  B('L1','Your coil (this design)',`${fmtL(r.L)}, R_dc ${n(r.Rdc)} Ω, ${coilLab}`,`I_pk ${si(Ipk,'A')}, I_rms ${si(Irms,'A')}`);
+  // ---- power entry (common) ----
+  const tv=supplyTVS(V), bc=bulkCap(V,Ipk), fuseA=Math.max(0.5,Math.ceil(Irms*2*2)/2), b5=buck5(V);
+  add(`<circle class="w" cx="30" cy="50" r="5"/>`+lab(18,16,'J1','DC input',`+${n(V,3)} V`)+svgW([35,50],[60,50])+`<rect class="w" x="60" y="44" width="40" height="12" rx="2"/><path class="w" d="M60,50 h40"/>`+lab(62,72,'F1',`${fuseA} A fuse`,'')+svgW([100,50],[1370,50]));
+  B('J1','DC barrel / screw terminal',`${n(V,3)} V input`,'');
+  B('F1',`${fuseA} A fast-blow fuse (5×20 mm) or PTC`,`${fuseA} A`,`≈2× I_rms`);
+  add(svgDot(140,50)+diodeV(140,50,'tvs')+svgW([140,90],[140,100])+gnd(140,100)+lab(140,132,'D1',tv.pn,'supply TVS','middle'));
+  B('D1',tv.pn,`V_WM ${tv.vwm} V`,'clamps supply transients and back-EMF reaching the rail');
+  add(svgDot(230,50)+svgW([230,50],[230,60])+capV(230,60,true)+gnd(230,100)+lab(230,132,'C1',bc.pn.replace('Panasonic ',''),bc.val,'middle'));
+  B('C1',bc.pn,bc.val,'bulk reservoir for current pulses (≥1.5× supply rating)');
+  add(svgDot(320,50)+svgW([320,50],[320,60])+capV(320,60,false)+gnd(320,100)+lab(320,132,'C2','1 µF X7R',`${nextUp(CAPV,V*1.5)} V`,'middle'));
+  B('C2',`1 µF X7R ceramic, 1206`,`${nextUp(CAPV,V*1.5)} V`,'high-frequency decoupling at the switch');
+  const reg=ic(420,96,130,50,'U2',b5.pn,['VIN'],['5V'],null,['GND']);
+  add(svgDot(390,50)+svgW([390,50],[390,121],reg.pin.VIN)+reg.svg+gnd(reg.pin.GND[0],reg.pin.GND[1])+svgW(reg.pin['5V'],[570,121])+rail(570,121,'+5 V'));
+  B('U2',b5.pn,b5.note,'powers the ESP32-S3 dev board');
+  // ---- ESP32 ----
+  const espPins = {lowside:['5V','GPIO4','GPIO1 (ADC)','GND'], drv8871:['5V','GPIO4','GPIO5','GPIO1 (ADC)','GND'], fullbridge:['5V','GPIO4','GPIO5','GPIO6','GPIO7','GPIO1 (ADC)','GND'],
+    halfbridge:['5V','GPIO8 SDA','GPIO9 SCL','GPIO4','GPIO1 (ADC)','GND'], classE:['5V','GPIO8 SDA','GPIO9 SCL','GPIO1 (ADC)','GND'], linear:['5V','GPIO10 CS','GPIO11 MOSI','GPIO12 SCK','GPIO1 (ADC)','GND']}[topo];
+  if(S.mitOn) espPins.splice(espPins.length-1,0,'GPIO2 (ADC)','GPIO3 (ADC)');
+  const esp=ic(40,210,130,Math.max(170,espPins.length*30),'U1','ESP32-S3-DevKitC-1',null,espPins);
+  add(esp.svg); B('U1','Espressif ESP32-S3-DevKitC-1','3.3 V logic','timing, gating, telemetry');
+  const P=esp.pin;
+  add(svgW(P['5V'],[P['5V'][0]+12,P['5V'][1]])+rail(P['5V'][0]+12,P['5V'][1],'+5 V')+svgW(P.GND,[P.GND[0]+10,P.GND[1]])+gnd(P.GND[0]+10,P.GND[1]));
+  add(tag(P['GPIO1 (ADC)'][0]+4,P['GPIO1 (ADC)'][1],'ISENSE'));
+  if(S.mitOn){ add(tag(P['GPIO2 (ADC)'][0]+4,P['GPIO2 (ADC)'][1],'VPHS')+tag(P['GPIO3 (ADC)'][0]+4,P['GPIO3 (ADC)'][1],'VMAG')); }
+  // shared: current shunt + INA240 at (sx, sy) top node; returns nothing
+  const shuntBlock=(sx,sy,refN,left)=>{ const Rsh=shunt(Ipk), Psh=Irms*Irms*Rsh;
+    add(resV(sx,sy)+gnd(sx,sy+56)+svgW([sx,sy+48],[sx,sy+56])+(left?lab(sx+12,sy+14,refN,'2512 shunt',`${fmtR(Rsh)} · ${Psh<0.5?'1 W':'2 W'}`):lab(sx-12,sy+64,refN,'2512 current-sense, 1 %',`${fmtR(Rsh)} · ${Psh<0.5?'1 W':'2 W'}`,'end')));
+    B(refN,'2512 thick-film current-sense resistor, 1 % (e.g. Bourns CSS2H-2512 series)',`${fmtR(Rsh)}, ${Psh<0.5?1:2} W`,`${n(Ipk*Rsh*1000,3)} mV at I_pk; ${si(Psh,'W')} dissipated`);
+    const ina= left? ic(sx-70-120,sy+14,120,80,'U5','INA240A2|gain 50',['OUT'],['IN+','IN−'],['VS'],['GND/REF'],true) : ic(sx+90,sy+14,120,80,'U5','INA240A2|gain 50',['IN+','IN−'],['OUT'],['VS'],['GND/REF'],true);
+    const sg=left?-1:1;
+    add(ina.svg+svgW([sx,sy],[sx+30*sg,sy],[sx+30*sg,ina.pin['IN+'][1]],ina.pin['IN+'])+svgDot(sx,sy)+svgW([sx,sy+48],[sx+38*sg,sy+48],[sx+38*sg,ina.pin['IN−'][1]],ina.pin['IN−'])+svgDot(sx,sy+48)
+      +svgW(ina.pin.VS,[ina.pin.VS[0],ina.pin.VS[1]-4])+rail(ina.pin.VS[0],ina.pin.VS[1]-4,'+3V3')+gnd(ina.pin['GND/REF'][0],ina.pin['GND/REF'][1])+(left?tag(ina.pin.OUT[0]-4,ina.pin.OUT[1],'ISENSE','l'):tag(ina.pin.OUT[0]+4,ina.pin.OUT[1],'ISENSE')));
+    B('U5','TI INA240A2 current-sense amplifier','gain 50, −4…80 V common mode',`OUT ≈ ${n(50*Ipk*Rsh,3)} V at I_pk (unidirectional, REF to GND)`);
+  };
+  const ptag=(x,y,t,d)=>{ g.push(tag(x,y,t,d)); return ''; };
+  const coilX=0;
+  tgt=stage;
+  /* ===== topologies ===== */
+  if(topo==='lowside'){
+    const direct=S.gate==='direct'; const vds=(V+r.Vcl)*1.5;
+    const fet=pickFET(vds,Ipk*2,direct,false) || pickFET(vds,Ipk*2,false,false);
+    const needDrv=direct&&!(fet&&fet.g3);
+    const gx=560, gy=400; // gate input
+    if(!direct||needDrv){
+      const v12=vdd12(V); const drv=ic(320,355,140,90,'U3','UCC27517|low-side driver',['IN+','IN−'],['OUT'],['VDD'],['GND'],true);
+      add(drv.svg+ptag(P.GPIO4[0]+4,P.GPIO4[1],'GATE_IN')+tag(drv.pin['IN+'][0]-4,drv.pin['IN+'][1],'GATE_IN','l')+svgW(drv.pin['IN−'],[drv.pin['IN−'][0]-10,drv.pin['IN−'][1]])+gnd(drv.pin['IN−'][0]-10,drv.pin['IN−'][1])
+        +svgW(drv.pin.VDD,[drv.pin.VDD[0],drv.pin.VDD[1]-4])+rail(drv.pin.VDD[0],drv.pin.VDD[1]-4,'+12 V')+gnd(drv.pin.GND[0],drv.pin.GND[1])
+        +resH(drv.pin.OUT[0],drv.pin.OUT[1])+svgW([drv.pin.OUT[0]+48,drv.pin.OUT[1]],[gx,gy])+lab(drv.pin.OUT[0]+2,drv.pin.OUT[1]-40,'R1','4.7 Ω 0805','gate damping'));
+      B('U3','TI UCC27517 low-side gate driver','4 A, VDD 4.5–18 V, 3.3 V-logic input','fast edges for high-Q_g MOSFETs');
+      B('U4',v12.pn,'12 V for gate driver',v12.note);
+      B('R1','Gate resistor, 0805','4.7 Ω','limits ringing on the gate loop');
+      if(needDrv) notes.push(`No logic-level MOSFET covers ${Math.ceil(vds)} V / ${n(Ipk*2,2)} A from a 3.3 V pin, so a gate driver is inserted.${S.clamp==='tvs'&&!r.Cser?' The TVS clamp voltage sets most of that rating; a lower clamp allows a logic-level part.':''}`);
+    } else {
+      add(ptag(P.GPIO4[0]+4,P.GPIO4[1],'GATE')+tag(420,gy,'GATE','l')+resH(420,gy)+svgW([468,gy],[gx,gy])+lab(424,gy-24,'R1',`${S.Rg} Ω 0603`,'series gate'));
+      B('R1','Gate resistor, 0603 1 %',`${S.Rg} Ω`,'limits GPIO current and gate ringing');
+    }
+    add(svgDot(gx-30,gy)+svgW([gx-30,gy],[gx-30,gy+10])+resV(gx-30,gy+10)+svgW([gx-30,gy+58],[gx-30,gy+64])+gnd(gx-30,gy+64)+lab(gx-42,gy+70,'R2','10 kΩ 0603','gate pull-down','end'));
+    B('R2','Resistor, 0603','10 kΩ','holds the MOSFET off while the ESP32 boots');
+    const F=fet||FETS[FETS.length-1]; add(nmos(gx,gy)+lab(gx+66,gy-30,'Q1',F.pn,`${F.vds} V · ${F.id} A · ${F.pkg}`));
+    B('Q1',F.pn,`${F.vds} V, ${F.id} A, ${F.pkg}`,`needs ≥ ${Math.ceil(vds)} V (V + V_clamp, ×1.5) and ≥ ${n(Ipk*2,2)} A; ${F.note}`);
+    if(!fet) notes.push('No catalogued MOSFET meets the voltage/current; choose a higher-rated part.');
+    const dx=gx+40; // drain column
+    // coil from rail
+    let yTop=50; if(S.Rs>0){ const rp=resPart(S.Rs,Irms*Irms*S.Rs,fm); add(svgDot(dx,50)+resV(dx,56)+svgW([dx,50],[dx,56])+lab(dx-12,78,'R3',`${fmtR(S.Rs)} series`,rp.pkg.split('(')[0],'end')); yTop=104; B('R3',rp.pkg,`${fmtR(S.Rs)}, ≥ ${n(rp.watts,2)} W`,'sets current / time constant'); } else add(svgDot(dx,50));
+    add(svgW([dx,yTop],[dx,130])+indV(dx,130,110)+lab(dx-14,170,'L1','your coil',coilVal,'end')+svgW([dx,240],[dx,gy-30]));
+    // flyback
+    const fx=dx+100; const dio=pickDiode((V+r.Vcl)*1.5,Ipk);
+    if(S.clamp==='tvs'&&!r.Cser){ const tvsP=pickSMBJ(S.Vtvs);
+      add(svgDot(dx,300)+svgW([dx,300],[fx,300],[fx,290])+diodeV(fx,250,dio.t==='Schottky'?'schottky':'')+svgW([fx,250],[fx,240])+diodeVk(fx,200,'tvs')+svgW([fx,200],[fx,50])+svgDot(fx,50)
+        +lab(fx+14,268,'D2',dio.pn,`${dio.v} V ${dio.i} A ${dio.t}`)+lab(fx+14,216,'D3',tvsP.pn,`V_BR ${tvsP.vbr} V`));
+      // fix: diodeV draws cathode at top; D2 conducts upward from drain to TVS, TVS breaks down cathode→anode
+      B('D2',dio.pn,`${dio.v} V, ${dio.i} A ${dio.t}`,'blocks the TVS during the on-time');
+      B('D3',tvsP.pn+' (orient cathode toward D2)',`V_BR ${tvsP.vbr} V, 600 W`,`fast turn-off clamp; MOSFET sees ≈ ${n(V+tvsP.vbr+1,3)} V`);
+      if(r.energy>0.3) notes.push(`Stored energy ${si(r.energy,'J')} per pulse is high for an SMBJ; use an SMCJ (1.5 kW) or 5KP-series TVS.`);
+    } else {
+      add(svgDot(dx,300)+svgW([dx,300],[fx,300],[fx,290])+diodeV(fx,250,dio.t==='Schottky'?'schottky':'')+svgW([fx,250],[fx,50])+svgDot(fx,50)+lab(fx+14,268,'D2',dio.pn,`${dio.v} V ${dio.i} A ${dio.t}`));
+      B('D2',dio.pn,`${dio.v} V, ${dio.i} A ${dio.t}`,'freewheel path for coil current at turn-off');
+    }
+    shuntBlock(dx,gy+36,'R4'); add(svgW([dx,gy+30],[dx,gy+36]));
+  }
+  if(topo==='drv8871'){
+    const u=ic(420,220,150,150,'U3','DRV8871|H-bridge',['IN1','IN2'],['OUT1','OUT2'],['VM'],['ILIM','GND'],true);
+    const itrip=Math.min(3.6,Ipk*1.3), rl=eRound(64/itrip)*1e3;
+    add(u.svg+ptag(P.GPIO4[0]+4,P.GPIO4[1],'IN1')+ptag(P.GPIO5[0]+4,P.GPIO5[1],'IN2')+tag(u.pin.IN1[0]-4,u.pin.IN1[1],'IN1','l')+tag(u.pin.IN2[0]-4,u.pin.IN2[1],'IN2','l')
+      +svgW(u.pin.VM,[u.pin.VM[0],50])+svgDot(u.pin.VM[0],50)+svgW(u.pin.ILIM,[u.pin.ILIM[0],u.pin.ILIM[1]+4])+resV(u.pin.ILIM[0],u.pin.ILIM[1]+4)+gnd(u.pin.ILIM[0],u.pin.ILIM[1]+52)+lab(u.pin.ILIM[0]-10,u.pin.ILIM[1]+26,'R5',fmtR(rl),`I_TRIP ≈ ${n(64e3/rl,2)} A`,'end')+gnd(u.pin.GND[0],u.pin.GND[1]));
+    add(svgDot(u.pin.VM[0]-40,50)+svgW([u.pin.VM[0]-40,50],[u.pin.VM[0]-40,140])+capV(u.pin.VM[0]-40,140,false)+gnd(u.pin.VM[0]-40,180)+lab(u.pin.VM[0]-54,156,'C3','0.1 µF X7R',`${nextUp(CAPV,V*1.5)} V`,'end'));
+    B('U3','TI DRV8871 brushed-motor H-bridge (HSOP-8)','6.5–45 V, 3.6 A peak, built-in dead time','IN1/IN2 from two GPIOs: IN2 = NOT IN1 gives bipolar drive');
+    B('R5','Resistor, 0603 1 %',fmtR(rl),'I_TRIP = 64 kV / R_ILIM (current-limit/chop threshold)');
+    B('C3','0.1 µF X7R 0603',`${nextUp(CAPV,V*1.5)} V`,'VM decoupling, at the pin');
+    const ox=u.pin.OUT1[0], o1=u.pin.OUT1[1], o2=u.pin.OUT2[1];
+    let cx=ox+90; add(svgW(u.pin.OUT1,[cx,o1]));
+    if(S.Rs>0){ const rp=resPart(S.Rs,Irms*Irms*S.Rs,fm); add(svgW([cx,o1],[cx,o1-60])+resH(cx,o1-60)+lab(cx+2,o1-100,'R3',fmtR(S.Rs),`≥ ${n(rp.watts,2)} W`)); B('R3',rp.pkg,`${fmtR(S.Rs)}, ≥ ${n(rp.watts,2)} W`,'sets current'); cx+=48; add(svgW([cx,o1-60],[cx+30,o1-60],[cx+30,o1])); cx+=30; }
+    add(svgW([cx,o1],[cx+30,o1])+indV(cx+30,o1,110)+svgW([cx+30,o1+110],[cx+30,o2+60],[ox+40,o2+60],[ox+40,o2],u.pin.OUT2)+lab(cx+44,o1+50,'L1','your coil',coilVal));
+    notes.push('Current sense: the DRV8871 has no sense output; use a low-side shunt with INA240 in the GND return if you need telemetry.');
+  }
+  if(topo==='fullbridge'||topo==='halfbridge'){
+    const v12=vdd12(V); const hb=topo==='halfbridge';
+    const fet = hb&&fm>3e5 ? (V<=60?IRF510:pickFET(V*1.5,Ipk*2,false,true)) : pickFET(V*1.5,Ipk*2,false,hb);
+    const F=fet||FETS[FETS.length-1];
+    const td=Math.min(1e-6,Math.max(50e-9,0.02/(hb?fm:Math.max(S.f,1)))), Cdt=eRound(td/(0.7*100));
+    const legs = hb?[{x:760,name:'A'}]:[{x:700,name:'A'},{x:1000,name:'B'}];
+    if(hb){ const si5=ic(110,230,120,110,'U4','Si5351A|breakout',['SDA','SCL','VIN','GND'],['CLK0','CLK1'],null,null,true);
+      add(si5.svg+ptag(P['GPIO8 SDA'][0]+4,P['GPIO8 SDA'][1],'SDA')+ptag(P['GPIO9 SCL'][0]+4,P['GPIO9 SCL'][1],'SCL')+tag(si5.pin.SDA[0]-4,si5.pin.SDA[1],'SDA','l')+tag(si5.pin.SCL[0]-4,si5.pin.SCL[1],'SCL','l')
+        +tag(si5.pin.VIN[0]-4,si5.pin.VIN[1],'+3V3','l')+svgW(si5.pin.GND,[si5.pin.GND[0]-10,si5.pin.GND[1]])+gnd(si5.pin.GND[0]-10,si5.pin.GND[1])
+        +tag(si5.pin.CLK0[0]+4,si5.pin.CLK0[1],'HI_A')+tag(si5.pin.CLK1[0]+4,si5.pin.CLK1[1],'LI_A'));
+      add(ptag(P.GPIO4[0]+4,P.GPIO4[1],S.wave==='burst'?'EN (burst)':'EN'));
+      B('U4','Adafruit Si5351A clock generator breakout (PID 2045)','25 MHz crystal, 3 outputs',`CLK0 = ${hz(fm)}, CLK1 = CLK0 inverted (set_clock_invert)`);
+    } else {
+      add(ptag(P.GPIO4[0]+4,P.GPIO4[1],'HI_A')+ptag(P.GPIO5[0]+4,P.GPIO5[1],'LI_A')+ptag(P.GPIO6[0]+4,P.GPIO6[1],'HI_B')+ptag(P.GPIO7[0]+4,P.GPIO7[1],'LI_B'));
+    }
+    legs.forEach((L,k)=>{
+      const dy=hb?0:(k?240:0), u=ic(470,200+dy,120,130,k?'U3B':'U3','UCC27282|half-bridge|driver',['HI','LI','EN'],['HO','HS','LO'],['VDD','HB'],['VSS'],true);
+      add(u.svg+tag(u.pin.HI[0]-60,u.pin.HI[1],`HI_${L.name}`,'l')+tag(u.pin.LI[0]-60,u.pin.LI[1],`LI_${L.name}`,'l'));
+      // dead-time RC on inputs (drawn as compact R∥D + C)
+      for(const pnm of ['HI','LI']){ const [px,py]=u.pin[pnm]; add(svgW([px-60,py],[px-52,py])+`<rect class="w thin" x="${px-52}" y="${py-5}" width="24" height="10"/>`+svgW([px-28,py],px===u.pin.HI[0]&&pnm==='HI'?[px,py]:[px,py])+svgDot(px-14,py)+svgW([px-14,py],[px-14,py+6])+`<path class="w thin" d="M${px-20},${py+6} h12 M${px-20},${py+9} h12"/>`); }
+      if(!k){ add(lab(u.pin.HI[0]-150,u.y_=200+130+44,'R6/C6/D6',`${fmtR(100)} ∥ BAT54 · ${fmtC(Cdt)} C0G`,`dead time ≈ ${si(0.7*100*Cdt,'s')} per input`)); }
+      add(tag(u.pin.EN[0]-4,u.pin.EN[1],hb?(S.wave==='burst'?'EN (burst)':'EN'):'+3V3','l')+rail(u.pin.VDD[0],u.pin.VDD[1],'+12 V',true,'l')+gnd(u.pin.VSS[0],u.pin.VSS[1]));
+      const sx=L.x, gH=u.pin.HO[1]-40>110?u.pin.HO[1]:140, swY=u.pin.HS[1];
+      // bootstrap cap HB–HS
+      add(capV(u.pin.HB[0],u.pin.HB[1]-40,false)+tag(u.pin.HB[0]+4,u.pin.HB[1]-40,`SW_${L.name}`)+(k?'':lab(u.pin.HB[0]+16,u.pin.HB[1]-12,'C5','0.22 µF','bootstrap')));
+      // high & low FETs
+      const qhY=u.pin.HO[1], qlY=u.pin.LO[1]+30;
+      add(resH(u.pin.HO[0],u.pin.HO[1])+svgW([u.pin.HO[0]+48,qhY],[sx-40,qhY])+nmos(sx-40,qhY)+svgW([sx,qhY-30],[sx,50])+svgDot(sx,50)+svgW([sx,qhY+30],[sx,qlY-30])+svgDot(sx,swY)+svgW(u.pin.HS,[sx,swY])+tag(sx+14,swY+16,`SW_${L.name}`));
+      add(resH(u.pin.LO[0],u.pin.LO[1])+svgW([u.pin.LO[0]+48,u.pin.LO[1]],[sx-56,u.pin.LO[1]],[sx-56,qlY],[sx-40,qlY])+nmos(sx-40,qlY));
+      add(lab(sx+26,qhY-44,k?'Q3':'Q1',F.pn,`${F.vds} V ${F.id} A`)+lab(sx+26,qlY+20,k?'Q4':'Q2',F.pn,''));
+      L.sw=[sx,swY]; L.src=[sx,qlY+30];
+      if(!k) add(lab(u.pin.HO[0]+2,u.pin.HO[1]-16,'R7, R8','4.7 Ω',''));
+    });
+    B(hb?'U3':'U3, U3B','TI UCC27282 120 V half-bridge driver, input interlock','4 A, VDD 5.5–16 V, 3.3 V-compatible inputs','HI/LI interlock blocks simultaneous high inputs');
+    B('U6',v12.pn,'12 V for drivers',v12.note);
+    B(hb?'Q1, Q2':'Q1–Q4',F.pn,`${F.vds} V, ${F.id} A, ${F.pkg}`,`needs ≥ ${Math.ceil(V*1.5)} V, ≥ ${n(Ipk*2,2)} A${hb&&fm>3e5?'; low Q_g for '+hz(fm):''}; ${F.note}`);
+    B('R7, R8'+(hb?'':', R7B, R8B'),'Gate resistors, 0805','4.7 Ω','damp gate ringing');
+    B('C5'+(hb?'':', C5B'),'0.22 µF X7R 0805, 50 V','bootstrap','powers the high-side gate');
+    B('R6/C6/D6 (×'+(hb?2:4)+')',`${fmtR(100)} + BAT54 Schottky + ${fmtC(Cdt)} C0G`,`≈ ${si(0.7*100*Cdt,'s')}`,'RC delays each rising input edge so the two FETs never overlap');
+    if(hb){ const L=legs[0]; let x0=L.sw[0], y0=L.sw[1]; let cx=x0+90;
+      if(r.Cser){ const fc=filmCap(r.Cser,r.sim.vcpk); add(svgW([x0,y0],[cx,y0])+capH(cx,y0)+lab(cx,y0-28,'C4',fmtC(r.Cser),fc.pn.split(',')[0])); cx+=40; B('C4',fc.pn,`${fmtC(r.Cser)}, ≥ ${fc.v} V`,`series resonance at ${hz(fm)}; sees ${si(r.sim.vcpk,'V')} peak; parallel several for current sharing`); }
+      else { add(svgW([x0,y0],[cx,y0])); notes.push('No series capacitor: the bridge drives the coil with DC offset. Set Series capacitor to Auto for a resonant tank (and DC blocking).'); }
+      const lx=cx+40; add(svgW([cx,y0],[lx,y0])+indV(lx,y0,110)+lab(lx+14,y0+40,'L1','your coil',coilVal));
+      let yb=y0+110; if(S.Rs>0){ const rp=resPart(S.Rs,Irms*Irms*S.Rs,fm); add(resV(lx,yb)+lab(lx+14,yb+20,'R3',fmtR(S.Rs),`≥ ${n(rp.watts,2)} W non-inductive`)); yb+=48; B('R3',rp.pkg,`${fmtR(S.Rs)}, ≥ ${n(rp.watts,2)} W`,'damping / current set'); }
+      add(svgW([lx,yb],[lx,yb+8])+gnd(lx,yb+8));
+      add(svgW(L.src,[L.src[0],L.src[1]+6])); shuntBlock(L.src[0],L.src[1]+6,'R4',true);
+    } else { const [A,Bl]=legs; const y=A.sw[1];
+      const cx2=A.sw[0]+150; add(svgW(A.sw,[cx2,y])+indV(cx2,y,110)+svgW([cx2,y+110],[cx2,y+124])+tag(cx2+4,y+124,'SW_B')+lab(cx2+14,y+44,'L1','your coil',coilVal));
+      if(S.Rs>0) notes.push(`Insert series resistor R3 (${fmtR(S.Rs)}) in one coil lead.`);
+      add(svgW(A.src,[A.src[0],A.src[1]+6])+gnd(A.src[0],A.src[1]+6)+svgW(Bl.src,[Bl.src[0],Bl.src[1]+6])+gnd(Bl.src[0],Bl.src[1]+6));
+      notes.push('Firmware drives HI/LI of each leg as complementary LEDC outputs; leg B is the inverse of leg A for bipolar drive.');
+    }
+  }
+  if(topo==='classE'){
+    const w=2*Math.PI*fm, Rl=r.Rac+S.Rs+0.2, Csh=0.1836/(w*Rl), X=w*r.L-1.1525*Rl, Cs=X>0?1/(w*X):null, Lrfc=Math.max(10*Rl/w*10, 1e-6);
+    const si5=ic(150,240,120,90,'U4','Si5351A|breakout',['SDA','SCL','VIN'],['CLK0'],null,null,true);
+    add(si5.svg+ptag(P['GPIO8 SDA'][0]+4,P['GPIO8 SDA'][1],'SDA')+ptag(P['GPIO9 SCL'][0]+4,P['GPIO9 SCL'][1],'SCL')+tag(si5.pin.SDA[0]-4,si5.pin.SDA[1],'SDA','l')+tag(si5.pin.SCL[0]-4,si5.pin.SCL[1],'SCL','l')+tag(si5.pin.VIN[0]-4,si5.pin.VIN[1],'+3V3','l'));
+    const bx=si5.pin.CLK0[0]+30, by=si5.pin.CLK0[1];
+    add(svgW(si5.pin.CLK0,[bx,by])+`<path class="w" d="M${bx},${by-18} L${bx+34},${by} L${bx},${by+18} Z" fill="none"/><circle class="w" cx="${bx+38}" cy="${by}" r="4" fill="none"/>`+lab(bx-4,by-40,'U3','74AC04 (3 gates paralleled)','5 V gate drive'));
+    const gx=bx+42+60; add(svgW([bx+42,by],[bx+52,by])+resH(bx+52,by)+svgW([bx+100,by],[gx+40,by])+lab(bx+56,by+22,'R1','2.2 Ω',''));
+    const qx=gx+40; add(nmos(qx,by)+lab(qx+64,by+30,'Q1',IRF510.pn,'100 V 5.6 A, low Q_g'));
+    const dx=qx+40; add(svgW([dx,by-30],[dx,200])+indV(dx,90,110,'w')+svgW([dx,50],[dx,90])+svgDot(dx,50)+lab(dx-14,130,'L2',`RFC ≥ ${fmtL(Lrfc)}`,'toroid FT50-43','end'));
+    add(svgDot(dx,215)+svgW([dx,200],[dx,215],[dx+70,215],[dx+70,225])+capV(dx+70,225,false)+gnd(dx+70,265)+lab(dx+84,240,'C3',fmtC(Csh),'shunt, C0G'));
+    let cx=dx+70; add(svgW([dx+70,215],[cx+60,215])+capH(cx+60,215)+svgW([cx+100,215],[cx+130,215])+indV(cx+130,215,110)+gnd(cx+130,325)+lab(cx+60,178,'C4',Cs?fmtC(Cs):'—','series, C0G/film')+lab(cx+144,260,'L1','your coil',coilVal));
+    add(svgW([dx,by+30],[dx,by+40])+gnd(dx,by+40));
+    B('U3','TI SN74AC04N hex inverter (3 sections paralleled)','5 V supply','drives the MOSFET gate from the Si5351 CLK0');
+    B('U4','Adafruit Si5351A breakout (PID 2045)','',`CLK0 = ${hz(fm)}`);
+    B('Q1',IRF510.pn,'100 V, 5.6 A, TO-220',`class-E peak V_DS ≈ 3.56 × V = ${n(3.56*V,3)} V${3.56*V>85?' (too high: lower V or use a 200 V part)':''}`);
+    B('L2','RF choke on FT50-43 toroid',`≥ ${fmtL(Lrfc)}`,'feeds DC, blocks RF (X_L ≥ 10 × load R)');
+    B('C3','C0G/NP0, 1 kV disc or 1206',fmtC(Csh),'class-E shunt C = 0.1836 / (ω R)');
+    B('C4','C0G/NP0 or polypropylene film',Cs?fmtC(Cs):'n/a',Cs?'series C = 1 / (ω (ωL − 1.1525 R))':'coil reactance too small for class E at this R; add turns');
+    B('R1','Gate resistor, 1206','2.2 Ω','damps the gate loop');
+    notes.push('Class E is tuned for one load. Tune C3/C4 on the bench with the coil in place, watching V_DS for zero-voltage switching.');
+  }
+  if(topo==='linear'){
+    const dds=ic(150,240,120,100,'U3','AD9833|DDS module',['FSYNC','SDATA','SCLK','VCC'],['VOUT'],null,null,true);
+    add(dds.svg+ptag(P['GPIO10 CS'][0]+4,P['GPIO10 CS'][1],'FSYNC')+ptag(P['GPIO11 MOSI'][0]+4,P['GPIO11 MOSI'][1],'SDATA')+ptag(P['GPIO12 SCK'][0]+4,P['GPIO12 SCK'][1],'SCLK')
+      +tag(dds.pin.FSYNC[0]-4,dds.pin.FSYNC[1],'FSYNC','l')+tag(dds.pin.SDATA[0]-4,dds.pin.SDATA[1],'SDATA','l')+tag(dds.pin.SCLK[0]-4,dds.pin.SCLK[1],'SCLK','l')+tag(dds.pin.VCC[0]-4,dds.pin.VCC[1],'+3V3','l'));
+    const vx=dds.pin.VOUT[0], vy=dds.pin.VOUT[1]; const gain=V/0.3, Rg=1e3, Rf=eRound(Rg*(gain-1));
+    add(svgW([vx,vy],[vx+10,vy])+capH(vx+10,vy)+svgW([vx+50,vy],[vx+90,vy])+lab(vx+14,vy-44,'C3','1 µF film','AC coupling'));
+    const ox=vx+90; add(`<path class="w" d="M${ox},${vy-40} L${ox+80},${vy} L${ox},${vy+40} Z" fill="none"/>`+svgT(ox+8,vy-12,'+','pin')+svgT(ox+8,vy+20,'−','pin')+lab(ox+10,vy-58,'U4','TI OPA548T power op-amp',`±${Math.ceil(V+4)} V supplies`));
+    add(svgW([ox+80,vy],[ox+150,vy])+svgDot(ox+120,vy)+svgW([ox+120,vy],[ox+120,vy+70],[ox+90,vy+70])+resH(ox+42,vy+70)+svgW([ox+42,vy+70],[ox-20,vy+70],[ox-20,vy+20],[ox,vy+20])+svgDot(ox-20,vy+70)+svgW([ox-20,vy+70],[ox-20,vy+80])+resV(ox-20,vy+80)+gnd(ox-20,vy+128)+lab(ox+44,vy+94,'R6',fmtR(Rf),'feedback')+lab(ox-30,vy+104,'R5',fmtR(Rg),'','end'));
+    add(indV(ox+150,vy,110)+svgW([ox+150,vy+110],[ox+150,vy+118])+gnd(ox+150,vy+118)+lab(ox+164,vy+50,'L1','your coil',coilVal));
+    B('U3','AD9833 DDS breakout','0.6 V p-p sine, SPI','sine source below the Si5351 range');
+    B('U4','TI OPA548T power op-amp (TO-220-7)',`±${Math.ceil(V+4)} V rails, 3 A`,'linear coil driver; heatsink required');
+    B('R5, R6','Metal film 1 %',`${fmtR(Rg)} / ${fmtR(Rf)}`,`gain ≈ ${n(1+Rf/Rg,3)} for ${n(V,3)} V peak`);
+    B('C3','1 µF polypropylene film','63 V','removes the DDS DC offset');
+    notes.push('A linear stage needs a split supply (±V) and dissipates heavily; consider pulse/square drive for ELF instead.');
+  }
+  tgt=g;
+  // MIT receive panel
+  if(S.mitOn){ const ox=260, oy=545; const ad=ic(ox+130,oy,130,80,'U7','AD8302|gain/phase',['INA','INB'],['VPHS','VMAG'],null,null,true);
+    add(ad.svg+indV(ox,oy+10,80,'w')+svgW([ox,oy+90],[ox,oy+96])+gnd(ox,oy+96)+svgW([ox,oy+10],[ox,oy],[ox+60,oy])+resH(ox+60,oy)+svgW([ox+108,oy],[ox+108,ad.pin.INB[1]],ad.pin.INB)+lab(ox-12,oy+50,'L3',`receiver coil · ${S.Nrx} t`,`r ${S.rrx} mm`,'end')
+      +tag(ad.pin.INA[0]-40,ad.pin.INA[1],'CT_REF','l')+svgW([ad.pin.INA[0]-40,ad.pin.INA[1]],ad.pin.INA)+tag(ad.pin.VPHS[0]+4,ad.pin.VPHS[1],'VPHS')+tag(ad.pin.VMAG[0]+4,ad.pin.VMAG[1],'VMAG'));
+    B('U7','Analog Devices AD8302 RF gain/phase detector','LF–2.7 GHz, 10 mV/°','compares receiver signal with the excitation current');
+    B('L3','Receiver coil',`${S.Nrx} turns, r ${S.rrx} mm`,'placed opposite the excitation coil');
+    B('T1','1:100 current transformer on FT37-43 toroid','100 t secondary, 50 Ω burden','provides CT_REF from the excitation current');
+  }
+  const title={lowside:'Low-side switch, ESP32-S3 timing',drv8871:'DRV8871 H-bridge, bipolar drive',fullbridge:'Discrete full bridge, bipolar drive',halfbridge:'Si5351 → half bridge'+(r.Cser?' + series-resonant tank':''),classE:'Si5351 → class-E amplifier',linear:'AD9833 DDS → linear power amplifier'}[topo];
+  return {svg:g.join('')+`<g transform="translate(230,0)">${stage.join('')}</g>`,bom,notes,topo,title};
+}
+function renderSchematic(){
+  const r=R, out=buildSchematic(r);
+  const H=r.S.mitOn?660:(out.topo==='fullbridge'?700:600);
+  $('sch').innerHTML=`<svg class="schem" viewBox="0 0 1380 ${H}" role="img" aria-label="Wiring diagram: ${escH(out.title)}"><title>${escH(out.title)}</title>${out.svg}</svg>`;
+  $('schHint').textContent=`${out.title} · redraws as you change the design`;
+  $('bomT').innerHTML='<thead><tr><th>Ref</th><th>Part</th><th>Value / rating</th><th>Why this part</th></tr></thead><tbody>'+out.bom.map(b=>`<tr><td class="num">${escH(b.ref)}</td><td>${escH(b.part)}</td><td>${escH(b.value)}</td><td>${escH(b.why)}</td></tr>`).join('')+'</tbody>';
+  $('schNotes').innerHTML=(out.notes.length?out.notes.map(t=>`<p>⚠ ${escH(t)}</p>`).join(''):'')+'<p>Net labels (pointed tags) connect pins with the same name. Ratings are computed from the simulated current, voltage and frequency; verify against datasheets before building.</p>';
+  SCH.last=out;
+}
+
 /* ================= wiring ================= */
 function toast(m){ const t=$('toast'); t.textContent=m; t.hidden=false; clearTimeout(toast.h); toast.h=setTimeout(()=>t.hidden=true,1600); }
 async function copyText(txt,el){ try{ await navigator.clipboard.writeText(txt); toast('Copied'); }catch(e){ if(el){ const r=document.createRange(); r.selectNodeContents(el); const s=getSelection(); s.removeAllRanges(); s.addRange(r); toast('Selected — press Ctrl/⌘+C'); } } }
 $('copyFw').addEventListener('click',()=>copyText($('fw').textContent,$('fw')));
+$('copyBom').addEventListener('click',()=>{ const q=v=>'"'+String(v).replace(/"/g,'""')+'"'; const rows=[['Ref','Part','Value / rating','Why']].concat((SCH.last?SCH.last.bom:[]).map(b=>[b.ref,b.part,b.value,b.why])); copyText(rows.map(r=>r.map(q).join(',')).join('\n'),$('bomT')); });
 $('copyJson').addEventListener('click',()=>copyText(JSON.stringify({design:S,results:{L_H:R.L,R_ac_ohm:R.Rac,I_pk_A:R.sim.ipk,B_target_T:R.Bt,E_V_per_m:R.E,SRF_Hz:R.srf}},null,2)));
 $('pinBtn').addEventListener('click',()=>{ const b=$('pinBtn'); if(BASE){ BASE=null; b.classList.remove('on'); b.textContent='Pin baseline'; } else { BASE=R.defs.map(d=>({key:d.key,val:d.val})); b.classList.add('on'); b.textContent='Baseline pinned · clear'; } renderMetrics(); });
 $('resetBtn').addEventListener('click',()=>applyPreset(S.preset));

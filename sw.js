@@ -1,5 +1,5 @@
 /* Coil Workbench service worker: offline-first app shell. Version is a content hash. */
-const CACHE = 'coil-workbench-d6c655bf70';
+const CACHE = 'coil-workbench-047608218b';
 const SHELL = ["./", "index.html", "manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png", "icons/icon-maskable-512.png", "icons/apple-touch-icon.png", "icons/favicon-32.png", "fonts/saira-condensed-latin-500-normal.woff2", "fonts/saira-condensed-latin-600-normal.woff2", "fonts/saira-condensed-latin-700-normal.woff2", "fonts/ibm-plex-sans-latin-400-normal.woff2", "fonts/ibm-plex-sans-latin-500-normal.woff2", "fonts/ibm-plex-sans-latin-600-normal.woff2", "fonts/ibm-plex-sans-greek-400-normal.woff2", "fonts/ibm-plex-sans-greek-500-normal.woff2", "fonts/ibm-plex-sans-greek-600-normal.woff2", "fonts/ibm-plex-mono-latin-400-normal.woff2", "fonts/ibm-plex-mono-latin-500-normal.woff2", "fonts/ibm-plex-mono-latin-600-normal.woff2", "fonts/ibm-plex-mono-latin-600-italic.woff2"];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)));
