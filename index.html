@@ -450,7 +450,7 @@ canvas.ov{position:absolute;left:12px;top:0;cursor:crosshair;touch-action:none}
         <dl class="kv" id="siKv"></dl>
       </section>
       <section class="card">
-        <div class="sec-h"><h2 id="fwHead">Firmware</h2><span><button class="btn" id="dlFw" type="button" hidden>Download .ino</button> <button class="btn" id="copyFw" type="button">Copy</button></span></div>
+        <div class="sec-h"><h2 id="fwHead">Firmware</h2><span><button class="btn" id="dlFw" type="button" hidden title="Saves coil_ap.ino where downloads are allowed; also copies the code">Download / copy .ino</button> <button class="btn" id="copyFw" type="button">Copy</button></span></div>
         <pre class="code" id="fw"></pre>
       </section>
       <section class="card">
@@ -3314,7 +3314,7 @@ function buildCoilWiring(r){
 function toast(m){ const t=$('toast'); t.textContent=m; t.hidden=false; clearTimeout(toast.h); toast.h=setTimeout(()=>t.hidden=true,1600); }
 async function copyText(txt,el){ try{ await navigator.clipboard.writeText(txt); toast('Copied'); }catch(e){ if(el){ const r=document.createRange(); r.selectNodeContents(el); const s=getSelection(); s.removeAllRanges(); s.addRange(r); toast('Selected — press Ctrl/⌘+C'); } } }
 $('copyFw').addEventListener('click',()=>copyText($('fw').textContent,$('fw')));
-$('dlFw').addEventListener('click',()=>{ const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([$('fw').textContent],{type:'text/plain'})); a.download='coil_ap.ino'; a.click(); });
+$('dlFw').addEventListener('click',()=>{ try{ const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([$('fw').textContent],{type:'text/plain'})); a.download='coil_ap.ino'; a.click(); }catch(e){} copyText($('fw').textContent,$('fw')); });
 $('copyBom').addEventListener('click',()=>{ const q=v=>'"'+String(v).replace(/"/g,'""')+'"'; const rows=[['Ref','Part','Value / rating','Why']].concat((SCH.last?SCH.last.bom:[]).map(b=>[b.ref,b.part,b.value,b.why])); copyText(rows.map(r=>r.map(q).join(',')).join('\n'),$('bomT')); });
 $('copyJson').addEventListener('click',()=>copyText(JSON.stringify({design:S,results:{L_H:R.L,R_ac_ohm:R.Rac,I_pk_A:R.sim.ipk,B_target_T:R.Bt,E_V_per_m:R.E,SRF_Hz:R.srf}},null,2)));
 $('pinBtn').addEventListener('click',()=>{ const b=$('pinBtn'); if(BASE){ BASE=null; b.classList.remove('on'); b.textContent='Pin baseline'; } else { BASE=R.defs.map(d=>({key:d.key,val:d.val})); b.classList.add('on'); b.textContent='Baseline pinned · clear'; } renderMetrics(); });
