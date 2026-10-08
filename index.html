@@ -70,7 +70,7 @@ button{font:inherit;color:inherit}
 
 /* preset ribbon */
 .presets-scroll{overflow-x:auto;margin-block:12px 14px}
-.presets{display:grid;grid-template-columns:repeat(6,minmax(150px,1fr));gap:6px;min-width:960px}
+.presets{display:grid;grid-template-columns:repeat(7,minmax(140px,1fr));gap:6px;min-width:1030px}
 .preset{text-align:left;border:1px solid var(--line);background:var(--panel);border-radius:6px;padding:8px 10px;cursor:pointer;display:grid;gap:2px}
 .preset b{font-family:var(--f-display);font-size:16px;font-weight:600}
 .preset small{color:var(--muted);font-size:12px}
@@ -89,7 +89,7 @@ button{font:inherit;color:inherit}
 .eyebrow{font:600 11px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 
 /* controls */
-.controls{display:grid;gap:10px;min-width:0}
+.controls{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;min-width:0}
 .ctl-sec{padding:0 12px 12px;display:grid;gap:10px}
 .ctl label{display:flex;justify-content:space-between;gap:8px;font-size:12.5px;color:var(--muted);margin-bottom:3px}
 .ctl label .u{font-family:var(--f-mono);font-size:11px}
@@ -100,8 +100,41 @@ button{font:inherit;color:inherit}
 .ctl.check label{justify-content:flex-start;gap:8px;color:var(--ink);font-size:13px;cursor:pointer}
 .ctl .note{font-size:11.5px;color:var(--muted);margin-top:3px}
 
+
+/* build sheet */
+.build{margin-bottom:14px}
+.bs-sum{display:flex;flex-wrap:wrap;gap:6px;padding:0 12px 8px}
+.bs-chip{border:1px solid var(--line);background:var(--panel2);border-radius:6px;padding:4px 9px;font-size:12px;color:var(--muted)}
+.bs-chip b{font:600 13px var(--f-mono);color:var(--ink);margin-right:6px}
+.bs-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:10px;padding:0 12px 10px}
+.bs-g{border:1px solid var(--line);border-left:4px solid var(--copper);border-radius:8px;background:var(--panel2);padding:10px;display:grid;gap:8px;align-content:start;min-width:0}
+.bs-g.k-wind{border-left-color:var(--field)} .bs-g.k-core{border-left-color:var(--muted)}
+.bs-gh{display:flex;gap:8px;align-items:center}
+.bs-badge{font:600 10.5px var(--f-mono);letter-spacing:.06em;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:2px 5px}
+.bs-name{flex:1;min-width:0;background:transparent;border:0;border-bottom:1px dashed var(--line);font:600 15px var(--f-display);color:var(--ink);padding:2px 0}
+.bs-x{border:1px solid var(--line);background:var(--panel);border-radius:5px;width:26px;height:26px;cursor:pointer;color:var(--muted);font-size:16px;line-height:1}
+.bs-x:hover{border-color:var(--crit);color:var(--crit)}
+.bs-fields{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px}
+.bs-f{min-width:0} .bs-f.wide{grid-column:1 / -1}
+.bs-f label{display:flex;justify-content:space-between;gap:6px;font-size:11.5px;color:var(--muted);margin-bottom:2px}
+.bs-f .u{font-family:var(--f-mono);font-size:10.5px}
+.bs-f input,.bs-f select{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:5px;padding:4px 6px;font:13px var(--f-mono);color:var(--ink)}
+.bs-f select{font-family:var(--f-body);font-size:12.5px}
+.bs-f .note{font-size:10.5px;color:var(--muted);margin-top:2px}
+.bs-chk{display:flex;gap:7px;font-size:12px;color:var(--muted);align-items:flex-start;cursor:pointer}
+.bs-sub{font:600 11px var(--f-body);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.bs-d{font:12px/1.5 var(--f-mono);color:var(--muted);border-top:1px dashed var(--line);padding-top:6px}
+.bs-d .bad{color:var(--crit);font-family:var(--f-body)}
+.bs-bar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:flex-end;padding:2px 12px 6px}
+.bs-add{display:flex;gap:6px;align-items:center;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
+.bs-glob{display:flex;gap:10px;flex-wrap:wrap} .bs-glob .bs-f{width:150px}
+.bs-act{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.bs-out{padding:0 12px 8px;font-size:12.5px;color:var(--muted)} .bs-out:empty{display:none}
+.bs-tabs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));gap:8px 14px;padding-bottom:6px}
+.bs-tabs h3{font-size:15px}
+.build .sens td.num.dn{color:var(--crit)}
 /* visuals */
-.visuals{display:grid;gap:14px;min-width:0}
+.visuals{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;min-width:0}
 .canvas-box{position:relative;padding:0 12px 12px}
 canvas{display:block;width:100%;max-width:100%}
 .legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:var(--muted);padding:0 12px 10px}
@@ -121,7 +154,7 @@ thead th{font-weight:600;color:var(--muted);font-size:11.5px;letter-spacing:.04e
 td.up{color:var(--ok)} td.dn{color:var(--crit)} td.flat{color:var(--muted)}
 
 /* readouts */
-.readouts{display:grid;gap:14px;min-width:0}
+.readouts{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;min-width:0}
 .fit{padding:12px;display:grid;gap:10px}
 .fit-top{display:flex;align-items:center;gap:12px}
 .score{font:700 34px/1 var(--f-display);min-width:62px}
@@ -280,6 +313,7 @@ a.cite:hover{border-bottom-style:solid}
 /* schematic */
 .wiring-card{margin-top:14px}
 .sch-wrap{overflow-x:auto;padding:0 12px 6px}
+svg.schem.wiring2{min-width:800px;max-width:1120px}
 svg.schem{display:block;min-width:1060px;width:100%;height:auto;background:var(--panel2);border:1px solid var(--line);border-radius:6px}
 .schem .w{stroke:var(--ink);stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
 .schem .w.thin{stroke-width:1.1}
@@ -299,6 +333,7 @@ svg.schem{display:block;min-width:1060px;width:100%;height:auto;background:var(-
 .bom td{white-space:normal;vertical-align:top;text-align:left}
 .bom td:first-child{white-space:nowrap}
 .bom th{text-align:left}
+.bom td.src{font:600 11px var(--f-mono)} .bom td.src.have{color:var(--ok)} .bom td.src.buy{color:var(--warn)}
 .sch-notes{padding:0 12px 12px;font-size:12.5px;color:var(--muted)}
 .sch-notes p{margin:4px 0;max-width:90ch}
 /* live feedback */
@@ -363,6 +398,7 @@ canvas.ov{position:absolute;left:12px;top:0;cursor:crosshair;touch-action:none}
     <div class="ribbon-scale"><span>1 Hz</span><span>ELF PEMF</span><span>100 Hz</span><span>pulsed / burst kHz</span><span>100 kHz</span><span>eddy induction</span><span>MIT</span><span>10 MHz</span></div>
   </div>
 
+  <section class="card build" id="buildSheet" hidden aria-label="Build sheet"></section>
   <div class="grid">
     <aside class="controls" id="controls" aria-label="Design inputs"></aside>
 
@@ -414,7 +450,7 @@ canvas.ov{position:absolute;left:12px;top:0;cursor:crosshair;touch-action:none}
         <dl class="kv" id="siKv"></dl>
       </section>
       <section class="card">
-        <div class="sec-h"><h2>Firmware</h2><button class="btn" id="copyFw" type="button">Copy</button></div>
+        <div class="sec-h"><h2 id="fwHead">Firmware</h2><span><button class="btn" id="dlFw" type="button" hidden>Download .ino</button> <button class="btn" id="copyFw" type="button">Copy</button></span></div>
         <pre class="code" id="fw"></pre>
       </section>
       <section class="card">
@@ -435,6 +471,8 @@ canvas.ov{position:absolute;left:12px;top:0;cursor:crosshair;touch-action:none}
       <section class="card wiring-card" id="wiring">
         <div class="sec-h"><h2>Wiring diagram</h2><span class="hint" id="schHint"></span></div>
         <div class="sch-wrap" id="sch"></div>
+        <div class="sec-h" id="coilWiringHead" hidden><h2 style="font-size:15px">Coil array · series wiring and polarity test</h2></div>
+        <div class="sch-wrap" id="coilWiring"></div>
         <div class="sec-h"><h2 style="font-size:15px">Bill of materials</h2><button class="btn sm" id="copyBom" type="button">Copy BOM (CSV)</button></div>
         <div class="sens bom"><table id="bomT"></table></div>
         <div class="sch-notes" id="schNotes"></div>
@@ -565,6 +603,305 @@ F_R = ξ·[ (sinh2ξ + sin2ξ)/(cosh2ξ − cos2ξ) + (2(p²−1)/3)·(sinhξ �
 </div>
 <div class="dock fade" id="dock" aria-live="polite"><div class="impact" id="dockImpact"></div></div>
 <div class="toast" id="toast" hidden></div>
+<script type="text/plain" id="fwTpl">/*
+  Coil Workbench: soft-AP controller for the series coil array
+  Generated from the workbench design "@@DESIGN@@".
+
+  Board  : ESP32-S3 (Arduino-ESP32 core 3.x). No extra libraries needed.
+  Network: the board makes its own Wi-Fi network (@@SSID@@-xxxx, password below).
+           Join it from a phone, then open http://192.168.4.1/
+
+  Wiring (see the wiring diagram in the workbench):
+    GPIO@@GATE_PIN@@  -> 1 kΩ -> base of the NPN level shifter (BJT gate driver); HIGH = MOSFET on
+    GPIO@@SENSE_PIN@@  <- 1 kΩ + 10 nF RC from the top of the @@RSH@@ Ω source shunt (ADC1)
+    GPIO@@NTC_PIN@@  <- optional 10 kΩ NTC divider on the hottest solenoid (set USE_NTC 1)
+    3V3 / GND as usual. The 12 V gate rail comes from an L7812 on the 24 V input.
+
+  Safety built in: stuck-low GPIO keeps the MOSFET off, over-current latch, thermal model
+  with cool-down lock, session timer, and a dead-man stop if the browser disconnects.
+  This is an engineering aid, not a medical device. Do not use near implants.
+*/
+#include <WiFi.h>
+#include <WebServer.h>
+#include <Preferences.h>
+#include <esp_timer.h>
+#include <math.h>
+
+// ---------------- design constants (from the workbench model) ----------------
+#define GATE_PIN        @@GATE_PIN@@
+#define ISENSE_PIN      @@SENSE_PIN@@
+#define NTC_PIN         @@NTC_PIN@@
+#define USE_NTC         0                    // 1 = read a 10k NTC (B=3950) on NTC_PIN
+#define HAVE_SENSE      1                    // 0 = no shunt fitted: current comes from the model
+const char* AP_SSID_PREFIX = "@@SSID@@";
+const char* AP_PASS        = "@@APPASS@@";   // change this (8+ characters)
+
+const float V_SUPPLY   = @@VSUP@@f;          // V
+const float R_TOTAL    = @@RTOT@@f;          // ohm, whole series loop incl. leads and MOSFET
+const float TAU_S      = @@TAU@@f;           // s, L/R of the loop
+const float I_DC       = @@IDC@@f;           // A, V/R
+const float IPK_MODEL  = @@IPK@@f;           // A, model peak current at the default pulse
+const float B_PER_A    = @@BPA@@f;           // T per A at the target ("@@TARGET@@")
+const float RSH_OHM    = @@RSH@@f;           // ohm, source shunt
+const float OC_LIMIT_A = @@OC@@f;            // A, latch a fault above this
+const float R_HOT      = @@RHOT@@f;          // ohm, hottest winding (one solenoid)
+const float RTH_KW     = @@RTH@@f;           // K/W, hot winding to air (still air, h = 10 W/m2K)
+const float CTH_JK     = @@CTH@@f;           // J/K, hot winding thermal mass
+const float DT_LIMIT_C = @@DTLIM@@f;         // K above ambient, pauses the session above this
+const float DUTY_CAP   = 0.35f;              // never exceed this pulse duty
+
+const float F_DEF = @@FDEF@@f, ON_MS_DEF = @@ONMS@@f;
+
+// ---------------- state ----------------
+struct Cfg { float fLo = F_DEF, fHi = F_DEF, sweepS = 0, onMs = ON_MS_DEF; int inten = 100; int sessMin = 20; bool deadman = true; } cfg;
+volatile bool running = false;
+volatile uint32_t pulseCnt = 0;
+volatile float ipkLast = 0;
+volatile int ocCount = 0; volatile bool ocFlag = false;
+volatile uint32_t chopDuty = 1023;
+bool fault = false, coolLock = false;
+String faultMsg = "", prog = "manual";
+uint32_t sessStartMs = 0, lastPollMs = 0, sampleCostUs = 40;
+float dT = 0, ipkAvg = 0, irmsEst = 0, tempC = NAN, fNow = F_DEF;
+uint64_t runTotalS = 0, pulsesTotal = 0; uint32_t sessions = 0; uint32_t sessS = 0;
+const int NH = 120; float hI[NH], hR[NH], hT[NH], hF[NH]; int hN = 0;
+struct Log { uint32_t dur; float ipk; float f; char prog[10]; }; Log logs[8]; int logN = 0;
+WebServer server(80); Preferences prefs;
+static esp_timer_handle_t tPer = nullptr, tOff = nullptr;
+
+// ---------------- pulse engine ----------------
+static inline void gateSet(bool on) { ledcWrite(GATE_PIN, on ? chopDuty : 0); }
+static float currentF() {
+  if (cfg.sweepS <= 0.5f || cfg.fHi <= cfg.fLo) return cfg.fLo;
+  float ph = fmodf((millis() - sessStartMs) / 1000.0f, cfg.sweepS) / cfg.sweepS;
+  return cfg.fLo + (cfg.fHi - cfg.fLo) * 0.5f * (1.0f - cosf(6.2831853f * ph));
+}
+static void onOff(void*) {
+#if HAVE_SENSE
+  uint32_t mv = 0;
+  for (int i = 0; i < 2; i++) { uint32_t v = analogReadMilliVolts(ISENSE_PIN); if (v > mv) mv = v; }
+  float a = mv / 1000.0f / RSH_OHM;
+  ipkLast = a;
+  if (a > OC_LIMIT_A) { if (++ocCount >= 3) { gateSet(false); ocFlag = true; return; } } else ocCount = 0;
+#else
+  ipkLast = IPK_MODEL * (cfg.inten / 100.0f);
+#endif
+  gateSet(false);
+}
+static void onPeriod(void*) {
+  if (!running || ocFlag) return;
+  fNow = currentF();
+  uint32_t perUs = (uint32_t)(1e6f / fNow);
+  uint32_t onUs = (uint32_t)(cfg.onMs * 1000.0f);
+  if (onUs > perUs * DUTY_CAP) onUs = (uint32_t)(perUs * DUTY_CAP);
+  if (onUs > sampleCostUs + 60) onUs -= sampleCostUs;
+  chopDuty = (uint32_t)(1023UL * cfg.inten / 100);
+  gateSet(true); pulseCnt++;
+  esp_timer_start_once(tOff, onUs);
+  esp_timer_start_once(tPer, perUs);
+}
+static void startRun() {
+  if (fault || coolLock || running) return;
+  sessStartMs = millis(); sessS = 0; ocCount = 0; ocFlag = false; lastPollMs = millis();
+  running = true; esp_timer_start_once(tPer, 2000);
+}
+static void saveTotals() {
+  prefs.putULong64("runS", runTotalS); prefs.putULong64("pulses", pulsesTotal); prefs.putUInt("sess", sessions);
+  prefs.putBytes("logs", logs, sizeof(logs)); prefs.putInt("logN", logN);
+}
+static void stopRun(const char* why) {
+  bool was = running; running = false;
+  esp_timer_stop(tPer); esp_timer_stop(tOff); gateSet(false);
+  if (was) {
+    sessions++; if (logN < 8) logN++; for (int i = 7; i > 0; i--) logs[i] = logs[i - 1];
+    logs[0].dur = sessS; logs[0].ipk = ipkAvg; logs[0].f = fNow; strncpy(logs[0].prog, prog.c_str(), 9); logs[0].prog[9] = 0;
+    saveTotals();
+  }
+  if (why && why[0] && String(why) != "user") { faultMsg = why; }
+}
+
+// ---------------- 1 Hz housekeeping: stats, thermal model, safety ----------------
+static float irmsFromIpk(float ipk, float onS, float perS) {
+  if (ipk <= 0 || onS <= 0) return 0;
+  float k = 1.0f - expf(-onS / TAU_S), iinf = ipk / fmaxf(k, 1e-3f);
+  float a = iinf * iinf * (onS - 2 * TAU_S * (1 - expf(-onS / TAU_S)) + 0.5f * TAU_S * (1 - expf(-2 * onS / TAU_S)));
+  float offS = fmaxf(perS - onS, 0);
+  float b = ipk * ipk * 0.5f * TAU_S * (1 - expf(-2 * offS / TAU_S));
+  return sqrtf((a + b) / perS);
+}
+static void housekeeping() {
+  static uint32_t lastTick = 0, lastSave = 0; uint32_t now = millis();
+  if (now - lastTick < 1000) return;
+  lastTick = now;
+  float ipkNow = running ? ipkLast : 0; ipkAvg = running ? (ipkAvg * 0.7f + ipkNow * 0.3f) : 0;
+  if (running) {
+    float perS = 1.0f / fNow, onS = fminf(cfg.onMs / 1000.0f, perS * DUTY_CAP);
+    irmsEst = irmsFromIpk(ipkAvg, onS, perS); sessS++; runTotalS++;
+    pulsesTotal += (uint32_t)fNow;
+  } else irmsEst = 0;
+  float P = irmsEst * irmsEst * R_HOT;                 // W in the hottest solenoid
+  dT += (P - dT / RTH_KW) / CTH_JK;                     // 1 s step of the lumped thermal model
+  if (dT < 0) dT = 0;
+#if USE_NTC
+  { float v = analogReadMilliVolts(NTC_PIN) / 3300.0f; if (v > 0.01f && v < 0.99f) { float r = 10000.0f * v / (1 - v); tempC = 1.0f / (logf(r / 10000.0f) / 3950.0f + 1.0f / 298.15f) - 273.15f; } }
+#endif
+  if (hN < NH) hN++;
+  for (int i = NH - 1; i > 0; i--) { hI[i] = hI[i - 1]; hR[i] = hR[i - 1]; hT[i] = hT[i - 1]; hF[i] = hF[i - 1]; }
+  hI[0] = ipkAvg; hR[0] = irmsEst; hT[0] = dT; hF[0] = running ? fNow : 0;
+  if (ocFlag) { ocFlag = false; fault = true; stopRun("over-current latch"); }
+  if (running) {
+    if (cfg.sessMin > 0 && sessS >= (uint32_t)cfg.sessMin * 60) { stopRun("session complete"); }
+    else if (dT >= DT_LIMIT_C) { coolLock = true; stopRun("thermal limit: cooling"); }
+    else if (cfg.deadman && now - lastPollMs > 20000) { stopRun("connection lost"); }
+    if (now - lastSave > 60000) { lastSave = now; saveTotals(); }
+  }
+  if (coolLock && dT < 0.8f * DT_LIMIT_C) coolLock = false;
+}
+
+// ---------------- web ----------------
+static void sendJson(const String& s) { server.sendHeader("Cache-Control", "no-store"); server.send(200, "application/json", s); }
+static String num(float v, int d = 3) { if (isnan(v)) return "null"; return String(v, d); }
+static void apiState() {
+  lastPollMs = millis();
+  String s = "{\"run\":" + String(running ? 1 : 0) + ",\"fault\":" + String(fault ? 1 : 0) + ",\"cool\":" + String(coolLock ? 1 : 0) + ",\"msg\":\"" + faultMsg + "\",\"prog\":\"" + prog + "\"";
+  s += ",\"f\":" + num(running ? fNow : cfg.fLo, 2) + ",\"fLo\":" + num(cfg.fLo, 2) + ",\"fHi\":" + num(cfg.fHi, 2) + ",\"sweep\":" + num(cfg.sweepS, 1) + ",\"on\":" + num(cfg.onMs, 3) + ",\"int\":" + String(cfg.inten) + ",\"sessMin\":" + String(cfg.sessMin) + ",\"dead\":" + String(cfg.deadman ? 1 : 0);
+  s += ",\"ipk\":" + num(ipkAvg, 3) + ",\"irms\":" + num(irmsEst, 3) + ",\"dT\":" + num(dT, 1) + ",\"temp\":" + num(tempC, 1) + ",\"B\":" + num(ipkAvg * B_PER_A * 1e6f, 1);
+  s += ",\"el\":" + String(sessS) + ",\"left\":" + String(running && cfg.sessMin > 0 ? (int)(cfg.sessMin * 60) - (int)sessS : 0) + ",\"pulses\":" + String((unsigned long)pulseCnt) + ",\"runTot\":" + String((unsigned long)runTotalS) + ",\"pulTot\":" + String((double)pulsesTotal, 0) + ",\"sess\":" + String(sessions) + ",\"clients\":" + String(WiFi.softAPgetStationNum()) + ",\"heap\":" + String(ESP.getFreeHeap()) + ",\"up\":" + String(millis() / 1000);
+  s += ",\"dutyPct\":" + num(100.0f * fminf(cfg.onMs / 1000.0f * (running ? fNow : cfg.fLo), DUTY_CAP), 2) + ",\"ipkModel\":" + num(IPK_MODEL, 3) + ",\"dtLim\":" + num(DT_LIMIT_C, 1) + ",\"idc\":" + num(I_DC, 3) + ",\"tau\":" + num(TAU_S * 1000, 3) + "}";
+  sendJson(s);
+}
+static void apiHist() {
+  String s = "{\"n\":" + String(hN) + ",\"i\":[", r = "", t = "", f = ""; 
+  for (int i = 0; i < hN; i++) { s += num(hI[i], 3) + (i < hN - 1 ? "," : ""); r += num(hR[i], 3) + (i < hN - 1 ? "," : ""); t += num(hT[i], 1) + (i < hN - 1 ? "," : ""); f += num(hF[i], 1) + (i < hN - 1 ? "," : ""); }
+  s += "],\"r\":[" + r + "],\"t\":[" + t + "],\"f\":[" + f + "],\"log\":[";
+  for (int i = 0; i < logN; i++) s += "{\"d\":" + String(logs[i].dur) + ",\"i\":" + num(logs[i].ipk, 3) + ",\"f\":" + num(logs[i].f, 1) + ",\"p\":\"" + String(logs[i].prog) + "\"}" + (i < logN - 1 ? "," : "");
+  s += "]}"; sendJson(s);
+}
+static float argF(const char* k, float d, float lo, float hi) { if (!server.hasArg(k)) return d; float v = server.arg(k).toFloat(); return v < lo ? lo : v > hi ? hi : v; }
+static void apiCmd() {
+  lastPollMs = millis();
+  String c = server.arg("c");
+  if (c == "set" || c == "start") {
+    if (server.hasArg("prog")) prog = server.arg("prog");
+    cfg.fLo = argF("fLo", cfg.fLo, 0.5f, 200); cfg.fHi = argF("fHi", cfg.fHi, 0.5f, 200); if (cfg.fHi < cfg.fLo) cfg.fHi = cfg.fLo;
+    cfg.sweepS = argF("sweep", cfg.sweepS, 0, 600); cfg.onMs = argF("on", cfg.onMs, 0.05f, 50);
+    cfg.inten = (int)argF("int", cfg.inten, 10, 100); cfg.sessMin = (int)argF("sessMin", cfg.sessMin, 0, 120);
+    if (server.hasArg("dead")) cfg.deadman = server.arg("dead") == "1";
+    float fmax = cfg.fHi, d = cfg.onMs / 1000.0f * fmax; if (d > DUTY_CAP) cfg.onMs = DUTY_CAP / fmax * 1000.0f;
+  }
+  if (c == "start") { faultMsg = ""; startRun(); }
+  if (c == "stop") stopRun("user");
+  if (c == "clear") { fault = false; faultMsg = ""; ocCount = 0; ocFlag = false; }
+  if (c == "reset") { runTotalS = 0; pulsesTotal = 0; sessions = 0; logN = 0; saveTotals(); }
+  apiState();
+}
+static const char PAGE[] PROGMEM = R"HTML(@@PAGE@@)HTML";
+static void handleRoot() { server.sendHeader("Cache-Control", "no-store"); server.send_P(200, "text/html", PAGE); }
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(GATE_PIN, OUTPUT); digitalWrite(GATE_PIN, LOW);   // off before anything else
+  ledcAttach(GATE_PIN, 20000, 10); ledcWrite(GATE_PIN, 0);
+  analogReadResolution(12); analogSetPinAttenuation(ISENSE_PIN, ADC_11db);
+#if USE_NTC
+  analogSetPinAttenuation(NTC_PIN, ADC_11db);
+#endif
+  { uint32_t t0 = micros(); for (int i = 0; i < 16; i++) analogReadMilliVolts(ISENSE_PIN); sampleCostUs = (micros() - t0) / 16 * 2; }
+  prefs.begin("coil", false);
+  runTotalS = prefs.getULong64("runS", 0); pulsesTotal = prefs.getULong64("pulses", 0); sessions = prefs.getUInt("sess", 0);
+  logN = prefs.getInt("logN", 0); if (logN > 8 || logN < 0) logN = 0; if (logN) prefs.getBytes("logs", logs, sizeof(logs));
+  esp_timer_create_args_t a1 = {}; a1.callback = onPeriod; a1.name = "per"; esp_timer_create(&a1, &tPer);
+  esp_timer_create_args_t a2 = {}; a2.callback = onOff; a2.name = "off"; esp_timer_create(&a2, &tOff);
+  uint8_t mac[6]; WiFi.macAddress(mac); char ssid[32]; snprintf(ssid, sizeof ssid, "%s-%02X%02X", AP_SSID_PREFIX, mac[4], mac[5]);
+  WiFi.mode(WIFI_AP); WiFi.softAP(ssid, AP_PASS);
+  Serial.printf("AP %s  http://%s/\n", ssid, WiFi.softAPIP().toString().c_str());
+  server.on("/", handleRoot); server.on("/api/state", apiState); server.on("/api/hist", apiHist); server.on("/api/cmd", apiCmd);
+  server.begin();
+}
+void loop() { server.handleClient(); housekeeping(); delay(2); }
+</script>
+<script type="text/plain" id="fwPage"><!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Coil controller</title>
+<style>
+:root{--bg:#e9edf0;--p:#f8fafb;--p2:#eef2f4;--ink:#162027;--mut:#56646d;--ln:#cfd7dc;--cu:#a9561f;--cus:#f3e2d4;--fd:#24598c;--ok:#24784a;--wn:#9a6a10;--cr:#b0302f}
+@media (prefers-color-scheme:dark){:root{--bg:#0e1316;--p:#151c20;--p2:#1b2328;--ink:#e1e8eb;--mut:#93a1a9;--ln:#2a353b;--cu:#e2915a;--cus:#3a2617;--fd:#7fb3e3;--ok:#62c48e;--wn:#e3b553;--cr:#ec7a76}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.4 system-ui,-apple-system,Segoe UI,sans-serif}
+.w{max-width:760px;margin:0 auto;padding:12px 14px 40px;display:grid;gap:12px}
+.c{background:var(--p);border:1px solid var(--ln);border-radius:10px;padding:12px}
+h1{font-size:19px;margin:0}h2{font-size:14px;margin:0 0 8px;color:var(--mut);letter-spacing:.04em;text-transform:uppercase}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.pill{font:600 12px ui-monospace,Menlo,monospace;border-radius:99px;padding:4px 10px;background:var(--p2);border:1px solid var(--ln)}
+.pill.run{background:var(--ok);color:#fff;border-color:var(--ok)}.pill.cool{background:var(--wn);color:#fff;border-color:var(--wn)}.pill.flt{background:var(--cr);color:#fff;border-color:var(--cr)}
+.go{width:100%;font:700 20px system-ui;padding:16px;border:0;border-radius:10px;background:var(--ok);color:#fff;cursor:pointer}.go.stop{background:var(--cr)}.go:disabled{opacity:.45}
+.prog{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.prog button{border:1px solid var(--ln);background:var(--p2);color:var(--ink);border-radius:8px;padding:9px 6px;cursor:pointer;font:600 13px system-ui}
+.prog button.on{border-color:var(--cu);background:var(--cus);box-shadow:inset 0 -3px 0 var(--cu)}.prog small{display:block;font:500 11px ui-monospace,monospace;color:var(--mut)}
+.row{display:grid;grid-template-columns:130px 1fr 74px;gap:8px;align-items:center;margin:7px 0;font-size:13.5px}.row label{color:var(--mut)}
+.row input[type=range]{width:100%;accent-color:var(--cu)}.row output{font:600 13px ui-monospace,monospace;text-align:right}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
+.k{background:var(--p2);border:1px solid var(--ln);border-radius:8px;padding:8px 10px}.k b{display:block;font:600 19px ui-monospace,Menlo,monospace}.k span{font-size:11.5px;color:var(--mut)}
+canvas{width:100%;height:150px;display:block;background:var(--p2);border:1px solid var(--ln);border-radius:8px}
+table{width:100%;border-collapse:collapse;font:12.5px ui-monospace,monospace}td,th{padding:4px 6px;border-bottom:1px solid var(--ln);text-align:right}th:first-child,td:first-child{text-align:left}th{color:var(--mut);font-weight:600}
+.msg{font-size:13px;color:var(--cr);min-height:18px}.btn{border:1px solid var(--ln);background:var(--p2);color:var(--ink);border-radius:7px;padding:7px 11px;cursor:pointer;font:13px system-ui}
+.note{font-size:12px;color:var(--mut)}
+</style></head><body><div class="w">
+<div class="c top"><h1>Coil controller</h1><span class="pill" id="st">…</span></div>
+<div class="c"><button class="go" id="go">START</button><div class="msg" id="msg"></div>
+<div class="grid" style="margin-top:8px"><div class="k"><b id="kT">–</b><span>time left / elapsed</span></div><div class="k"><b id="kF">–</b><span>pulse rate</span></div><div class="k"><b id="kB">–</b><span>B at target (model × measured I)</span></div><div class="k"><b id="kI">–</b><span>peak current (measured)</span></div></div></div>
+<div class="c"><h2>Program</h2><div class="prog"><button data-p="acute">Acute pain<small>50–100 Hz sweep</small></button><button data-p="recover">Recovery<small>10–20 Hz sweep</small></button><button data-p="manual">Manual<small>fixed rate</small></button></div>
+<div class="row"><label>Rate low</label><input type="range" id="fLo" min="1" max="150" step="0.5"><output id="oFLo"></output></div>
+<div class="row"><label>Rate high</label><input type="range" id="fHi" min="1" max="150" step="0.5"><output id="oFHi"></output></div>
+<div class="row"><label>Sweep period</label><input type="range" id="sw" min="0" max="120" step="1"><output id="oSw"></output></div>
+<div class="row"><label>Pulse width</label><input type="range" id="on" min="0.1" max="12" step="0.05"><output id="oOn"></output></div>
+<div class="row"><label>Intensity</label><input type="range" id="int" min="10" max="100" step="1"><output id="oInt"></output></div>
+<div class="row"><label>Session</label><input type="range" id="sm" min="1" max="60" step="1"><output id="oSm"></output></div>
+<label class="note"><input type="checkbox" id="dead" checked> Stop if this page loses connection (dead-man)</label>
+<div class="note" id="duty"></div></div>
+<div class="c"><h2>Live</h2><div class="grid"><div class="k"><b id="kR">–</b><span>rms current (estimate)</span></div><div class="k"><b id="kD">–</b><span>hot-winding rise (model)</span></div><div class="k"><b id="kN">–</b><span>pulse duty</span></div><div class="k"><b id="kP">–</b><span>pulses this session</span></div></div></div>
+<div class="c"><h2>Current, last 2 minutes</h2><canvas id="gI" width="700" height="150"></canvas></div>
+<div class="c"><h2>Hot-winding temperature rise (model)</h2><canvas id="gT" width="700" height="150"></canvas></div>
+<div class="c"><h2>Pulse rate</h2><canvas id="gF" width="700" height="150"></canvas></div>
+<div class="c"><h2>Device stats</h2><div class="grid"><div class="k"><b id="sRun">–</b><span>lifetime run time</span></div><div class="k"><b id="sSes">–</b><span>sessions</span></div><div class="k"><b id="sPul">–</b><span>pulses delivered</span></div><div class="k"><b id="sUp">–</b><span>uptime</span></div><div class="k"><b id="sCl">–</b><span>Wi-Fi clients</span></div><div class="k"><b id="sHp">–</b><span>free memory</span></div></div>
+<h2 style="margin-top:12px">Recent sessions</h2><table id="lg"></table>
+<div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn" id="csv">Download history CSV</button><button class="btn" id="clr">Clear fault</button><button class="btn" id="rst">Reset lifetime stats</button></div></div>
+<div class="note">Model constants: L/R = <span id="mt"></span> ms, DC limit <span id="mi"></span> A, thermal limit <span id="ml"></span> °C. Engineering aid, not a medical device.</div>
+</div>
+@@SCRIPT@@
+const $=id=>document.getElementById(id);let S={},H={i:[],r:[],t:[],f:[]},busy=0,touched=0;
+const P={acute:{fLo:50,fHi:100,sw:20,on:@@ONA@@,int:100,sm:10},recover:{fLo:10,fHi:20,sw:30,on:@@ONR@@,int:80,sm:20},manual:{}};
+const sl=['fLo','fHi','sw','on','int','sm'],un={fLo:' Hz',fHi:' Hz',sw:' s',on:' ms',int:' %',sm:' min'},ou={fLo:'oFLo',fHi:'oFHi',sw:'oSw',on:'oOn',int:'oInt',sm:'oSm'};
+function show(){sl.forEach(k=>{$(ou[k]).textContent=(+$(k).value)+un[k]});const f=Math.max(+$('fHi').value,+$('fLo').value),d=+$('on').value/1000*f*100;$('duty').textContent='Highest duty at these settings: '+d.toFixed(1)+' %. Heat in the small solenoids scales with duty, so shorter pulses allow longer sessions.'}
+sl.forEach(k=>$(k).addEventListener('input',()=>{touched=Date.now();show()}));
+document.querySelectorAll('[data-p]').forEach(b=>b.addEventListener('click',()=>{const p=P[b.dataset.p];S.prog=b.dataset.p;for(const k in p)$(k).value=p[k];touched=Date.now();show();mark()}));
+function mark(){document.querySelectorAll('[data-p]').forEach(b=>b.classList.toggle('on',b.dataset.p===S.prog))}
+function q(c){return '/api/cmd?c='+c+'&prog='+(S.prog||'manual')+'&fLo='+$('fLo').value+'&fHi='+$('fHi').value+'&sweep='+$('sw').value+'&on='+$('on').value+'&int='+$('int').value+'&sessMin='+$('sm').value+'&dead='+($('dead').checked?1:0)}
+async function cmd(c){try{const r=await fetch(c);S=Object.assign(S,await r.json());paint()}catch(e){$('msg').textContent='no connection'}}
+$('go').addEventListener('click',()=>cmd(S.run?'/api/cmd?c=stop':q('start')));
+$('clr').addEventListener('click',()=>cmd('/api/cmd?c=clear'));
+$('rst').addEventListener('click',()=>{if(confirm('Reset lifetime stats?'))cmd('/api/cmd?c=reset')});
+$('csv').addEventListener('click',()=>{let s='seconds_ago,ipk_A,irms_A,dT_C,rate_Hz\n';for(let i=0;i<H.i.length;i++)s+=i+','+H.i[i]+','+H.r[i]+','+H.t[i]+','+H.f[i]+'\n';const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([s],{type:'text/csv'}));a.download='coil_history.csv';a.click()});
+const hm=s=>{s=Math.round(s);return Math.floor(s/3600)+'h '+String(Math.floor(s%3600/60)).padStart(2,'0')+'m'},mm=s=>{s=Math.max(0,Math.round(s));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
+function paint(){const s=S;if(s.run===undefined)return;
+ const st=$('st');st.textContent=s.fault?'FAULT':s.cool?'COOLING':s.run?'RUNNING':'IDLE';st.className='pill '+(s.fault?'flt':s.cool?'cool':s.run?'run':'');
+ $('go').textContent=s.run?'STOP':'START';$('go').className='go'+(s.run?' stop':'');$('go').disabled=!!(s.fault||s.cool);
+ $('msg').textContent=s.msg||'';$('kT').textContent=s.run?(s.left>0?mm(s.left):mm(s.el)):'–';$('kF').textContent=s.run?s.f.toFixed(1)+' Hz':'–';$('kB').textContent=s.run?(s.B>=1000?(s.B/1000).toFixed(2)+' mT':s.B.toFixed(0)+' µT'):'–';$('kI').textContent=s.run?s.ipk.toFixed(2)+' A':'–';
+ $('kR').textContent=s.run?s.irms.toFixed(3)+' A':'–';$('kD').textContent=s.dT.toFixed(1)+' °C'+(s.temp!=null?' / '+s.temp.toFixed(1)+' °C NTC':'');$('kN').textContent=s.dutyPct.toFixed(1)+' %';$('kP').textContent=s.pulses;
+ $('sRun').textContent=hm(s.runTot);$('sSes').textContent=s.sess;$('sPul').textContent=Number(s.pulTot).toLocaleString();$('sUp').textContent=hm(s.up);$('sCl').textContent=s.clients;$('sHp').textContent=Math.round(s.heap/1024)+' kB';
+ $('mt').textContent=s.tau;$('mi').textContent=s.idc;$('ml').textContent=s.dtLim;
+ if(Date.now()-touched>4000&&!busy){$('fLo').value=s.fLo;$('fHi').value=s.fHi;$('sw').value=s.sweep;$('on').value=s.on;$('int').value=s.int;$('sm').value=s.sessMin;$('dead').checked=!!s.dead;show()}mark()}
+function chart(id,a,col,lab,fixed){const c=$(id),x=c.getContext('2d'),w=c.width,h=c.height,cs=getComputedStyle(document.body);x.clearRect(0,0,w,h);if(!a.length)return;
+ let mx=Math.max(...a,fixed||0.001)*1.15;const n=a.length;x.strokeStyle=cs.getPropertyValue('--ln');x.fillStyle=cs.getPropertyValue('--mut');x.font='11px monospace';x.lineWidth=1;
+ for(let g=0;g<=3;g++){const y=h-18-(h-26)*g/3;x.beginPath();x.moveTo(36,y);x.lineTo(w-4,y);x.stroke();x.fillText((mx*g/3).toFixed(mx<10?2:0),2,y+3)}
+ x.strokeStyle=col;x.lineWidth=2;x.beginPath();for(let i=0;i<n;i++){const px=w-4-(w-40)*i/Math.max(NH-1,1),py=h-18-(h-26)*(a[i]/mx);i?x.lineTo(px,py):x.moveTo(px,py)}x.stroke();x.fillStyle=cs.getPropertyValue('--mut');x.fillText(lab,40,12);x.fillText('now',w-26,h-4);x.fillText('−2 min',40,h-4)}
+const NH=120;
+async function poll(){try{busy=0;const r=await fetch('/api/state');S=await r.json();paint()}catch(e){$('st').textContent='OFFLINE'}}
+async function hist(){try{const r=await fetch('/api/hist');const j=await r.json();H=j;chart('gI',j.i,'#a9561f','peak current, A',S.ipkModel);chart('gT',j.t,'#c0392b','°C above ambient',S.dtLim);chart('gF',j.f,'#24598c','Hz',20);
+ $('lg').innerHTML='<tr><th>Program</th><th>Length</th><th>Avg peak</th><th>Last rate</th></tr>'+j.log.map(l=>'<tr><td>'+l.p+'</td><td>'+mm(l.d)+'</td><td>'+l.i.toFixed(2)+' A</td><td>'+l.f.toFixed(1)+' Hz</td></tr>').join('')}catch(e){}}
+show();poll();hist();setInterval(poll,1000);setInterval(hist,2500);
+@@/SCRIPT@@
+</body></html>
+</script>
 
 <script>
 "use strict";
@@ -591,6 +928,12 @@ const CORES = {
   nizn:{name:'NiZn ferrite μ≈125 (rod / backing plate)',mu:125,bsat:0.25,fmax:2e7,types:['solenoid','pancake']},
 };
 const PRESETS = {
+  minePain:{label:'My build · acute pain',sub:'7-solenoid array + Al outer coil, 24 V',band:'50–100 Hz',
+    s:{coil:'custom',core:'air',Di:20,Lw:20,N:80,awg:24,wire:'solid',wave:'pulse',f:80,duty:4.5,fc:4500,nb:20,V:24,Rs:0,Rdrv:0.1,tune:'none',Cn:1000,clamp:'diode',Vtvs:33,tissue:'muscle',depth:20,rt:30,mitOn:false,gate:'bjt',Qg:71,Rg:22},
+    t:{f:[50,100],B:[2e-4,5e-2]}},
+  mineRec:{label:'My build · recovery',sub:'same coil, slower and gentler',band:'10–20 Hz',
+    s:{coil:'custom',core:'air',Di:20,Lw:20,N:80,awg:24,wire:'solid',wave:'pulse',f:15,duty:3,fc:4500,nb:20,V:24,Rs:0,Rdrv:0.1,tune:'none',Cn:1000,clamp:'diode',Vtvs:33,tissue:'muscle',depth:25,rt:30,mitOn:false,gate:'bjt',Qg:71,Rg:22},
+    t:{f:[10,20],B:[1e-4,2e-2]}},
   neural:{label:'Neural PEMF',sub:'Peripheral nerve, ELF pulses',band:'1–100 Hz',
     s:{coil:'pancake',Di:20,Lw:20,N:80,awg:24,wire:'solid',core:'air',wave:'pulse',f:10,duty:2,fc:4500,nb:20,V:12,Rs:1,Rdrv:0.3,tune:'none',Cn:1000,clamp:'tvs',Vtvs:33,tissue:'nerve',depth:15,rt:20,mitOn:false},
     t:{f:[1,100],B:[1e-5,5e-3]}},
@@ -612,7 +955,7 @@ const PRESETS = {
 };
 const DEF_MIT = {mitA:40,mitZs:60,mitZr:120,Nrx:20,rrx:15};
 const DEF_GATE = {gate:'direct',Qg:15,Rg:100};
-let S = Object.assign({preset:'neural'}, DEF_MIT, DEF_GATE, PRESETS.neural.s);
+let S = Object.assign({preset:'minePain'}, DEF_MIT, DEF_GATE, PRESETS.minePain.s, {cb:cbDefault()});
 let CAL = {mL:'',mR:'',mB:'',on:false};
 try{ const sv = JSON.parse(localStorage.getItem('coilbench.v1')||'null'); if(sv&&sv.S){S=Object.assign(S,sv.S); if(sv.CAL) CAL=Object.assign(CAL,sv.CAL);} }catch(e){}
 let BASE = null;
@@ -726,6 +1069,273 @@ function rac(S,g,Rdc,f){
   const Fr=dowell(xi,p); return {Fr,delta,xi,p,R:Rdc*Fr};
 }
 
+/* ================= composite coil builder ("My build") ================= */
+/* Any mix of: a ring of identical solenoids, a winding defined by wire length, and ferromagnetic
+   rod bundles (centre core and/or pole pieces in each bore). Everything is evaluated from equivalent
+   current loops (exact ring-current fields via elliptic integrals, off-axis flux via the vector
+   potential) plus a linear magnetostatic model of the cores (demagnetising factor, eddy-current
+   permeability roll-off). All series-connected. */
+const CB_MATS={cu:{n:'Copper',rho:RHO_CU,d:8960},al:{n:'Aluminium (1350)',rho:2.85e-8,d:2700},cca:{n:'Copper-clad aluminium',rho:2.9e-8,d:3630}};
+const CB_CORES={
+  none:{n:'None (air)',mu:1,bsat:Infinity,sig:0},
+  steel:{n:'Galvanized mild-steel wire (μᵣ≈250)',mu:250,bsat:1.8,sig:6e6},
+  iron:{n:'Soft-iron / annealed wire (μᵣ≈1000)',mu:1000,bsat:2.0,sig:1e7},
+  fesi:{n:'Silicon steel (μᵣ≈3000)',mu:3000,bsat:1.9,sig:2e6},
+  mnzn:{n:'MnZn ferrite (μᵣ≈2000)',mu:2000,bsat:0.39,sig:1}
+};
+const CB_H=10; // W/m²K natural convection + radiation, small bodies
+function cbDefault(){
+  return {
+    groups:[
+      {id:'ring',kind:'ring',name:'Solenoid ring',n:7,N:256,ID:8,OD:18.5,len:12,awg:30,Rm:3.9,arrayOD:63.5,ringR:0,alt:0,z0:0,bMat:'none',bD:7,bLen:20,bZ0:0,bFill:0.55,bRodD:3.05,bInsul:'partial'},
+      {id:'wind',kind:'wind',name:'Outer winding',mat:'al',awg:20,dins:1.7,lenM:15.24,Di:63.5,Do:127,h:12,form:'flat',turns:0,Rm:0,z0:0},
+      {id:'core',kind:'core',name:'Centre core',mat:'steel',D:25.4,len:25,z0:0,fill:0.7,rodD:3.05,insul:'partial'}
+    ],
+    Rx:0.1, tx:0, dTlim:20
+  };
+}
+function wheelerRect(aMm,bMm,cMm,N){ const a=aMm/25.4,b=bMm/25.4,c=cMm/25.4; if(b<0.3*c) return a*a*N*N/(8*a+11*c)*1e-6; return 0.8*a*a*N*N/(6*a+9*b+10*c)*1e-6; }
+/* complex Bessel J0, J1 (power series) */
+function cbBessel(zr,zi){
+  const hr=zr/2, hi=zi/2, qr=-(hr*hr-hi*hi), qi=-(2*hr*hi);
+  let tr=1,ti=0,j0r=1,j0i=0, ur=hr,ui=hi,j1r=hr,j1i=hi;
+  for(let m=1;m<80;m++){
+    let a=(tr*qr-ti*qi)/(m*m), b=(tr*qi+ti*qr)/(m*m); tr=a; ti=b; j0r+=a; j0i+=b;
+    a=(ur*qr-ui*qi)/(m*(m+1)); b=(ur*qi+ui*qr)/(m*(m+1)); ur=a; ui=b; j1r+=a; j1i+=b;
+    if(Math.abs(tr)+Math.abs(ti)+Math.abs(ur)+Math.abs(ui)<1e-15) break;
+  }
+  return {j0r,j0i,j1r,j1i};
+}
+/* |μ_eff|/μ of a round rod of radius r (m) in an axial sinusoidal field at f */
+function rodMuFactor(mu,sig,r,f){
+  if(!(f>0)||!(sig>0)) return 1;
+  const kk=Math.sqrt(2*Math.PI*f*MU0*mu*sig/2), zr=kk*r, zi=-kk*r, mag=Math.hypot(zr,zi);
+  if(mag>14) return Math.min(1,2/mag);
+  const B=cbBessel(zr,zi), dr=zr*B.j0r-zi*B.j0i, di=zr*B.j0i+zi*B.j0r, nr=2*B.j1r, ni=2*B.j1i, dd=dr*dr+di*di;
+  return Math.min(1,Math.hypot((nr*dr+ni*di)/dd,(ni*dr-nr*di)/dd));
+}
+/* flux (Wb per A) through loop d from unit current in loop s; loops {a,z,cx,cy} in metres */
+function cbFlux(s,d,NT){
+  const dx=d.cx-s.cx, dy=d.cy-s.cy;
+  if(Math.abs(dx)<1e-9&&Math.abs(dy)<1e-9){ return 2*Math.PI*loopBA(s.a,s.z,d.a,d.z)[2]; }
+  NT=NT||32; let sum=0;
+  for(let q=0;q<NT;q++){
+    const th=2*Math.PI*(q+0.5)/NT, c=Math.cos(th), sn=Math.sin(th), px=dx+d.a*c, py=dy+d.a*sn, rho=Math.hypot(px,py);
+    if(rho<1e-9) continue;
+    const A=loopBA(s.a,s.z,rho,d.z)[2]/rho; sum+=A*(px*c+py*sn)/rho;
+  }
+  return d.a*2*Math.PI/NT*sum;
+}
+function cbBz(loops,x,y,z){ let b=0; for(const l of loops) b+=l.w*loopBA(l.a,l.z,Math.hypot(x-l.cx,y-l.cy),z)[1]; return b; }
+function cbBvec(loops,x,y,z,out){
+  let bx=0,by=0,bz=0;
+  for(const l of loops){ const dx=x-l.cx, dy=y-l.cy, rho=Math.hypot(dx,dy), v=loopBA(l.a,l.z,rho,z); bz+=l.w*v[1]; if(rho>1e-9){ const f=l.w*v[0]/rho; bx+=f*dx; by+=f*dy; } }
+  out[0]=bx; out[1]=by; out[2]=bz; return out;
+}
+function cbWindBuild(g){
+  const d=g.dins*1e-3, ri=g.Di/2*1e-3, mat=CB_MATS[g.mat]||CB_MATS.cu, dbare=awgD(g.awg), A=Math.PI/4*dbare*dbare; // mm²
+  const Wr=Math.max(d,(g.Do-g.Di)/2*1e-3), tpr=Math.max(1,Math.floor(Wr/d+1e-9)), hh=Math.max(d,g.h*1e-3), tpa=Math.max(1,Math.floor(hh/d+1e-9));
+  const fixed=g.turns>0?Math.round(g.turns):Infinity, target=g.lenM>0?g.lenM:0, pts=[]; let len=0;
+  for(let k=0;k<4000;k++){
+    let r,z;
+    if(g.form==='helical'){ const L=Math.floor(k/tpa), p=k%tpa; r=ri+(L+0.5)*d; z=-(p+0.5)*d; }
+    else { const L=Math.floor(k/tpr), p=k%tpr; r=ri+(p+0.5)*d; z=-(L+0.5)*d; }
+    const lt=2*Math.PI*r;
+    if(k>=fixed) break;
+    if(fixed===Infinity && len+lt/2>target) break;
+    pts.push([r,z]); len+=lt;
+  }
+  const N=pts.length; let rmax=ri, zmin=0, rmin=Infinity;
+  for(const [r,z] of pts){ rmax=Math.max(rmax,r+d/2); zmin=Math.min(zmin,z-d/2); rmin=Math.min(rmin,r-d/2); }
+  if(!N){ rmin=ri; }
+  // bin turns into at most 6 radial × 4 axial equivalent loops
+  const nbr=Math.max(1,Math.min(6,Math.round((rmax-ri)/d))), nbz=Math.max(1,Math.min(4,Math.round(-zmin/d)));
+  const cells=new Map();
+  for(const [r,z] of pts){ const ir=Math.min(nbr-1,Math.floor((r-ri)/(rmax-ri+1e-12)*nbr)), iz=Math.min(nbz-1,Math.floor(-z/(-zmin+1e-12)*nbz)), key=ir*16+iz; let c=cells.get(key); if(!c){ c={n:0,r:0,z:0}; cells.set(key,c); } c.n++; c.r+=r; c.z+=z; }
+  const z0=g.z0*1e-3, loops=[]; for(const c of cells.values()) loops.push({a:c.r/c.n, z:z0+c.z/c.n, cx:0,cy:0, w:c.n});
+  const rm=(rmax+Math.max(ri,rmin))/2, wl=len, R=g.Rm>0?g.Rm:mat.rho*wl/(A*1e-6)*1.03, Aeff=mat.rho*wl*1.03/R*1e6;
+  const hUsed=-zmin, mmA=1e3;
+  const Lself=N>0?wheelerRect(rm*mmA,hUsed*mmA,(rmax-Math.max(ri,rmin))*mmA,N):0;
+  const area=2*Math.PI*(rmax*rmax-ri*ri)+2*Math.PI*(rmax+ri)*hUsed;
+  return {N,loops,len:wl,R,Rcalc:mat.rho*wl/(A*1e-6)*1.03,Aeff,A,mass:wl*Aeff*1e-6*mat.d,Lself,rmax,ri,hUsed,tpr,rows:Math.ceil(N/(g.form==='helical'?tpa:tpr)),area,dbare,mat};
+}
+function cbRingGeom(g){
+  const n=Math.max(1,Math.round(g.n));
+  let Rr=g.ringR>0?g.ringR:(g.arrayOD>0?g.arrayOD/2-g.OD/2:(n>1?(g.OD/2)/Math.sin(Math.PI/n):0));
+  if(n===1&&!(g.ringR>0)) Rr=0;
+  return {n,Rr:Math.max(0,Rr)};
+}
+function cbSolveLin(A,b){
+  const n=b.length, M=A.map((r,i)=>r.concat([b[i]]));
+  for(let c=0;c<n;c++){ let p=c; for(let r=c+1;r<n;r++) if(Math.abs(M[r][c])>Math.abs(M[p][c])) p=r; [M[c],M[p]]=[M[p],M[c]];
+    const d=M[c][c]||1e-30; for(let r=c+1;r<n;r++){ const f=M[r][c]/d; if(f) for(let k=c;k<=n;k++) M[r][k]-=f*M[c][k]; } }
+  const x=new Array(n).fill(0); for(let r=n-1;r>=0;r--){ let s=M[r][n]; for(let k=r+1;k<n;k++) s-=M[r][k]*x[k]; x[r]=s/(M[r][r]||1e-30); } return x;
+}
+const CB_CACHE=new Map();
+function cbModel(cb){ const key=JSON.stringify(cb); let m=CB_CACHE.get(key); if(m) return m; m=cbBuild(cb); CB_CACHE.set(key,m); if(CB_CACHE.size>10) CB_CACHE.delete(CB_CACHE.keys().next().value); return m; }
+function cbBuild(cb){
+  const mm=1e-3, units=[], pieces=[], groups=[];
+  cb.groups.forEach((g,gi)=>{
+    if(g.kind==='ring'){
+      const {n:cnt,Rr}=cbRingGeom(g), lt=Math.PI*(g.ID+g.OD)/2*mm, wl=g.N*lt, dbare=awgD(g.awg), A=Math.PI/4*dbare*dbare;
+      const Rcalc=RHO_CU*wl/(A*1e-6), R=g.Rm>0?g.Rm:Rcalc, Aeff=RHO_CU*wl/R*1e6;
+      const Lself=wheelerRect((g.ID+g.OD)/4,g.len,(g.OD-g.ID)/2,g.N);
+      const area=Math.PI*g.OD*mm*g.len*mm+2*Math.PI/4*((g.OD*mm)**2-(g.ID*mm)**2);
+      const dins=dbare*1.06+0.018, layers=Math.max(1,(g.OD-g.ID)/2/dins);
+      for(let k=0;k<cnt;k++){
+        const s=(g.alt&&cnt%2===0&&k%2)?-1:1, ph=2*Math.PI*k/cnt, cx=Rr*mm*Math.cos(ph), cy=Rr*mm*Math.sin(ph), loops=[];
+        const nz=4,nr=3, ri=g.ID/2*mm, ro=g.OD/2*mm, len=g.len*mm, z0=g.z0*mm;
+        for(let i=0;i<nz;i++) for(let j=0;j<nr;j++) loops.push({a:ri+(j+0.5)*(ro-ri)/nr, z:z0-len+(i+0.5)*len/nz, cx,cy, w:s*g.N/(nz*nr)});
+        units.push({gi,kind:'ring',k,s,loops,N:g.N,Lself,R,Aeff,wl,mass:wl*Aeff*1e-6*8960,area,expo:0.5,dbare,dins,layers,rho:RHO_CU,cx,cy});
+        if(g.bMat&&g.bMat!=='none') pieces.push({gi,kind:'bore',k,cx,cy,D:g.bD*mm,len:g.bLen*mm,zTop:g.bZ0*mm,fill:g.bFill,mat:g.bMat,eddyD:(g.bInsul==='good'?g.bRodD:g.bInsul==='none'?g.bD:Math.sqrt(g.bRodD*g.bD))*mm,s});
+      }
+      groups.push({gi,kind:'ring',name:g.name,count:cnt,Rr,N:g.N,R,Rcalc,Lself,Aeff,dbare,wl,area,outer:(Rr+g.OD/2)*mm,len:g.len*mm,units:cnt});
+    } else if(g.kind==='wind'){
+      const w=cbWindBuild(g);
+      units.push({gi,kind:'wind',k:0,s:1,loops:w.loops,N:w.N,Lself:w.Lself,R:w.R,Aeff:w.Aeff,wl:w.len,mass:w.mass,area:w.area,expo:0.9,dbare:w.dbare,dins:g.dins,layers:Math.max(1,w.rows),rho:w.mat.rho,cx:0,cy:0});
+      groups.push({gi,kind:'wind',name:g.name,N:w.N,R:w.R,Rcalc:w.Rcalc,Lself:w.Lself,Aeff:w.Aeff,dbare:w.dbare,wl:w.len,area:w.area,outer:w.rmax,len:w.hUsed,rmax:w.rmax,hUsed:w.hUsed,tpr:w.tpr,rows:w.rows,units:1});
+    } else if(g.kind==='core'&&g.mat!=='none'){
+      const eddyD=g.insul==='good'?g.rodD*mm:g.insul==='none'?g.D*mm:Math.sqrt(g.rodD*g.D)*mm;
+      pieces.push({gi,kind:'centre',k:0,cx:0,cy:0,D:g.D*mm,len:g.len*mm,zTop:g.z0*mm,fill:g.fill,mat:g.mat,eddyD,s:1});
+      groups.push({gi,kind:'core',name:g.name,units:0,outer:g.D/2*mm,len:g.len*mm});
+    }
+  });
+  // coil loop soup
+  const coil=[]; for(const u of units) for(const l of u.loops) coil.push(l);
+  // inductance (air): L = sum over ordered unit pairs of M_uv (M_uu = Wheeler self term). Loop weights carry the polarity.
+  // Units of one ring group are equivalent by rotational symmetry, so one of them is evaluated and multiplied.
+  let Lair=0; const done=new Set();
+  const unitM=(u,v)=>{ let s=0; for(const a of u.loops) for(const b of v.loops) s+=a.w*b.w*cbFlux(a,b,24); return s; };
+  for(const u of units){
+    let mult=1; if(u.kind==='ring'){ if(done.has(u.gi)) continue; done.add(u.gi); mult=units.filter(x=>x.gi===u.gi).length; }
+    let acc=u.Lself; for(const v of units){ if(v!==u) acc+=unitM(u,v); }
+    Lair+=mult*acc;
+  }
+  // pieces
+  pieces.forEach(p=>{
+    p.rings=[]; const nR=6; for(let q=0;q<nR;q++) p.rings.push({a:p.D/2,z:p.zTop-(q+0.5)*p.len/nR,cx:p.cx,cy:p.cy,w:p.len/nR});
+    p.pts=[]; for(let q=0;q<5;q++) p.pts.push(p.zTop-(q+0.5)*p.len/5);
+    p.Nd=demagN(p.len/p.D); p.vol=Math.PI*p.D*p.D/4*p.len;
+  });
+  const np=pieces.length, Hext=new Array(np).fill(0), G=pieces.map(()=>new Array(np).fill(0)), Lam=new Array(np).fill(0);
+  pieces.forEach((p,i)=>{
+    let h=0; for(const z of p.pts) h+=cbBz(coil,p.cx,p.cy,z); Hext[i]=h/p.pts.length/MU0;
+    pieces.forEach((q,j)=>{ if(i===j){ G[i][j]=-p.Nd; return; } let h2=0; for(const z of p.pts) h2+=cbBz(q.rings,p.cx,p.cy,z); G[i][j]=h2/p.pts.length/MU0; });
+  });
+  pieces.forEach((q,j)=>{ let lam=0; for(const c of coil) for(const r of q.rings) lam+=c.w*r.w*cbFlux(r,c,48); Lam[j]=lam; });
+  // geometry summary
+  let rout=0,zlo=0,zhi=0,wire=0,mass=0,Rdc=0,Aeff=Infinity;
+  for(const u of units){ wire+=u.wl; mass+=u.mass; Rdc+=u.R; Aeff=Math.min(Aeff,u.Aeff); }
+  for(const gr of groups) rout=Math.max(rout,gr.outer||0);
+  // capacitance: series of per-unit Medhurst values
+  let invC=0; for(const gr of groups){ if(gr.kind==='ring'){ const g=cb.groups[gr.gi], rcm=(g.ID+g.OD)/4/10, lcm=g.len/10; const Cu=(0.29*lcm+0.41*rcm+1.94*Math.sqrt(rcm**3/Math.max(lcm,0.05)))*1e-12+0.5e-12; invC+=gr.count/Cu; } else if(gr.kind==='wind'){ invC+=1/((2+1.2*(2*gr.rmax*100))*1e-12+1e-12); } }
+  const Cs=(invC>0?1/invC:5e-12)+3e-12;
+  return {units,pieces,groups,coil,Lair,Hext,G,Lam,rout,wire,mass,Rdc,Aeff,Cs,np};
+}
+/* effective-permeability state of the cores for given per-piece rod factors */
+function cbCoreSolve(m,fac){
+  const np=m.np; if(!np) return {M:[],Lcore:0,Bin:[],Hin:[]};
+  const mub=m.pieces.map((p,i)=>{ const c=CB_CORES[p.mat]||CB_CORES.steel; const mur=Math.max(1,c.mu*fac[i]); return 1+p.fill*(mur-1); });
+  const A=m.pieces.map((p,i)=>m.pieces.map((q,j)=>(i===j?1:0)-(mub[i]-1)*m.G[i][j]));
+  const M=cbSolveLin(A,m.pieces.map((p,i)=>(mub[i]-1)*m.Hext[i]));
+  let Lcore=0; for(let j=0;j<np;j++) Lcore+=M[j]*m.Lam[j];
+  const Hin=m.pieces.map((p,i)=>{ let h=m.Hext[i]; for(let j=0;j<np;j++) h+=m.G[i][j]*M[j]; return h; });
+  const Bin=m.pieces.map((p,i)=>MU0*(Hin[i]+M[i]));
+  return {M,Lcore,Bin,Hin,mub};
+}
+function cbFracs(m,S,fe,ton){
+  const fm=S.wave==='burst'?S.fc:S.f, flat=[], edge=[];
+  m.pieces.forEach(p=>{ const c=CB_CORES[p.mat]||CB_CORES.steel, rE=p.eddyD/2;
+    const tauE=c.sig>0?MU0*c.mu*c.sig*rE*rE/5.783:0;
+    let ff; if(ton!=null&&tauE>0) ff=1-Math.exp(-ton/tauE); else if(ton!=null) ff=1; else ff=rodMuFactor(c.mu,c.sig,rE,fm);
+    flat.push(Math.max(ff,1e-3)); edge.push(rodMuFactor(c.mu,c.sig,rE,fe)); });
+  return {flat,edge};
+}
+function cbEddyAt(m,S,f){ return m.pieces.map(p=>{ const c=CB_CORES[p.mat]||CB_CORES.steel; return rodMuFactor(c.mu,c.sig,p.eddyD/2,f); }); }
+/* per-group Dowell AC factor at f */
+function cbFr(u,f){
+  const delta=Math.sqrt(u.rho/(Math.PI*f*MU0)), eta=Math.min(1,u.dbare/u.dins);
+  const xi=(u.dbare*1e-3/delta)*(Math.sqrt(Math.PI)/2)*Math.sqrt(eta);
+  return dowell(xi,u.layers);
+}
+function cbRac(m,Rx,f,kR){
+  let R=0; for(const u of m.units) R+=u.R*cbFr(u,Math.max(f,1));
+  return (R+Rx)*(kR||1);
+}
+/* top-level evaluation used by compute() */
+function cbEval(S,cal){
+  const cb=S.cb, m=cbModel(cb), fm=S.wave==='burst'?S.fc:S.f, Rx=cb.Rx||0;
+  const pulsed=S.wave==='pulse'||S.wave==='square';
+  const ton=S.wave==='pulse'?S.duty/100/S.f:(S.wave==='square'?0.5/S.f:null);
+  const Rdc=(m.Rdc+Rx)*cal.kR, Rac=cbRac(m,Rx,fm,cal.kR), Rtot0=Rac+S.Rs+S.Rdrv;
+  let L=m.Lair, fe=fm, fr=null, stE=null;
+  for(let it=0;it<3;it++){
+    const tau=Math.max(L,1e-9)/Rtot0;
+    fe=(S.wave==='sine'||S.wave==='burst')?fm:Math.max(S.f,1/(2*Math.PI*tau));
+    fr=cbFracs(m,S,fe,ton); stE=cbCoreSolve(m,fr.edge); L=m.Lair+stE.Lcore;
+  }
+  const stF=cbCoreSolve(m,fr.flat);
+  const zt=S.depth*1e-3, tx=(cb.tx||0)*1e-3, mmx=0;
+  // fields at target and face, per amp
+  const pc=m.pieces, air_t=cbBz(m.coil,tx,0,zt), air_0=cbBz(m.coil,tx,0,0.5e-3);
+  let cF_t=0,cE_t=0,cF_0=0,cE_0=0; const t1s=[];
+  pc.forEach((p,j)=>{ const t1=cbBz(p.rings,tx,0,zt), t0=cbBz(p.rings,tx,0,0.5e-3); t1s.push(t1); cF_t+=stF.M[j]*t1; cE_t+=stE.M[j]*t1; cF_0+=stF.M[j]*t0; cE_0+=stE.M[j]*t0; });
+  // face field (0.5 mm in front of the coil) over a solenoid bore and over the array centre, per amp, flat-top state
+  const ringG=m.groups.find(x=>x.kind==='ring'), xb=ringG?ringG.Rr*1e-3:0;
+  const faceAt=(x)=>{ let b=cbBz(m.coil,x,0,0.5e-3); pc.forEach((p,j)=>{ b+=stF.M[j]*cbBz(p.rings,x,0,0.5e-3); }); return b; };
+  const faceBore=faceAt(xb), faceCentre=faceAt(0), faceBoreAir=cbBz(m.coil,xb,0,0.5e-3), faceCentreAir=cbBz(m.coil,0,0,0.5e-3);
+  // steel flux density per amp (flat-top state): steel carries B_avg/fill
+  let satPa=0,BsteelPa=0,bsat=Infinity; pc.forEach((p,j)=>{ const c=CB_CORES[p.mat]||CB_CORES.steel; const b=Math.abs(stF.Bin[j])/Math.max(p.fill,0.05); if(isFinite(c.bsat)&&b/c.bsat>satPa){ satPa=b/c.bsat; BsteelPa=b; bsat=c.bsat; } });
+  // geometry pseudo-object for the rest of the app
+  const ring=m.groups.find(x=>x.kind==='ring'), gAny=m.groups.find(x=>x.kind==='ring')||m.groups[0]||{};
+  const g={db:ring?ring.dbare:0.255,dins:0.3,litz:false,ns:1,ds:0,Acu:isFinite(m.Aeff)?m.Aeff:0.05,type:'custom',coils:1,rin:0,tpl:1,layers:1,depth:m.rout*1e3,rout:m.rout*1e3,rm:m.rout*1e3,len:Math.max(...m.groups.map(x=>(x.len||0)*1e3),1),wire:m.wire*1e3,sepH:0};
+  const core={c:CORES.air,muf:1,murod:1,muApp:1,gain:1,custom:true};
+  return {m,g,core,Lair:m.Lair,L:L*cal.kL,Lflat:(m.Lair+stF.Lcore)*cal.kL,Rdc,Rac,Rtot0,Cs:m.Cs,fe,fr,stF,stE,
+    t1s,faceBore,faceCentre,faceBoreAir,faceCentreAir,xBore:xb,BpaAir:air_t,BpaCoreF:cF_t,BpaCoreE:cE_t,Bpa0Air:air_0,Bpa0CoreF:cF_0,Bpa0CoreE:cE_0,satPa,BsteelPa,bsat,ton,tx,pulsed};
+}
+/* heat, per group, after the drive simulation */
+function cbThermal(cu,sim,S){
+  const m=cu.m, rows=[]; let Ptot=0,dTmax=0,hot=null,Pmax=0,Ahot=1;
+  const seen=new Map();
+  for(const u of m.units){
+    const key=u.gi; if(seen.has(key)){ seen.get(key).count++; continue; }
+    const P=sim.irms*sim.irms*u.R, A=u.area*u.expo, dT=P/(CB_H*A);
+    const row={gi:key,name:m.groups.find(x=>x.gi===key).name,kind:u.kind,count:1,R:u.R,P,A,dT,mass:u.mass}; seen.set(key,row); rows.push(row);
+  }
+  for(const r of rows){ Ptot+=r.P*r.count; if(r.dT>dTmax){ dTmax=r.dT; hot=r; Pmax=r.P; Ahot=r.A; } }
+  // core eddy loss: P = fill·V·σ·d²/32·(dB/dt)_rms²
+  let Pcore=0; const coreRows=[];
+  m.pieces.forEach((p,j)=>{ const c=CB_CORES[p.mat]||CB_CORES.steel; if(!(c.sig>0)) return; const bRms=Math.abs(cu.stE.Bin[j])/Math.max(p.fill,0.05)*sim.didtRms; const P=p.fill*p.vol*c.sig*(p.eddyD**2/32)*bRms*bRms; Pcore+=P; coreRows.push({j,P,bRms}); });
+  return {rows,Ptot,dT:dTmax,hot,Pmax,Ahot,Pcore,coreRows};
+}
+
+/* flux (Wb per A) through a circle of radius r (m) centred on the array axis at depth z, using core state st.
+   Ring-group units and their bore pieces are rotationally equivalent, so one is evaluated and multiplied by the count. */
+function cbPhiCircle(m,st,r,z){
+  const d={a:r,z,cx:0,cy:0}; let phi=0; const seen=new Set();
+  for(const u of m.units){
+    let mult=1;
+    if(u.kind==='ring'){ if(seen.has(u.gi)) continue; seen.add(u.gi); mult=m.units.filter(x=>x.gi===u.gi).reduce((a,x)=>a+x.s,0); }
+    if(!mult) continue;
+    for(const l of u.loops) phi+=mult*l.w*cbFlux(l,d,24);
+  }
+  const seenP=new Set();
+  m.pieces.forEach((p,j)=>{
+    let mult=1;
+    if(p.kind==='bore'){ if(seenP.has(p.gi)) return; seenP.add(p.gi); mult=m.pieces.filter(q=>q.gi===p.gi&&q.kind==='bore').reduce((a,q)=>a+q.s,0); }
+    if(!mult) return;
+    let acc=0; for(const rg of p.rings) acc+=rg.w*cbFlux(rg,d,24);
+    phi+=mult*st.M[j]*acc;
+  });
+  return phi;
+}
+/* spectrum helper: complex-free |Z|, R, B at target for frequency f (sine drive), uses eddy-limited cores */
+function cbAtFreq(cu,S,f,cal){
+  const m=cu.m, st=cbCoreSolve(m,cbEddyAt(m,S,f)), L=(m.Lair+st.Lcore)*cal.kL, R=cbRac(m,S.cb.Rx||0,f,cal.kR);
+  let b=cu.BpaAir; m.pieces.forEach((p,j)=>{ b+=st.M[j]*cu.t1s[j]; });
+  return {L,R,B:b};
+}
+
 /* ================= drive simulation ================= */
 function simulate(p){
   const {wave,V,R,L}=p, C=p.C>0?p.C:0, tau=L/R, out={t:[],v:[],i:[]};
@@ -786,6 +1396,7 @@ function simulate(p){
 
 /* ================= main compute ================= */
 function compute(S,o={}){
+  if(S.coil==='custom'){ if(!S.cb) S.cb=cbDefault(); S.mitOn=false; return computeCB(S,o); }
   const cal=o.cal||{kL:1,kR:1,kB:1};
   const g=geom(S), fm=S.wave==='burst'?S.fc:S.f;
   const L0=inductanceAir(S,g), core=coreModel(S,g,fm);
@@ -843,6 +1454,47 @@ function compute(S,o={}){
   }
   return r;
 }
+
+/* ================= composite coil: top-level compute / spectrum ================= */
+function computeCB(S,o){
+  const cal=o.cal||{kL:1,kR:1,kB:1};
+  const cu=cbEval(S,cal), fm=S.wave==='burst'?S.fc:S.f, g=cu.g, core=cu.core, L=cu.L, Rdc=cu.Rdc, Rac=cu.Rac, Cs=cu.Cs, m=cu.m;
+  const srf=1/(2*Math.PI*Math.sqrt(Math.max(L,1e-12)*Cs));
+  let Cser=0; if(S.tune==='auto') Cser=1/((2*Math.PI*fm)**2*L); else if(S.tune==='manual') Cser=S.Cn*1e-9;
+  const Rtot=Rac+S.Rs+S.Rdrv, tau=L/Rtot, Vcl=S.clamp==='tvs'?S.Vtvs:0.7;
+  const sim=simulate({wave:S.wave,f:S.f,fc:S.fc,nb:S.nb,duty:S.duty,V:S.V,R:Rtot,L,C:Cser,Vcl});
+  // saturation of the ferromagnetic pieces (per-amp steel flux density x peak current)
+  const satPk=cu.satPa*sim.ipk, cs=satPk>1?1/satPk:1, kB=cal.kB;
+  const Bpa=cu.BpaAir+cs*cu.BpaCoreF, BpaE=cu.BpaAir+cs*cu.BpaCoreE;
+  const Bpa0=cu.faceBoreAir+cs*(cu.faceBore-cu.faceBoreAir), BpaC=cu.faceCentreAir+cs*(cu.faceCentre-cu.faceCentreAir);
+  const Bt=Bpa*sim.ipk*kB, B0=Bpa0*sim.ipk*kB, Bc=BpaC*sim.ipk*kB;
+  const dBdt=BpaE*sim.didtPk*kB, dBdtRms=BpaE*sim.didtRms*kB;
+  const feff=(S.wave==='sine'||S.wave==='burst')?fm:Math.max(S.f,1/(2*Math.PI*tau));
+  const sig=sigma(S.tissue,feff), rt=S.rt*1e-3;
+  const E=rt/2*Math.abs(dBdt), Erms=rt/2*Math.abs(dBdtRms), Jt=sig*E, SAR=sig*Erms*Erms/TISSUES[S.tissue].rho;
+  const Eth=6*(1+150e-6/Math.max(sim.tPhase,1e-9)), nerveR=E/Eth;
+  const Brms=Math.abs(Bt)*(sim.irms/Math.max(sim.ipk,1e-12));
+  const fref=fm, ref=icnirp(fref,false), refOcc=icnirp(fref,true);
+  const th=cbThermal(cu,sim,S), P=th.Ptot+th.Pcore, dT=th.dT, Asurf=th.Ahot;
+  const mass=m.mass, Jw=sim.irms/Math.max(m.Aeff,1e-6), energy=0.5*L*sim.ipk*sim.ipk;
+  const Vds=S.wave==='pulse'&&!Cser?S.V+Vcl:S.V;
+  const dm=S.gate==='direct', bj=S.gate==='bjt';
+  const Ig=dm?Math.min(0.04,3.3/((S.Rg||0)+50)):bj?Math.min(0.45,10.6/((S.Rg||0)+10)):Math.min(4,12/((S.Rg||0)+3));
+  const tsw=(S.Qg||15)*1e-9/Ig, fsw=S.wave==='burst'?S.fc*Math.min(1,S.nb/S.fc*S.f):S.f;
+  const tEdge=Math.min(tau,L*sim.ipk/Math.max(S.wave==='pulse'&&!Cser?S.V+Vcl:S.V,1e-3));
+  const Psw=0.5*Vds*sim.ipk*2*tsw*fsw, Pcond=sim.irms*sim.irms*S.Rdrv;
+  const ac={Fr:Rac/Math.max(Rdc,1e-9),delta:Math.sqrt(RHO_CU/(Math.PI*Math.max(fm,1)*MU0)),xi:0,p:0,R:Rac};
+  return {custom:true,cu,th,tsw,Ig,fsw,tEdge,Psw,Pcond,S,g,fm,L0:m.Lair,core,L,Rdc,ac,Rac,Cs,srf,loops:m.coil,Bpa,BpaE,Bpa0,BpaC,Cser,Rtot,tau,Vcl,sim,Bcore:cu.BsteelPa*sim.ipk,sat:satPk,satCs:cs,gEff:1,Bt,B0,Bc,dBdt,feff,sig,E,Erms,Jt,SAR,Eth,nerveR,Brms,ref,refOcc,fref,P,Asurf,dT,mass,Jw,energy,Vds};
+}
+function spectrumCB(S,r,cal){
+  const pts=[]; const cu=r.cu;
+  for(let k=0;k<=140;k++){ const f=Math.pow(10,k/140*Math.log10(3e7)), a=cbAtFreq(cu,S,f,cal), w=2*Math.PI*f;
+    const ZL=cx(a.R,w*a.L), Zc=cx(0,-1/(w*r.Cs)), Zp=cdiv(cmul(ZL,Zc),cadd(ZL,Zc));
+    let Zt=cadd(Zp,cx(S.Rs+S.Rdrv,0)); if(r.Cser) Zt=cadd(Zt,cx(0,-1/(w*r.Cser)));
+    const I=S.V/cabs(Zt); pts.push({f,Z:cabs(Zp),R:a.R,B:Math.abs(a.B)*I*cal.kB}); }
+  return pts;
+}
+
 function zCoil(S,g,f,cal){
   const core=coreModel(S,g,f), L=inductanceAir(S,g)*core.muApp*cal.kL;
   const Rdc=RHO_CU*(g.wire*1e-3)/(g.Acu*1e-6)*cal.kR, R=rac(S,g,Rdc,f).R, w=2*Math.PI*f;
@@ -850,6 +1502,7 @@ function zCoil(S,g,f,cal){
   return {Z:cdiv(cmul(ZL,Zc),cadd(ZL,Zc)),R,L,core};
 }
 function spectrum(S,r,cal){
+  if(r.custom) return spectrumCB(S,r,cal);
   const pts=[]; for(let k=0;k<=140;k++){ const f=Math.pow(10,k/140*Math.log10(3e7));
     const z=zCoil(S,r.g,f,cal); let Zt=cadd(z.Z,cx(S.Rs+S.Rdrv,0));
     if(r.Cser) Zt=cadd(Zt,cx(0,-1/(2*Math.PI*f*r.Cser)));
@@ -881,17 +1534,19 @@ const hz=f=>si(f,'Hz');
 const isMit=()=>S.mitOn, isBurst=()=>S.wave==='burst';
 const isSwitched=()=>S.wave==='pulse'||S.wave==='square'||(S.wave==='burst'&&S.fc<2290);
 const CTRL=[
- {sec:'Coil geometry',hint:'',items:[
-  {id:'coil',type:'select',label:'Coil form',opts:[['solenoid','Solenoid (cylindrical, multilayer)'],['pancake','Flat spiral (pancake)'],['helmholtz','Helmholtz pair (uniform volume)']]},
+ {sec:'Coil type',items:[
+  {id:'coil',type:'select',label:'Coil form',opts:[['custom','My build · composite (Build sheet)'],['solenoid','Solenoid (cylindrical, multilayer)'],['pancake','Flat spiral (pancake)'],['helmholtz','Helmholtz pair (uniform volume)']],note:()=>S.coil==='custom'?'Every part of the build is edited in the Build sheet: solenoid ring, outer winding, steel cores, pole pins.':''},
+ ]},
+ {sec:'Coil geometry',show:()=>S.coil!=='custom',items:[
   {id:'Di',label:()=>S.coil==='helmholtz'?'Coil diameter (spacing = radius)':'Inner diameter',unit:'mm',min:3,max:400,log:true},
   {id:'Lw',label:()=>S.coil==='helmholtz'?'Winding width, each coil':'Winding length',unit:'mm',min:1,max:300,log:true,show:()=>S.coil!=='pancake'},
   {id:'N',label:()=>S.coil==='helmholtz'?'Turns per coil':'Turns',unit:'',min:1,max:3000,log:true,int:true},
  ]},
- {sec:'Wire',items:[
+ {sec:'Wire',show:()=>S.coil!=='custom',items:[
   {id:'awg',label:'Gauge',unit:'AWG',min:10,max:40,step:1,int:true,note:()=>{const d=awgD(S.awg);return `Ø ${d.toFixed(3)} mm bare · ${(Math.PI*d*d/4).toFixed(3)} mm²`;}},
   {id:'wire',type:'select',label:'Conductor',opts:[['solid','Solid enamelled copper'],['litz','Litz (AWG 40 strands)']]},
  ]},
- {sec:'Core',items:[
+ {sec:'Core',show:()=>S.coil!=='custom',items:[
   {id:'core',type:'select',label:'Core material',opts:()=>Object.entries(CORES).filter(([k,c])=>c.types.includes(S.coil)).map(([k,c])=>[k,c.name]),
    note:()=>{const c=CORES[S.core]; return c.bsat<Infinity?`B_sat ≈ ${c.bsat} T · usable to ≈ ${hz(c.fmax)}`:'No saturation, no core loss';}},
  ]},
@@ -908,10 +1563,10 @@ const CTRL=[
   {id:'Cn',label:'Capacitance',unit:'nF',min:0.01,max:1e5,log:true,show:()=>S.tune==='manual'},
   {id:'clamp',type:'select',label:'Turn-off clamp',opts:[['diode','Freewheel diode (slow decay)'],['tvs','TVS / Zener clamp (fast decay)']],show:()=>S.wave==='pulse'&&S.tune==='none'},
   {id:'Vtvs',label:'Clamp voltage',unit:'V',min:5,max:300,log:true,show:()=>S.wave==='pulse'&&S.clamp==='tvs'&&S.tune==='none'},
-  {id:'gate',type:'select',label:'Gate drive',opts:[['direct','ESP32-S3 GPIO straight to MOSFET gate'],['driver','Gate driver IC (UCC27524 class)']],show:isSwitched,
-   note:()=>S.gate==='direct'?'3.3 V, ≈40 mA max: needs a logic-level MOSFET rated at V_GS ≤ 2.5 V':'Driver gives 10–12 V gate swing and amps of gate current'},
+  {id:'gate',type:'select',label:'Gate drive',opts:[['direct','ESP32-S3 GPIO straight to MOSFET gate'],['bjt','Discrete BJT driver: NPN/PNP pair, 12 V gate (no driver IC)'],['driver','Gate driver IC (UCC27524 class)']],show:isSwitched,
+   note:()=>S.gate==='direct'?'3.3 V, ≈40 mA max: needs a logic-level MOSFET rated at V_GS ≤ 2.5 V':S.gate==='bjt'?'Level-shift + complementary emitter-follower from a 12 V rail: ≈0.4 A gate current, full 10–12 V gate swing, standard (non-logic-level) MOSFETs work':'Driver gives 10–12 V gate swing and amps of gate current'},
   {id:'Qg',label:'MOSFET total gate charge',unit:'nC',min:1,max:300,log:true,show:isSwitched,note:()=>'Datasheet Q_g at the gate voltage you drive'},
-  {id:'Rg',label:'Gate series resistor',unit:'Ω',min:0,max:1000,step:1,show:()=>isSwitched()&&S.gate==='direct'},
+  {id:'Rg',label:'Gate series resistor',unit:'Ω',min:0,max:1000,step:1,show:()=>isSwitched()&&S.gate!=='driver'},
  ]},
  {sec:'Target',items:[
   {id:'tissue',type:'select',label:'Tissue',opts:Object.entries(TISSUES).map(([k,t])=>[k,t.name]),note:()=>`σ ≈ ${sigma(S.tissue,S.wave==='burst'?S.fc:S.f).toPrecision(2)} S/m at drive frequency`},
@@ -932,6 +1587,7 @@ function fmtInput(c,v){ if(c.int) return String(Math.round(v)); return String(+(
 function buildControls(){
   const root=$('controls'); root.innerHTML='';
   for(const sec of CTRL){
+    if(sec.show&&!sec.show()) continue;
     const card=document.createElement('section'); card.className='card';
     card.innerHTML=`<div class="sec-h"><h2>${sec.sec}</h2></div>`;
     const body=document.createElement('div'); body.className='ctl-sec';
@@ -962,6 +1618,8 @@ function buildControls(){
     card.appendChild(body); root.appendChild(card);
   }
   updateNotes();
+
+  renderBuildSheet();
 }
 function updateNotes(){ for(const sec of CTRL) for(const c of sec.items){ if(c.note){ const el=$('n_'+c.id); if(el) el.textContent=c.note(); } } }
 function markCustom(){ /* keep profile highlighted; targets still apply */ }
@@ -975,7 +1633,7 @@ function buildPresets(){
     b.addEventListener('click',()=>applyPreset(k)); root.appendChild(b);
   }
 }
-function applyPreset(k){ if(S.preset!==k) noteChange('preset','Profile',(PRESETS[S.preset]||{}).label||'custom',PRESETS[k].label,''); S=Object.assign({},S,DEF_MIT,PRESETS[k].s,{preset:k}); if(PRESETS[k].s.gate==null) Object.assign(S,{gate:S.gate||'direct',Qg:S.Qg||15,Rg:S.Rg??100}); BASE=null; $('pinBtn').classList.remove('on'); $('pinBtn').textContent='Pin baseline'; buildPresets(); buildControls(); schedule(); }
+function applyPreset(k){ if(S.preset!==k) noteChange('preset','Profile',(PRESETS[S.preset]||{}).label||'custom',PRESETS[k].label,''); S=Object.assign({},S,DEF_MIT,PRESETS[k].s,{preset:k}); if(S.coil==='custom'&&!S.cb) S.cb=cbDefault(); if(PRESETS[k].s.gate==null) Object.assign(S,{gate:S.gate||'direct',Qg:S.Qg||15,Rg:S.Rg??100}); BASE=null; $('pinBtn').classList.remove('on'); $('pinBtn').textContent='Pin baseline'; buildPresets(); buildControls(); schedule(); }
 
 /* ================= rendering ================= */
 let R=null, RAW=null, mapCache={key:'',grid:null};
@@ -995,7 +1653,7 @@ function update(){
   updateNotes();
   R.spec=spectrum(S,R,cal);
   renderChecks(); renderMetrics(); renderSi(); renderChain(); renderFw(); renderCal();
-  renderLive(); renderSchematic();
+  renderLive(); renderSchematic(); renderBuildDerived();
   if(!$('viewBench').hidden){ drawMap(); drawWave(); drawSpec(cal); }
   clearTimeout(update.sens); update.sens=setTimeout(()=>renderSens(R.cal), GEST.active?450:30);
 }
@@ -1003,6 +1661,7 @@ function css(v){ return getComputedStyle(document.documentElement).getPropertyVa
 
 /* ---------- checks ---------- */
 function buildChecks(r){
+  if(r.custom) return buildChecksCB(r);
   const S=r.S, out=[], P=PRESETS[S.preset], fm=r.fm, f=S.f;
   const add=(sev,title,fix,crit=true)=>out.push({sev,title,fix,crit});
   // frequency band
@@ -1085,7 +1744,7 @@ function renderChecks(){
   $('meterBar').style.background= sc>=80?'var(--ok)':sc>=55?'var(--warn)':'var(--crit)';
   const P=PRESETS[S.preset]; $('fitLabel').textContent=`Design fit · ${P?P.label:'custom'}`;
   const fm=R.fm, reg = fm<300?'ELF PEMF':fm<1e4?'VLF / pulsed':fm<1e6?'LF induction':'HF / MIT';
-  $('regime').textContent=`Regime: ${reg} · drive ${hz(fm)} · ${S.coil} · ${CORES[S.core].name.split('(')[0].trim().toLowerCase()} core`;
+  $('regime').textContent=R.custom?`Regime: ${reg} · drive ${hz(fm)} · composite build · ${R.cu.m.units.length} windings in series${R.cu.m.pieces.length?' · '+R.cu.m.pieces.length+' steel piece'+(R.cu.m.pieces.length>1?'s':''):''}`:`Regime: ${reg} · drive ${hz(fm)} · ${S.coil} · ${CORES[S.core].name.split('(')[0].trim().toLowerCase()} core`;
   const order={crit:0,warn:1,info:2,ok:3};
   const prevKeys=new Map(((GEST.ref&&GEST.ref.checks)||[]).map(c=>[c.key,c.sev]));
   $('checks').innerHTML=cks.slice().sort((a,b)=>order[a.sev]-order[b.sev]).map(c=>{ const k=ckey(c.title), was=prevKeys.get(k); const tag=GEST.ref&&(c.sev==='warn'||c.sev==='crit')&&was!==c.sev?`<span class="newtag">${was?'changed':'new'}</span>`:''; return `<div class="chk ${c.sev}"><b>${c.title}${tag}</b>${c.fix?`<span class="fix">${c.fix}</span>`:''}</div>`; }).join('');
@@ -1094,6 +1753,7 @@ function renderChecks(){
 /* ---------- metrics ---------- */
 let openM=new Set(['Bt']);
 function metricDefs(r){
+  if(r.custom) return metricDefsCB(r);
   const S=r.S,g=r.g,sim=r.sim,fm=r.fm,w=2*Math.PI*fm;
   const sel=(a,b)=>S.coil==='pancake'?a:b;
   const M=[];
@@ -1208,6 +1868,8 @@ function renderChain(){
   $('chainHint').textContent=siF?'Si5351 carries the timing; ESP32-S3 configures and gates':'ESP32-S3 timers carry the timing';
 }
 function renderFw(){
+  if(R.custom){ if(R.fwText===undefined&&!renderFw.first){ renderFw.first=1; renderFwCB(); } $('fwHead').textContent='Firmware · soft-AP controller'; $('dlFw').hidden=false; return; }
+  $('fwHead').textContent='Firmware'; $('dlFw').hidden=true;
   const S=R.S, siF=siFreq(R), P=PRESETS[S.preset];
   const L=[];
   L.push(`// Coil Workbench firmware sketch — ${P?P.label:'custom'} profile`);
@@ -1273,7 +1935,23 @@ function renderCal(){
 }
 
 /* ---------- sensitivity ---------- */
+function renderSensCB(cal){
+  const base={B:Math.abs(R.Bt),I:R.sim.ipk,P:R.P,E:R.E,srf:R.srf}, wi=S.cb.groups.findIndex(g=>g.kind==='wind'), ri=S.cb.groups.findIndex(g=>g.kind==='ring');
+  const vars=[['Supply voltage +10 %',s=>{s.V*=1.1;}],[S.wave==='burst'?'Carrier +10 %':'Frequency +10 %',s=>{if(s.wave==='burst')s.fc*=1.1;else s.f*=1.1;}]];
+  if(S.wave==='pulse') vars.push(['Pulse width +25 %',s=>{s.duty=Math.min(95,s.duty*1.25);}]);
+  vars.push(['Series resistor +1 Ω',s=>{s.Rs+=1;}]);
+  if(wi>=0) vars.push(['Outer winding +25 % wire',s=>{const g=s.cb.groups[wi]; g.lenM*=1.25; g.turns=0; g.Rm=0;}]);
+  if(ri>=0) vars.push(['Ring turns +10 % (rewind)',s=>{const g=s.cb.groups[ri]; g.N=Math.round(g.N*1.1); g.Rm=g.Rm>0?g.Rm*1.1:0;}]);
+  vars.push(['Target 10 mm deeper',s=>{s.depth+=10;}]);
+  const cols=[['B','B target'],['I','I peak'],['E','E induced'],['P','Coil heat'],['srf','SRF']];
+  let h='<thead><tr><th>Change</th>'+cols.map(c=>`<th>${c[1]}</th>`).join('')+'</tr></thead><tbody>';
+  for(const [lab,fn] of vars){ const s2=JSON.parse(JSON.stringify(S)); fn(s2); const r2=compute(s2,{cal});
+    const v={B:Math.abs(r2.Bt),I:r2.sim.ipk,P:r2.P,E:r2.E,srf:r2.srf};
+    h+=`<tr><td>${lab}</td>`+cols.map(([k])=>{ const p=(v[k]-base[k])/Math.abs(base[k]||1)*100; const good=k==='P'?p<0:p>0; const cls=Math.abs(p)<0.5?'flat':good?'up':'dn'; return `<td class="num ${cls}">${Math.abs(p)<0.05?'0':(p>0?'+':'')+p.toFixed(1)} %</td>`; }).join('')+'</tr>'; }
+  $('sensT').innerHTML=h+'</tbody>';
+}
 function renderSens(cal){
+  if(R.custom){ renderSensCB(cal); renderBuildAnalysis(); renderFwCB(); return; }
   const base={B:Math.abs(R.Bt),I:R.sim.ipk,P:R.P,E:R.E,srf:R.srf};
   const vars=[['Turns +10 %',s=>{s.N=Math.max(1,Math.round(s.N*1.1+0.4));}],['Gauge −1 AWG (thicker)',s=>{s.awg=Math.max(10,s.awg-1);}],['Diameter +10 %',s=>{s.Di*=1.1;}],[S.wave==='burst'?'Carrier +10 %':'Frequency +10 %',s=>{if(s.wave==='burst')s.fc*=1.1;else s.f*=1.1;}],['Voltage +10 %',s=>{s.V*=1.1;}],['Series R +1 Ω',s=>{s.Rs+=1;}]];
   if(S.coil!=='pancake') vars.splice(3,0,['Winding length +10 %',s=>{s.Lw*=1.1;}]);
@@ -1344,6 +2022,8 @@ function marching(grid,nx,ny,lv){ // grid indexed [j*(nx+1)+i], returns segments
 function haloText(x,txt,px,py,col,halo,align){ x.textAlign=align||'left'; x.lineWidth=3; x.strokeStyle=halo; x.lineJoin='round'; x.strokeText(txt,px,py); x.fillStyle=col; x.fillText(txt,px,py); }
 function pill(x,txt,px,py,fg,bg,border){ const w=x.measureText(txt).width+10, h=17; x.fillStyle=bg; x.strokeStyle=border||bg; x.lineWidth=1; x.beginPath(); x.roundRect?x.roundRect(px,py-h+4,w,h,4):x.rect(px,py-h+4,w,h); x.fill(); if(border) x.stroke(); x.fillStyle=fg; x.textAlign='left'; x.fillText(txt,px+5,py); return w; }
 function drawMap(){
+  if(R.custom) return drawMapCB();
+  $('mapHint').textContent='Axisymmetric cross-section through the coil axis';
   const c=$('mapC'), {x,w,h}=setupCanvas(c), S=R.S, g=R.g, dark=isDark();
   const ink=css('--ink'), mut=css('--muted'), panel=css('--panel'), cop=css('--copper'), okc=css('--ok'), crit=css('--crit'), warn=css('--warn');
   const pad={l:46,r:76,t:10,b:30}, pw=w-pad.l-pad.r, ph=h-pad.t-pad.b;
@@ -1491,7 +2171,7 @@ function drawMap(){
   $('mapLegend').innerHTML=`<span>${sumTxt}</span><span>${mode==='B'?'Colour bands':'Colour'}: ${mode==='B'?'|B|':'induced E = (dI/dt)·A<sub>φ</sub>'} at peak${mode==='E'?' dI/dt':' current'}, log scale · ${MAPV.lines?'thin lines = flux':'flux lines hidden'} · ⊙ ⊗ current out of / into the page</span><span>Hover to read values; click in tissue to move the target.</span>`;
   CH.map={pad,pw,ph,cx,W,zmin,Hm,w,h,G,scaleB,scaleE,nx,ny,X,Y};
 }
-function mapValueAt(px,py){ const C=CH.map; if(!C) return null; const rho=Math.abs(px-C.cx)/(C.pw/2)*C.W, z=C.zmin+(py-C.pad.t)/C.ph*C.Hm;
+function mapValueAt(px,py){ const C=CH.map; if(!C) return null; if(C.custom) return mapValueAtCB(px,py); const rho=Math.abs(px-C.cx)/(C.pw/2)*C.W, z=C.zmin+(py-C.pad.t)/C.ph*C.Hm;
   const fi=rho/C.W*C.nx, fj=(z-C.zmin)/C.Hm*C.ny; const i=clamp(Math.floor(fi),0,C.nx-1), j=clamp(Math.floor(fj),0,C.ny-1), tx=clamp(fi-i,0,1), ty=clamp(fj-j,0,1), N=C.nx+1;
   const bil=A=>(A[j*N+i]*(1-tx)+A[j*N+i+1]*tx)*(1-ty)+(A[(j+1)*N+i]*(1-tx)+A[(j+1)*N+i+1]*tx)*ty;
   const B=bil(C.G.B)*C.scaleB, psi=bil(C.G.PSI), E=Math.abs(psi/Math.max(rho,1e-6))*C.scaleE;
@@ -1691,13 +2371,17 @@ function syncControl(id){ for(const sec of CTRL) for(const c of sec.items) if(c.
     const inT = S.coil==='helmholtz' || p.z>0; const sig=sigma(S.tissue,R.feff);
     x.strokeStyle=isDark()?'rgba(255,255,255,.9)':'rgba(0,0,0,.8)'; x.lineWidth=1.5; x.beginPath(); x.arc(px,py,6,0,7); x.stroke();
     x.setLineDash([2,3]); x.beginPath(); x.moveTo(C.pad.l,py); x.lineTo(C.pad.l+C.pw,py); x.stroke(); x.setLineDash([]);
-    const L=[`r ${n(p.rho*1000,3)} mm · ${S.coil==='helmholtz'?'z':'depth'} ${n(p.z*1000,3)} mm`,`|B| ${si(p.B,'T')}`];
-    if(inT) L.push(`E ${n(p.E)} V/m · J ${si(sig*p.E,'A/m²')}`); else L.push('in air (no tissue current)');
+    let L;
+    if(p.custom){ L=[`x ${n(p.x*1000,3)} mm · ${p.z>=0?'depth':'height'} ${n(Math.abs(p.z)*1000,3)} mm`, p.E!=null?`E ${n(p.E)} V/m · J ${si(sig*p.E,'A/m²')}`:`|B| ${si(p.B,'T')} · B_z ${si(p.Bz,'T')}`]; if(p.E==null) L.push(`B_x ${si(p.Bx,'T')} (in plane)`); else if(!inT) L.push('in air (no tissue current)'); }
+    else { L=[`r ${n(p.rho*1000,3)} mm · ${S.coil==='helmholtz'?'z':'depth'} ${n(p.z*1000,3)} mm`,`|B| ${si(p.B,'T')}`];
+    if(inT) L.push(`E ${n(p.E)} V/m · J ${si(sig*p.E,'A/m²')}`); else L.push('in air (no tissue current)'); }
     if(inT) L.push(`click: move target here`);
     tip(x,L,px,py,C.w,C.h); });
   mo.addEventListener('pointerleave',()=>ovCtx('mapO'));
   mo.addEventListener('click',e=>{ const C=CH.map; if(!C) return; const [px,py]=ovPos(e,mo); const p=mapValueAt(px,py); if(!p||!p.inside||!(S.coil==='helmholtz'||p.z>0)) return;
-    const d=+clamp(Math.abs(p.z)*1000,0,250).toFixed(1); noteChange('depth',S.coil==='helmholtz'?'Offset from centre':'Depth below coil face',S.depth,d,'mm'); S.depth=d; syncControl('depth'); schedule(); });
+    const d=+clamp(Math.abs(p.z)*1000,0,250).toFixed(1); noteChange('depth',S.coil==='helmholtz'?'Offset from centre':'Depth below coil face',S.depth,d,'mm'); S.depth=d; syncControl('depth');
+    if(p.custom){ const tx=+clamp(p.x*1000,-200,200).toFixed(1); S.cb.tx=tx; const ti=$('bs_x_tx'); if(ti) ti.value=tx; }
+    schedule(); });
 })();
 
 /* ================= wiring diagram (adaptive schematic + BOM) ================= */
@@ -1990,19 +2674,647 @@ function buildSchematic(r){
   return {svg:g.join('')+`<g transform="translate(230,0)">${stage.join('')}</g>`,bom,notes,topo,title};
 }
 function renderSchematic(){
-  const r=R, out=buildSchematic(r);
-  const H=r.S.mitOn?660:(out.topo==='fullbridge'?700:600);
+  const r=R, out=r.custom?buildSchematicCB(r):buildSchematic(r);
+  const H=r.custom?540:(r.S.mitOn?660:(out.topo==='fullbridge'?700:600));
+  $('coilWiring').innerHTML=r.custom?buildCoilWiring(r):''; $('coilWiringHead').hidden=!r.custom;
   $('sch').innerHTML=`<svg class="schem" viewBox="0 0 1380 ${H}" role="img" aria-label="Wiring diagram: ${escH(out.title)}"><title>${escH(out.title)}</title>${out.svg}</svg>`;
   $('schHint').textContent=`${out.title} · redraws as you change the design`;
-  $('bomT').innerHTML='<thead><tr><th>Ref</th><th>Part</th><th>Value / rating</th><th>Why this part</th></tr></thead><tbody>'+out.bom.map(b=>`<tr><td class="num">${escH(b.ref)}</td><td>${escH(b.part)}</td><td>${escH(b.value)}</td><td>${escH(b.why)}</td></tr>`).join('')+'</tbody>';
+  $('bomT').innerHTML='<thead><tr><th>Ref</th><th>Part</th><th>Value / rating</th><th>Why this part</th>'+(out.bom.some(b=>b.src)?'<th>Source</th>':'')+'</tr></thead><tbody>'+out.bom.map(b=>`<tr><td class="num">${escH(b.ref)}</td><td>${escH(b.part)}</td><td>${escH(b.value)}</td><td>${escH(b.why)}</td>${b.src?`<td class="src ${/buy/.test(b.src)?'buy':'have'}">${escH(b.src)}</td>`:''}</tr>`).join('')+'</tbody>';
   $('schNotes').innerHTML=(out.notes.length?out.notes.map(t=>`<p>⚠ ${escH(t)}</p>`).join(''):'')+'<p>Net labels (pointed tags) connect pins with the same name. Ratings are computed from the simulated current, voltage and frequency; verify against datasheets before building.</p>';
   SCH.last=out;
+}
+
+
+/* ================= Build sheet ================= */
+const BS_F={
+ ring:[
+  {k:'n',l:'Solenoids in the ring',min:1,max:24,int:1},{k:'N',l:'Turns each',min:1,max:5000,int:1},
+  {k:'ID',l:'Bore Ø',u:'mm',min:0.5,max:100},{k:'OD',l:'Outer Ø',u:'mm',min:1,max:150},
+  {k:'len',l:'Length',u:'mm',min:1,max:150},{k:'awg',l:'Wire',u:'AWG',min:10,max:44,int:1},
+  {k:'Rm',l:'Measured R each',u:'Ω',min:0,max:500,note:'0 = compute from wire'},{k:'arrayOD',l:'Array outer Ø',u:'mm',min:0,max:300,note:'0 = packed round the core'},
+  {k:'z0',l:'Rear of face (0 = flush)',u:'mm',min:-80,max:0}],
+ pin:[
+  {k:'bD',l:'Pin bundle Ø',u:'mm',min:0.5,max:100},{k:'bLen',l:'Pin length',u:'mm',min:1,max:150},
+  {k:'bZ0',l:'Pin tip position',u:'mm',min:-60,max:0,note:'0 = flush with the face'},{k:'bFill',l:'Steel fill (0–1)',min:0.05,max:1},
+  {k:'bRodD',l:'Single rod Ø',u:'mm',min:0.2,max:60}],
+ wind:[
+  {k:'awg',l:'Wire',u:'AWG',min:6,max:44,int:1},{k:'dins',l:'Insulated Ø',u:'mm',min:0.1,max:8},
+  {k:'lenM',l:'Wire length',u:'m',min:0,max:500,note:true},{k:'turns',l:'Turns (0 = from length)',min:0,max:3000,int:1},
+  {k:'Rm',l:'Measured R',u:'Ω',min:0,max:500,note:'0 = compute from wire'},{k:'Di',l:'Inner Ø',u:'mm',min:1,max:400},
+  {k:'Do',l:'Outer Ø',u:'mm',min:2,max:600},{k:'h',l:'Height (helical)',u:'mm',min:1,max:300},{k:'z0',l:'Rear of face (0 = flush)',u:'mm',min:-80,max:0}],
+ core:[
+  {k:'D',l:'Bundle Ø',u:'mm',min:1,max:200},{k:'len',l:'Length',u:'mm',min:1,max:300},{k:'z0',l:'Tip position',u:'mm',min:-60,max:0,note:'0 = flush with the face'},
+  {k:'fill',l:'Steel fill (0–1)',min:0.05,max:1},{k:'rodD',l:'Single rod Ø',u:'mm',min:0.2,max:60}]
+};
+const BS_SEL={
+ ring:[{k:'bMat',l:'Pole pins in the bores',o:[['none','None (air)'],['steel','Galvanized steel rods'],['iron','Soft iron rods'],['fesi','Silicon-steel rods'],['mnzn','MnZn ferrite rods']]},{k:'bInsul',l:'Pin rods insulated from each other?',o:[['partial','Partly (touching, zinc coat)'],['good','Yes (lacquered / separate)'],['none','No (solid slug)']]}],
+ wind:[{k:'mat',l:'Conductor',o:[['cu','Copper'],['al','Aluminium'],['cca','Copper-clad aluminium']]},{k:'form',l:'Winding layout',o:[['flat','Flat spiral(s), stacked behind the face'],['helical','Cylindrical layers (solenoid)']]}],
+ core:[{k:'mat',l:'Core material',o:[['none','None (air)'],['steel','Galvanized steel rods'],['iron','Soft iron rods'],['fesi','Silicon-steel rods'],['mnzn','MnZn ferrite rods']]},{k:'insul',l:'Rods insulated from each other?',o:[['partial','Partly (touching, zinc coat)'],['good','Yes (lacquered / separate)'],['none','No (solid slug)']]}]
+};
+const BS_KINDS={ring:'Solenoid ring',wind:'Winding (by wire length)',core:'Centre / steel core'};
+function bsNewGroup(kind){
+  const d=cbDefault().groups.find(g=>g.kind===kind); const g=JSON.parse(JSON.stringify(d));
+  g.id=kind+Date.now().toString(36); g.name=BS_KINDS[kind]; if(kind==='core'&&g.mat==='none') g.mat='steel'; return g;
+}
+function bsFieldHTML(gi,f,val){
+  const id=`bs_${gi}_${f.k}`;
+  return `<div class="bs-f"><label for="${id}"><span>${f.l}</span><span class="u">${f.u||''}</span></label><input type="number" step="any" id="${id}" data-gi="${gi}" data-k="${f.k}" value="${+(+val).toPrecision(5)}">${f.note?`<div class="note" id="${id}_n">${typeof f.note==='string'?f.note:''}</div>`:''}</div>`;
+}
+function bsSelHTML(gi,f,val){
+  const id=`bs_${gi}_${f.k}`;
+  return `<div class="bs-f wide"><label for="${id}"><span>${f.l}</span></label><select id="${id}" data-gi="${gi}" data-k="${f.k}">${f.o.map(o=>`<option value="${o[0]}"${o[0]===val?' selected':''}>${o[1]}</option>`).join('')}</select></div>`;
+}
+function renderBuildSheet(){
+  const el=$('buildSheet'); if(!el) return;
+  el.hidden=S.coil!=='custom'; if(el.hidden) return;
+  if(!S.cb) S.cb=cbDefault();
+  const cb=S.cb;
+  const cards=cb.groups.map((g,gi)=>{
+    let body='';
+    if(g.kind==='ring'){
+      body+=`<div class="bs-fields">${BS_F.ring.map(f=>bsFieldHTML(gi,f,g[f.k])).join('')}</div>`;
+      body+=`<label class="bs-chk"><input type="checkbox" data-gi="${gi}" data-k="alt"${g.alt?' checked':''}> Alternate winding direction (N–S–N–S; needs an even count)</label>`;
+      body+=`<div class="bs-sub">Pole pieces inside each bore</div><div class="bs-fields">${BS_SEL.ring.map(f=>bsSelHTML(gi,f,g[f.k])).join('')}</div>`;
+      if(g.bMat&&g.bMat!=='none') body+=`<div class="bs-fields">${BS_F.pin.map(f=>bsFieldHTML(gi,f,g[f.k])).join('')}</div>`;
+    } else if(g.kind==='wind'){
+      body+=`<div class="bs-fields">${BS_SEL.wind.map(f=>bsSelHTML(gi,f,g[f.k])).join('')}</div><div class="bs-fields">${BS_F.wind.map(f=>bsFieldHTML(gi,f,g[f.k])).join('')}</div>`;
+    } else {
+      body+=`<div class="bs-fields">${BS_SEL.core.map(f=>bsSelHTML(gi,f,g[f.k])).join('')}</div>`;
+      if(g.mat&&g.mat!=='none') body+=`<div class="bs-fields">${BS_F.core.map(f=>bsFieldHTML(gi,f,g[f.k])).join('')}</div>`;
+    }
+    return `<div class="bs-g k-${g.kind}"><div class="bs-gh"><span class="bs-badge">${g.kind==='ring'?'RING':g.kind==='wind'?'WINDING':'CORE'}</span><input type="text" class="bs-name" data-gi="${gi}" data-k="name" value="${escH(g.name)}" aria-label="Group name"><button type="button" class="bs-x" data-del="${gi}" title="Remove this group" aria-label="Remove ${escH(g.name)}">×</button></div>${body}<div class="bs-d" id="bsd_${gi}"></div></div>`;
+  }).join('');
+  el.innerHTML=`<div class="sec-h"><h2>Build sheet · your coil</h2><span class="hint">All parts are in series. Edit anything: the model, map, checks and wiring plan follow.</span></div>
+   <div class="bs-sum" id="bsSum"></div>
+   <div class="bs-groups">${cards}</div>
+   <div class="bs-bar">
+     <span class="bs-add">Add: <button type="button" class="btn sm" data-add="ring">+ Solenoid ring</button><button type="button" class="btn sm" data-add="wind">+ Winding</button><button type="button" class="btn sm" data-add="core">+ Steel core</button></span>
+     <span class="bs-glob">
+       ${bsFieldHTML('x',{k:'Rx',l:'Leads / joints R',u:'Ω',min:0,max:50},cb.Rx||0)}
+       ${bsFieldHTML('x',{k:'tx',l:'Target offset from centre',u:'mm',min:-200,max:200},cb.tx||0)}
+       ${bsFieldHTML('x',{k:'dTlim',l:'Surface rise limit',u:'°C',min:2,max:60},cb.dTlim||20)}
+     </span>
+     <span class="bs-act"><button type="button" class="btn" id="bsDuty">Set pulse width to hold the limit</button><button type="button" class="btn" id="bsReset">Reset to my measured build</button></span>
+   </div>
+   <div class="bs-out" id="bsDutyOut"></div>
+   <div class="bs-tabs"><div><div class="sec-h"><h3>Where the field at the target comes from</h3></div><div class="sens"><table id="bsContrib"></table></div></div>
+   <div><div class="sec-h"><h3>What-if: change the build</h3></div><div class="sens"><table id="bsWhat"></table></div></div></div>`;
+  renderBuildDerived();
+}
+function renderBuildDerived(){
+  const el=$('buildSheet'); if(!el||el.hidden||!R||!R.custom) return;
+  const m=R.cu.m, cb=S.cb, V=S.V;
+  const Idc=V/(R.Rdc+S.Rs+S.Rdrv);
+  const chips=[
+    [`${n(R.Rdc,3)} Ω`,'total DC resistance'],[`${n(Idc,3)} A`,`DC current at ${V} V`],[`${si(R.L,'H',3)}`,'inductance (with cores)'],[`${si(R.tau,'s',3)}`,'L/R time constant'],
+    [`${n(m.wire,3)} m`,'wire in the coil'],[`${n(m.mass*1000,3)} g`,'conductor mass'],[`${n(2*m.rout*1000,3)} mm`,'coil diameter']];
+  $('bsSum').innerHTML=chips.map(c=>`<span class="bs-chip"><b>${c[0]}</b>${c[1]}</span>`).join('');
+  cb.groups.forEach((g,gi)=>{
+    const d=$('bsd_'+gi); if(!d) return; const gr=m.groups.find(x=>x.gi===gi); let h='';
+    if(g.kind==='ring'&&gr){
+      const sp=gr.count>1?2*gr.Rr*Math.sin(Math.PI/gr.count):Infinity, ov=sp<g.OD-0.01;
+      h=`R ${n(gr.R,3)} Ω each${g.Rm>0?' (measured)':''}, ${n(gr.Rcalc,3)} Ω from wire · series total ${n(gr.R*gr.count,3)} Ω<br>wire ${n(gr.wl,3)} m each · L(self) ${n(gr.Lself*1e3,3)} mH each · ring radius ${n(gr.Rr,3)} mm`+(isFinite(sp)?` · centre spacing ${n(sp,3)} mm`:'')+(ov?`<br><span class="bad">Solenoids overlap: spacing is below the ${g.OD} mm outer diameter. Enlarge the array or reduce the count.</span>`:'');
+      const pc=m.pieces.map((p,j)=>[p,j]).filter(([p])=>p.gi===gi);
+      if(pc.length){ const [p,j]=pc[0], c=CB_CORES[p.mat]; const tau=MU0*c.mu*c.sig*(p.eddyD/2)**2/5.783; h+=`<br>Pins: eddy time constant ${si(tau,'s',2)}; response ${n(R.cu.fr.flat[j]*100,3)} % of full permeability at this pulse width`; }
+    } else if(g.kind==='wind'&&gr){
+      h=`${gr.N} turns · ${n(gr.wl,3)} m (${n(gr.wl*3.2808,3)} ft) · R ${n(gr.R,3)} Ω${g.Rm>0?' (measured)':''}, ${n(gr.Rcalc,3)} Ω from wire<br>L(self) ${n(gr.Lself*1e3,3)} mH · ${gr.rows} row${gr.rows===1?'':'s'} × ${gr.tpr} turns · outer Ø ${n(2*gr.rmax*1000,3)} mm · mass ${n(m.units.find(u=>u.gi===gi).mass*1000,3)} g`;
+      const ln=$(`bs_${gi}_lenM_n`); if(ln) ln.textContent=`= ${n(g.lenM*3.2808,3)} ft${g.turns>0?' (ignored: turns set)':''}`;
+    } else if(g.kind==='core'&&g.mat!=='none'){
+      const pc=m.pieces.map((p,j)=>[p,j]).filter(([p])=>p.gi===gi);
+      if(pc.length){ const [p,j]=pc[0], c=CB_CORES[p.mat]; const tau=MU0*c.mu*c.sig*(p.eddyD/2)**2/5.783; h=`Length/Ø ${n(p.len/p.D,3)} → demagnetising factor ${n(p.Nd,3)}<br>Eddy time constant ${si(tau,'s',2)}; permeability at this pulse width ${n(R.cu.fr.flat[j]*100,3)} % of static<br>Flux density in the steel ${n(Math.abs(R.cu.stF.Bin[j])/p.fill*R.sim.ipk,3)} T of ${c.bsat} T`; }
+    }
+    d.innerHTML=h;
+  });
+}
+function bsSet(gi,k,v,label,unit){
+  const tgt=gi==='x'?S.cb:S.cb.groups[+gi]; if(!tgt) return false;
+  if(tgt[k]===v) return false;
+  noteChange('cb.'+gi+'.'+k,label,tgt[k],v,unit||''); tgt[k]=v; return true;
+}
+function bsFindField(gi,k){
+  if(gi==='x') return {Rx:{l:'Leads / joints R',u:'Ω',min:0,max:50},tx:{l:'Target offset',u:'mm',min:-200,max:200},dTlim:{l:'Surface rise limit',u:'°C',min:2,max:60}}[k];
+  const g=S.cb.groups[+gi]; if(!g) return null; const all=[].concat(BS_F[g.kind]||[],g.kind==='ring'?BS_F.pin:[]); return all.find(f=>f.k===k);
+}
+(function(){
+  const el=$('buildSheet'); if(!el) return;
+  el.addEventListener('input',e=>{
+    const t=e.target; if(t.dataset.k==null) return;
+    if(t.type==='number'){ const f=bsFindField(t.dataset.gi,t.dataset.k); if(!f) return; let v=parseFloat(t.value); if(!isFinite(v)) return; v=clamp(v,f.min,f.max); if(f.int) v=Math.round(v);
+      const nm=t.dataset.gi==='x'?f.l:`${S.cb.groups[+t.dataset.gi].name} · ${f.l}`; if(bsSet(t.dataset.gi,t.dataset.k,v,nm,f.u)) schedule(); }
+    else if(t.type==='text'){ S.cb.groups[+t.dataset.gi].name=t.value.slice(0,40); schedule(); }
+  });
+  el.addEventListener('change',e=>{
+    const t=e.target; if(t.dataset.k==null) return;
+    if(t.tagName==='SELECT'){ const g=S.cb.groups[+t.dataset.gi]; bsSet(t.dataset.gi,t.dataset.k,t.value,`${g.name} · ${t.previousElementSibling?t.previousElementSibling.textContent:t.dataset.k}`,''); renderBuildSheet(); schedule(); }
+    else if(t.type==='checkbox'){ const g=S.cb.groups[+t.dataset.gi]; if(t.checked&&Math.round(g.n)%2){ t.checked=false; toast('Alternating needs an even number of solenoids'); return; } bsSet(t.dataset.gi,t.dataset.k,t.checked?1:0,`${g.name} · alternate direction`,''); schedule(); }
+    else if(t.type==='number'){ const f=bsFindField(t.dataset.gi,t.dataset.k); if(f){ let v=clamp(parseFloat(t.value),f.min,f.max); if(isFinite(v)) t.value=+(+v).toPrecision(5); } }
+  });
+  el.addEventListener('click',e=>{
+    const b=e.target.closest('button'); if(!b) return;
+    if(b.dataset.del!=null){ const gi=+b.dataset.del; if(S.cb.groups.length<=1){ toast('Keep at least one group'); return; } noteChange('cbdel','Removed group',S.cb.groups[gi].name,'—',''); S.cb.groups.splice(gi,1); renderBuildSheet(); schedule(); }
+    else if(b.dataset.add){ S.cb.groups.push(bsNewGroup(b.dataset.add)); noteChange('cbadd','Added group','—',BS_KINDS[b.dataset.add],''); renderBuildSheet(); schedule(); }
+    else if(b.id==='bsReset'){ S.cb=cbDefault(); noteChange('cbreset','Build','edited','measured build',''); renderBuildSheet(); schedule(); }
+    else if(b.id==='bsDuty'){ bsSolveDuty(); }
+  });
+})();
+function bsSolveDuty(){
+  const out=$('bsDutyOut'), lim=S.cb.dTlim||20;
+  if(S.wave!=='pulse'){ out.textContent='Pulse width control applies to the unipolar pulse waveform.'; return; }
+  const fn=d=>compute(Object.assign({},S,{duty:d}),{cal:R.cal}).dT;
+  let lo=0.1, hi=95; if(fn(lo)>lim){ out.textContent=`Even a 0.1 % pulse exceeds ${lim} °C: reduce the supply voltage or add series resistance.`; return; }
+  let d; if(fn(hi)<=lim) d=hi; else { for(let i=0;i<28;i++){ const mid=(lo+hi)/2; if(fn(mid)>lim) hi=mid; else lo=mid; } d=lo; }
+  d=+d.toPrecision(3); const ton=d/100/S.f;
+  noteChange('duty','Pulse width (duty)',S.duty,d,'%'); S.duty=d; syncControl('duty'); schedule();
+  out.innerHTML=`Pulse width set to <b>${n(d,3)} %</b> (${si(ton,'s',3)} on-time at ${hz(S.f)}) so the hottest group stays within ${lim} °C above ambient in still air. Skin contact cools less well than free air; leave a spacer.`;
+}
+function renderBuildAnalysis(){
+  const el=$('buildSheet'); if(!el||el.hidden||!R||!R.custom||!$('bsWhat')) return;
+  const cu=R.cu, m=cu.m, ipk=R.sim.ipk, kB=R.cal.kB;
+  // contributions
+  const rows=[]; const tx=(S.cb.tx||0)*1e-3, zt=S.depth*1e-3;
+  S.cb.groups.forEach((g,gi)=>{
+    if(g.kind==='core'||!m.groups.find(x=>x.gi===gi)) return;
+    let b=0; for(const u of m.units) if(u.gi===gi) b+=cbBz(u.loops,tx,0,zt);
+    rows.push([g.name+' (air-core field)',b*ipk*kB]);
+  });
+  const byG=new Map(); m.pieces.forEach((p,j)=>{ byG.set(p.gi,(byG.get(p.gi)||0)+cu.stF.M[j]*cu.t1s[j]*R.satCs); });
+  for(const [gi,b] of byG){ const g=S.cb.groups[gi]; rows.push([`${g.name} ${g.kind==='ring'?'(steel pins)':'(steel core)'}`,b*ipk*kB]); }
+  const tot=Math.abs(R.Bt)||1e-12;
+  $('bsContrib').innerHTML='<thead><tr><th>Part</th><th>B at target</th><th>Share</th></tr></thead><tbody>'+rows.map(r=>`<tr><td>${escH(r[0])}</td><td class="num ${r[1]<0?'dn':''}">${si(r[1],'T',3)}</td><td class="num">${(r[1]/R.Bt*100).toFixed(0)} %</td></tr>`).join('')+`<tr><td><b>Total at target</b></td><td class="num"><b>${si(R.Bt,'T',3)}</b></td><td class="num">100 %</td></tr></tbody>`;
+  // what-if
+  const ri=S.cb.groups.findIndex(g=>g.kind==='ring'), wi=S.cb.groups.findIndex(g=>g.kind==='wind'), ci=S.cb.groups.findIndex(g=>g.kind==='core');
+  const hasPins=ri>=0&&S.cb.groups[ri].bMat&&S.cb.groups[ri].bMat!=='none', hasCore=ci>=0&&S.cb.groups[ci].mat!=='none';
+  const V=[['As built',s=>{}]];
+  if(ri>=0) V.push([hasPins?'Take the pole pins out':'Steel pins in the solenoid bores',s=>{ const g=s.cb.groups[ri]; if(hasPins) g.bMat='none'; else { g.bMat='steel'; g.bD=Math.max(1,g.ID-1); g.bLen=Math.max(g.len+8,20); g.bZ0=0; } }]);
+  if(hasCore||ci<0) V.push([hasCore?'Take the centre core out':'Add a centre steel core',s=>{ if(hasCore) s.cb.groups[ci].mat='none'; else s.cb.groups.push(bsNewGroup('core')); }]);
+  if(ri>=0&&!hasPins&&hasCore) V.push(['Pins in bores, centre core out',s=>{ const g=s.cb.groups[ri]; g.bMat='steel'; g.bD=Math.max(1,g.ID-1); g.bLen=Math.max(g.len+8,20); g.bZ0=0; s.cb.groups[ci].mat='none'; }]);
+  if(wi>=0){ V.push(['Outer winding: double the wire length',s=>{ s.cb.groups[wi].lenM*=2; s.cb.groups[wi].turns=0; s.cb.groups[wi].Rm=0; }]); V.push(['Outer winding removed',s=>{ s.cb.groups.splice(wi,1); }]); }
+  const B0=Math.abs(R.Bt);
+  let h='<thead><tr><th>Change</th><th>L</th><th>I peak</th><th>B at target</th><th>vs built</th><th>Hot-spot ΔT</th></tr></thead><tbody>';
+  for(const [lab,fn] of V){ const s2=JSON.parse(JSON.stringify(S)); fn(s2); let r2; try{ r2=compute(s2,{cal:R.cal}); }catch(err){ continue; }
+    const q=(Math.abs(r2.Bt)/B0-1)*100, cls=lab==='As built'?'flat':Math.abs(q)<1?'flat':q>0?'up':'dn';
+    h+=`<tr><td>${escH(lab)}</td><td class="num">${si(r2.L,'H',3)}</td><td class="num">${si(r2.sim.ipk,'A',3)}</td><td class="num">${si(Math.abs(r2.Bt),'T',3)}</td><td class="num ${cls}">${lab==='As built'?'—':(q>0?'+':'')+q.toFixed(0)+' %'}</td><td class="num">${n(r2.dT,3)} °C</td></tr>`; }
+  $('bsWhat').innerHTML=h+'</tbody>';
+}
+
+
+/* ================= composite coil: field map (plane through solenoid #1's axis) ================= */
+let cbMapCache={key:'',G:null,E:null};
+function cbMapDims(S,m,aspect){
+  let zlow=0; for(const u of m.units){ for(const l of u.loops) zlow=Math.min(zlow,l.z); } for(const p of m.pieces) zlow=Math.min(zlow,p.zTop-p.len);
+  const rout=m.rout, d=S.depth*1e-3, tx=Math.abs((S.cb.tx||0)*1e-3);
+  const Wn=Math.max(rout*1.3,tx+25e-3,30e-3);
+  const zmin=zlow-Math.max(0.3*Math.abs(zlow),4e-3), zmaxN=Math.max(d*1.35+4e-3,rout*1.5,30e-3);
+  let Hm=Math.max(zmaxN-zmin,2*Wn/aspect); const W=Hm*aspect/2; return {W,zmin,zmax:zmin+Hm,Hm};
+}
+function cbMapGrids(S,cu,dim,nx){
+  const m=cu.m, ny=Math.max(nx<50?22:34,Math.round(nx*dim.Hm/(2*dim.W))), N1=nx+1, tot=N1*(ny+1);
+  const key=JSON.stringify([S.cb.groups,nx,ny,dim.W,dim.zmin,dim.zmax]);
+  let C=cbMapCache; if(C.key!==key){
+    const air={x:new Float32Array(tot),z:new Float32Array(tot)}, tmp=[0,0,0], pcs=m.pieces.map(()=>({x:new Float32Array(tot),z:new Float32Array(tot)}));
+    for(let j=0;j<=ny;j++){ const z=dim.zmin+dim.Hm*j/ny; for(let i=0;i<=nx;i++){ const x=-dim.W+2*dim.W*i/nx, k=j*N1+i;
+      cbBvec(m.coil,x,1e-7,z,tmp); air.x[k]=tmp[0]; air.z[k]=tmp[2];
+      for(let q=0;q<m.pieces.length;q++){ cbBvec(m.pieces[q].rings,x,1e-7,z,tmp); pcs[q].x[k]=tmp[0]; pcs[q].z[k]=tmp[2]; } } }
+    C=cbMapCache={key,nx,ny,tot,air,pcs,E:null,Ekey:''};
+  }
+  return C;
+}
+function cbMapB(C,cu,sc){ // combine into total Bx,Bz per amp (flat-top core state, saturation-scaled)
+  const bx=new Float32Array(C.tot), bz=new Float32Array(C.tot), M=cu.stF.M;
+  for(let k=0;k<C.tot;k++){ let x=C.air.x[k], z=C.air.z[k]; for(let q=0;q<M.length;q++){ const mq=M[q]*sc; x+=mq*C.pcs[q].x[k]; z+=mq*C.pcs[q].z[k]; } bx[k]=x; bz[k]=z; }
+  return {bx,bz};
+}
+function cbMapE(C,cu,dim,S){
+  const key=JSON.stringify(cu.stE.M)+C.key; if(C.Ekey===key&&C.E) return C.E;
+  const nr=C.nx/2, ny=C.ny, m=cu.m, E=new Float32Array((nr+1)*(ny+1));
+  for(let j=0;j<=ny;j++){ const z=dim.zmin+dim.Hm*j/ny; for(let i=0;i<=nr;i++){ const r=Math.max(dim.W*i/nr,dim.W*0.012/nr); E[j*(nr+1)+i]=Math.abs(cbPhiCircle(m,cu.stE,r,z))/(2*Math.PI*r); } }
+  C.E=E; C.Ekey=key; return E;
+}
+function cbStreams(bxf,bzf,dim,pxPerM,minB){
+  const sep=15/pxPerM, dt=sep*0.45, lines=[], occ=new Map(), cs=sep*0.5;
+  const ck=(x,z)=>Math.floor((x+dim.W)/cs)*4096+Math.floor((z-dim.zmin)/cs);
+  const near=(x,z,id)=>{ const ix=Math.floor((x+dim.W)/cs), iz=Math.floor((z-dim.zmin)/cs); for(let a=-1;a<=1;a++) for(let b=-1;b<=1;b++){ const o=occ.get((ix+a)*4096+iz+b); if(o!==undefined&&o!==id) return true; } return false; };
+  const inside=(x,z)=>x>=-dim.W&&x<=dim.W&&z>=dim.zmin&&z<=dim.zmax;
+  const vec=(x,z,sg)=>{ const bx=bxf(x,z), bz=bzf(x,z), mg=Math.hypot(bx,bz); return mg>minB?[sg*bx/mg,sg*bz/mg,mg]:null; };
+  const trace=(x,z,sg,id)=>{ const pts=[]; for(let s=0;s<260;s++){ const v1=vec(x,z,sg); if(!v1) break; const xm=x+v1[0]*dt/2, zm=z+v1[1]*dt/2, v2=vec(xm,zm,sg); if(!v2) break; x+=v2[0]*dt; z+=v2[1]*dt; if(!inside(x,z)) break; if(near(x,z,id)) break; pts.push([x,z]); occ.set(ck(x,z),id); } return pts; };
+  let id=0; const nxs=Math.floor(2*dim.W/sep), nzs=Math.floor(dim.Hm/sep);
+  const seeds=[]; for(let a=0;a<=nxs;a++) for(let b=0;b<=nzs;b++) seeds.push([-dim.W+(a+0.5)*sep*(2*dim.W/(nxs*sep+sep)),dim.zmin+(b+0.5)*sep*(dim.Hm/(nzs*sep+sep))]);
+  // centre-out ordering gives tidy lines
+  seeds.sort((p,q)=>Math.hypot(p[0],p[1]-0.01)-Math.hypot(q[0],q[1]-0.01));
+  for(const [sx,sz] of seeds){ if(!vec(sx,sz,1)||near(sx,sz,-1)) continue; id++; occ.set(ck(sx,sz),id); const f=trace(sx,sz,1,id), b=trace(sx,sz,-1,id); const pts=b.reverse().concat([[sx,sz]],f); if(pts.length>6) lines.push(pts); if(lines.length>420) break; }
+  return lines;
+}
+function cbBilin(A,nx,ny,fx,fy){ const i=clamp(Math.floor(fx),0,nx-1), j=clamp(Math.floor(fy),0,ny-1), tx=clamp(fx-i,0,1), ty=clamp(fy-j,0,1), N=nx+1; return (A[j*N+i]*(1-tx)+A[j*N+i+1]*tx)*(1-ty)+(A[(j+1)*N+i]*(1-tx)+A[(j+1)*N+i+1]*tx)*ty; }
+function drawMapCB(){
+  const c=$('mapC'), {x,w,h}=setupCanvas(c), S=R.S, cu=R.cu, m=cu.m, dark=isDark();
+  const ink=css('--ink'), mut=css('--muted'), panel=css('--panel'), cop=css('--copper'), okc=css('--ok'), crit=css('--crit'), warn=css('--warn');
+  const pad={l:46,r:76,t:10,b:30}, pw=w-pad.l-pad.r, ph=h-pad.t-pad.b;
+  const dim=cbMapDims(S,m,pw/ph), {W,zmin,zmax,Hm}=dim;
+  const nx=GEST.active?44:96, C=cbMapGrids(S,cu,dim,nx), ny=C.ny, N1=nx+1;
+  const mode=MAPV.mode, kB=R.cal.kB, ipk=R.sim.ipk;
+  const BF=cbMapB(C,cu,R.satCs);
+  const X=xx=>pad.l+(xx+W)/(2*W)*pw, Y=z=>pad.t+(z-zmin)/Hm*ph;
+  const V=new Float32Array(C.tot), LV=new Float32Array(C.tot);
+  const scaleB=ipk*kB, scaleE=R.sim.didtPk*kB;
+  let EG=null; if(mode==='E') EG=cbMapE(C,cu,dim,S);
+  let vmaxT=0;
+  for(let j=0;j<=ny;j++){ const z=zmin+Hm*j/ny; for(let i=0;i<=nx;i++){ const k=j*N1+i; let v;
+    if(mode==='B') v=Math.hypot(BF.bx[k],BF.bz[k])*scaleB; else { const ir=Math.abs(i-nx/2); v=EG[j*(nx/2+1)+ir]*scaleE; }
+    V[k]=v; LV[k]=v>0?Math.log10(v):-1e31; if(z>=0&&isFinite(v)&&v>vmaxT) vmaxT=v; } }
+  const faceMax=Math.abs(R.B0);
+  let vmax=mode==='B'?Math.max(faceMax*1.6,vmaxT*0.6):vmaxT*1.05; if(!(vmax>0)) vmax=1e-6;
+  let vmin=vmax/1000; const vt=mode==='B'?Math.abs(R.Bt):R.E; if(vt>0&&vt<vmin*1.5) vmin=vt/3;
+  const lvls=niceLevels(vmin,vmax), lmin=Math.log10(vmin), lmax=Math.log10(vmax);
+  const colorOf=v=>{ if(!(v>0)) return rampAt(0,dark); let t;
+    if(MAPV.bands){ let b=0; for(const L of lvls) if(v>=L) b++; const lo=b?Math.log10(lvls[b-1]):lmin, hi=b<lvls.length?Math.log10(lvls[b]):lmax; t=((lo+hi)/2-lmin)/(lmax-lmin); } else t=(Math.log10(v)-lmin)/(lmax-lmin);
+    return rampAt(t,dark); };
+  x.clearRect(0,0,w,h); x.fillStyle=panel; x.fillRect(0,0,w,h);
+  const rs=GEST.active?1:Math.min(2,window.devicePixelRatio||1), iw=Math.round(pw*rs), ih=Math.round(ph*rs), img=x.createImageData(iw,ih);
+  for(let py=0;py<ih;py++){ const fy=py/ih*ny, j=Math.min(ny-1,Math.floor(fy)), ty=fy-j;
+    for(let px=0;px<iw;px++){ const fx=px/iw*nx, i=Math.min(nx-1,Math.floor(fx)), tx=fx-i;
+      const a=V[j*N1+i], b=V[j*N1+i+1], c2=V[(j+1)*N1+i], d=V[(j+1)*N1+i+1]; const v=(a*(1-tx)+b*tx)*(1-ty)+(c2*(1-tx)+d*tx)*ty; const col=colorOf(v), o=(py*iw+px)*4;
+      img.data[o]=col[0];img.data[o+1]=col[1];img.data[o+2]=col[2];img.data[o+3]=255; } }
+  const oc=drawMap.oc||(drawMap.oc=document.createElement('canvas')); oc.width=iw; oc.height=ih; oc.getContext('2d').putImageData(img,0,0);
+  x.imageSmoothingEnabled=!MAPV.bands; x.drawImage(oc,pad.l,pad.t,pw,ph); x.imageSmoothingEnabled=true;
+  x.save(); x.beginPath(); x.rect(pad.l,pad.t,pw,ph); x.clip();
+  x.fillStyle=dark?'rgba(21,28,32,0.38)':'rgba(248,250,251,0.38)'; x.fillRect(pad.l,pad.t,pw,Y(0)-pad.t);
+  x.save(); x.beginPath(); x.rect(pad.l,pad.t,pw,Y(0)-pad.t); x.clip(); x.strokeStyle=dark?'rgba(255,255,255,0.05)':'rgba(0,0,0,0.04)'; x.lineWidth=1; x.beginPath(); for(let q=-ph;q<pw;q+=9){ x.moveTo(pad.l+q,pad.t); x.lineTo(pad.l+q+ph,pad.t+ph); } x.stroke(); x.restore();
+  const gx=gi=>pad.l+gi/nx*pw, gy=gj=>Y(zmin+gj/ny*Hm);
+  const lineCol=dark?'rgba(255,255,255,0.22)':'rgba(20,30,40,0.18)', labels=[], usedY=[];
+  const zt0=S.depth*1e-3, txm=(S.cb.tx||0)*1e-3, tX=X(txm), tY=Y(zt0);
+  const cbw0=Math.min(250,pw*0.4), cbh0=54; let cbx0=tX+14; if(cbx0+cbw0>pad.l+pw-4) cbx0=tX-14-cbw0; cbx0=clamp(cbx0,pad.l+4,pad.l+pw-cbw0-4); const cby0=clamp(tY-cbh0/2,pad.t+4,pad.t+ph-cbh0-4); const CALL={x:cbx0,y:cby0,w:cbw0,h:cbh0};
+  const pickOnColumn=(segs,colPx)=>{ const gcol=(colPx-pad.l)/pw*nx; const cands=[];
+    for(const [p,q] of segs){ if((p[0]-gcol)*(q[0]-gcol)>0||p[0]===q[0]) continue; const t=(gcol-p[0])/(q[0]-p[0]); const gyv=p[1]+t*(q[1]-p[1]); const sy=gy(gyv), zz=zmin+gyv/ny*Hm;
+      if(sy<pad.t+14||sy>pad.t+ph-28||zz<(10/ph)*Hm) continue; if(colPx>CALL.x-50&&colPx<CALL.x+CALL.w+50&&sy>CALL.y-14&&sy<CALL.y+CALL.h+14) continue; if(usedY.some(u=>Math.abs(u[0]-sy)<20&&Math.abs(u[1]-colPx)<90)) continue; cands.push(sy); }
+    if(!cands.length) return null; const sy=Math.max(...cands); usedY.push([sy,colPx]); return [colPx,sy]; };
+  for(const L of lvls){ const decade=Math.abs(Math.log10(L)-Math.round(Math.log10(L)))<1e-6; const segs=marching(LV,nx,ny,Math.log10(L));
+    x.strokeStyle=decade?(dark?'rgba(255,255,255,0.5)':'rgba(20,30,40,0.42)'):lineCol; x.lineWidth=decade?1.1:0.7; x.beginPath();
+    for(const [p,q] of segs){ x.moveTo(gx(p[0]),gy(p[1])); x.lineTo(gx(q[0]),gy(q[1])); } x.stroke();
+    if(decade&&segs.length){ let best=null; for(const f of [0.82,0.70,0.58,0.12,0.24]){ best=pickOnColumn(segs,pad.l+pw*f); if(best) break; } if(best) labels.push([best,L]); } }
+  // in-plane field lines (By = 0 on this plane, so lines stay in it)
+  if(MAPV.lines&&mode==='B'){
+    const bxf=(xx,zz)=>cbBilin(BF.bx,nx,ny,(xx+W)/(2*W)*nx,(zz-zmin)/Hm*ny), bzf=(xx,zz)=>cbBilin(BF.bz,nx,ny,(xx+W)/(2*W)*nx,(zz-zmin)/Hm*ny);
+    const lines=cbStreams(bxf,bzf,dim,pw/(2*W),vmin/scaleB*1.0);
+    x.strokeStyle=dark?'rgba(255,255,255,0.30)':'rgba(15,25,35,0.32)'; x.lineWidth=0.9; x.beginPath();
+    for(const L of lines){ L.forEach((p,k)=>{ const px=X(p[0]),py=Y(p[1]); k?x.lineTo(px,py):x.moveTo(px,py); }); } x.stroke();
+    x.fillStyle=dark?'rgba(255,255,255,0.45)':'rgba(15,25,35,0.5)';
+    for(const L of lines){ if(L.length<24) continue; const k=Math.floor(L.length/2), p=L[k], q=L[k+1]; const bx=bxf(p[0],p[1]), bz=bzf(p[0],p[1]); const px=X(p[0]),py=Y(p[1]); const ang=Math.atan2(Y(p[1]+bz*1e-6/Math.hypot(bx,bz))-py,X(p[0]+bx*1e-6/Math.hypot(bx,bz))-px); x.save(); x.translate(px,py); x.rotate(ang); x.beginPath(); x.moveTo(4,0); x.lineTo(-3,-2.6); x.lineTo(-3,2.6); x.closePath(); x.fill(); x.restore(); }
+  }
+  // threshold contours
+  const P=PRESETS[S.preset], special=[], placed=[];
+  if(mode==='B'&&P) special.push({v:P.t.B[0],col:okc,dash:[6,4],lab:`target min ${si(P.t.B[0],'T',2)}`});
+  if(mode==='E'){ if(R.feff<1e5) special.push({v:R.Eth,col:crit,dash:[],lab:`nerve threshold ${n(R.Eth,2)} V/m`}); special.push({v:0.1,col:warn,dash:[5,4],lab:'noise floor 0.1 V/m'}); }
+  for(const sp of special){ if(!(sp.v>0)) continue; const segs=marching(LV,nx,ny,Math.log10(sp.v)); if(!segs.length) continue;
+    x.strokeStyle=dark?'rgba(0,0,0,0.55)':'rgba(255,255,255,0.8)'; x.lineWidth=4; x.setLineDash(sp.dash); x.beginPath(); for(const [p,q] of segs){ x.moveTo(gx(p[0]),gy(p[1])); x.lineTo(gx(q[0]),gy(q[1])); } x.stroke();
+    x.strokeStyle=sp.col; x.lineWidth=2; x.stroke(); x.setLineDash([]);
+    let best=null; for(const f of [0.22,0.36,0.5,0.64,0.12]){ best=pickOnColumn(segs,pad.l+pw*f); if(best) break; } if(best) placed.push(Object.assign({},sp,{at:best})); }
+  x.strokeStyle=ink; x.lineWidth=1.5; x.globalAlpha=0.85; x.beginPath(); x.moveTo(pad.l,Y(0)); x.lineTo(pad.l+pw,Y(0)); x.stroke(); x.globalAlpha=1;
+  // --- hardware cross-section in the plane y = 0 ---
+  const wireCol=cop, wireEdge=dark?'#1a0e06':'#5a2a0c', steelFill=dark?'#7d8a93':'#9aa6ae', steelEdge=dark?'#2a3238':'#5b666d';
+  const hatch=(rx,ry,rw,rh)=>{ x.save(); x.beginPath(); x.rect(rx,ry,rw,rh); x.clip(); x.strokeStyle='rgba(0,0,0,0.25)'; x.lineWidth=1; x.beginPath(); for(let q=-rh;q<rw+rh;q+=4){ x.moveTo(rx+q,ry); x.lineTo(rx+q+rh,ry+rh); } x.stroke(); x.restore(); };
+  const rect=(x0,x1,z0,z1,fill,edge,hat)=>{ const rx=Math.min(X(x0),X(x1)), rw=Math.max(2,Math.abs(X(x1)-X(x0))), ry=Math.min(Y(z0),Y(z1)), rh=Math.max(2,Math.abs(Y(z1)-Y(z0))); x.fillStyle=fill; x.fillRect(rx,ry,rw,rh); x.strokeStyle=edge; x.lineWidth=1; x.strokeRect(rx,ry,rw,rh); if(hat) hatch(rx,ry,rw,rh); };
+  // steel pieces (behind windings in z-order: draw first)
+  for(const p of m.pieces){ const hw=p.D/2, cy=Math.abs(p.cy); if(cy>=hw) continue; const half=Math.sqrt(hw*hw-cy*cy); rect(p.cx-half,p.cx+half,p.zTop,p.zTop-p.len,steelFill,steelEdge,false); }
+  const cbg=S.cb.groups;
+  for(const u of m.units){
+    if(u.kind==='ring'){ const g=cbg[u.gi], ro=g.OD/2*1e-3, ri=g.ID/2*1e-3, cy=Math.abs(u.cy), z0=g.z0*1e-3, len=g.len*1e-3;
+      if(cy<ro){ const ho=Math.sqrt(ro*ro-cy*cy), hi=cy<ri?Math.sqrt(ri*ri-cy*cy):0;
+        rect(u.cx-ho,u.cx-hi,z0,z0-len,wireCol,wireEdge,true); rect(u.cx+hi,u.cx+ho,z0,z0-len,wireCol,wireEdge,true);
+      } else { x.setLineDash([3,3]); x.strokeStyle=cop; x.globalAlpha=0.55; x.lineWidth=1; x.strokeRect(X(u.cx-ro),Y(z0-len),X(u.cx+ro)-X(u.cx-ro),Y(z0)-Y(z0-len)); x.setLineDash([]); x.globalAlpha=1; } }
+    else if(u.kind==='wind'){ const g=cbg[u.gi], w=cbWindBuild(g); const ri=g.Di/2*1e-3, z0=g.z0*1e-3; for(const sg of [1,-1]) rect(sg*ri,sg*w.rmax,z0,z0-w.hUsed,wireCol,wireEdge,true); }
+  }
+  // current direction badges
+  { const u0=m.units.find(u=>u.kind==='ring'&&u.k===0), wU=m.units.find(u=>u.kind==='wind'); const bad=(bx,by,dot)=>{ const rr=7; x.fillStyle=panel; x.strokeStyle=ink; x.lineWidth=1.2; x.beginPath(); x.arc(bx,by,rr,0,7); x.fill(); x.stroke();
+      if(dot){ x.fillStyle=ink; x.beginPath(); x.arc(bx,by,2.2,0,7); x.fill(); } else { x.beginPath(); x.moveTo(bx-3.5,by-3.5); x.lineTo(bx+3.5,by+3.5); x.moveTo(bx+3.5,by-3.5); x.lineTo(bx-3.5,by+3.5); x.stroke(); } };
+    if(u0){ const g=cbg[u0.gi], mid=(g.ID+g.OD)/4*1e-3, by=Math.max(pad.t+9,Y(g.z0*1e-3-g.len*1e-3)-12); bad(X(u0.cx-mid),by,true); bad(X(u0.cx+mid),by,false); }
+    if(wU){ const g=cbg[wU.gi], w=cbWindBuild(g), mid=(g.Di/2*1e-3+w.rmax)/2, by=Math.max(pad.t+9,Y(g.z0*1e-3-w.hUsed)-12); bad(X(-mid),by,true); bad(X(mid),by,false); } }
+  // target, induced loop
+  const rl=Math.abs(X(S.rt*1e-3)-X(0));
+  x.strokeStyle=dark?'#fff':'#111'; x.lineWidth=1.5; x.setLineDash([4,3]); x.beginPath(); x.ellipse(X(0),tY,rl,Math.max(3,rl*0.18),0,0,Math.PI*2); x.stroke(); x.setLineDash([]);
+  x.fillStyle=panel; x.strokeStyle=ink; x.lineWidth=2; x.beginPath(); x.arc(tX,tY,6,0,7); x.fill(); x.stroke(); x.fillStyle=cop; x.beginPath(); x.arc(tX,tY,2.5,0,7); x.fill();
+  x.restore();
+  x.font='11px "IBM Plex Mono",monospace'; const halo=dark?'rgba(10,14,17,0.85)':'rgba(255,255,255,0.9)', chipBg=dark?'rgba(21,28,32,0.88)':'rgba(255,255,255,0.9)';
+  for(const [[lx,ly],L] of labels) pill(x,mode==='B'?si(L,'T',1):(L>=1?`${n(L,2)} V/m`:si(L,'V/m',1)),lx-14,ly+5,ink,chipBg);
+  x.font='600 11px "IBM Plex Sans",sans-serif'; for(const sp of placed){ const tw=x.measureText(sp.lab).width+10; pill(x,sp.lab,clamp(sp.at[0]-tw/2,pad.l+4,pad.l+pw-tw-4),sp.at[1]+5,sp.col,chipBg,sp.col); }
+  x.font='600 11.5px "IBM Plex Sans",sans-serif'; pill(x,`↓ ${TISSUES[S.tissue].name}`,pad.l+6,pad.t+ph-8,ink,chipBg,css('--line')); x.font='11px "IBM Plex Sans",sans-serif'; haloText(x,'tissue surface',pad.l+pw-8,Y(0)-5,ink,halo,'right'); haloText(x,'air',pad.l+8,pad.t+14,mut,halo);
+  // target callout
+  { const rk=ghostRef(); const cur=mode==='B'?Math.abs(R.Bt):R.E, prev=rk?(mode==='B'?rk.k.B:rk.k.E):null; const dq=prev>0?(cur/prev-1)*100:0;
+    const l1=`Target · depth ${n(S.depth,3)} mm · x ${n(S.cb.tx||0,3)} mm`, l2=`B ${si(Math.abs(R.Bt),'T')}   E ${n(R.E)} V/m`, l3=Math.abs(dq)>=0.5?`${dq>0?'▲':'▼'} ${Math.abs(dq).toFixed(Math.abs(dq)>=10?0:1)}% since last change`:`J ${si(R.Jt,'A/m²')} in ${TISSUES[S.tissue].name.toLowerCase()}`;
+    x.font='600 11.5px "IBM Plex Sans",sans-serif'; const bw=Math.max(x.measureText(l1).width,(x.font='600 12px "IBM Plex Mono",monospace',x.measureText(l2).width),x.measureText(l3).width)+16, bh=54;
+    let bx=CALL.x, by=CALL.y; if(bx<tX) bx=CALL.x+CALL.w-bw; bx=clamp(bx,pad.l+4,pad.l+pw-bw-4);
+    x.strokeStyle=ink; x.lineWidth=1; x.beginPath(); x.moveTo(tX+(bx>tX?7:-7),tY); x.lineTo(bx>tX?bx:bx+bw,by+bh/2); x.stroke();
+    x.fillStyle=panel; x.strokeStyle=cop; x.lineWidth=1.5; x.beginPath(); x.roundRect?x.roundRect(bx,by,bw,bh,6):x.rect(bx,by,bw,bh); x.fill(); x.stroke();
+    x.textAlign='left'; x.fillStyle=mut; x.font='600 11px "IBM Plex Sans",sans-serif'; x.fillText(l1,bx+8,by+16); x.fillStyle=ink; x.font='600 12px "IBM Plex Mono",monospace'; x.fillText(l2,bx+8,by+32);
+    x.fillStyle=Math.abs(dq)>=0.5?(dq>0?okc:crit):mut; x.font='11px "IBM Plex Mono",monospace'; x.fillText(l3,bx+8,by+47); }
+  // axes
+  x.strokeStyle=css('--line'); x.lineWidth=1; x.strokeRect(pad.l+0.5,pad.t+0.5,pw-1,ph-1); x.fillStyle=mut; x.font='10.5px "IBM Plex Mono",monospace';
+  const zs=niceStep(Hm*1000/6), zlo=Math.ceil(zmin*1000/zs)*zs;
+  for(let zz=zlo;zz<=zmax*1000;zz+=zs){ const yy=Y(zz/1000); x.beginPath(); x.moveTo(pad.l-4,yy); x.lineTo(pad.l,yy); x.stroke(); x.textAlign='right'; x.fillText(String(+zz.toFixed(1)),pad.l-6,yy+3.5); }
+  const rstep=niceStep(W*1000/2.5); for(let rr=-Math.floor(W*1000/rstep)*rstep; rr<=W*1000; rr+=rstep){ const xx=X(rr/1000); x.beginPath(); x.moveTo(xx,pad.t+ph); x.lineTo(xx,pad.t+ph+4); x.stroke(); x.textAlign='center'; x.fillText(String(+rr.toFixed(1)),xx,pad.t+ph+15); }
+  x.save(); x.translate(12,pad.t+ph/2); x.rotate(-Math.PI/2); x.textAlign='center'; x.font='10.5px "IBM Plex Sans",sans-serif'; x.fillText('depth below coil face (mm)',0,0); x.restore();
+  x.textAlign='center'; x.font='10.5px "IBM Plex Sans",sans-serif'; x.fillText('position across the array (mm), array centre at 0',pad.l+pw/2,h-3);
+  const cbx=pad.l+pw+12, cbw=11, cby=pad.t+6, cbh=ph-12;
+  for(let q=0;q<cbh;q++){ const t=1-q/cbh; const v=10**(lmin+t*(lmax-lmin)); const col=colorOf(v); x.fillStyle=`rgb(${col[0]|0},${col[1]|0},${col[2]|0})`; x.fillRect(cbx,cby+q,cbw,1.2); }
+  x.strokeStyle=css('--line'); x.strokeRect(cbx+0.5,cby+0.5,cbw,cbh); x.textAlign='left'; x.font='10px "IBM Plex Mono",monospace'; x.fillStyle=mut;
+  for(const L of lvls){ if(Math.abs(Math.log10(L)-Math.round(Math.log10(L)))>1e-6&&lvls.length>5) continue; const yy=cby+cbh*(1-(Math.log10(L)-lmin)/(lmax-lmin)); x.fillRect(cbx+cbw,yy,3,1); x.fillText(mode==='B'?si(L,'T',1):si(L,'V/m',1),cbx+cbw+5,yy+3.5); }
+  if(vt>0){ const yy=cby+cbh*(1-clamp((Math.log10(vt)-lmin)/(lmax-lmin),0,1)); x.fillStyle=cop; x.beginPath(); x.moveTo(cbx-1,yy); x.lineTo(cbx-7,yy-4); x.lineTo(cbx-7,yy+4); x.closePath(); x.fill(); }
+  // summary
+  const thr=mode==='B'?(P?P.t.B[0]:null):(R.feff<1e5?R.Eth:null); let reach=null, atx=0;
+  if(thr){ for(let j=0;j<=ny;j++){ const z=zmin+Hm*j/ny; if(z<0) continue; let mx=0,ix=0; for(let i=0;i<=nx;i++){ if(V[j*N1+i]>mx){ mx=V[j*N1+i]; ix=i; } } if(mx>=thr){ reach=z; atx=-W+2*W*ix/nx; } } }
+  let reachE01=null; if(mode==='E'){ for(let j=0;j<=ny;j++){ const z=zmin+Hm*j/ny; if(z<0) continue; let mx=0; for(let i=0;i<=nx;i++) mx=Math.max(mx,V[j*N1+i]); if(mx>=0.1) reachE01=z; } }
+  const sumTxt=mode==='B'?(thr?(reach!=null?`Field above the ${si(thr,'T',2)} target minimum reaches <b>${n(reach*1000,3)} mm</b> into tissue (strongest column at x ≈ ${n(atx*1000,3)} mm).`:`Field never reaches the ${si(thr,'T',2)} target minimum inside the tissue.`):'')
+    :`${R.feff<1e5?(reach!=null?`Induced E exceeds the nerve threshold to <b>${n(reach*1000,3)} mm</b>. `:'Induced E stays below the nerve threshold everywhere in tissue. '):''}${reachE01!=null?`Above the 0.1 V/m noise floor to <b>${n(reachE01*1000,3)} mm</b>.`:'Below 0.1 V/m everywhere in tissue.'}`;
+  $('mapHint').textContent='Cross-section in the plane through solenoid #1\'s axis and the array centre (the build is not axisymmetric)';
+  $('mapLegend').innerHTML=`<span>${sumTxt}</span><span>${mode==='B'?'Colour bands: |B| in the plane through solenoid #1 and the array centre':'Colour: induced E on circles around the array axis'}, peak current, log scale${mode==='B'&&MAPV.lines?' · arrowed lines = field direction':''} · ⊙ ⊗ current out of / into the page · dashed outlines = solenoids behind the plane</span><span>Hover to read values; click in tissue to move the target (depth and sideways).</span>`;
+  CH.map={custom:true,pad,pw,ph,W,zmin,Hm,w,h,nx,ny,N1,BF,EG,V,mode,scaleB,scaleE,X,Y,xAt:px=>-W+(px-pad.l)/pw*2*W};
+}
+function mapValueAtCB(px,py){ const C=CH.map; if(!C) return null; const xm=-C.W+(px-C.pad.l)/C.pw*2*C.W, z=C.zmin+(py-C.pad.t)/C.ph*C.Hm, fx=(xm+C.W)/(2*C.W)*C.nx, fy=(z-C.zmin)/C.Hm*C.ny;
+  const bx=cbBilin(C.BF.bx,C.nx,C.ny,fx,fy)*C.scaleB, bz=cbBilin(C.BF.bz,C.nx,C.ny,fx,fy)*C.scaleB; const B=Math.hypot(bx,bz);
+  const E=C.EG?cbBilin(C.V,C.nx,C.ny,fx,fy):null; const inside=px>=C.pad.l&&px<=C.pad.l+C.pw&&py>=C.pad.t&&py<=C.pad.t+C.ph; return {x:xm,rho:Math.abs(xm),z,B,Bz:bz,Bx:bx,E:E!=null?E:null,inside,custom:true}; }
+
+
+/* ================= composite coil: checks, readouts, fuse ================= */
+const HAND_FETS=[
+ {pn:'IRF540N',vds:100,id:33,rds:0.044,qg:71,pkg:'TO-220',note:'100 V, 44 mΩ at V_GS 10 V'},
+ {pn:'IRF530N',vds:100,id:17,rds:0.09,qg:37,pkg:'TO-220',note:'100 V, 90 mΩ at 10 V, lower gate charge'},
+ {pn:'IRF520N',vds:100,id:9.7,rds:0.2,qg:25,pkg:'TO-220',note:'100 V, 200 mΩ at 10 V, low gate charge'},
+ {pn:'IRF640N',vds:200,id:18,rds:0.15,qg:67,pkg:'TO-220',note:'200 V, 150 mΩ'},
+ {pn:'IRFZ44N',vds:55,id:49,rds:0.0175,qg:63,pkg:'TO-220',note:'55 V, 17.5 mΩ'},
+ {pn:'IRF3205',vds:55,id:110,rds:0.008,qg:146,pkg:'TO-220',note:'55 V, 8 mΩ, big gate charge'},
+ {pn:'IRF740',vds:400,id:10,rds:0.55,qg:63,pkg:'TO-220',note:'400 V, 0.55 Ω'},
+ {pn:'IRF840',vds:500,id:8,rds:0.85,qg:63,pkg:'TO-220',note:'500 V, 0.85 Ω'},
+ {pn:'IRF510N',vds:100,id:5.6,rds:0.54,qg:8.3,pkg:'TO-220',note:'100 V, 0.54 Ω, very low gate charge'}];
+function handFET(vNeed,iNeed){ return HAND_FETS.find(f=>f.vds>=vNeed&&f.id>=iNeed)||null; }
+const FUSE_STD=[0.1,0.125,0.16,0.2,0.25,0.315,0.4,0.5,0.63,0.8,1,1.25,1.6,2,2.5,3.15,4,5];
+/* fuse: opens on a stuck-on switch (DC current V/R) yet carries the normal rms current with margin */
+function cbFuse(r){
+  const Idc=r.S.V/(r.Rdc+r.S.Rs+r.S.Rdrv), lo=1.3*r.sim.irms, hi=0.62*Idc;
+  const c=FUSE_STD.filter(v=>v<=hi); const pick=c.length?c[c.length-1]:null;
+  return {Idc,lo,hi,A:pick,ok:pick!=null&&pick>=lo};
+}
+function cbDcFaultRise(r){ // hot-spot rise if the coil sees continuous V/R
+  const Idc=r.S.V/(r.Rdc+r.S.Rs+r.S.Rdrv); let dT=0,name='';
+  for(const row of r.th.rows){ const d=Idc*Idc*row.R/(CB_H*row.A); if(d>dT){ dT=d; name=row.name; } }
+  return {Idc,dT,name,P:Idc*Idc*r.Rdc};
+}
+function buildChecksCB(r){
+  const S=r.S, out=[], P=PRESETS[S.preset], fm=r.fm, cu=r.cu, m=cu.m, th=r.th, cb=S.cb, f=S.f;
+  const add=(sev,title,fix,crit=true)=>out.push({sev,title,fix,crit});
+  if(P){ const fb=P.t.f, fx=S.wave==='burst'?S.f:fm;
+    if(fx<fb[0]||fx>fb[1]) add('warn',`${S.wave==='burst'?'Repetition rate':'Frequency'} ${hz(fx)} is outside the ${P.label} band (${hz(fb[0])}–${hz(fb[1])})`,'Move the frequency into the band.');
+    else add('ok',`Frequency ${hz(fx)} sits in the ${P.label} band`,'');
+    const Bb=P.t.B, B=Math.abs(r.Bt);
+    if(B<Bb[0]) add('warn',`Field at target ${si(B,'T')} is below the ${si(Bb[0],'T')}–${si(Bb[1],'T')} design range`,'See the what-if table: steel pins in the bores and more outer-winding turns raise it most. A longer pulse raises peak current only until it reaches V/R.');
+    else if(B>Bb[1]) add('warn',`Field at target ${si(B,'T')} exceeds the ${si(Bb[1],'T')} design range`,'Lower the supply voltage or pulse width.');
+    else add('ok',`Field at target ${si(B,'T')} is within the design range`,'');
+  }
+  // where the field is
+  if(cu.faceBore*cu.faceCentre<0||Math.abs(cu.faceCentre)<0.35*Math.abs(cu.faceBore)){
+    add('info',`Face field is ${si(Math.abs(r.B0),'T')} over a solenoid bore but only ${si(Math.abs(r.Bc),'T')}${r.Bc*r.B0<0?' (reversed)':''} at the array centre`,'With every solenoid wound the same way, the centre is a return-flux region. The strongest tissue exposure sits over the bores and under the outer winding, not under the centre staples.',false);
+  }
+  // pole-piece / core insight
+  const pins=cb.groups.find(g=>g.kind==='ring'&&g.bMat&&g.bMat!=='none'), core=cb.groups.find(g=>g.kind==='core'&&g.mat!=='none');
+  if(!pins&&cb.groups.some(g=>g.kind==='ring')) add('info','No steel in the solenoid bores','Cut staple pieces to bore length and pack two or three into each bore: the what-if table shows the field gain at your target depth.',false);
+  if(core&&cu.BpaCoreF<0) add('info',`The centre steel bundle lowers the field at the target by ${si(Math.abs(cu.BpaCoreF*r.sim.ipk),'T')}`,'Centre steel in a same-sense ring mostly collects return flux. Taking it out (or moving it) is free; compare in the what-if table.',false);
+  // eddy response of steel
+  const seenG=new Set(); m.pieces.forEach((p,j)=>{ if(seenG.has(p.gi)) return; seenG.add(p.gi); const ff=cu.fr.flat[j]; const g=cb.groups[p.gi];
+    if(ff<0.5){ const c=CB_CORES[p.mat], tau=MU0*c.mu*c.sig*(p.eddyD/2)**2/5.783; add('info',`${g.name}: steel responds at only ${(ff*100).toFixed(0)} % of its static permeability at this pulse width`,`Eddy currents in the ${p.kind==='bore'?'pins':'bundle'} (time constant ${si(tau,'s',2)}) hold the flux out. Thinner or lacquer-insulated rods, a longer pulse, or a lower frequency recovers it.`,false); } });
+  // driver
+  const Idm=Math.max(r.sim.ipk*2,0.5), fet=handFET(r.Vds*1.5,Idm);
+  if(S.gate==='direct') add('warn','None of the MOSFETs on hand is logic-level','IRF540N-class parts are specified at V_GS = 10 V. Use the discrete BJT driver (gate swing from a 12 V rail) instead of driving the gate straight from the ESP32-S3.');
+  else if(S.gate==='bjt') add('info',`BJT totem-pole gate driver: ≈ ${si(r.Ig,'A',2)} gate current, 12 V swing, no driver IC`,'GPIO → NPN level shifter → second NPN inverter → BC337/BC327 emitter-follower pair → gate resistor. A stuck-low GPIO keeps the MOSFET off.',false);
+  if(fet) add('ok',`${fet.pn} (on hand) covers ${Math.ceil(r.Vds*1.5)} V and ${n(Idm,2)} A with margin`,'');
+  else add('crit',`No MOSFET on hand covers ${Math.ceil(r.Vds*1.5)} V / ${n(Idm,2)} A`,'Lower the supply voltage or clamp voltage, or buy a higher-rated part.');
+  const ratio=r.tsw/Math.max(r.tEdge,1e-12);
+  if(ratio>0.3) add('warn',`Gate edge ${si(r.tsw,'s')} is ${(ratio*100).toFixed(0)} % of the coil current edge (${si(r.tEdge,'s')})`,'Lower the gate resistor or pick a lower-Q_g MOSFET (IRF520N, IRF510N).');
+  else add('ok',`Gate switches in ${si(r.tsw,'s')}, fast relative to the coil edge (${si(r.tEdge,'s')})`,'');
+  const Pm=r.Psw+r.Pcond; if(Pm>1) add('warn',`MOSFET dissipates ≈ ${si(Pm,'W')}`,'Add a small heatsink or use a lower R_DS(on) part.');
+  // SRF
+  const fr=fm/r.srf; if(fr>0.25) add(fr>0.5?'crit':'warn',`Drive is at ${(fr*100).toFixed(0)} % of self-resonance (${hz(r.srf)})`,'Lower the drive frequency.'); else add('ok',`SRF ${hz(r.srf)} is far above the drive`,'');
+  // thermal
+  const lim=cb.dTlim||20, hot=th.hot;
+  if(hot){ const t=`Hot spot: ${hot.name} ≈ ${r.dT.toFixed(0)} °C above ambient (${si(hot.P,'W',2)}${hot.count>1?' each':''})`;
+    if(r.dT>Math.max(2*lim,40)) add('crit',t,'Cut the pulse width (Build sheet button) or the supply voltage. These small coils cannot shed more than about 0.1–0.15 W each.');
+    else if(r.dT>lim) add('warn',t,'Above your surface-rise limit. Use the Build sheet button to set the pulse width, keep a spacer between coil and skin, and run timed sessions.');
+    else add('ok',`Thermal: hot spot ${hot.name} ≈ ${r.dT.toFixed(1)} °C rise, ${si(r.P,'W')} total`,''); }
+  if(r.Jw>6) add('crit',`Thinnest conductor at ${r.Jw.toFixed(1)} A/mm² (rms)`,'Lower the duty or the voltage.'); else if(r.Jw>3.5) add('warn',`Thinnest conductor at ${r.Jw.toFixed(1)} A/mm² (rms)`,'Fine for intermittent therapy sessions; not for continuous duty.');
+  // fault and fuse
+  const ft=cbDcFaultRise(r), fu=cbFuse(r);
+  if(ft.dT>60) add(fu.ok?'warn':'crit',`If the MOSFET shorts or a GPIO hangs high, the coil sees ${si(ft.Idc,'A')} DC (${si(ft.P,'W')}): ${ft.name} would rise ≈ ${ft.dT.toFixed(0)} °C`,fu.ok?`Fit a ${fu.A} A fast-blow fuse in the 24 V feed: it opens in seconds on a stuck-on switch yet carries your ${si(r.sim.irms,'A')} rms with margin. The firmware also has an over-current and thermal-model cut-off.`:`No standard fuse separates ${si(r.sim.irms,'A')} rms (needs ≥ ${fu.lo.toFixed(2)} A) from the ${si(fu.Idc,'A')} fault current. Lower the duty so that irms drops, or add a series resistor.`);
+  else add('ok',`Stuck-on fault current ${si(ft.Idc,'A')} would only warm the coil ≈ ${ft.dT.toFixed(0)} °C`,'');
+  // saturation
+  if(cu.satPa>0){ if(r.sat>1) add('crit',`Steel saturates: ≈ ${si(r.Bcore,'T')} vs B_sat ${n(cu.bsat)} T`,'Reduce amp-turns or add steel cross-section.'); else if(r.sat>0.7) add('warn',`Steel at ${(r.sat*100).toFixed(0)} % of saturation`,'Little headroom.'); }
+  // pulse timing
+  if(S.wave==='pulse'&&!r.Cser){ const ton=S.duty/100/S.f; if(ton<3*r.tau) add('info',`Pulse on-time ${si(ton,'s')} is ${(ton/r.tau).toFixed(1)} τ (τ = ${si(r.tau,'s')}): current reaches ${((1-Math.exp(-ton/r.tau))*100).toFixed(0)} % of V/R`,'Longer pulses or a higher voltage give more peak current.',false); else add('ok',`Pulse on-time ${si(ton,'s')} is ${(ton/r.tau).toFixed(0)} τ: current reaches V/R`,'Extra on-time beyond ≈ 3τ only heats the coil.'); }
+  // geometry
+  cb.groups.forEach((g,gi)=>{ if(g.kind==='ring'){ const gr=m.groups.find(x=>x.gi===gi); if(gr&&gr.count>1&&2*gr.Rr*Math.sin(Math.PI/gr.count)<g.OD-0.01) add('crit',`${g.name}: solenoids overlap`,'Enlarge the array diameter or reduce the count.');
+      if(g.bMat&&g.bMat!=='none'&&g.bD>g.ID+0.01) add('crit',`${g.name}: pin bundle Ø ${g.bD} mm is larger than the ${g.ID} mm bore`,'Reduce the pin bundle diameter.');
+      if(g.Rm>0&&gr&&Math.abs(g.Rm/gr.Rcalc-1)>0.15) add('info',`${g.name}: measured ${n(g.Rm,3)} Ω each is ${((g.Rm/gr.Rcalc-1)*100).toFixed(0)} % off the ${n(gr.Rcalc,3)} Ω from the wire gauge`,'The measured value is used. A different gauge or turn count than listed is likely.',false);
+      const cc=cb.groups.find(x=>x.kind==='core'&&x.mat!=='none'); if(cc&&gr&&gr.count>1&&cc.D/2>gr.Rr-g.OD/2+0.5) add('warn',`Centre core Ø ${cc.D} mm collides with the solenoid ring`,'Reduce the core diameter or enlarge the ring.'); } });
+  add('info','Polarity: all solenoids and the outer winding must push current round the same way','Wire them in series with the same face polarity (compass test in the wiring section). One reversed solenoid cancels a neighbour and shows up as a big drop in field.',false);
+  // tissue / exposure
+  if(r.feff<1e5){ if(r.nerveR>1) add('warn',`Induced E ${n(r.E)} V/m exceeds the nerve threshold estimate (${n(r.Eth)} V/m)`,'Expect muscle twitch or tingling. Lower the intensity.',false); else add('info',`Induced E is ${(r.nerveR*100).toFixed(r.nerveR<0.01?2:1)} % of the nerve threshold estimate`,'Sub-threshold.',false); }
+  if(r.ref){ const q=r.Brms/r.ref; if(q>1) add('warn',`B_rms at target is ${n(q,2)}× the ICNIRP general-public reference level`,'Reference levels are screening values, not therapeutic limits.',false); }
+  return out;
+}
+function metricDefsCB(r){
+  const S=r.S,sim=r.sim,fm=r.fm,w=2*Math.PI*fm,cu=r.cu,m=cu.m,th=r.th,M=[];
+  const G=name=>M.push({group:name}), mm=(key,label,val,unit,formula,subst,why,cls)=>M.push({key,label,val,unit,formula,subst,why,cls});
+  G('Field & tissue');
+  mm('B0','Face field over a solenoid bore (peak)',r.B0,'T','B = I·(B_air + Σ M_k·B_piece,k)',`= ${n(sim.ipk)} A × ${si(r.Bpa0,'T/A')}`,'Peak field 0.5 mm in front of a solenoid bore, where the array is strongest.','fieldq');
+  mm('Bc','Face field at the array centre (peak)',r.Bc,'T','same sum evaluated on the array axis',`= ${n(sim.ipk)} A × ${si(r.BpaC,'T/A')}`,'Same-sense solenoids reverse the field at the centre of the ring.','fieldq');
+  mm('Bt','B at target (peak)',r.Bt,'T','B(x,z) = I·Σ ring-currents (exact elliptic-integral fields) + magnetised steel',`= ${n(sim.ipk)} A × ${si(r.Bpa,'T/A')}   at x = ${n(S.cb.tx||0)} mm, depth ${n(S.depth)} mm`,'The field reaching the tissue target. Air-core part and steel part are listed in the Build sheet.','fieldq');
+  mm('H','H at target',r.Bt/MU0,'A/m','H = B/μ₀',`= ${si(r.Bt,'T')} / 4π·10⁻⁷`,'Magnetising field.','fieldq');
+  mm('dBdt','dB/dt at target (peak)',r.dBdt,'T/s','dB/dt = (B/I)_edge·(dI/dt)_max',`= ${si(r.BpaE,'T/A')} × ${si(sim.didtPk,'A/s')}`,'Uses the steel as it responds during the fast edge (eddy-limited).','fieldq');
+  mm('E','Induced E-field (peak)',r.E,'V/m','E = (r/2)·dB/dt',`= (${n(S.rt)} mm / 2) × ${si(r.dBdt,'T/s')}`,'Electric field induced around a circular tissue path of radius r.');
+  mm('Jt','Tissue current density',r.Jt,'A/m²','J = σ·E',`= ${n(r.sig)} S/m × ${n(r.E)} V/m`,'Eddy current density in the selected tissue.');
+  if(r.feff<1e5) mm('nerve','E / nerve threshold',r.nerveR,'×','E_th = E_rheo·(1 + τ_c/t_phase)',`E_th = ${n(r.Eth)} V/m`,'Above 1, expect stimulation.');
+  mm('SAR','SAR (time-avg)',r.SAR,'W/kg','SAR = σ·E_rms² / ρ',`= ${n(r.sig)} × (${n(r.Erms)})² / ${TISSUES[S.tissue].rho}`,'Only meaningful at kHz–MHz.');
+  if(r.ref) mm('icnirp','B_rms / ICNIRP public ref',r.Brms/r.ref,'×','ICNIRP 2010 reference level',`= ${si(r.Brms,'T')} / ${si(r.ref,'T')}`,'Screening comparison.');
+  if(cu.satPa>0) mm('sat','Steel flux / B_sat',r.sat,'×','B_steel = B_in / fill',`= ${si(r.Bcore,'T')} / ${n(cu.bsat)} T`,'Above 1 the steel saturates and its gain collapses.');
+  G('Drive');
+  mm('ipk','Peak current',sim.ipk,'A','from transient simulation of L·di/dt = v − R·i',`R_tot ${n(r.Rtot)} Ω, L ${si(r.L,'H')}, V ${n(S.V)} V`,'Approaches V/R when the pulse is long compared with L/R.');
+  mm('irms','RMS current',sim.irms,'A','I_rms = √(1/T ∫ i² dt)',`over one period ${si(sim.T,'s')}`,'Sets heating everywhere in the series loop.');
+  mm('didt','dI/dt (peak)',sim.didtPk,'A/s','dI/dt = (v − R·i)/L at the edge',`≈ ${n(S.V)} V / ${si(r.L,'H')}`,'Higher voltage and lower inductance give faster edges.');
+  mm('P','Total coil heat',r.P,'W','P = Σ I_rms²·R_group (+ steel eddy loss)',`= ${n(sim.irms)}² × ${n(r.Rdc)} Ω`+(th.Pcore>1e-6?` + ${si(th.Pcore,'W')} eddy`:''),'Dissipated in the whole winding.');
+  mm('dT','Hot-spot temperature rise',r.dT,'°C','ΔT = P_group / (h·A·exposure),  h ≈ 10 W/m²K',`${th.hot?th.hot.name:''}: ${th.hot?si(th.hot.P,'W',2):''} over ${th.hot?n(th.hot.A*1e4,3):''} cm² exposed`,'Still-air estimate for the group that gets hottest (the small solenoids).');
+  mm('Jw','Thinnest-conductor current density',r.Jw,'A/mm²','J = I_rms / A_Cu',`= ${n(sim.irms)} A / ${n(m.Aeff)} mm²`,'Rule of thumb: ≤ 3 A/mm² continuous, ≤ 6 intermittent.');
+  mm('E_L','Stored energy',r.energy,'J','W = ½·L·I_pk²',`= ½ × ${si(r.L,'H')} × ${n(sim.ipk)}²`,'Released into the flyback diode at turn-off.');
+  if(S.wave==='pulse'&&!r.Cser) mm('Vds','Switch voltage at turn-off',r.Vds,'V','V_DS = V + V_diode',`= ${n(S.V)} + ${n(r.Vcl)}`,'Pick a MOSFET rated well above this.');
+  mm('tsw','Gate switching time',r.tsw,'s','t_sw ≈ Q_g / I_gate',`= ${n(S.Qg)} nC / ${si(r.Ig,'A')}`,'How fast the switch turns on and off.');
+  mm('Pmos','MOSFET dissipation',r.Psw+r.Pcond,'W','P = I_rms²·R_DS(on) + ½·V·I·2t_sw·f',`= ${si(r.Pcond,'W')} + ${si(r.Psw,'W')}`,'Driver on-resistance above is used as R_DS(on).');
+  const fu=cbFuse(r); mm('fuse','Fault current if switch sticks on',fu.Idc,'A','I = V / R_total',`recommended fuse ${fu.A?fu.A+' A fast-blow':'none fits'}`,'The fuse must sit below this but above 1.3 × I_rms.');
+  G('Coil electrical');
+  mm('Lair','Inductance, air only',m.Lair,'H','L = Σ L_self,k + Σ M_jk (all in series, same sense)',`${m.units.length} windings`,'Wheeler self inductance of each winding plus exact ring-pair mutual inductance.');
+  mm('L','Inductance with steel',r.L,'H','L = L_air + Σ M_k·Λ_k',`steel adds ${si(r.L-m.Lair,'H',3)}`,'Pins in the bores raise inductance a lot; the bundle in the middle barely does.');
+  mm('Rdc','DC resistance',r.Rdc,'Ω','R = Σ R_group + R_leads',m.groups.filter(g=>g.R).map(g=>`${g.name} ${g.units>1?g.units+'×':''}${n(g.R,3)}`).join(' + ')+` + ${n(S.cb.Rx||0)} leads`,'Measured values override the wire-gauge estimate.');
+  mm('Rac','AC resistance',r.Rac,'Ω','R_ac = Σ F_R·R  (Dowell)',`F_R ≈ ${n(r.ac.Fr)} at ${hz(fm)}`,'Negligible at these frequencies.');
+  mm('XL','Reactance X_L',w*r.L,'Ω','X_L = 2π·f·L',`= 2π × ${hz(fm)} × ${si(r.L,'H')}`,'Compare with R for the sine case.');
+  mm('tau','Time constant τ',r.tau,'s','τ = L / R_total',`= ${si(r.L,'H')} / ${n(r.Rtot)} Ω`,'Current reaches 63 % of V/R after one τ, 95 % after three.');
+  mm('Cs','Self-capacitance',r.Cs,'F','series of per-winding Medhurst values',`${m.groups.length} groups`,'Parasitic capacitance.');
+  mm('srf','Self-resonant frequency',r.srf,'Hz','SRF = 1 / (2π√(L·C))',`= 1/(2π√(${si(r.L,'H')} × ${si(r.Cs,'F')}))`,'Far above the drive for ELF work.');
+  G('Build sheet');
+  mm('wl','Wire in the coil',m.wire,'m','Σ turns × mean turn length',`${m.units.length} windings`,'Order 10 % extra for leads.');
+  mm('mass','Conductor mass',r.mass,'kg','m = ρ·A·ℓ',`${n(r.mass*1000,3)} g`,'');
+  mm('od','Coil diameter',2*m.rout,'m','D = 2·max(outer radius)',`${n(2*m.rout*1000,3)} mm`,'');
+  return M;
+}
+
+
+/* ================= composite coil: soft-AP firmware generator ================= */
+function dutyForLimit(f,lim,cal){
+  const fn=d=>compute(Object.assign({},S,{wave:'pulse',f,duty:d,tune:'none'}),{cal}).dT;
+  let lo=0.05, hi=40; if(fn(lo)>lim) return lo; if(fn(hi)<=lim) return hi;
+  for(let i=0;i<24;i++){ const mid=(lo+hi)/2; if(fn(mid)>lim) hi=mid; else lo=mid; } return lo;
+}
+function fwSoftAP(r){
+  const tpl=$('fwTpl').textContent, page0=$('fwPage').textContent, cb=S.cb, th=r.th, hot=th.hot||{R:3.9,A:5e-4,mass:0.008};
+  const lim=cb.dTlim||20, cal=r.cal;
+  const onA=Math.max(0.1,Math.round(dutyForLimit(100,lim,cal)/100/100*1000/0.05)*0.05), onR=Math.max(0.1,Math.round(dutyForLimit(20,lim,cal)/100/20*1000/0.05)*0.05);
+  const Rtot=r.Rdc+S.Rs+S.Rdrv, Idc=S.V/Rtot, rth=1/(CB_H*hot.A), cth=hot.mass*385*1.6;
+  const f4=(v,d)=>(+v).toFixed(d);
+  const ton=S.wave==='pulse'?S.duty/100/S.f*1000:2;
+  const V={DESIGN:(PRESETS[S.preset]?PRESETS[S.preset].label:'custom build'),SSID:'CoilBench',APPASS:'coil1234',GATE_PIN:4,SENSE_PIN:1,NTC_PIN:2,
+    VSUP:f4(S.V,1),RTOT:f4(Rtot,3),TAU:(r.L/Rtot).toExponential(4),IDC:f4(Idc,3),IPK:f4(r.sim.ipk,3),BPA:Math.abs(r.Bpa).toExponential(4),
+    TARGET:`${n(S.depth)} mm deep, ${n(cb.tx||0)} mm off-centre`,RSH:'1.0',OC:f4(1.25*Idc,3),RHOT:f4(hot.R,3),RTH:f4(rth,1),CTH:f4(cth,2),DTLIM:f4(lim,1),
+    FDEF:f4(S.f,1),ONMS:f4(ton,3),ONA:f4(onA,2),ONR:f4(onR,2)};
+  const sub=t=>t.replace(/@@([A-Z_\/]+)@@/g,(m0,k)=>k==='SCRIPT'?'<script>':k==='/SCRIPT'?'<\/script>':(k in V?V[k]:m0));
+  const page=sub(page0);
+  return sub(tpl.replace('@@PAGE@@',()=>page));
+}
+function renderFwCB(){
+  if(!R||!R.custom){ return; }
+  let txt; try{ txt=fwSoftAP(R); }catch(e){ txt='// firmware generator error: '+e.message; }
+  $('fw').textContent=txt; R.fwText=txt;
+}
+
+
+
+
+/* ================= composite coil: BJT-driver schematic + series wiring figure ================= */
+function npn(x,y){ // base (x,y); collector (x+36,y-28); emitter (x+36,y+28)
+  return `<g><path class="w" d="M${x},${y} h14 M${x+14},${y-14} v28 M${x+14},${y-7} L${x+36},${y-22} V${y-28} M${x+14},${y+7} L${x+36},${y+22} V${y+28}"/><path class="fillk" d="M${x+32},${y+19.2} L${x+23.4},${y+17.6} L${x+27.4},${y+11.8} Z"/></g>`; }
+function pnp(x,y){ // base (x,y); emitter (x+36,y-28) top; collector (x+36,y+28) bottom
+  return `<g><path class="w" d="M${x},${y} h14 M${x+14},${y-14} v28 M${x+14},${y-7} L${x+36},${y-22} V${y-28} M${x+14},${y+7} L${x+36},${y+22} V${y+28}"/><path class="fillk" d="M${x+18},${y-4.4} L${x+26.6},${y-6} L${x+22.6},${y-11.8} Z"/></g>`; }
+function buildSchematicCB(r){
+  const S=r.S, V=S.V, Ipk=Math.max(r.sim.ipk,0.01), Irms=r.sim.irms, fm=r.fm, cb=S.cb;
+  const g=[], bom=[], notes=[]; const add=s=>g.push(s);
+  const B=(ref,part,value,why,src)=>bom.push({ref,part,value,why,src});
+  const fu=cbFuse(r), fuseTxt=fu.A?`${fu.A} A fast-blow`:'≈0.5 A fast-blow';
+  const dio=pickDiode((V+r.Vcl)*1.5,Ipk), fet=handFET(r.Vds*1.5,Math.max(Ipk*2,0.5))||HAND_FETS[0];
+  const yb=380, rg=Math.round(S.Rg||22), Rsh=1.0;
+  // ---- power entry ----
+  add(`<circle class="w" cx="30" cy="50" r="5"/>`+lab(18,16,'J1','DC input',`+${n(V,3)} V`)+svgW([35,50],[60,50])+`<rect class="w" x="60" y="44" width="40" height="12" rx="2"/><path class="w" d="M60,50 h40"/>`+lab(62,72,'F1',fuseTxt,'')+svgW([100,50],[1370,50]));
+  B('J1','DC barrel jack or screw terminal',`${n(V,3)} V input, ≥ ${n(Math.max(1,Idc2(r)*1.5),2)} A`,'supply entry','buy');
+  B('F1',`5×20 mm fuse + holder, ${fuseTxt}`,fu.A?`${fu.A} A`:'0.5 A',`opens on a stuck-on MOSFET (fault current ${si(fu.Idc,'A')}) yet carries ${si(Irms,'A')} rms with margin`,'buy');
+  add(svgDot(180,50)+svgW([180,50],[180,60])+capV(180,60,true)+gnd(180,100)+lab(180,132,'C1','100 µF 50 V','bulk','middle'));
+  B('C1','Electrolytic 100 µF / 50 V (from the cap kit)','100 µF, 50 V','bulk reservoir for the current pulses','on hand');
+  add(svgDot(260,50)+svgW([260,50],[260,60])+capV(260,60,false)+gnd(260,100)+lab(260,132,'C2','1 µF 50 V','decoupling','middle'));
+  B('C2','Electrolytic 1 µF / 50 V (cap kit)','1 µF, 50 V','input decoupling','on hand');
+  add(svgDot(340,50)+diodeV(340,50,'tvs')+svgW([340,90],[340,100])+gnd(340,100)+lab(340,132,'D1','SMBJ28A','optional TVS','middle'));
+  B('D1','SMBJ28A TVS diode (optional)','28 V standoff','clamps supply surges; skip if the supply is a clean regulated brick','buy (optional)');
+  const u2=ic(430,96,120,50,'U2','L7812CV',['IN'],['OUT'],null,['GND'],true);
+  add(svgDot(400,50)+svgW([400,50],[400,121],u2.pin.IN)+u2.svg+gnd(u2.pin.GND[0],u2.pin.GND[1])+svgW(u2.pin.OUT,[600,121])+rail(600,121,'+12 V')+svgDot(580,121)+svgW([580,121],[580,130])+capV(580,130,true)+gnd(580,170)+lab(594,160,'C3','47 µF 50 V','12 V rail'));
+  B('U2','ST L7812CV 12 V linear regulator (TO-220)','24 V → 12 V, 1 A','gate-drive rail; the gate chain draws only a few mA on average','buy');
+  B('C3','Electrolytic 47 µF / 50 V (cap kit)','47 µF, 50 V','12 V rail reservoir','on hand');
+  const u3=ic(720,96,120,50,'U3','5 V buck',['VIN'],['5V'],null,['GND'],true);
+  add(svgDot(690,50)+svgW([690,50],[690,121],u3.pin.VIN)+u3.svg+gnd(u3.pin.GND[0],u3.pin.GND[1])+svgW(u3.pin['5V'],[890,121])+rail(890,121,'+5 V')+'');
+  B('U3','MP1584EN / LM2596 buck module','24 V → 5.0 V, 1 A','powers the ESP32-S3 board (skip if you power it from USB)','buy');
+  // ---- ESP32 ----
+  const pins=['5V','3V3','GPIO4','GPIO1 (ADC)','GPIO2 (NTC)','GND'];
+  const esp=ic(40,230,130,190,'U1','ESP32-S3-DevKitC-1',null,pins); const P=esp.pin;
+  add(esp.svg+svgW(P['5V'],[P['5V'][0]+12,P['5V'][1]])+rail(P['5V'][0]+12,P['5V'][1],'+5 V')+svgW(P['3V3'],[P['3V3'][0]+12,P['3V3'][1]])+rail(P['3V3'][0]+12,P['3V3'][1],'+3V3')+svgW(P.GND,[P.GND[0]+10,P.GND[1]])+gnd(P.GND[0]+10,P.GND[1])
+    +tag(P.GPIO4[0]+4,P.GPIO4[1],'GATE_IN')+tag(P['GPIO1 (ADC)'][0]+4,P['GPIO1 (ADC)'][1],'ISENSE')+tag(P['GPIO2 (NTC)'][0]+4,P['GPIO2 (NTC)'][1],'NTC'));
+  B('U1','Espressif ESP32-S3-DevKitC-1','3.3 V logic','pulse timing, soft-AP web UI, current sense','on hand');
+  // ---- BJT gate-drive chain ----
+  const yA=yb-60;
+  add(tag(332,yb,'GATE_IN','l')+resH(340,yb)+svgW([388,yb],[470,yb])+lab(344,yb-44,'R1','1 kΩ','GPIO → Q1'));
+  add(svgDot(440,yb)+svgW([440,yb],[440,yb+10])+resV(440,yb+10)+svgW([440,yb+58],[440,yb+64])+gnd(440,yb+64)+lab(428,yb+84,'R2','10 kΩ','base pull-down','end'));
+  add(npn(470,yb)+lab(512,yb+8,'Q1','2N3904','level shift (inverts)'));
+  add(svgW([506,yb+28],[506,yb+36])+gnd(506,yb+36));
+  add(rail(506,yb-128,'+12 V')+resV(506,yb-128)+svgW([506,yb-80],[506,yb-28])+lab(494,yb-112,'R3','4.7 kΩ','Q1 load','end'));
+  add(svgDot(506,yA)+svgW([506,yA],[540,yA])+resH(540,yA)+svgW([588,yA],[620,yA],[620,yb])+lab(542,yA-44,'R4','10 kΩ','Q2 base'));
+  add(npn(620,yb)+lab(662,yb+8,'Q2','2N3904','second inversion'));
+  add(svgW([656,yb+28],[656,yb+36])+gnd(656,yb+36));
+  add(rail(656,yb-128,'+12 V')+resV(656,yb-128)+svgW([656,yb-80],[656,yb-28])+lab(642,yb-112,'R5','1 kΩ','Q2 load','end'));
+  // totem pole
+  const y3=yb-72, y4=yb+30; // bases
+  add(svgDot(656,yb-52)+svgW([656,yb-52],[735,yb-52],[735,y3],[760,y3])+svgW([735,y3],[735,y4],[760,y4])+svgDot(735,yb-52));
+  add(npn(760,y3)+pnp(760,y4)+lab(842,yb-140,'Q3','BC337','NPN follower')+lab(752,yb+80,'Q4','BC327','PNP follower','end'));
+  add(rail(796,y3-28,'+12 V')+svgW([796,y3+28],[796,yb-20],[830,yb-20])+svgW([796,y4-28],[796,yb-20])+svgDot(796,yb-20)+svgW([796,y4+28],[796,y4+36])+gnd(796,y4+36));
+  add(resH(830,yb-20)+svgW([878,yb-20],[930,yb-20])+lab(834,yb-64,'R6',`${rg} Ω`,'gate R'));
+  add(svgDot(900,yb-20)+svgW([900,yb-20],[900,yb-10])+resV(900,yb-10)+svgW([900,yb+38],[900,yb+44])+gnd(900,yb+44)+lab(888,yb+64,'R7','10 kΩ','gate pull-dn','end'));
+  add(nmos(930,yb-20)+lab(985,yb-112,'Q5',fet.pn,`${fet.vds} V · ${fet.id} A`));
+  // coil + diode
+  const dx=970; let yTop=120;
+  add(svgDot(dx,50));
+  if(S.Rs>0){ add(svgW([dx,50],[dx,60])+resV(dx,60)+lab(dx-12,84,'R8',`${fmtR(S.Rs)} series`,'','end')); yTop=130; B('R8',`${fmtR(S.Rs)} series resistor`,`≥ ${n(Irms*Irms*S.Rs*2,2)} W`,'sets current','buy'); }
+  add(svgW([dx,yTop-(S.Rs>0?0:70)],[dx,yTop])+indV(dx,yTop,110)+lab(dx-14,yTop+50,'L1','your series array',`${fmtL(r.L)} · ${n(r.Rdc,3)} Ω`,'end')+svgW([dx,yTop+110],[dx,yb-50]));
+  add(svgDot(1080,50)+svgW([1080,50],[1080,110])+diodeV(1080,110,'schottky')+svgW([1080,150],[1080,yb-50],[dx,yb-50])+svgDot(dx,yb-50)+lab(1094,126,'D2',dio.pn,`${dio.v} V · ${dio.i} A`));
+  B('D2',`${dio.pn} flyback diode`,`${dio.v} V, ${dio.i} A, ${dio.t}`,`catches the turn-off energy (${si(r.energy,'J',2)}); needs ≥ ${n((V+r.Vcl)*1.5,3)} V and ≥ ${n(Ipk,2)} A`,'buy');
+  // sense shunt
+  add(svgDot(970,yb+10)+svgW([970,yb+10],[970,yb+20])+resV(970,yb+20)+svgW([970,yb+68],[970,yb+76])+gnd(970,yb+76)+lab(984,yb+62,'R9',`${Rsh} Ω 1 W`,'shunt'));
+  add(svgW([970,yb+20],[1010,yb+20])+resH(1010,yb+20)+svgW([1058,yb+20],[1100,yb+20])+svgDot(1080,yb+20)+svgW([1080,yb+20],[1080,yb+32])+capV(1080,yb+32,true)+gnd(1080,yb+72)+tag(1104,yb+20,'ISENSE')+lab(1014,yb-26,'R10','470 Ω','ADC filter')+lab(1094,yb+56,'C4','0.1 µF','+ to ADC'));
+  B('R9','1 Ω 1 W metal-film (or 2 × 2.2 Ω ½ W in parallel)','1.0 Ω',`${n(Ipk*Rsh,3)} V at I_pk, ${si(Irms*Irms*Rsh,'W')} average: the ESP32 ADC reads the peak current from it`,'buy');
+  B('R10','Resistor, ¼ W','470 Ω','ADC input filter','on hand'); B('C4','Electrolytic 0.1 µF / 50 V (cap kit)','0.1 µF','ADC input filter (+ lead to the ADC side)','on hand');
+  // optional NTC
+  add(`<text class="t" x="1160" y="${yb-150}" font-size="10">optional NTC</text>`+rail(1200,yb-130,'+3V3')+resV(1200,yb-130)+svgDot(1200,yb-60)+svgW([1200,yb-82],[1200,yb-60],[1200,yb-52])+resV(1200,yb-52)+svgW([1200,yb-4],[1200,yb+4])+gnd(1200,yb+4)+svgW([1200,yb-60],[1250,yb-60])+tag(1250,yb-60,'NTC')+lab(1214,yb-108,'R11','10 kΩ','divider')+lab(1214,yb-30,'RT1','10 kΩ NTC','B 3950'));
+  B('R11 / RT1','10 kΩ resistor + 10 kΩ NTC thermistor (B = 3950)','10 kΩ / 10 kΩ','real temperature of the hottest solenoid (firmware: set USE_NTC 1)','buy (optional)');
+  // ---- BOM: transistors and resistors from the kits ----
+  B('Q1, Q2','2N3904 NPN (or S8050 / 2N2222 / C1815)','NPN, 40 V, 200 mA','level shifter and second inverter: GPIO high gives a high gate','on hand');
+  B('Q3 / Q4','BC337 NPN + BC327 PNP','45 V, 0.5 A pair','complementary emitter followers: ≈ 0.3–0.4 A gate current in each direction','on hand');
+  B('Q5',`${fet.pn} N-MOSFET`,`${fet.vds} V, ${fet.id} A, ${fet.pkg}`,`needs ≥ ${Math.ceil(r.Vds*1.5)} V and ≥ ${n(Math.max(Ipk*2,0.5),2)} A; ${fet.note}; gate switches in ${si(r.tsw,'s')}`,'on hand');
+  B('R1, R3, R5','Resistors ¼ W','1 kΩ, 4.7 kΩ, 1 kΩ','GPIO current limit and collector loads','on hand');
+  B('R2, R4, R7','Resistors ¼ W','10 kΩ each','base / gate pull-downs: a floating GPIO leaves the MOSFET off','on hand');
+  B('R6','Resistor ¼ W',`${rg} Ω`,'gate resistor: damps ringing, sets the gate edge','on hand');
+  B('L1','Your series array',`${fmtL(r.L)}, ${n(r.Rdc,3)} Ω DC`,`${r.cu.m.units.length} windings in series: ${r.cu.m.groups.filter(x=>x.kind==='ring').map(x=>x.count+' solenoids').join(', ')}${r.cu.m.groups.some(x=>x.kind==='wind')?' + outer winding':''}`,'built');
+  notes.push(`Always bring the gate up through R6 from the 12 V totem pole. Never connect the ESP32 pin straight to an IRF540N-class gate: the gate threshold is 2–4 V but R_DS(on) is specified at 10 V.`);
+  notes.push(`Fail-safe chain: GPIO low → Q1 off → Q2 on → Q3/Q4 hold the gate at 0.7 V → MOSFET off. R2 and R7 keep it off if the ESP32 is in reset or unpowered. A MOSFET that fails shorted is what the ${fuseTxt} fuse is for.`);
+  if(S.gate!=='bjt') notes.push('The diagram shows the BJT driver because it uses only parts you have. For a gate-driver IC (UCC27517) replace Q1–Q4 and R3–R5.');
+  notes.push(`Wiring order: keep the drain, coil, flyback diode and C1 loop short; return the shunt R9 and the ADC filter C4 to the same ground point as the ESP32 GND. Calibrate the current reading once with a meter in series at low voltage.`);
+  const title=`Discrete BJT gate driver → ${fet.pn} low-side switch, ESP32-S3 timing`;
+  return {svg:g.join(''),bom,notes,topo:'bjtlow',title};
+}
+function Idc2(r){ return r.S.V/(r.Rdc+r.S.Rs+r.S.Rdrv); }
+
+/* top view of the array: series order, polarity, compass test */
+function buildCoilWiring(r){
+  const cb=S.cb, m=r.cu.m, ringG=m.groups.find(x=>x.kind==='ring'), windG=m.groups.find(x=>x.kind==='wind');
+  const rg=cb.groups.find(x=>x.kind==='ring'), wg=cb.groups.find(x=>x.kind==='wind'), cg=cb.groups.find(x=>x.kind==='core'&&x.mat!=='none');
+  const rmaxMm=Math.max((ringG?ringG.Rr+rg.OD/2:0),windG?windG.rmax*1000:0,30), sc=205/rmaxMm, cxp=290, cyp=250, T=[];
+  const circ=(rmm,cls,fill)=>`<circle cx="${cxp}" cy="${cyp}" r="${(rmm*sc).toFixed(1)}" class="${cls}"${fill?` fill="${fill}"`:''}/>`;
+  if(windG){ T.push(`<circle cx="${cxp}" cy="${cyp}" r="${(windG.rmax*1000*sc).toFixed(1)}" fill="var(--copper-soft)" stroke="var(--copper)" stroke-width="1.6"/><circle cx="${cxp}" cy="${cyp}" r="${(wg.Di/2*sc).toFixed(1)}" fill="var(--panel2)" stroke="var(--copper)" stroke-width="1.2"/>`);
+    for(let k=1;k<=4;k++){ const rr=(wg.Di/2+(windG.rmax*1000-wg.Di/2)*k/5)*sc; T.push(`<circle cx="${cxp}" cy="${cyp}" r="${rr.toFixed(1)}" fill="none" stroke="var(--copper)" stroke-width="0.7" stroke-dasharray="3 3"/>`); } }
+  if(cg){ T.push(`<circle cx="${cxp}" cy="${cyp}" r="${(cg.D/2*sc).toFixed(1)}" fill="#9aa6ae" stroke="var(--ink)" stroke-width="1"/><text class="t" x="${cxp}" y="${cyp+4}" text-anchor="middle" font-size="11">steel core</text>`); }
+  const units=m.units.filter(u=>u.kind==='ring'), pts=[];
+  units.forEach((u,i)=>{ const x=cxp+u.cx*1000*sc, y=cyp-u.cy*1000*sc, ro=rg.OD/2*sc, ri=rg.ID/2*sc; pts.push([x,y]);
+    T.push(`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${ro.toFixed(1)}" fill="var(--copper)" stroke="var(--ink)" stroke-width="1.2"/><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${ri.toFixed(1)}" fill="${rg.bMat&&rg.bMat!=='none'?'#9aa6ae':'var(--panel2)'}" stroke="var(--ink)" stroke-width="1"/>`);
+    // winding direction (counter-clockwise seen from the face): small arrow on the winding ring
+    const mid=(ro+ri)/2, a0=-0.5, a1=-1.9; const px=x+mid*Math.cos(a0), py=y+mid*Math.sin(a0), qx=x+mid*Math.cos(a1), qy=y+mid*Math.sin(a1);
+    T.push(`<path d="M${px.toFixed(1)},${py.toFixed(1)} A${mid.toFixed(1)},${mid.toFixed(1)} 0 0 0 ${qx.toFixed(1)},${qy.toFixed(1)}" fill="none" stroke="var(--panel)" stroke-width="2.4"/><path d="M${(qx+0.2).toFixed(1)},${(qy-0).toFixed(1)} l5,2 l-1,-6 z" fill="var(--panel)" transform="rotate(-20 ${qx.toFixed(1)} ${qy.toFixed(1)})"/>`);
+    T.push(`<text class="t" x="${x.toFixed(1)}" y="${(y+ro+11).toFixed(1)}" text-anchor="middle" font-size="11" font-weight="700">${i+1}</text>`);
+  });
+  // series chain: coil i -> coil i+1 along the ring (drawn on the outside of the ring, between neighbours)
+  const sw=[];
+  for(let i=0;i<pts.length-1;i++){ const a=pts[i], b=pts[i+1]; const mx=(a[0]+b[0])/2, my=(a[1]+b[1])/2, dx=mx-cxp, dy=my-cyp, d=Math.hypot(dx,dy)||1, ox=mx+dx/d*(rg.OD/2*sc*0.55), oy=my+dy/d*(rg.OD/2*sc*0.55);
+    sw.push(`<path d="M${a[0].toFixed(1)},${a[1].toFixed(1)} Q${ox.toFixed(1)},${oy.toFixed(1)} ${b[0].toFixed(1)},${b[1].toFixed(1)}" fill="none" stroke="var(--field)" stroke-width="2" stroke-dasharray="5 3"/>`); }
+  for(let i=0;i<pts.length-1;i++){ const a=pts[i], b=pts[i+1], mx=(a[0]+b[0])/2, my=(a[1]+b[1])/2, dx=mx-cxp, dy=my-cyp, d=Math.hypot(dx,dy)||1, ox=mx+dx/d*(rg.OD/2*sc*0.55), oy=my+dy/d*(rg.OD/2*sc*0.55); const px=0.25*a[0]+0.5*ox+0.25*b[0], py=0.25*a[1]+0.5*oy+0.25*b[1], ang=Math.atan2(b[1]-a[1],b[0]-a[0])*180/Math.PI; sw.push(`<path d="M-6,-4 L6,0 L-6,4 Z" fill="var(--field)" transform="translate(${px.toFixed(1)} ${py.toFixed(1)}) rotate(${ang.toFixed(0)})"/>`); }
+  T.push(sw.join(''));
+  if(pts.length){ const f=pts[0], l=pts[pts.length-1];
+    T.push(`<circle cx="${f[0].toFixed(1)}" cy="${f[1].toFixed(1)}" r="4" fill="var(--field)"/><circle cx="${l[0].toFixed(1)}" cy="${l[1].toFixed(1)}" r="4" fill="var(--crit)"/>`);
+    T.push(`<path d="M${l[0].toFixed(1)},${l[1].toFixed(1)} L${(cxp+rmaxMm*sc*1.12).toFixed(1)},${(l[1]+14).toFixed(1)}" stroke="var(--crit)" stroke-width="2" fill="none"/><text class="t" x="${(cxp+rmaxMm*sc*1.12+4).toFixed(1)}" y="${(l[1]+18).toFixed(1)}" font-size="11" fill="var(--crit)">to MOSFET drain</text>`); }
+  if(windG){ T.push(`<path d="M${(cxp-windG.rmax*1000*sc-26).toFixed(1)},${cyp} H${(cxp-windG.rmax*1000*sc).toFixed(1)}" stroke="var(--ink)" stroke-width="2.4"/><text class="t" x="6" y="${cyp-8}" font-size="11">+24 V (via fuse)</text>`);
+    const gx=cxp-wg.Di/2*sc; T.push(`<text class="t" x="${cxp}" y="${(cyp-windG.rmax*1000*sc-8).toFixed(1)}" font-size="11" text-anchor="middle" opacity="0"></text>`); }
+  const L=[`Series order, seen from the treatment face:`,windG?`+24 V → outer winding (outside → inside)`:`+24 V`,`   → solenoid 1 → 2 → … → ${units.length} → MOSFET drain`,`All windings circulate the same way:`,`counter-clockwise seen from the face.`,``,`Expected from the model:`,`  each solenoid ${n(ringG?ringG.R:0,3)} Ω${windG?`, outer winding ${n(windG.R,3)} Ω`:''}`,`  whole chain ${n(r.Rdc,3)} Ω DC, ${fmtL(r.L)} with steel`,``,`Before powering:`,`1. Ohms across the chain within about 5 % of the above.`,`2. Put 1 V through a 10 Ω resistor into the chain (≈ 0.1 A)`,`   and hold a compass over each solenoid face and over`,`   the outer winding: all needles must point the same way.`,`3. A solenoid that flips is reversed: swap its two leads.`,`4. With the MOSFET fitted, make the first run at 6 V.`];
+  const tx=T.join('')+L.map((s,i)=>`<text class="t${i===0?' ref':''}" x="670" y="${70+i*20}" font-size="12">${escH(s)}</text>`).join('');
+  return `<svg class="schem wiring2" viewBox="0 0 1120 500" role="img" aria-label="Top view of the coil array with series wiring order"><title>Top view, series wiring order</title>${tx}</svg>`;
 }
 
 /* ================= wiring ================= */
 function toast(m){ const t=$('toast'); t.textContent=m; t.hidden=false; clearTimeout(toast.h); toast.h=setTimeout(()=>t.hidden=true,1600); }
 async function copyText(txt,el){ try{ await navigator.clipboard.writeText(txt); toast('Copied'); }catch(e){ if(el){ const r=document.createRange(); r.selectNodeContents(el); const s=getSelection(); s.removeAllRanges(); s.addRange(r); toast('Selected — press Ctrl/⌘+C'); } } }
 $('copyFw').addEventListener('click',()=>copyText($('fw').textContent,$('fw')));
+$('dlFw').addEventListener('click',()=>{ const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([$('fw').textContent],{type:'text/plain'})); a.download='coil_ap.ino'; a.click(); });
 $('copyBom').addEventListener('click',()=>{ const q=v=>'"'+String(v).replace(/"/g,'""')+'"'; const rows=[['Ref','Part','Value / rating','Why']].concat((SCH.last?SCH.last.bom:[]).map(b=>[b.ref,b.part,b.value,b.why])); copyText(rows.map(r=>r.map(q).join(',')).join('\n'),$('bomT')); });
 $('copyJson').addEventListener('click',()=>copyText(JSON.stringify({design:S,results:{L_H:R.L,R_ac_ohm:R.Rac,I_pk_A:R.sim.ipk,B_target_T:R.Bt,E_V_per_m:R.E,SRF_Hz:R.srf}},null,2)));
 $('pinBtn').addEventListener('click',()=>{ const b=$('pinBtn'); if(BASE){ BASE=null; b.classList.remove('on'); b.textContent='Pin baseline'; } else { BASE=R.defs.map(d=>({key:d.key,val:d.val})); b.classList.add('on'); b.textContent='Baseline pinned · clear'; } renderMetrics(); });

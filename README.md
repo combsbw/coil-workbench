@@ -27,6 +27,14 @@ When a new version is pushed, an **Update available · reload** button appears i
 - **Interactive charts**: hover any chart for readouts; click the frequency-response chart to set the drive frequency; click inside the tissue on the field map to move the target
 - Bench calibration from measured L, R and B; baseline pinning; sensitivity table
 
+**Build sheet · composite coils** (select *My build · composite* under Coil type; the default preset is a 7-solenoid array in a 5 in aluminium winding)
+- Describe a hand-built magnet as groups: a ring of premade solenoids, an outer winding of any wire/length/form, a central steel core, optional bore pole pins; every group has polarity and series/ordering
+- Exact ring Biot–Savart superposition, mutual inductance, ferromagnet demagnetisation, eddy-current permeability roll-off and saturation, per-group heating
+- Field map with streamlines and an E-field mode; contribution table (which part makes the field at depth) and what-if table
+- Hand-parts discrete BJT gate driver (no driver IC), fuse/flyback/shunt sizing against the parts you own
+- Wiring diagram, series-wiring and polarity-test figure, bill of materials with on-hand/buy column
+- **Generated ESP32-S3 soft-AP firmware** (`firmware/coil_ap/coil_ap.ino`, also downloadable from the Firmware card): start/stop, frequency, duty, intensity, session timer, live current/temperature graphs, lifetime stats
+
 **Research** (`#research`)
 - 80 PubMed-indexed references with PMID, DOI and free-full-text links
 - 10 mechanism dossiers (Faraday induction, Ca²⁺/calmodulin → NO, adenosine receptors, TRPC1–mitochondria, growth factors and cytokines, radical pairs, VGCC hypothesis, ion cyclotron resonance, magnetite, endogenous fields) with evidence status and coil-design implications
@@ -47,8 +55,9 @@ Settings → Pages → *Build and deployment* → Source: **Deploy from a branch
 | `manifest.webmanifest` | Install metadata, icons, shortcuts |
 | `fonts/` | Self-hosted Saira Condensed and IBM Plex (SIL Open Font License) |
 | `icons/` | App, maskable and Apple touch icons |
+| `firmware/coil_ap/coil_ap.ino` | ESP32-S3 soft-AP controller generated for the default build (Arduino-ESP32 3.x, no extra libraries) |
 | `.nojekyll` | Serve files as-is |
 
 ## Caveats
 
-Engineering estimates from closed-form models; expect 10–30 % error before calibrating against bench measurements. Bibliographic data from PubMed (U.S. National Library of Medicine); summaries are paraphrased. Not medical advice. Do not use near pacemakers, neurostimulators or other implants.
+Engineering estimates from closed-form models; expect 10–30 % error before calibrating against bench measurements. Bibliographic data from PubMed (U.S. National Library of Medicine); summaries are paraphrased. Not medical advice. Check the generated firmware constants against your own measurements (coil resistance, shunt value) before the first run, start at low voltage, and fit the fuse. Do not use near pacemakers, neurostimulators or other implants.
