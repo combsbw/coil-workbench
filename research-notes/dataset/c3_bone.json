@@ -1,0 +1,318 @@
+[
+ {
+  "id": "osteoblast_prolif_diff",
+  "name": "Osteoblast proliferation and differentiation (ALP, COL-1, OCN, Runx2)",
+  "level": "cellular",
+  "driver": "waveform / frequency structure plus cell state; B is a secondary dose scaler; dB/dt not isolated",
+  "driver_note": "Non-monotonic in B and the optimum differs by lab and waveform: Yan 2015 (0.6-3.6 mT, 50 Hz) best at the lowest, 0.6 mT; Zhai 2016 (0.5-2 mT, 15.38 Hz) best at the highest, 2 mT, 2 h/day better than 6 h; Tsai 2007 sign of proliferation flips between 0.13 and 0.32 mT. Zhu 2017: 0.6 mT pulsed beat 1.8 mT sinusoid at the same 50 Hz. Jing 2014: 0.38-0.6 T rotating at 7 Hz had no effect on bone.",
+  "windows": {
+   "B_mT": {
+    "lowest_effective": 0.13,
+    "yan_optimum": 0.6,
+    "igea_type": [
+     1.5,
+     2.3
+    ],
+    "zhai_optimum": 2.0,
+    "diniz": 7.0,
+    "range_review_pulsed": "0.40-1.55 or 3.8-4 (Zhang 2020 narrative)"
+   },
+   "f_Hz": {
+    "yan": 50,
+    "zhai": 15.38,
+    "lohmann_burst": 15,
+    "igea": 75,
+    "tsai": 7.5
+   },
+   "dBdt_Ts": {
+    "yan_if_sine": 0.19,
+    "zhu_sine_1p8mT": 0.57,
+    "tsai_lower_bound": [
+     0.43,
+     1.07
+    ],
+    "torricelli_igea": 1.8,
+    "jing_rotating_crude": [
+     17,
+     26
+    ],
+    "basis": "computed; sine/ramp assumptions in the source note; Tsai values are lower bounds because rms < peak"
+   },
+   "E_Vm": {
+    "tsai_computed_from_stated_formula": [
+     0.00032,
+     0.0016
+    ],
+    "tsai_NOT_ok": "the original note quoted 1.5-7.6 uV/cm, which is inconsistent with its own formula (32-160 uV/cm); do not reuse",
+    "torricelli_r1p5cm": 0.013,
+    "basis": "computed"
+   },
+   "schedule": "0.5-8 h/day for days; Zhai 2 h/day best; Lohmann 8 h/day with TGF-b1 and PGE2 back to control by day 4"
+  },
+  "evidence": "in vitro, many labs, cilia-dependence concentrated in two labs",
+  "confidence": "moderate that an effect exists with non-monotonic dose dependence; low for numeric thresholds; speculative for B vs dB/dt",
+  "refs": [
+   "11052501",
+   "12568966",
+   "19139991",
+   "12111759",
+   "18230298",
+   "17516509",
+   "26891468",
+   "25661534",
+   "27622883",
+   "30996361",
+   "35355482",
+   "29658660",
+   "12483712",
+   "10541767",
+   "28833306",
+   "27859405",
+   "32159242"
+  ],
+  "caveat": "Nulls: Yang 2007 (1.55 mT, 48 Hz, MC3T3-E1), Wang 2016 (PEMF alone on hPDLSC), Diniz 2002 (inhibitory at mineralisation stage), serum, substrate and Ca-transient dependence (Pezzetti, Schwartz, Tong). 0.6 mT/50 Hz replications are the same lab."
+ },
+ {
+  "id": "ca_cam_adenosine_bone",
+  "name": "Ca2+/calmodulin and adenosine A2A/A3 in bone cells",
+  "level": "transduction",
+  "driver": "unresolved; cell state (Ca transients) is a precondition",
+  "driver_note": "Brighton 2001: capacitive coupling acts through voltage-gated Ca channels (verapamil), inductive and combined fields through intracellular store release (TMB-8); all converge on Ca2+/CaM (W-7). Tong 2017: effect only when Ca transients present. Kar 2021: Adora3 knockout blunts the response, Adora2A knockout only delays Alp mRNA.",
+  "windows": {
+   "note": "no amplitude series for these targets in the retrieved abstracts; Ferrara/IGEA 75 Hz, 1.5-2.5 mT used where stated"
+  },
+  "evidence": "inhibitor and CRISPR knock-out with rescue (in vitro)",
+  "confidence": "moderate-high for pathway identity; low for thresholds",
+  "refs": [
+   "11679602",
+   "9268690",
+   "28833306",
+   "33630907",
+   "17698373",
+   "23741498"
+  ]
+ },
+ {
+  "id": "tgfb_bmp_wnt_igf_cilia",
+  "name": "TGF-b1, BMP-2/Smad, Wnt/b-catenin, IGF-II receptor, primary cilium",
+  "level": "growth-factor signalling",
+  "driver": "frequency specificity at very low E (IGF-II); B-amplitude windows for BMP/cilia",
+  "driver_note": "Fitzsimmons 1995: IGF-II receptor number rose after 30 min at 15.3 Hz combined AC/DC with calculated E_max of only 1e-5 V/m (0.1 uV/cm), frequency dependent, which argues against a Faraday E-magnitude threshold for that target. Cilia/IFT88/polaris/PC2 knockdown abolishes 0.6 mT/50 Hz and 0.5-3 mT/15 Hz effects.",
+  "windows": {
+   "B_mT": {
+    "bmp_cilia": 0.6,
+    "wnt": 2.0,
+    "wnt_in_vivo": 2.4,
+    "igf2_Bac_implied_uT": 14
+   },
+   "f_Hz": {
+    "bmp": 50,
+    "wnt": 15.38,
+    "igf2": 15.3
+   },
+   "E_Vm": {
+    "fitzsimmons_max": 1e-05,
+    "basis": "reported (calculated by authors)"
+   },
+   "timing": "TGF-b1 and PGE2 transient: up days 1-2, back to control at day 4 (Lohmann); PI3K peak at 0.5 h then falls (Ren 2019); DBM rat: TGF-b1 mRNA +158 %, protein +23 % (Aaron 2002)"
+  },
+  "evidence": "in vitro knockdown; rat DBM in vivo; two labs for cilia",
+  "confidence": "high that pathways are engaged downstream; moderate for cilia requirement; low for thresholds",
+  "refs": [
+   "7639117",
+   "25661534",
+   "27622883",
+   "30996361",
+   "35355482",
+   "11918302",
+   "11052501",
+   "12568966",
+   "26891468",
+   "24244491",
+   "27555216",
+   "16831948"
+  ],
+  "caveat": "Fitzsimmons B_ac of ~14 uT is a back-calculation assuming a 1.5 cm radius circular dish; the paper abstract gives neither B nor geometry."
+ },
+ {
+  "id": "osteoclast_opg_rankl",
+  "name": "Osteocyte / osteoclast / OPG-RANKL (osteoporosis)",
+  "level": "cellular and animal",
+  "driver": "induced E level (Chang) flips sign; B windows at 15 Hz (Wang); no controlled dB/dt test",
+  "driver_note": "Chang 2003 reported induced E of 4.8, 8.7, 12.2 uV/cm rms: osteoclast-like formation enhanced ~50 % or suppressed ~27 % depending on E level. Wang 2017 and 2019 at 15 Hz: 0.5 mT inhibits osteoclastogenesis and lowers RANKL/OPG, 3 mT promotes osteoclast apoptosis and resorption. Chang 2006: 3.0 uV/cm, 7.5 Hz gave apoptosis after 8 and 16 h but not 1 h.",
+  "windows": {
+   "B_mT": {
+    "inhibit": 0.5,
+    "reverse": 3.0,
+    "rat_OVX": [
+     2.4,
+     3.8
+    ],
+    "akca_implant": 0.2,
+    "an2025": 0.6
+   },
+   "f_Hz": {
+    "wang": 15,
+    "rat_OVX": [
+     8,
+     15
+    ],
+    "an": 50,
+    "chang2006": 7.5
+   },
+   "E_Vm": {
+    "chang2003": [
+     4.8e-05,
+     0.000122
+    ],
+    "chang2006": 3e-05,
+    "basis": "reported, rms uV/cm converted to V/m"
+   },
+   "duration_threshold": "1 h inactive, 8-16 h active (Chang 2006)",
+   "schedule": "rat OVX 8 h/day 10 wk (Jing 2013); whole-body 12 wk (Zhou 2017); early start protected vertebra and femur, late start vertebra only"
+  },
+  "evidence": "in vitro, OVX rats (n=10/group); one uncontrolled human study (Tabrah 1990, 72 Hz, n=20)",
+  "confidence": "low-moderate for the 0.5 vs 3 mT window (single 15 Hz study); moderate for rat efficacy; low for humans",
+  "refs": [
+   "12929162",
+   "16987754",
+   "28741320",
+   "30422320",
+   "28965919",
+   "24244491",
+   "28510268",
+   "27711964",
+   "22948539",
+   "12669302",
+   "41152178",
+   "17634134",
+   "25047554",
+   "2195843"
+  ],
+  "caveat": "Jing 2013 saw no RANKL/RANK expression change while Zhou saw RANKL down and OPG up. Jing 2014 rotating 0.38-0.6 T at 7 Hz null (dB/dt 17-26 T/s is a crude geometry-dependent guess), so very large B/dB/dt is not sufficient."
+ },
+ {
+  "id": "chondrocyte_matrix_oa",
+  "name": "Chondrocyte matrix synthesis / cartilage / OA",
+  "level": "cellular and clinical",
+  "driver": "frequency (75 Hz > 15 Hz in one lab) and field orientation; amplitude secondary",
+  "driver_note": "Xu 2022: at 1 mT the 75 Hz condition was best (full 15/45/75 ordering not supported by the abstract; 36377077 and 36854553 are two separate papers). Stefani 2020: coil parallel to the articular surface beat perpendicular, implicating induced-E direction relative to tissue. Kavand 2019: generic PEMF null, Ca-ICR tuned AC+DC worked.",
+  "windows": {
+   "B_mT": {
+    "igea_explants": 1.5,
+    "igea_chondrocytes": 2.3,
+    "parate_2D": 2.0,
+    "parate_3D": 3.0,
+    "mouse_OA": 3.8,
+    "xu": 1.0
+   },
+   "f_Hz": {
+    "igea": 75,
+    "parate": 15,
+    "xu": [
+     15,
+     45,
+     75
+    ]
+   },
+   "dBdt_Ts": {
+    "igea": 1.8,
+    "basis": "computed 2.3 mT / 1.3 ms ramp assumption"
+   },
+   "schedule": {
+    "ongaro": "sulfate +49 % at 7 d (grade I explants), additive with IGF-I",
+    "parate": "10 min single dose enough",
+    "yang_mouse": "1 h/day for 4 wk, protection reduced in IL-6-/- and TNF-a-/-"
+   },
+   "clinical": "meta-analyses discordant: pain SMD 0.71 (Tong), -0.41 (Vigano), 1.06 (Yang 2020 says parameters did not matter), Chen 2019 no pain benefit; Wu 2018 reported sessions <=30 min better than >30 min (a two-bin contrast, not a dose-response curve)"
+  },
+  "evidence": "in vitro, ex vivo human cartilage, mouse OA; clinical heterogeneous",
+  "confidence": "moderate for anabolic effect at 1.5-3.8 mT / 75 Hz in vitro; low for frequency preference; low-moderate for clinical OA benefit",
+  "refs": [
+   "11913771",
+   "21412809",
+   "11853089",
+   "11918302",
+   "32014064",
+   "30793837",
+   "36377077",
+   "36854553",
+   "34612715",
+   "31985051",
+   "17698373",
+   "35586276",
+   "32508140",
+   "32251502",
+   "31583420",
+   "30552258",
+   "23973142",
+   "22870682",
+   "28624853",
+   "26756278"
+  ]
+ },
+ {
+  "id": "tendon_fibroblast",
+  "name": "Tendon / fibroblast",
+  "level": "cellular and clinical",
+  "driver": "unknown",
+  "driver_note": "Only single-setting data (1.5 mT, 75 Hz, 8 h/day): collagen I/VI and scleraxis up with lower proliferation. No amplitude, frequency, E or dB/dt series.",
+  "windows": {
+   "B_mT": 1.5,
+   "f_Hz": 75,
+   "schedule": "8 h/day up to 21 d"
+  },
+  "evidence": "in vitro human primary cells (13 donors); small null RCT (Ko 2024, Achilles, p=0.527); single 0.78 T bout raised pressure-pain threshold (Wilms 2024, n=34), a high-field regime unrelated to the above",
+  "confidence": "low",
+  "refs": [
+   "33261301",
+   "42738823",
+   "39534390",
+   "39172175",
+   "34657312",
+   "32998161"
+  ]
+ },
+ {
+  "id": "fracture_nonunion_fusion",
+  "name": "Fracture, non-union and spinal fusion",
+  "level": "clinical",
+  "driver": "not determinable from the retrieved parameters",
+  "driver_note": "Acute fracture trials are net null (Adie 2011 RR 1.02, n=259 double blind; Hannemann 2014 13 RCTs; Picelli 2024). Non-union: Cochrane 2011 union RR 1.96 (0.86-4.48), I2 58 %. Spinal fusion: Mooney 1990 92 % vs 65 % (double-blind sham), Jenis 2000 null, Foley 2007 significant at 6 months (83.6 vs 68.6 %) but not at 12; meta-analyses OR ~2.5-2.7 across stimulation types.",
+  "windows": {
+   "satter_uncontrolled": {
+    "B_mT": [
+     0.01,
+     0.1
+    ],
+    "pulse_ms": 0.3,
+    "f_Hz": 80,
+    "dBdt_Ts": [
+     0.03,
+     0.33
+    ],
+    "basis": "computed ramp = pulse width; 11 of 13 healed in an uncontrolled series, claimed to negate a narrow window"
+   },
+   "foley_mooney": "parameters not in retrieved abstracts"
+  },
+  "evidence": "RCTs and meta-analyses",
+  "confidence": "low-moderate for non-union; low for acute fracture; moderate for spinal fusion as adjunct in high-risk cases",
+  "refs": [
+   "21491410",
+   "24895156",
+   "21915570",
+   "39387850",
+   "10758655",
+   "1933587",
+   "2218718",
+   "10549700",
+   "10941887",
+   "17983841",
+   "32165697",
+   "39278993",
+   "25278882",
+   "9355215"
+  ],
+  "caveat": "Satter 1999 is an uncontrolled case series of 19 enrolled / 13 completers and should not be read as efficacy evidence."
+ }
+]
