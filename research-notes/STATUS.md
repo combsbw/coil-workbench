@@ -23,5 +23,5 @@ These cover every scope, so the remaining work is synthesis plus checking, not n
 Dataset records are written to research-notes/dataset/*.json right after each cluster is read. Order: 7 (dosimetry), 4 (nerve/pain), 1, 2, 3, 5, 6, then thr_5 and thr_6 JSON merge.
 - [x] cluster7 read -> dataset/c7_dosimetry.json
 - [x] cluster4 read -> dataset/c4_nerve.json
-- [x] cluster1 (Ca/NOS) -> dataset/c1_ca_nos.json  - [x] cluster2 (adenosine/inflammation) -> dataset/c2_adenosine_inflam.json  - [x] cluster3 (bone) -> dataset/c3_bone.json  - [x] cluster5 (mito/ROS/radical pair) -> dataset/c5_mito_ros_rp.json  - [ ] cluster6 (vascular/wound/muscle)
+- [x] cluster1 (Ca/NOS) -> dataset/c1_ca_nos.json  - [x] cluster2 (adenosine/inflammation) -> dataset/c2_adenosine_inflam.json  - [x] cluster3 (bone) -> dataset/c3_bone.json  - [x] cluster5 (mito/ROS/radical pair) -> dataset/c5_mito_ros_rp.json  - [x] cluster6 (vascular/wound/muscle) -> dataset/c6_vascular_wound_muscle.json
 Verifier corrections to apply: verify_1_2.md section A, verify_3_6.md sections 1-2 (Tsai E_rms, Xu 75>45>15 ordering, Wu 2018, Prucha 11.8 T/s, Bragin 3 h, Cleary, Farndale cAMP, Ghibelli not static, Lin 2011 not Ferrara).

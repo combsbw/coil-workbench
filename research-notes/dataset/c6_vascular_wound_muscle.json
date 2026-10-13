@@ -1,0 +1,322 @@
+[
+ {
+  "id": "angiogenesis_fgf_vegf",
+  "name": "Endothelial FGF-2 / VEGF / VEGFR2 / PI3K-Akt-eNOS and angiogenesis",
+  "level": "growth-factor signalling",
+  "driver": "unresolved; waveform/duty and duration implicated (same 2 mT/50 Hz sine is anti-angiogenic, pulsed 1.5-5 mT bursts pro-angiogenic)",
+  "driver_note": "Peng 2020 is the only paired comparison (15 Hz/1.5 mT vs 30 Hz/3.0 mT, calc. dB/dt 0.14 vs 0.57 T/s) and B, f and dB/dt rose together. Delle Monache 2013: 2 mT, 50 Hz sinusoid reduced proliferation, tubulogenesis and VEGFR2. Prucha 2019: rectangular 340 us pulses at 72 Hz, 4 mT changed proliferation, the 5 kHz AM sine mode did not (abstract). Both FGF-2 and PI3K-Akt-eNOS arms are blocked by pathway inhibitors, so the mechanism is real in those systems; the activating physical quantity is not isolated.",
+  "windows": {
+   "B_mT": {
+    "lowest_positive": 1.5,
+    "callaghan": 1.2,
+    "li_hao_peng": [
+     1.5,
+     5.0
+    ],
+    "anti_angiogenic": 2.0,
+    "prucha": 4.0
+   },
+   "f_Hz": {
+    "callaghan": 15,
+    "peng": [
+     15,
+     30
+    ],
+    "li_hao": 30,
+    "igea": 75,
+    "delle_monache": 50
+   },
+   "dBdt_Ts": {
+    "peng_low": 0.14,
+    "peng_high": 0.57,
+    "li_hao": 0.94,
+    "igea": 2.0,
+    "delle_monache": 0.63,
+    "callaghan_lower_bound": 0.27,
+    "prucha_lower_bound": 11.8,
+    "basis": "computed; sine assumed where waveform not stated; Prucha assumes a 340 us rise (rise not reported)"
+   },
+   "E_Vm": {
+    "igea_r1cm": 0.01,
+    "basis": "computed"
+   },
+   "schedule": "45 min-8 h/day for 1-4 weeks in vivo; 4-24 h continuous in cells; VEGF release 3.2x at 24 h (Vincenzi 2020)"
+  },
+  "evidence": "mouse/rat in vivo plus HUVEC; two or three lineages; Li 2015 and Hao 2014 share a group and a protocol",
+  "confidence": "low-moderate",
+  "refs": [
+   "15208265",
+   "18176216",
+   "26045885",
+   "24936220",
+   "31915323",
+   "27780890",
+   "28979692",
+   "24244477",
+   "31177802",
+   "22993248",
+   "28990042",
+   "20953928",
+   "33126773",
+   "30834076",
+   "37369865",
+   "33675261"
+  ],
+  "caveat": "Goto 2010: VEGF, Tie-2, Ang-1 unchanged in marrow, FGF-2 and Ang-2 up. PEMF alone did not rescue HUVEC apoptosis (Cheng 2017). Pro-angiogenic gene induction in RPE (Oladnabi) is a safety flag. Sheikh 2012 is direct E-field at 7.5 GHz vs 60 Hz, not magnetic."
+ },
+ {
+  "id": "hif1a",
+  "name": "HIF-1a / hypoxia axis",
+  "level": "transcription",
+  "driver": "unknown",
+  "driver_note": "HIF-1a up with VEGF in Peng 2020 and Hao 2014. In astrocytes (1.5 mT, 75 Hz, 1.3 ms, 24 h) VEGF release rose 3.2x but was HIF-1a independent (chetomin no effect, HIF-1a protein unchanged).",
+  "windows": {
+   "B_mT": [
+    1.5,
+    5.0
+   ],
+   "f_Hz": [
+    30,
+    75
+   ],
+   "note": "no amplitude series"
+  },
+  "evidence": "mouse MI/limb, astrocytes",
+  "confidence": "low",
+  "refs": [
+   "24936220",
+   "31915323",
+   "33126773"
+  ]
+ },
+ {
+  "id": "microvascular_flow",
+  "name": "Microvascular blood flow, vasodilation and oxygenation",
+  "level": "physiological",
+  "driver": "unresolved; the one mechanistically controlled study is E-field / NO driven with B undefined; healthy-skin flow shows no B dose-response",
+  "driver_note": "Bragin 2014 (rat cortex, 27.12 MHz, 3 ms bursts at 5 Hz, tissue E about 6 V/m, SAR 40 mW/kg): arterioles 26.4 to 29.1 um (p<0.01), capillary RBC velocity +5.5 %, NADH to 94.7 %, L-NAME abolished everything. The effect was not significant by 3 h. Schuhfried 2005 found no skin-flow change at 100 uT/30 Hz or 8.4 mT/10 Hz (28-fold dB/dt spread, calc. 0.019 vs 0.53 T/s). Static fields reduce capillary RBC velocity only above ~500 mT (Brix 2008, 587 mT gave -40 %), with dB/dt = 0.",
+  "windows": {
+   "B_mT": {
+    "sun_vein_velocity": 0.5,
+    "kwan_DFU": 1.2,
+    "alghadier": [
+     2,
+     5
+    ],
+    "schuhfried": [
+     0.1,
+     8.4
+    ],
+    "mcnamee_null": 0.2,
+    "brix_static_threshold": 500
+   },
+   "f_Hz": {
+    "sun": 12,
+    "kwan": 12,
+    "alghadier": [
+     15,
+     50
+    ],
+    "schuhfried": [
+     10,
+     30
+    ],
+    "mcnamee": 60
+   },
+   "dBdt_Ts": {
+    "sun": 0.038,
+    "kwan": 0.09,
+    "schuhfried": [
+     0.019,
+     0.53
+    ],
+    "mcnamee": 0.075,
+    "alghadier": [
+     0.19,
+     1.57
+    ],
+    "basis": "computed, sine assumed"
+   },
+   "E_Vm": {
+    "bragin_tissue": 6,
+    "basis": "reported at 27.12 MHz, not ELF"
+   }
+  },
+  "evidence": "small RCTs (n=10-66), crossover nulls, rat 2-photon",
+  "confidence": "low",
+  "refs": [
+   "25343187",
+   "27227568",
+   "25882659",
+   "16320175",
+   "20496180",
+   "33216020",
+   "41897249",
+   "32401418",
+   "25110078",
+   "40443615",
+   "17952798",
+   "17478604"
+  ],
+  "caveat": "Sun 2016: vein velocity rose but diameter and laser-Doppler flux did not. Biermann 2020: both legs rose equally (time/rest artefact). Mayrovitz 2025 (n=6, 7.8 Hz rotating magnets) lowered perfusion. Effects appear more reliably in impaired tissue than healthy skin."
+ },
+ {
+  "id": "wound_fibroblast",
+  "name": "Fibroblast / keratinocyte proliferation, collagen and wound closure",
+  "level": "cellular and clinical",
+  "driver": "current density (inverted U, Cleary 1988) and duration; no controlled B vs dB/dt test",
+  "driver_note": "Cleary 1988 (applied current, 1 ms unipolar pulses at 1 Hz): J time-averaged 7 mA/m2 gave +32 % proliferation, 3.5 mA/m2 also effective, 1.8 mA/m2 no effect, >10 mA/m2 inhibitory, effect only with explants parallel to the field. It is applied current, not induced, but it is the one quantitative window. Direct-E-field work (Korraah 1-10 V/m; Wolf-Goldberg 1000 V/m) is far above induced PEMF E (~0.01 V/m at r = 1 cm for the IGEA signal) and cannot be used as a PEMF threshold. Continuous 24 h at 7 mT/50 Hz raised cytokines while 1 h/day did not (via review).",
+  "windows": {
+   "J_mAm2": {
+    "inactive": 1.8,
+    "effective": [
+     3.5,
+     7.0
+    ],
+    "inhibitory": 10
+   },
+   "B_mT": {
+    "vianale": 1.0,
+    "marmotti": 1.5,
+    "cheing": 5.0,
+    "callaghan": 1.2
+   },
+   "f_Hz": {
+    "vianale": 50,
+    "cheing": 25,
+    "marmotti": 75,
+    "callaghan": 15
+   },
+   "dBdt_Ts": {
+    "vianale": 0.31,
+    "cheing": 0.79,
+    "basis": "computed, sine assumed"
+   },
+   "animal_wound": "Callaghan: closure 11 vs 15 d (WT), 16 vs 24 d (diabetic), via review; Cheing: closure benefit at d10 and d14, none later, endpoint closure ~99 % in both"
+  },
+  "evidence": "in vitro, STZ and db/db models; Cochrane venous (3 RCTs, 94) and pressure (2 RCTs, 60) ulcer reviews unclear/no robust benefit",
+  "confidence": "preclinical low-moderate; clinical low",
+  "refs": [
+   "3377866",
+   "18410412",
+   "24395219",
+   "26053437",
+   "25759595",
+   "22668623",
+   "23481041",
+   "9096843",
+   "25683910",
+   "40931372",
+   "26134172",
+   "26334539",
+   "30654555",
+   "22092688",
+   "35698680",
+   "33261301"
+  ],
+  "caveat": "Cleary's original note called the inverted U \"4-fold wide\"; that gloss is not supported and is dropped. Czyz 2011 post-blepharoplasty RCT null on oedema."
+ },
+ {
+  "id": "skeletal_muscle",
+  "name": "Skeletal muscle (myoblast differentiation, satellite cells, recovery)",
+  "level": "cellular and clinical",
+  "driver": "timing / duty (Terrie) and TRPC1 route; a static-B route also exists at uT; dB/dt not tested",
+  "driver_note": "Terrie 2022 (2 mT, 75 Hz, 1.3 ms; induced probe voltage 5 mV): in 2D 22 h/day beat 2 h/day on myotube area; in 3D 2 h/day beat 22 h/day, and starting on day 8 (after fusion) gave fusion index 66 % vs 51 % (day 1) vs 28 % (static). Static 60-400 uT accelerated myotube formation via ryanodine-receptor Ca release (Surma 2014) and shielding to 0.3 uT inhibited growth, so B acts with dB/dt = 0. Mueller 2017 static-field null.",
+  "windows": {
+   "B_mT": {
+    "yap": 1.5,
+    "terrie": 2.0,
+    "leon_salas_max": 1.6,
+    "surma_static_uT": [
+     60,
+     400
+    ]
+   },
+   "f_Hz": {
+    "terrie": 75
+   },
+   "schedule": "10 min single dose (Yap); 2 h/day vs 22 h/day, 4-16 d, start day 1 vs 8 (Terrie)"
+  },
+  "evidence": "in vitro (one or two labs); DOMS RCT (n=30, parameters not reported) improved soreness but not peak torque",
+  "confidence": "in vitro low-moderate; in vivo low",
+  "refs": [
+   "35814025",
+   "31518158",
+   "38474424",
+   "27138553",
+   "23445453",
+   "25266690",
+   "21033354",
+   "29286120",
+   "24906295",
+   "40065317",
+   "31667935",
+   "40128672"
+  ],
+  "caveat": "rPMS strength gains (Ogawa 2019) are a high-dB/dt neural mechanism and must not be pooled with low-dB/dt PEMF. No CK-based PEMF study was retrieved."
+ },
+ {
+  "id": "lymph_oedema_oxygen_iron",
+  "name": "Lymphatic / oedema, tissue oxygenation, iron axis",
+  "level": "physiological",
+  "driver": "no data",
+  "driver_note": "Nothing retrieved on lymphatic function. Post-blepharoplasty RF patch null on oedema. NADH autofluorescence -5.3 % lasting ~3 h (Bragin). 15 Hz/3.82 mT, 40 min/day for 2 months changed neither ferritin, hepcidin nor tissue iron (Yang 2025, calc. 0.36 T/s).",
+  "windows": {
+   "note": "no thresholds"
+  },
+  "evidence": "single studies",
+  "confidence": "very low",
+  "refs": [
+   "22092688",
+   "25343187",
+   "41280646",
+   "26602884"
+  ]
+ },
+ {
+  "id": "no_enos_node",
+  "name": "NO / eNOS node (common to vascular targets)",
+  "level": "signalling",
+  "driver": "unresolved",
+  "driver_note": "Lowest B with an eNOS result: 0.6 mT, 50 Hz in osteoblasts, eNOS phosphorylated inside cilia, abolished by L-NAME (He 2022). In vivo vasodilation NO-dependent at ~6 V/m RF. Serum NO unchanged in hypertensives, a poor readout.",
+  "windows": {
+   "B_mT": 0.6,
+   "f_Hz": 50,
+   "dBdt_Ts": {
+    "he2022": 0.19,
+    "basis": "computed"
+   },
+   "E_Vm": {
+    "bragin": 6
+   }
+  },
+  "evidence": "in vitro, rat",
+  "confidence": "moderate that NO mediates; low that any particular field quantity activates it",
+  "refs": [
+   "35616355",
+   "31408675",
+   "25343187",
+   "32401418",
+   "41618092"
+  ]
+ },
+ {
+  "id": "dosimetry_regime_split",
+  "name": "Regime split in musculoskeletal PEMF (low-B vs high-dB/dt EMTT)",
+  "level": "dosimetry",
+  "driver": "dB/dt (authors' classification), narrative only",
+  "driver_note": "Leyva Martinez 2026 (28 studies, 1060 patients, SWiM): high-dB/dt EMTT (>60 kT/s) effective in structural disease; <5 mT often indistinguishable from placebo; one 80 mT/3 Hz trial null in myofascial pain; waveform and dB/dt rarely reported. The authors call it exploratory.",
+  "windows": {
+   "dBdt_Ts": {
+    "high": ">6e4",
+    "low": "<5 mT class, rarely reported"
+   }
+  },
+  "evidence": "systematic review (narrative)",
+  "confidence": "low-moderate",
+  "refs": [
+   "42652114",
+   "35698680"
+  ]
+ }
+]
