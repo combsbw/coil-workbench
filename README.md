@@ -22,6 +22,7 @@ When a new version is pushed, an **Update available · reload** button appears i
 - Drive: sine, bipolar square, unipolar pulse with diode/TVS turn-off, burst; transient RLC simulation; series-resonant tuning
 - ESP32-S3 direct-gate MOSFET model (gate charge, switching time, MOSFET loss), Si5351 PLL/MultiSynth plan, generated Arduino sketch
 - Field map from exact ring-current Biot–Savart with flux lines; B, dB/dt, induced E, tissue J, SAR at the target; nerve threshold and ICNIRP comparisons
+- Research tab: 33 activation-threshold cards (B, dB/dt and induced-E windows per mechanistic target, driver classification, evidence grade, caveats, PubMed links) with a range chart that overlays your current design. Source notes and the generator scripts are in `research-notes/` (`build_thr.py`, `splice_thr.py`, `STATUS.md`).
 - MIT receive analysis: secondary-field ratio, phase shift, receiver EMF
 - **Live effect panel**: every slider move, typed value or chart click shows what changed in field, dose, heat and resonance, which checks appeared or resolved, and gauges with a "before" marker. Charts draw dashed "before" traces.
 - **Interactive charts**: hover any chart for readouts; click the frequency-response chart to set the drive frequency; click inside the tissue on the field map to move the target

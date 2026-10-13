@@ -1,0 +1,67 @@
+/* thresholds section */
+.thr-key{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:8px}
+.thr-k{border:1px solid var(--line);border-left-width:4px;border-radius:7px;background:var(--panel);padding:9px 11px;display:grid;gap:5px;align-content:start}
+.thr-k b{font:600 15px/1.2 var(--f-display)}
+.thr-k p{margin:0;font-size:12.5px;color:var(--muted)}
+.thr-k .tl{display:flex;flex-wrap:wrap;gap:4px}
+.thr-k .tl button{border:1px solid var(--line);background:var(--panel2);border-radius:999px;padding:2px 8px;font-size:11.5px;cursor:pointer;color:var(--ink);text-align:left}
+.thr-k .tl button:hover{border-color:var(--copper)}
+.dc-E{border-left-color:var(--field)} .dc-B{border-left-color:var(--copper)} .dc-T{border-left-color:var(--warn)} .dc-U{border-left-color:var(--muted)} .dc-X{border-left-color:var(--ok)}
+.thr-find{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.thr-find ul{margin:6px 0 0;padding-left:18px;display:grid;gap:5px;font-size:13.5px;max-width:95ch}
+.thr-chartbox{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:grid;gap:8px}
+.thr-chartbox .chips{margin:0}
+.tc-head,.tc-row{display:grid;grid-template-columns:minmax(120px,38%) minmax(0,1fr);gap:8px;align-items:center}
+.tc-ticks{position:relative;height:16px;border-bottom:1px solid var(--line);font:11px var(--f-mono);color:var(--muted)}
+.tc-ticks span{position:absolute;transform:translateX(-50%);top:0}
+.tc-row{min-height:21px;cursor:pointer;border-radius:4px}
+.tc-row:hover{background:var(--panel2)}
+.tc-lab{font-size:12px;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tc-plot{position:relative;height:14px;background:linear-gradient(90deg,transparent 0,transparent 100%)}
+.tc-plot .gl{position:absolute;top:0;bottom:0;width:1px;background:var(--line);opacity:.6}
+.tc-bar{position:absolute;top:2px;height:10px;border-radius:2px;min-width:5px;background:var(--field)}
+.tc-bar.calc{background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.55) 0 2px,transparent 2px 5px)}
+.tc-bar.dcE{background-color:var(--field)} .tc-bar.dcB{background-color:var(--copper)} .tc-bar.dcT{background-color:var(--warn)} .tc-bar.dcU{background-color:var(--muted)} .dc-bar-X{background-color:var(--ok)}
+.tc-bar.dcX{background-color:var(--ok)}
+.tc-me{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--crit);z-index:2}
+.tc-note{font-size:12px;color:var(--muted)}
+.tc-leg{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:var(--muted)}
+.tc-leg i{display:inline-block;width:18px;height:8px;border-radius:2px;background:var(--field);vertical-align:middle;margin-right:5px}
+.tc-leg i.c{background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.55) 0 2px,transparent 2px 5px)}
+.tc-leg i.m{width:3px;height:12px;background:var(--crit)}
+.thr-grp{font:600 12px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:10px 0 2px;border-top:2px solid var(--line);padding-top:6px}
+.thr-card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:0 14px;border-left-width:4px}
+.thr-card summary{cursor:pointer;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;padding:10px 0;list-style-position:outside}
+.thr-card .ttl{font:600 17px/1.2 var(--f-display);flex:1 1 260px}
+.tbadge{font:600 11px var(--f-body);letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:4px;background:var(--panel2);border-left:3px solid var(--muted)}
+.tbadge.E{border-color:var(--field)} .tbadge.B{border-color:var(--copper)} .tbadge.T{border-color:var(--warn)} .tbadge.U{border-color:var(--muted)} .tbadge.X{border-color:var(--ok)}
+.cg{font-size:11.5px;color:var(--muted);white-space:nowrap}
+.cg i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px;background:var(--muted)}
+.cg.g0 i,.cg.g1 i{background:var(--crit)} .cg.g2 i,.cg.g3 i{background:var(--warn)} .cg.g4 i{background:var(--field)} .cg.g5 i{background:var(--ok)}
+.thr-body{display:grid;gap:10px;padding-bottom:12px}
+.thr-rows{width:100%;border-collapse:collapse;font-size:12.5px}
+.thr-rows th,.thr-rows td{border-bottom:1px solid var(--line);padding:4px 6px;text-align:left;vertical-align:top}
+.thr-rows th{font:600 11px var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.thr-rows .rtag{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;padding:1px 5px;border-radius:3px;background:var(--panel2)}
+.thr-rows .rtag.rep{border:1px solid var(--ok);color:var(--ok)} .thr-rows .rtag.calc{border:1px dashed var(--warn);color:var(--warn)}
+.thr-cmp{display:flex;flex-wrap:wrap;gap:5px;font-size:12px}
+.thr-cmp span{border-radius:4px;padding:2px 7px;background:var(--panel2);border:1px solid var(--line)}
+.thr-cmp .in{border-color:var(--ok);color:var(--ok)} .thr-cmp .hi{border-color:var(--crit)} .thr-cmp .lo{border-color:var(--field)}
+.thr-rec{border-top:1px solid var(--line);padding-top:8px;display:grid;gap:6px}
+.thr-rec h4{margin:0;font:600 14px/1.25 var(--f-body)}
+.thr-rec p{margin:0;font-size:13.5px;max-width:78ch}
+.thr-rec .lab{font:600 11px var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-right:6px}
+.thr-win{display:grid;grid-template-columns:minmax(120px,max-content) minmax(0,1fr);gap:2px 12px;font-size:12.5px;background:var(--panel2);border-radius:6px;padding:7px 10px;margin:0}
+.thr-win dt{color:var(--muted)} .thr-win dd{margin:0;font-family:var(--f-mono);font-size:12px;word-break:break-word}
+.thr-cav{border-left:3px solid var(--warn);padding:2px 0 2px 9px}
+.thr-ext{background:var(--copper-soft);border-radius:6px;padding:8px 11px;display:grid;gap:5px}
+.thr-ext ul{margin:0;padding-left:16px;font-size:12.5px}
+.thr-refs{display:flex;flex-wrap:wrap;gap:4px}
+.tref{font-size:11.5px;border:1px solid var(--line);border-radius:999px;padding:1px 8px;color:var(--ink);text-decoration:none;background:var(--panel2)}
+.tref:hover{border-color:var(--copper)}
+@media (max-width:560px){.tc-head,.tc-row{grid-template-columns:minmax(96px,34%) minmax(0,1fr)} .thr-win{grid-template-columns:1fr} .thr-win dd{margin-bottom:4px}}
+.research{grid-template-columns:minmax(0,1fr)}
+.r-sec,.thr-card,.thr-body,.thr-rec{min-width:0}
+.thr-scroll{overflow-x:auto}
+.thr-rows td:first-child{min-width:140px}
+.thr-win dd,.thr-rec p,.thr-ext p{overflow-wrap:anywhere}

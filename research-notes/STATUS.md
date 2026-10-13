@@ -25,3 +25,8 @@ Dataset records are written to research-notes/dataset/*.json right after each cl
 - [x] cluster4 read -> dataset/c4_nerve.json
 - [x] cluster1 (Ca/NOS) -> dataset/c1_ca_nos.json  - [x] cluster2 (adenosine/inflammation) -> dataset/c2_adenosine_inflam.json  - [x] cluster3 (bone) -> dataset/c3_bone.json  - [x] cluster5 (mito/ROS/radical pair) -> dataset/c5_mito_ros_rp.json  - [x] cluster6 (vascular/wound/muscle) -> dataset/c6_vascular_wound_muscle.json
 Verifier corrections to apply: verify_1_2.md section A, verify_3_6.md sections 1-2 (Tsai E_rms, Xu 75>45>15 ordering, Wu 2018, Prucha 11.8 T/s, Bragin 3 h, Cleary, Farndale cAMP, Ghibelli not static, Lin 2011 not Ferrara).
+
+## Result (2026-10-13)
+- [x] All 7 clusters distilled into dataset/*.json; thr_5 and thr_6 merged as second-pass blocks on 33 cards (build_thr.py -> thr_bundle.js)
+- [x] Verifier corrections applied (Tsai E, Xu ordering, Wu 2018, Prucha 11.8 T/s, Bragin 3 h, Cleary, Farndale, Ghibelli, Lin 2011, Colombini, Varani unverified); mV/cm to V/m unit slips fixed
+- [x] Thresholds section spliced into coilbench/app.html (splice_thr.py), regression + page-error checks pass, PWA rebuilt

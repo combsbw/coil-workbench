@@ -1,0 +1,19 @@
+  <section class="r-sec" id="thrSec">
+   <h3>Activation thresholds by target</h3>
+   <p class="lead">For each biochemical or physiological target: the reported or computed window in field strength (B), rate of change (dB/dt) and induced electric field (E), which of those the evidence says actually drives the response, and how far the numbers can be trusted. Every number is tagged <b>reported</b> (from the paper) or <b>computed</b> (this project, with stated assumptions). No study varies rise time or frequency at constant B with matched E, so most biochemical targets remain unresolved. Treat the windows as where effects were seen, not as proven thresholds.</p>
+   <div class="thr-key" id="thrKey"></div>
+   <div class="thr-find" id="thrFind"></div>
+   <div class="thr-chartbox">
+    <div class="chips" id="thrAx" role="tablist" aria-label="Chart variable"></div>
+    <div class="tc-leg"><span><i></i>reported</span><span><i class="c"></i>computed</span><span><i class="m"></i>your current design</span></div>
+    <div id="thrDesign" class="tc-note"></div>
+    <div id="thrChart"></div>
+   </div>
+   <div class="lib-tools">
+    <div class="lib-row"><input type="search" id="thrQ" placeholder="Filter targets: calcium, bone, radical pair, nerve…" aria-label="Filter targets"></div>
+    <div class="chips" id="thrFg"></div>
+    <div class="chips" id="thrFd"></div>
+   </div>
+   <div id="thrList" style="display:grid;gap:8px"></div>
+  </section>
+
