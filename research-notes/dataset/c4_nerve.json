@@ -1,0 +1,187 @@
+[
+ {
+  "id": "pain_gating_opioid",
+  "name": "Pain gating and endogenous opioid release (TENS-like coding)",
+  "level": "neural circuit",
+  "driver": "E first (afferent recruitment), then frequency/pattern",
+  "driver_note": "Rodent TENS: 100 Hz acts through spinal delta-opioid receptors and lowers spinal glutamate/aspartate; 4 Hz through mu-opioid receptors; alternating 2/100 Hz is more potent. These data are suprathreshold electrical stimulation; no retrieved paper shows opioid release from magnetic fields below peripheral nerve threshold.",
+  "windows": {
+   "f_Hz": {
+    "mu_opioid": 4,
+    "delta_opioid": 100,
+    "alternating": "2/100"
+   },
+   "tolerance": "daily TENS shows tolerance by day 4, prevented by NMDA blockade (Hingne 2007)",
+   "E_Vm": "suprathreshold (>= about 2 V/m)"
+  },
+  "evidence": "animal (rodent), electrical",
+  "confidence": "moderate in rodents, low for transfer to PEMF",
+  "refs": [
+   "10215661",
+   "16236028",
+   "38446546",
+   "18061543",
+   "15698629",
+   "14614954",
+   "15911163"
+  ],
+  "caveat": "10-20 Hz was not tested in these papers. The 50-100 Hz acute and 10-20 Hz recovery assignment therefore rests on the 100 Hz vs 4 Hz TENS code, not on magnetic data."
+ },
+ {
+  "id": "rpms_pain",
+  "name": "Repetitive peripheral magnetic stimulation (rPMS) for pain and spasticity",
+  "level": "clinical neuro",
+  "driver": "E (suprathreshold, motor-threshold referenced)",
+  "driver_note": "Intensity is set relative to motor threshold (120 % MT; 20-55 % MSO), so these devices work at or above peripheral motor threshold. Frequency 5-20 Hz, 10-20 min, 3,900-4,800 pulses per session.",
+  "windows": {
+   "f_Hz": [
+    5,
+    20
+   ],
+   "optimum_stroke_Hz": 10,
+   "session_min": [
+    10,
+    20
+   ],
+   "effect_duration": "about 1 week after one session; none beyond 1-3 months in meta-analyses",
+   "trial_effects": "neuropathic pain NRS -1.64 (0-1 month, Dana 2023); fibromyalgia -1.86 (1-3 months, Leenus 2025); MSK SMD -1.16 (Pan 2025)"
+  },
+  "evidence": "human RCTs and meta-analyses, low to very low GRADE",
+  "confidence": "low",
+  "refs": [
+   "42147836",
+   "40248011",
+   "38102884",
+   "39885680",
+   "40501206",
+   "40807031",
+   "42848808",
+   "42058983"
+  ],
+  "caveat": "Short-lived effects; high heterogeneity (I2 up to 94 %)."
+ },
+ {
+  "id": "pemf_pain_trials",
+  "name": "Low-intensity PEMF for pain (clinical dose evidence)",
+  "level": "clinical",
+  "driver": "unresolved",
+  "driver_note": "No trial reports dB/dt or induced E. B values are device settings and not measured at the target. Effects do not scale with B or dB/dt across studies.",
+  "windows": {
+   "B_mT": {
+    "taradaj_effective_arm": 10,
+    "taradaj_ineffective_arm": 5,
+    "elshiwi": 2
+   },
+   "f_Hz": 50,
+   "session": "20 min, 12-15 sessions over 3-4 weeks",
+   "computed_E_Vm": "0.03-0.24 V/m for 2-10 mT, 50 Hz sine, r=0.10-0.15 m (computed, sinusoid assumption)",
+   "meta": "neuropathic pain SMD -1.01 but I2=92.8 % and gone after trim-and-fill; peripheral neuropathy -0.38 (-0.86 to 0.10) n.s. (Lara-Reyes 2026)"
+  },
+  "evidence": "human RCTs, mixed",
+  "confidence": "low",
+  "refs": [
+   "29616749",
+   "30177406",
+   "42146884",
+   "41745713",
+   "36343068",
+   "34238526",
+   "24308025",
+   "34905482",
+   "36465321"
+  ],
+  "caveat": "Only the 10 mT, 50 Hz arm (1 of 5) showed benefit in Taradaj 2018. Elshiwi 2018 pain CI crosses zero."
+ },
+ {
+  "id": "subthreshold_mood",
+  "name": "Subthreshold neuromodulation (LFMS, low-field transcranial)",
+  "level": "cortical network",
+  "driver": "E amplitude with tissue-specific frequency tuning",
+  "driver_note": "LFMS delivers about 0.7-1 V/m at 1 kHz, a few-fold below the SD-law PNS threshold at that frequency. Efficacy evidence is weak.",
+  "windows": {
+   "E_Vm": [
+    0.7,
+    1.0
+   ],
+   "f_Hz": 1000,
+   "exposure": "single 20 min session"
+  },
+  "evidence": "human (small RCT) + rat",
+  "confidence": "low",
+  "refs": [
+   "24331545",
+   "14702256",
+   "15780843",
+   "31692960"
+  ],
+  "caveat": "Mood improvement only in the pooled secondary analysis (Rohan 2014). Dufor 2019 argues pattern and cryptochrome rather than induced currents."
+ },
+ {
+  "id": "nerve_regen_DC_E",
+  "name": "Nerve regeneration: direct DC electric field (in vitro window)",
+  "level": "cellular",
+  "driver": "E",
+  "driver_note": "Direct DC E of 20-100 V/m (10-100 mV/mm) increases DRG neurite outgrowth; >= 100 mV/mm or > 10 h at 10-30 mV/mm is toxic.",
+  "windows": {
+   "E_Vm": {
+    "optimum": 50,
+    "effective_with_10min": [
+     24,
+     44
+    ],
+    "toxic_above": 100,
+    "basis": "reported, direct E (Koppes 2011, Wood 2009, Kim 2016)"
+   }
+  },
+  "evidence": "in vitro",
+  "confidence": "moderate",
+  "refs": [
+   "21712572",
+   "19494423",
+   "27529437",
+   "24891494"
+  ],
+  "caveat": "These are 4-5 orders of magnitude above the E a coil induces at 0.03-3 mT (0.1-10 mV/m, Walker 2007). They define the electrical window, not a PEMF threshold."
+ },
+ {
+  "id": "nerve_regen_pemf",
+  "name": "Nerve regeneration with low-B PEMF (rodent)",
+  "level": "tissue",
+  "driver": "unresolved (narrow B windows and schedule)",
+  "driver_note": "Sisken-type effects (0.3 mT, 2 Hz, 4 h/day days 1-5) cannot be explained by E amplitude. Amplitude window is narrow (0.3 mT effective, 0.06 mT not). Repeated nulls at the same 0.3 mT.",
+  "windows": {
+   "B_mT": {
+    "effective_in_vitro": 0.05,
+    "effective_in_vivo": 0.3,
+    "ineffective": 0.06,
+    "null_Walker2007": [
+     0.03,
+     0.3,
+     3
+    ]
+   },
+   "f_Hz": 2,
+   "schedule": "4 h/day days 1-5",
+   "walker_E_Vm": [
+    0.0001,
+    0.01,
+    0.01
+   ]
+  },
+  "evidence": "animal, mixed",
+  "confidence": "low",
+  "refs": [
+   "21551571",
+   "8216387",
+   "8313945",
+   "17265446",
+   "33797305",
+   "37124111",
+   "9972825",
+   "11298388",
+   "8600302",
+   "25769013"
+  ],
+  "caveat": "PEMF lowered NGF in injured nerve (Longo 1999) and depressed NGF-driven neurite growth (Shah 2001); BDNF rose in other work. Direction is inconsistent."
+ }
+]

@@ -18,3 +18,10 @@ Scopes (each writes research-notes/thr_<n>_*.json; progress is checkpointed here
 research-notes/loop/cluster1_ca_nos.md, cluster2_adenosine_inflammation.md, cluster3_bone_cartilage.md, cluster4_nerve_pain.md,
 cluster5_mito_ros_radicalpair.md, cluster6_vascular_wound_muscle.md, cluster7_dosimetry_B_vs_dBdt.md, verify_1_2.md, verify_3_6.md.
 These cover every scope, so the remaining work is synthesis plus checking, not new searching.
+
+## Synthesis progress (2026-10-13, resumable)
+Dataset records are written to research-notes/dataset/*.json right after each cluster is read. Order: 7 (dosimetry), 4 (nerve/pain), 1, 2, 3, 5, 6, then thr_5 and thr_6 JSON merge.
+- [x] cluster7 read -> dataset/c7_dosimetry.json
+- [x] cluster4 read -> dataset/c4_nerve.json
+- [ ] cluster1 (Ca/NOS)  - [ ] cluster2 (adenosine/inflammation)  - [ ] cluster3 (bone)  - [ ] cluster5 (mito/ROS/radical pair)  - [ ] cluster6 (vascular/wound/muscle)
+Verifier corrections to apply: verify_1_2.md section A, verify_3_6.md sections 1-2 (Tsai E_rms, Xu 75>45>15 ordering, Wu 2018, Prucha 11.8 T/s, Bragin 3 h, Cleary, Farndale cAMP, Ghibelli not static, Lin 2011 not Ferrara).

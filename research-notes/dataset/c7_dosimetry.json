@@ -1,0 +1,222 @@
+[
+ {
+  "id": "thermal_noise_bound",
+  "name": "Cell-level detection of weak E (thermal-noise bound)",
+  "level": "biophysical limit",
+  "driver": "E",
+  "driver_note": "Any electrical sensing by a single cell responds to the in-situ electric field E, not to B. Theory sets the minimum detectable E; it is contested.",
+  "windows": {
+   "E_Vm": {
+    "broadband_min": 0.1,
+    "narrowband_or_averaged_min": 0.0001,
+    "long_cell_shot_noise_min": 0.009,
+    "basis": "reported (theory)"
+   }
+  },
+  "evidence": "theory, contested (Weaver/Astumian vs Kaune, Adair)",
+  "confidence": "medium",
+  "refs": [
+   "2300806",
+   "7731976",
+   "9788920",
+   "12395418",
+   "12483664"
+  ],
+  "caveat": "Weaver 1998 quotes B_min about 0.6 mT for a 0.3 m loop; recomputation gives 0.16-0.19 mT at 50-60 Hz, so do not reuse 0.6 mT without reading the paper. In-vitro effects at 0.5-1.2 mV/m (osteoblast, osteoclast work) sit 7-19x below the 9 mV/m bound and are not independently replicated in the retrieved set."
+ },
+ {
+  "id": "membrane_polarisation",
+  "name": "Subthreshold membrane polarisation (channel gating, network timing)",
+  "level": "membrane",
+  "driver": "E",
+  "driver_note": "dVm = 1.5*E*a (low-frequency Schwan limit). A 10 um cell at 0.0157 V/m (1 mT, 50 Hz, r=10 cm) is polarised by 0.24 uV, versus 18 uV rms thermal membrane noise and about 1 mV needed for ordinary gating.",
+  "windows": {
+   "E_Vm": {
+    "network_timing_slice": [
+     0.18,
+     0.35
+    ],
+    "basis": "reported rms, rat hippocampal slice 50 Hz AC (Deans 2007)"
+   },
+   "E_Vm_lowest_classical_effect": "about 1 V/m (Saunders 2002 review)"
+  },
+  "evidence": "in vitro + theory",
+  "confidence": "medium for the arithmetic, low for network amplification",
+  "refs": [
+   "10920001",
+   "17599962",
+   "12199550"
+  ],
+  "caveat": "Slice work shows AC E of 0.18 V/m rms shifts firing timing in gamma oscillations (70 uV somatic polarisation). That is about 10-100x the E a 1-10 mT, 50 Hz coil induces on a limb."
+ },
+ {
+  "id": "axon_excitation",
+  "name": "Action-potential initiation (peripheral nerve, rPMS, TMS)",
+  "level": "cellular-neural",
+  "driver": "E",
+  "driver_note": "Induced E, i.e. dB/dt integrated over the pulse (strength-duration law dB/dt_th = b(1+c/d)). B alone is not the variable. Geometry sets E (E = (r/2) dB/dt).",
+  "windows": {
+   "E_Vm": {
+    "lowest_PNS_sensation": 2.0,
+    "rheobase_from_MR_gradients_computed": [
+     1.1,
+     1.95
+    ],
+    "TMS_pulses_0p1_to_0p4ms": [
+     3,
+     45
+    ],
+    "colella_minicoil": 39,
+    "motor_cortex_rMT": [
+     95,
+     120
+    ],
+    "basis": "reported (Wood 2008, Danner 2012) and computed (r=0.15 m for Bourland)"
+   },
+   "dBdt_Ts": {
+    "MRI_gradient_rheobase": [
+     15,
+     26
+    ],
+    "chronaxie_ms": [
+     0.37,
+     0.38
+    ],
+    "chronaxie_magnetic_forearm_ms": 0.651,
+    "chronaxie_electric_forearm_ms": 0.109,
+    "basis": "reported (Bourland 1999, Recoskie 2009)"
+   },
+   "margin": "A sine of 1-10 mT at 10-100 Hz induces 0.003-0.47 V/m (r=0.10-0.15 m): 4x to over 1000x below 2 V/m. A 1 mT edge of 50 us gives about 20 T/s and reaches the rheobase range."
+  },
+  "evidence": "human (high for physics)",
+  "confidence": "high",
+  "refs": [
+   "10318720",
+   "19759411",
+   "20939088",
+   "18381600",
+   "12815678",
+   "9408135",
+   "22019330",
+   "26528134",
+   "36502488",
+   "17495660",
+   "2689806"
+  ],
+  "caveat": "The 10-100 Hz band sits on the flat rheobase part of the strength-duration curve (within 13 %), so threshold does not rise sharply at low frequency except through accommodation, which no retrieved paper quantifies. Aδ/C-selective windows are not quantified in magnetic-stimulation papers."
+ },
+ {
+  "id": "magnetophosphene",
+  "name": "Retinal magnetophosphenes (lowest-threshold ELF effect)",
+  "level": "cellular-neural (retina)",
+  "driver": "E",
+  "driver_note": "Threshold set by induced E in retina with a 20 Hz tuning; B and dB/dt thresholds are not frequency-invariant, so neither alone is the dose.",
+  "windows": {
+   "E_Vm": {
+    "retina_median": 0.056,
+    "ci95": [
+     0.002,
+     1.33
+    ],
+    "basis": "reported (Wood 2008)"
+   },
+   "B_mT": {
+    "at_20Hz": 31.5,
+    "at_50Hz": 22.1,
+    "at_60Hz": 23.8,
+    "basis": "reported, 50 % perception, whole-head (Fresnel 2026); rms inferred from dB/dt check"
+   },
+   "dBdt_Ts": {
+    "at_20Hz": 4.0,
+    "at_50Hz": 6.9,
+    "at_60Hz": 9.0,
+    "basis": "reported (Fresnel 2026)"
+   },
+   "f_Hz": 20,
+   "note": "No phosphene perceived at 100 Hz in the tACS comparison (Bouisset 2025)."
+  },
+  "evidence": "human (replicated)",
+  "confidence": "moderate-high",
+  "refs": [
+   "18381600",
+   "41865084",
+   "21693787",
+   "40610500",
+   "38740182",
+   "40973130"
+  ],
+  "caveat": "ICNIRP CNS basic restrictions are set below this threshold. Values recalled from the ICNIRP 2010 text (public CNS 0.02 V/m at 50 Hz; occupational 0.1 V/m) are not retrievable from PubMed abstracts; verify before use."
+ },
+ {
+  "id": "insitu_E_dishes",
+  "name": "Low-E in-vitro effects on osteoblast-like cells (response follows E, not B)",
+  "level": "cellular",
+  "driver": "E",
+  "driver_note": "When B was uniform and E varied across the dish or by cell orientation, response mapped to E. Direct E with no B also works. This is the best direct evidence that dB/dt (through E) can drive a cellular readout.",
+  "windows": {
+   "B_mT": {
+    "mcleod_collazo": 1.8,
+    "lee_mcleod": 0.7,
+    "basis": "rms"
+   },
+   "f_Hz": [
+    30,
+    60
+   ],
+   "E_Vm": {
+    "mcleod_collazo": 0.0009,
+    "lee_mcleod": 0.0005,
+    "mcleod1993": 0.0006,
+    "chang2003": [
+     0.00048,
+     0.00122
+    ],
+    "basis": "reported rms (mV/m values converted from uV/cm)"
+   }
+  },
+  "evidence": "in vitro, single group per effect",
+  "confidence": "low-medium",
+  "refs": [
+   "10790296",
+   "10653624",
+   "8213260",
+   "12929162"
+  ],
+  "caveat": "E is zero at the dish centre and maximal at the wall, so dish dose depends on geometry. Back-calculated effective radius is only a few mm. No independent replication retrieved."
+ },
+ {
+  "id": "ion_binding_timing",
+  "name": "Ion/ligand binding kinetics (Pilla configured signals)",
+  "level": "biochemical",
+  "driver": "waveform timing + E",
+  "driver_note": "Pilla: burst duration and amplitude matched to Ca2+/calmodulin binding time constants set the bioeffect; retuning gave equal effect with 10x lower peak amplitude, about 800x lower average amplitude and about 10^6 x lower average power.",
+  "windows": {
+   "note": "Absolute E in V/m or mV/cm not reported in the retrieved abstracts. The task brief value 1-100 mV/cm could not be confirmed.",
+   "B_uT_clinical_PRF": "1.0 G (100 uT) clinical signal and 0.02-0.05 G configured signals (Strauch 2007), pulse-modulated RF"
+  },
+  "evidence": "mixed in vitro/animal, mostly one group",
+  "confidence": "medium for the idea, low for numbers",
+  "refs": [
+   "10228567",
+   "23675615",
+   "22940137",
+   "17632344"
+  ],
+  "caveat": "Pilla clinical signals are pulse-modulated RF, a different regime from ELF coils. At an assumed 27.12 MHz carrier the dB/dt would be 3e2-1.7e4 T/s, showing B alone cannot rank dose across waveform families."
+ },
+ {
+  "id": "dose_metric",
+  "name": "Which dose metric? (B, dB/dt, E, J, B*time)",
+  "level": "method",
+  "driver": "n/a",
+  "driver_note": "Electrical transducers follow E (hence dB/dt and geometry). Magnetic transducers (radical pairs, magnetite, static) follow B. Empirical amplitude windows change B and dB/dt together and cannot be assigned. No retrieved study varies rise time or frequency at constant B with matched E.",
+  "evidence": "synthesis",
+  "confidence": "high for the logic, gap in data",
+  "refs": [
+   "42652114",
+   "18532897",
+   "28842627"
+  ],
+  "caveat": "At the same 1 mT a 50 us edge gives 20 T/s and 10x the E of a 500 us edge; 1 mT sine at 100 Hz gives 0.63 T/s. Report B_pk, dB/dt, waveform, geometry and computed E."
+ }
+]
