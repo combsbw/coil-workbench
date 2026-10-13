@@ -1,0 +1,138 @@
+============================================================
+PMID 18230298 DOI None PMC None | Yang | 2007 | Zhonghua Lao Dong Wei Sheng Zhi Ye Bing Za Zhi | ['English Abstract', 'Journal Article', "Research Support, Non-U.S. Gov't"]
+[Effects of extremely low frequency pulsed electromagnetic field on different-derived osteoblast-like cells].
+To investigate the effect of the extremely low frequency pulsed electromagnetic field (PEMF) on the proliferation and differentiation of osteoblast-like cells.
+
+The MC3T3-E1 cell and the primary osteoblast cell derived from 2-day-old Sprague Dawley (SD) rat calvaria were exposed to PEMF with a magnetic flux density of 1.55 mT at 48 Hz for 24 or 48 h. MTS was applied to analyze cell proliferation and flow cytometry to detect cell cycle. The intracellular alkaline phosphatase (ALP) activity was measured by colorimetry.
+
+PEMF of 1.55 mT at 48 Hz decreased significantly the cell percentage of S or G(2)M phase (P < 0.05), but did not affect cell number of MC3T3-E1 cells. Although the number of the primary osteoblast cells did not alter by MTS assay after exposure to PEMF for 24 h continuously, the cell percentage of G(2)M phase increased significantly (P < 0.01). When the culture time extended to 48 h, the cell number increased greatly (P < 0.01) and the cell percentage of G(2)M phase decreased significantly despite of the exposure type (P < 0.01). After the primary osteoblast cells were exposed to PEMF for 24 h continuously, the ALP activity decreased significantly (P < 0.05), whereas it increased significantly after exposure to PEMF for 48 h continuously (P < 0.05).
+
+PEMF of 1.55 mT at 48 Hz does not affect proliferation and differentiation of MC3T3-E1 cell, but it promotes proliferation of primary osteoblast cell, inhibits differentiation at proliferation stage and promotes dif
+============================================================
+PMID 38200481 DOI 10.1186/s12903-023-03741-1 PMC PMC10782536 | Vaddamanu | 2024 | BMC Oral Health | ['Systematic Review', 'Journal Article']
+Attenuation of orthodontically induced inflammatory root resorption by using low-intensity pulsed ultrasound as a therapeutic modality- a systematic review.
+Ultrasound is an effective tool for both diagnostic and therapeutic applications. As an imaging tool, ultrasound has mostly been used for real-time noninvasive diagnostic imaging. As ultrasound propagates through a material, a reflected radio-frequency (RF) signal is generated when encountering a mismatch in acoustic impedance. While traditionally recognized for its diagnostic imaging capabilities, the application of ultrasound has broadened to encompass therapeutic interventions, most notably in the form of Low-Intensity Pulsed Ultrasound (LIPUS). Low-Intensity Pulsed Ultrasound (LIPUS) is a form of mechanical energy transmitted transcutaneously by high-frequency acoustic pressure waves. The intensity of LIPUS (30 mW/cm2) is within the range of ultrasound intensities used for diagnostic purposes (1-50 mW/cm2) and is regarded as non-thermal, non-destructive, permeating living tissues and triggering a cascade of biochemical responses at the cellular level. The LIPUS device produces a 200 µs burst of 1.5 MHz acoustic sine waves, that repeats at a modulation frequency of 1 kHz and provides a peak pressure of 30 mW/cm2. Low-intensity pulsed ultrasound (LIPUS) forms one of the currently available non-invasive healing-enhancing devices besides electro-stimulation (pulsed electro-magnetic field, PEMF). This modality has been leveraged to enhance drug delivery, expedite injury recovery, improve muscle mobility, alleviate joint stiffness and muscle pain, and enhance bone fracture heal
+============================================================
+PMID 24895156 DOI 10.1007/s00402-014-2014-8 PMC None | Hannemann | 2014 | Arch Orthop Trauma Surg | ['Comparative Study', 'Journal Article', 'Meta-Analysis', "Research Support, Non-U.S. Gov't", 'Systematic Review']
+The effects of low-intensity pulsed ultrasound and pulsed electromagnetic fields bone growth stimulation in acute fractures: a systematic review and meta-analysis of randomized controlled trials.
+The aim of this systematic review and meta-analysis was to evaluate the best currently available evidence from randomized controlled trials comparing pulsed electromagnetic fields (PEMF) or low-intensity pulsed ultrasound (LIPUS) bone growth stimulation with placebo for acute fractures.
+
+We performed a systematic literature search of the medical literature from 1980 to 2013 for randomized clinical trials concerning acute fractures in adults treated with PEMF or LIPUS. Two reviewers independently determined the strength of the included studies by assessing the risk of bias according to the criteria in the Cochrane Handbook for Systematic Reviews of Interventions.
+
+Seven hundred and thirty-seven patients from 13 trials were included. Pooled results from 13 trials reporting proportion of nonunion showed no significant difference between PEMF or LIPUS and control. With regard to time to radiological union, we found heterogeneous results that significantly favoured PEMF or LIPUS bone growth stimulation only in non-operatively treated fractures or fractures of the upper limb. Furthermore, we found significant results that suggest that the use of PEMF or LIPUS in acute diaphyseal fractures may accelerate the time to clinical union.
+
+Current evidence from randomized trials is insufficient to conclude a benefit of PEMF or LIPUS bone growth stimulation in reducing the incidence of nonunions when used for treatment in acute fractures. However, our systematic review and meta-analysis sug
+============================================================
+PMID 21491410 DOI 10.1002/14651858.CD008471.pub2 PMC PMC12754039 | Griffin | 2011 | Cochrane Database Syst Rev | ['Journal Article', 'Systematic Review']
+Electromagnetic field stimulation for treating delayed union or non-union of long bone fractures in adults.
+Delayed union and non-union of fractures are a considerable cause of morbidity to patients. Laboratory studies have shown that electromagnetic fields can stimulate the formation of new bone, indicating a potential role for electromagnetic stimulation in the treatment of fractures that have failed to heal.
+
+To assess the effects of electromagnetic stimulation for treating delayed union or non-union of long bone fractures in adults.
+
+We searched the Cochrane Bone, Joint and Muscle Trauma Group Specialised Register (May 2010), the Cochrane Central Register of Controlled Trials (in The Cochrane Library 2010, Issue 2), MEDLINE (1966 to May 2010) and EMBASE (1980 to 2010 Week 20), trial registers and reference lists of articles.
+
+Randomised controlled trials evaluating electromagnetic field stimulation for the treatment of delayed union or non-union of long bones in adults.
+
+Two authors independently selected studies and performed data extraction and risk of bias assessment. Treatment effects were assessed using risk ratios and, where appropriate, data were pooled using a random-effects model.
+
+Four studies, involving 125 participants, were included. Three studies evaluated the effects of pulsed electromagnetic fields and one study, capacitive coupled electric fields. Participants with delayed union and non-union of the long bones were included, but most data related to non-union of the tibia. Although all studies were blinded randomised placebo-controlled trials, each study had li
+============================================================
+PMID 8266824 DOI 10.1002/jbmr.5650081107 PMC None | MacGinitie | 1993 | J Bone Miner Res | ['Journal Article', "Research Support, Non-U.S. Gov't", "Research Support, U.S. Gov't, Non-P.H.S.", "Research Support, U.S. Gov't, P.H.S."]
+Streaming potentials in healing, remodeling, and intact cortical bone.
+Electrical fields have been implicated in accelerated bone healing and as a transduction mechanism for mechanically driven bone remodeling. Applied mechanical or electrical stimulation of bone remodeling suggests that this depends on the magnitude, frequency, and duration of the stimulus. The magnitude of endogenous electrical fields, manifest by streaming potentials (SPs) across canine cortical bone, were measured as a function of bending frequency in vivo and then in vitro at healing drill holes and at remodeling (ipsilateral) and normal, intact (contralateral) control sites in canine tibia. SP magnitudes normalized to periosteal strain were smaller for drill holes at 2 and 4 weeks postsurgery relative to either remodeling (P < 0.05 at 10 Hz) or normal intact (P < 0.001 at 10 Hz) controls both in vivo and in vitro. SPs of 12 week drill holes were similar to SPs of remodeling controls and tended to be smaller than SPs of normal intact controls. Mean SP normalized to bone impedance was approximately the same for all sites, suggesting that the smaller SPs during healing and remodeling relate to smaller bone impedance and/or larger porosity. SP as a function of bending frequency for normal sites was similar to that observed previously. SP versus frequency for drill holes and remodeling controls was more variable, probably because of variations in bone microstructure, and displayed a higher frequency content. The observed differences in SP magnitude and frequency response to loa
+============================================================
+PMID 3334735 DOI 10.1002/jor.1100060119 PMC None | Cochran | 1988 | J Orthop Res | ['Journal Article', "Research Support, Non-U.S. Gov't", "Research Support, U.S. Gov't, Non-P.H.S."]
+External ultrasound can generate microampere direct currents in vivo from implanted piezoelectric materials.
+Under development is an internal fixation plate that incorporates a piezoelectric element to generate current when excited mechanically by either weight bearing or external application of ultrasound. The intent is to deliver this current to electrodes at a fracture or osteotomy site to aid in prevention or treatment of nonunion. The present study examines quantitatively the ability of external ultrasound to generate current from small piezoelectric ceramic elements implanted in tissue. An ultrasonic transducer (2.25 MHz, 10-20 V input, less than 10 mW/cm2 output) was employed to excite small test coupons of a piezoelectric ceramic in vitro and in vivo with various materials, including water, PVC gel, cortical bone, and living soft tissues, interposed. In all instances, it was possible to generate currents of up to 20 microA after rectification; currents up to 1 mA were achieved in some cases. The work indicates that external ultrasonic energy could effectively power small internal devices designed to stimulate bone healing, without the need for implanted batteries or percutaneous leads.
+============================================================
+PMID 35586276 DOI 10.1155/2022/9939891 PMC PMC9110240 | Tong | 2022 | Pain Res Manag | ['Journal Article', 'Meta-Analysis', 'Systematic Review', "Research Support, Non-U.S. Gov't"]
+The Efficacy of Pulsed Electromagnetic Fields on Pain, Stiffness, and Physical Function in Osteoarthritis: A Systematic Review and Meta-Analysis.
+Although there are many pharmacological interventions for adults with osteoarthritis (OA) who do not meet the indications for surgery, side effects and adverse effects cannot be ignored. Physical interventions are known for their effectiveness and safety, and pulsed electromagnetic fields (PEMFs) have already been applied to skeletal diseases such as osteoporosis.
+
+In this systematic review and meta-analysis, we aimed to assess the efficacy of PEMF on the major symptoms of patients with OA compared with efficacy of other interventions.
+
+Randomized controlled trials (RCTs) investigating OA patients treated with PEMF and with pain, stiffness, and physical function impairment since 2009 were included. The Visual Analog Scale (VAS) and Western Ontario McMaster Universities Osteoarthritis Index (WOMAC) scores were used for assessment. All extracted data were analyzed using RevMan V.5.3.
+
+Eleven RCTs consisting of 614 patients were enrolled in this meta-analysis, of which 10 trials comprised knee OA and one comprised hand OA. Compared with the control groups, the PEMF treatment yielded a more favorable output. PEMF alleviated pain (standardized mean differences [SMD] = 0.71, 95% confidence interval [CI]: 0.08-1.34, = 0.03), improved stiffness (SMD = 1.34, 95% CI: 0.45-2.23,=0.003), and restored physical function (SMD = 1.52, 95% CI: 0.49-2.55,=0.004).
+
+PEMF therapy ameliorates OA symptoms such as pain, stiffness, and physical function in patients compared to other conservative trea
+============================================================
+PMID 32508140 DOI 10.1177/1947603520931168 PMC PMC8808910 | Viganò | 2020 | Cartilage | ['Journal Article', 'Meta-Analysis', "Research Support, Non-U.S. Gov't", 'Systematic Review']
+Pain and Functional Scores in Patients Affected by Knee OA after Treatment with Pulsed Electromagnetic and Magnetic Fields: A Meta-Analysis.
+The purpose of this systematic review and meta-analysis was to evaluate the effect of electromagnetic field treatment on the symptoms of knee osteoarthritis (OA). In addition, the influence of the type of control group and other covariates have been investigated to identify the sources of heterogeneity in the results of the available clinical trials.
+
+Randomized controlled trials reporting pulsed electromagnetic field-based therapies for the treatment of knee OA have been included. Main outcomes were self-reported pain and activity scores collected by Visual Analogue Scale (VAS) and/or Western Ontario McMaster Universities Osteoarthritis Index (WOMAC) at short term after treatment.
+
+Thirteen studies comprising 914 unique patients were included in the analysis. Overall reduction in pain score was observed after treatment (standardized mean difference -0.4059,= 0.0091), while improvement in the activity score was not significant (standardized mean difference -0.4452,= 0.0859). Type of control (i.e., placebo or alternative therapies) and time of follow-up resulted as the two major elements influencing the outcomes. Indeed, the restriction of the analysis to placebo-controlled trials demonstrated higher standardized mean differences between treatment and control groups, with lowervalue for pain, while statistical significance became evident also for the activity score. On the contrary, no differences were observed pooling only studies comparing pulsed electromagnetic or magnetic 
+============================================================
+PMID 32251502 DOI 10.1093/ptj/pzaa054 PMC None | Yang | 2020 | Phys Ther | ['Journal Article', 'Meta-Analysis', "Research Support, Non-U.S. Gov't", 'Systematic Review']
+Effects of Pulsed Electromagnetic Field Therapy on Pain, Stiffness, Physical Function, and Quality of Life in Patients With Osteoarthritis: A Systematic Review and Meta-Analysis of Randomized Placebo-Controlled Trials.
+Pulsed electromagnetic field (PEMF) therapy is a potentially useful treatment for osteoarthritis (OA), but its effectiveness is still controversial. This study aimed to examine the effects of PEMF therapy and PEMF parameters on symptoms and quality of life (QOL) in patients with OA.
+
+Cochrane Central Register of Controlled Trials, PubMed, CINAHL, EMBASE, PEDro, clinical trial registers, and reference lists were searched until April 2019. This study examined randomized, placebo-controlled trials, patients with OA, symptom and/or QOL related outcomes, and articles published in English. Two authors extracted data and completed quality assessment.
+
+Sixteen studies were included in our systematic review, while 15 studies with complete data were included in the meta-analysis. Our primary outcome was the standardized mean difference, which was equal to the treatment effect in the PEMF group minus the treatment effect in the placebo group divided by the pooled standard deviation. For pain, the standardized mean difference was 1.06 (95% CI = 0.61 to 1.51), for stiffness 0.37 (95% CI = 0.07 to 0.67), for function 0.46 (95% CI = 0.14 to 0.78), and for QOL 1.49 (95% CI = -0.06 to 3.04). PEMF parameters did not influence symptoms.
+
+Compared with placebo, there was a beneficial effect of PEMF therapy on pain, stiffness, and physical function in patients with OA. Duration of treatment may not be a critical factor in pain management. Further studies are required to confirm the effects of PEM
+============================================================
+PMID 31583420 DOI 10.2340/16501977-2613 PMC None | Chen | 2019 | J Rehabil Med | ['Journal Article', 'Meta-Analysis', 'Systematic Review']
+Effects of pulsed electromagnetic field therapy on pain, stiffness and physical function in patients with knee osteoarthritis: A systematic review and meta-analysis of randomized controlled trials.
+To evaluate the efficacy of classical pulsed electromagnetic field therapy on patients with knee osteoarthritis.
+
+The databases PubMed, EMBASE, Web of Science and Cochrane Library were searched for relevant studies. Randomized controlled trials comparing classical pulsed electromagnetic field with placebo for patients with knee osteoarthritis were included. Data for primary outcomes, including pain, stiffness and physical function, were extracted. Data from 8 randomized controlled trials involving 421 patients were pooled.
+
+Pulsed electromagnetic field therapy had an effect on improving physical function (weighted mean difference; WMD = -5.28, 95% confidence interval; 95% CI -9.45 to -1.11, p = 0.01), but showed no advantage in the reduction of Western Ontario and McMaster Universities Osteoarthritis Index (WOMAC) total score (WMD = -7.80, 95% CI -16.08 to 0.47, p = 0.06), WOMAC pain score (WMD = -1.06, 95% CI -2.30 to 0.17, p = 0.09), visual analogue scale pain score (WMD=-0.88, 95% CI -2.06 to 0.31, p = 0.15) or WOMAC stiffness score (WMD = -0.50, 95% CI -1.09 to 0.09, p = 0.1).
+
+Pulsed electromagnetic field therapy is beneficial for improving physical function despite having no advantage in treating pain and stiffness. Further randomized controlled trials are needed to confirm these findings and determine the optimal parameters and treatment regimen for pulsed electromagnetic field therapy.
+============================================================
+PMID 31356585 DOI None PMC None | Ferreira | 2019 | Acta Reumatol Port | ['Journal Article', 'Meta-Analysis', 'Systematic Review']
+Non-Pharmacological and Non-Surgical Interventions for Knee Osteoarthritis: A Systematic Review and Meta-Analysis.
+The aim of the present systematic review and meta-analysis is to know, based on the available randomized controlled trials, if the non-surgical and non-pharmacological interventions commonly used for knee osteoarthritis (OA) patients are effective and which are the most effective ones.
+
+RCTs were identified through electronic databases respecting the following terms to guide the search strategy: PICO (Patients - Humans with knee OA; Intervention - Non-surgical and non-pharmacological interventions; Comparison - Pharmacological, surgical, placebo, no intervention, or other non-pharmacological/non-surgical interventions; Outcomes - Pain, physical function and patient global assessment). The methodological quality of the selected publications was evaluated using the PEDro and GRADE scales. Additionally, a meta-analysis was performed using the RevMan. Only studies with similar control group, population characteristics, outcomes, instruments and follow-up, were compared in each analysis.
+
+Initially, 52 RCTs emerge however, after methodological analysis, only 39 had sufficient quality to be included. From those, only 5 studies meet the meta-analysis criteria. Exercise (especially resistance training) had the best positive effects on knee OA patients. Pulsed Electromagnetic Fields and Moxibustion showed to be the most promising interventions from the others. Balance Training, Diet, Diathermy, Hydrotherapy, High Level Laser Therapy, Interferential Current, Mudpack, Neuromuscular Elec
+============================================================
+PMID 30552258 DOI 10.1136/bmjopen-2018-022879 PMC PMC6303578 | Wu | 2018 | BMJ Open | ['Journal Article', 'Meta-Analysis', "Research Support, Non-U.S. Gov't"]
+Efficacy and safety of the pulsed electromagnetic field in osteoarthritis: a meta-analysis.
+To investigate the efficacy and safety of the pulsed electromagnetic field (PEMF) therapy in treating osteoarthritis (OA).
+
+Meta-analysis.
+
+PubMed, Embase, the Cochrane Library and Web of Science were searched through 13 October 2017.
+
+Randomised controlled trials compared the efficacy of PEMF therapy with sham control in patients with OA.
+
+Pain, function, adverse effects and characteristics of participants were extracted. RevMan V.5.2 was used to perform statistical analyses.
+
+Twelve trials were included, among which ten trials involved knee OA, two involved cervical OA and one involved hand OA. The PEMF group showed more significant pain alleviation than the sham group in knee OA (standardised mean differences (SMD)=-0.54, 95% CI -1.04 to -0.04, p=0.03) and hand OA (SMD=-2.85, 95% CI -3.65 to -2.04, p<0.00001), but not in cervical OA. Similarly, comparing with the sham-control treatment, significant function improvement was observed in the PEMF group in both knee and hand OA patients (SMD=-0.34, 95% CI -0.53 to -0.14, p=0.0006, and SMD=-1.49, 95% CI -2.12 to -0.86, p<0.00001, respectively), but not in patients with cervical OA. Sensitivity analyses suggested that the exposure duration <=30 min per session exhibited better effects compared with the exposure duration >30 min per session. Three trials reported adverse events, and the combined results showed that there was no significant difference between PEMF and the sham group.
+
+PEMF could alleviate pain and improve physical
+============================================================
+PMID 28267751 DOI 10.1371/journal.pone.0172749 PMC PMC5340388 | Woods | 2017 | PLoS One | ['Journal Article', 'Systematic Review', 'Network Meta-Analysis']
+Cost-effectiveness of adjunct non-pharmacological interventions for osteoarthritis of the knee.
+There is limited information on the costs and benefits of alternative adjunct non-pharmacological treatments for knee osteoarthritis and little guidance on which should be prioritised for commissioning within the NHS. This study estimates the costs and benefits of acupuncture, braces, heat treatment, insoles, interferential therapy, laser/light therapy, manual therapy, neuromuscular electrical stimulation, pulsed electrical stimulation, pulsed electromagnetic fields, static magnets and transcutaneous electrical nerve Stimulation (TENS), based on all relevant data, to facilitate a more complete assessment of value.
+
+Data from 88 randomised controlled trials including 7,507 patients were obtained from a systematic review. The studies reported a wide range of outcomes. These were converted into EQ-5D index values using prediction models, and synthesised using network meta-analysis. Analyses were conducted including firstly all trials and secondly only trials with low risk of selection bias. Resource use was estimated from trials, expert opinion and the literature. A decision analytic model synthesised all evidence to assess interventions over a typical treatment period (constant benefit over eight weeks or linear increase in effect over weeks zero to eight and dissipation over weeks eight to 16).
+
+When all trials are considered, TENS is cost-effective at thresholds of £20-30,000 per QALY with an incremental cost-effectiveness ratio of £2,690 per QALY vs. usual care. When trials 
+============================================================
+PMID 23973142 DOI 10.1016/j.joca.2013.06.015 PMC None | Negm | 2013 | Osteoarthritis Cartilage | ['Journal Article', 'Meta-Analysis', 'Systematic Review']
+Efficacy of low frequency pulsed subsensory threshold electrical stimulation vs placebo on pain and physical function in people with knee osteoarthritis: systematic review with meta-analysis.
+To determine if low frequency (≤100 Hz) pulsed subsensory threshold electrical stimulation produced either through pulsed electromagnetic field (PEMF) or pulsed electrical stimulation (PES) vs sham PEMF/PES intervention is effective in improving pain and physical function at treatment completion in adults with knee osteoarthritis (OA) blinded to treatment.
+
+The relevant studies were identified by searching eight electronic databases and hand search of the past systematic reviews on the same topic till April 5, 2012. We included randomized controlled trials (RCTs) of people with knee OA comparing the outcomes of interest for those receiving PEMF/PES with those receiving sham PEMF/PES. Two reviewers independently selected studies, extracted relevant data and assessed quality. Pooled analyses were conducted using inverse-variance random effects models and standardized mean difference (SMD) for the primary outcomes.
+
+Seven small trials (459 participants/knees) were included. PEMF/PES improves physical function (SMD = 0.22, 95% confidence interval (CI) = 0.04, 0.41, P = 0.02, I(2) = 0%), and does not reduce pain (SMD = 0.08, 95% CI = -0.17, 0.32, P = 0.55, I(2) = 43%). The strength of the body of evidence was low for physical function and very low for pain.
+
+Current evidence of low and very low quality suggests that low frequency (≤100 Hz) pulsed subsensory threshold electrical stimulation produced either through PEMF/PES vs sham PEMF/PES is effective in improving physical functio
+============================================================
+PMID 22870682 DOI None PMC None | Cao | 2012 | Zhongguo Gu Shang | ['Journal Article', 'Meta-Analysis', 'Systematic Review']
+[Pulsed electromagnetic field therapy for the treatment of knee osteoarthritis: a systematic review].
+To evaluate the clinical effectiveness of pulsed electromagnetic field therapy in the treatment of knee osteoarthritis.
+
+Based on the principles and methods of Cochrane systematic reviews, the authors searched the Cochrane Library (2012, 2 issue), PubMed (1966 to February, 2012), EMBASE (1974 to February, 2012), Chinese Biomedicine Database (1978 to February, 2012), China Journal Full-text Database (1979 to February, 2012), VIP database (1989 to February, 2012), as well as search engine Google Scholar. Randomized controlled trials (RCTs) of pulsed electromagnetic field therapy to treat knee osteoarthritis were included. The authors assessed the quality of the included trials according to the Cochrane Handbook for Systematic Reviews of Interventions Version. The Cochrane Collaboration's software RevMan 5.1 was used for meta-analysis.
+
+Five RCTs totaling 331 patients were included. The results showed that compared with placebo control treatment, pulsed electromagnetic field therapy had little clinical benefit in relieving the pain of knee osteoarthritis [WMD=0.12, 95%CI (-0.46,0.69)], reducing morning stiffness time [WMD=0.08, 95%CI (-0.05, 0.21)] and improving the knee function [WMD=-1.16, 95%CI (-4.36, 2.05)]. There were no significant differences between the two groups.
+
+The effects of Pulsed electromagnetic field therapy for treating knee osteoarthritis need more powerful trails to be confirmed. The above conclusions still need more high-quality randomized controlled trails

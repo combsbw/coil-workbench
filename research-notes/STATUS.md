@@ -12,3 +12,9 @@ Scopes (each writes research-notes/thr_<n>_*.json; progress is checkpointed here
 | 6 | B-amplitude-driven mechanisms | DONE: thr_6_B_driven.json (17 targets, 94 refs) |
 
 2026-10-13: first run lost most notes to a rate limit because agents wrote output only at the end. Scopes 5 and 6 recovered from their builder scripts.
+
+## Earlier run (2026-10-12 22:38, seven clusters + verifiers): files recovered
+
+research-notes/loop/cluster1_ca_nos.md, cluster2_adenosine_inflammation.md, cluster3_bone_cartilage.md, cluster4_nerve_pain.md,
+cluster5_mito_ros_radicalpair.md, cluster6_vascular_wound_muscle.md, cluster7_dosimetry_B_vs_dBdt.md, verify_1_2.md, verify_3_6.md.
+These cover every scope, so the remaining work is synthesis plus checking, not new searching.
