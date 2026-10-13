@@ -1,0 +1,249 @@
+[
+ {
+  "id": "ca_entry",
+  "name": "Ca2+ entry and [Ca2+]i rise (L-type VGCC, TRPC1, store release)",
+  "level": "ion channel",
+  "driver": "E (likely) at 50/60 Hz; separate B route for static fields",
+  "driver_note": "The cleanest B-versus-E test (Liburdy 1992, thymocytes) held B at 22 mT, 60 Hz and found the Ca response followed induced E (1.7 mV/cm, 8.3 T/s computed; implied ring radius 4.1 cm); a pure 60 Hz E field of equal strength gave the same change. Walleczek (3 Hz pulses, 0-28 mT) cannot discriminate because E scaled with B. Static fields (dB/dt = 0) also move Ca influx at 0.6-6 mT plateau (Fanelli) so a B route exists, but one cell-free CaM replication failed.",
+  "windows": {
+   "B_mT": {
+    "lindstrom_jurkat_threshold_below": 0.04,
+    "lindstrom_plateau": 0.15,
+    "thymocyte_60Hz": 22,
+    "walleczek_pulsed": [
+     1.6,
+     6.5,
+     28
+    ],
+    "stem_myoblast_10min": [
+     1.5,
+     2.0
+    ],
+    "continuous_50Hz": [
+     0.4,
+     2.0
+    ],
+    "fanelli_static_onset": 0.6,
+    "fanelli_static_plateau": 6.0
+   },
+   "dBdt_Ts": {
+    "lindstrom": [
+     0.013,
+     0.047
+    ],
+    "liburdy": 8.29,
+    "petecchia_crude": 1.5,
+    "basis": "computed (sine peak assumption; Petecchia is 2 mT / 1.3 ms crude ramp)"
+   },
+   "E_Vm": {
+    "liburdy": 0.017,
+    "walleczek_at_6p5mT": 0.0069,
+    "basis": "reported (1.7 mV/cm, 0.69 mV/cm converted to V/m)"
+   },
+   "f_Hz": {
+    "lindstrom_optimum": 50,
+    "zhang2018_range": [
+     7.5,
+     70
+    ]
+   },
+   "gating": "Only activated or challenged cells respond; sign (inhibit or stimulate) depends on activation state."
+  },
+  "evidence": "in vitro; positive studies single-lab; three null replications (Wey 2000, Lyle 1997, Coulton 1993)",
+  "confidence": "low",
+  "refs": [
+   "1333413",
+   "8243637",
+   "1468568",
+   "7748202",
+   "10656853",
+   "9261541",
+   "26364969",
+   "31518158",
+   "33644848",
+   "16838272",
+   "30312357",
+   "29784011",
+   "9872934",
+   "16528477",
+   "30920672",
+   "35129008"
+  ],
+  "caveat": "Walleczek 6.5 mT reduced ConA-induced 45Ca uptake by 45 % (inhibition, not stimulation). Ghibelli used an NMR device (1 T static plus RF), so dB/dt was not zero. BAPTA blocks more completely than nifedipine and some Ca rise survives Ca-free medium, so store release contributes; this is not a VGCC-only story. Lindstrom threshold was not reproduced and the two positive lymphocyte studies imply dB/dt values two to three orders of magnitude apart (176-640x), so no common threshold exists."
+ },
+ {
+  "id": "cam_binding",
+  "name": "Ca2+/calmodulin binding (Pilla first-messenger model)",
+  "level": "biochemical",
+  "driver": "timing / spectral match to binding kinetics; amplitude secondary",
+  "driver_note": "Pulse duration or carrier period shorter than the bound-Ca2+ lifetime accelerates binding above thermal noise; burst width is the tuning variable. Pilla 1999 retuned the burst and matched effect with 10x lower peak, about 800x lower average amplitude, about 1e6 x lower average power. Independent cell-free tests conflict (Coulton 2000 could not reproduce; Liboff 2003 found a CaM-dependent PDE effect at 20 uT static).",
+  "windows": {
+   "note": "Burst width, carrier frequency, B, dB/dt and the CaM binding time constant are not in the retrieved abstracts; none supplied from memory."
+  },
+  "evidence": "in vitro and rabbit fracture, originating lab",
+  "confidence": "low-moderate",
+  "refs": [
+   "22005645",
+   "10228567",
+   "23675615",
+   "10723019",
+   "12483663",
+   "19437458"
+  ],
+  "caveat": "Muehsam & Pilla 2009 refit older ion-parametric-resonance data to Mg2+ rather than Ca2+, weakening Ca/CaM specificity."
+ },
+ {
+  "id": "enos_no_cgmp",
+  "name": "eNOS / nitric oxide / cGMP",
+  "level": "biochemical",
+  "driver": "unresolved (B and frequency confounded)",
+  "driver_note": "No retrieved study varies B, dB/dt and frequency independently for NO. Peng 2020 compared 1.5 mT/15 Hz with 3.0 mT/30 Hz: both raised p-eNOS (S1177), so the eNOS threshold is at or below 1.5 mT/15 Hz, while only 30 Hz/3.0 mT improved cardiac function.",
+  "windows": {
+   "B_mT": {
+    "osteoblast": 0.6,
+    "mi_low": 1.5,
+    "mi_high": 3.0,
+    "hindlimb": 5.0,
+    "macrophage_null": 0.5
+   },
+   "f_Hz": {
+    "osteoblast": 50,
+    "mi_low": 15,
+    "mi_high": 30,
+    "hindlimb": 30
+   },
+   "dBdt_Ts": {
+    "peng_low": 0.141,
+    "peng_high": 0.565,
+    "li2015": 0.94,
+    "he2022": 0.19,
+    "basis": "computed, sine peak assumed"
+   },
+   "NO_change": {
+    "MN9D_after_LPS": "about 3-fold within seconds",
+    "fibroblast": "about 2-fold in 15 min, blocked by W-7",
+    "basis": "reported (Pilla 2012)"
+   },
+   "schedule": "20 min every 4 h and 15 min every 2 h worked; 5 min every 20 min did not (non-randomised, historical sham; Taylor 2014)",
+   "vasodilation": "arteriole 26.4 -> 29.1 um (+10.2 %, p<0.01), RBC velocity +5.5 %, abolished by L-NAME (Bragin 2014)",
+   "clinical_pain": "Heden 2008 VAS fell about 3x faster; Rohde 2010 -57 % at 1 h, IL-1b 275 % lower"
+  },
+  "evidence": "in vitro, animal and small double-blind RCTs, mostly one network",
+  "confidence": "moderate that NO participates, low for numbers",
+  "refs": [
+   "22005645",
+   "22940137",
+   "35616355",
+   "17427956",
+   "26045885",
+   "31915323",
+   "19799606",
+   "16222888",
+   "27430265",
+   "25343187",
+   "25199571",
+   "20527063",
+   "18506512",
+   "22451021"
+  ],
+  "caveat": "Bragin: effect present in the first hours but not significant by 3 h. Nakayama 2016: 0.5 mT, 50 Hz for 24 h did not change NO in RAW264 without LPS, so field effects need a challenge. Taylor 2014 mechanism (PDE feedback) is a hypothesis with no cGMP data."
+ },
+ {
+  "id": "camp",
+  "name": "cAMP / PKA / CREB",
+  "level": "biochemical",
+  "driver": "unresolved; sign depends on tissue and agonist",
+  "driver_note": "Reduced PTH-stimulated cAMP at induced E <= 1 mV/cm (Luben); raised cAMP at 0.6 mT/50 Hz and 2 mT/15 Hz in osteoblasts via the cilium and sAC; Schnoke found CREB and ERK not activated by PEMF.",
+  "windows": {
+   "E_Vm": {
+    "luben": 0.01,
+    "basis": "reported upper bound, 1 mV/cm"
+   },
+   "B_mT": {
+    "wang2019": 0.6,
+    "hao2023": 2.0
+   },
+   "f_Hz": {
+    "wang2019": 50,
+    "hao2023": 15,
+    "luben": "15 Hz bursts or 72 Hz train"
+   }
+  },
+  "evidence": "in vitro",
+  "confidence": "low",
+  "refs": [
+   "6287472",
+   "30837038",
+   "36680558",
+   "17427956",
+   "30350869"
+  ],
+  "caveat": "Farndale 1985 did not measure cAMP; the abstract proposes a cAMP mechanism as a hypothesis (collagen rose, proliferation unchanged, temperature rise below 0.1 C)."
+ },
+ {
+  "id": "icr_resonance",
+  "name": "Ion cyclotron / ion parametric resonance and Ca efflux windows",
+  "level": "biophysical",
+  "driver": "B_AC/B_DC ratio and f vs B_DC (not dB/dt)",
+  "driver_note": "Resonance condition f_c = qB/2 pi m (Ca2+ 0.766 Hz per uT; 17.9 Hz at 23.4 uT; 38.3 Hz at 50 uT). Yost & Liburdy: 16 Hz, 42.1 uT AC plus 23.4 uT DC inhibited Ca influx and neither field alone did. Zhadin kept the same behavioural effect when DC and AC rose 10x together (dB/dt about 100x), arguing against a dB/dt threshold for this class. Blackman: +/-10 % frequency bandwidth around H+ resonance (45 Hz at 2.97 uT).",
+  "windows": {
+   "B_uT": {
+    "AC": 42.1,
+    "DC": 23.4,
+    "ratio": 1.8,
+    "blackman_DC": 2.97,
+    "prato_snail_peak": [
+     141,
+     414
+    ]
+   },
+   "f_Hz": {
+    "yost": 16,
+    "blackman": 45,
+    "fc_Ca_per_uT": 0.766
+   },
+   "power_windows_RF": "Blackman 1989 (50 MHz, 16 Hz AM): enhanced efflux at 1.75, 3.85, 5.57, 6.82, 7.65, 7.77, 8.82 mW/cm2; none at 0.75, 2.30, 4.50, 5.85, 7.08, 8.19, 8.66, 10.6, 14.7 (SAR <= 0.005 W/kg)",
+   "bawin": "efflux -12 to -15 % at 6 and 16 Hz; thresholds about 10 V/m (chick) and 56 V/m (cat) in air; tissue gradient about 0.1 uV/cm (authors estimate)"
+  },
+  "evidence": "in vitro and rodent, mixed replication",
+  "confidence": "speculative to low as a therapeutic dose rule; low as a laboratory effect",
+  "refs": [
+   "1733766",
+   "8451278",
+   "10453066",
+   "9915588",
+   "10797457",
+   "9795129",
+   "30793837",
+   "1064869",
+   "282648",
+   "6812594",
+   "2540755",
+   "19437458",
+   "18288680"
+  ],
+  "caveat": "Coulton & Barker 1993 saw no [Ca]i change at 16 and 50 Hz with DC shifted up to 25 % either side of resonance. Fields are microtesla, with induced E far below the PEMF range; no pain or bone RCT in the retrieved set uses ICR settings. Adey 1982 \"0.96\" is a confidence level (about p=0.04), not a p value."
+ },
+ {
+  "id": "vgcc_hypothesis",
+  "name": "VGCC voltage-sensor hypothesis (Pall)",
+  "level": "ion channel",
+  "driver": "unresolved (claimed field amplitude or pulse shape)",
+  "driver_note": "23 studies in which VGCC blockers lower or block EMF effects (Pall 2013 table has no exposure values, so no threshold can be taken from it). Primary data: nifedipine or verapamil reduced effects in four independent labs, but BAPTA did more, Ca-free medium did not abolish the response, and TRPC1 (not L-type) was the entry route in myoblasts.",
+  "windows": {
+   "note": "no extractable amplitude or frequency window"
+  },
+  "evidence": "pharmacology (blockers have non-specific actions)",
+  "confidence": "moderate that L-type VGCC contributes in some cell types; low that it is the primary transducer",
+  "refs": [
+   "23802593",
+   "16838272",
+   "30312357",
+   "29784011",
+   "30920672",
+   "35129008",
+   "31518158"
+  ],
+  "caveat": "Same author argues static fields also act through VGCC, which conflicts with a pure dB/dt story. Later advocacy reviews contain claims not supported by their abstracts."
+ }
+]
