@@ -189,7 +189,7 @@
    "25047554",
    "2195843"
   ],
-  "caveat": "Jing 2013 saw no RANKL/RANK expression change while Zhou saw RANKL down and OPG up. Jing 2014 rotating 0.38-0.6 T at 7 Hz null (dB/dt 17-26 T/s is a crude geometry-dependent guess), so very large B/dB/dt is not sufficient."
+  "caveat": "Jing 2013 saw no RANKL/RANK expression change while Zhou saw RANKL down and OPG up. Jing 2014 rotating 0.38-0.6 T at 7 Hz null (dB/dt 17-26 T/s is a crude geometry-dependent guess), so very large B/dB/dt is not sufficient. Wang 2019 (osteocyte co-culture): the 3 mT (30 G) arm is an inference, not a clearly reported result; rely on the 0.5 mT effect and on Wang 2017 for the 3 mT reversal."
  },
  {
   "id": "chondrocyte_matrix_oa",

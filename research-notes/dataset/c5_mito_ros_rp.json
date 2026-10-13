@@ -1,0 +1,359 @@
+[
+ {
+  "id": "trpc1_mitochondria",
+  "name": "TRPC1 - Ca2+ - PGC-1a - mitochondrial activation (\"magnetic mitohormesis\")",
+  "level": "ion channel / organelle",
+  "driver": "unidentified; molecular requirement (TRPC1) and timing shown, physical driver not",
+  "driver_note": "TRPC1 is necessary (CRISPR knockdown) and membrane-resident (Kurth 2020 vesicles). Aminoglycosides block. Sensitivity tracks TRPC1 expression and is lower after log phase. Field direction (up vs down) matters in quail embryos, but reversing a unipolar pulse flips both B and dB/dt sign, so direction does not separate B from dB/dt. Removing the ambient field lowered TRPC1 (a B effect with no dB/dt). The group's own review states rise time, dB/dt and symmetry are seldom disclosed.",
+  "windows": {
+   "B_mT": {
+    "myoblast": 1.5,
+    "hDPSC": 2.0,
+    "mouse": 1.5,
+    "quail": 1.5,
+    "contrast_3mT_60min": "different developmental outcome (review)"
+   },
+   "f_Hz": {
+    "review_myogenesis": 15,
+    "quail": 50,
+    "note": "frequency and waveform not in the primary abstracts"
+   },
+   "dBdt_Ts": {
+    "sine_1p5mT_15_to_50Hz": [
+     0.14,
+     0.47
+    ],
+    "basis": "computed lower bound; pulse edges are probably faster"
+   },
+   "E_Vm": {
+    "r1cm": [
+     0.0007,
+     0.0024
+    ],
+    "r5cm": [
+     0.0035,
+     0.012
+    ],
+    "basis": "computed, sine assumed"
+   },
+   "schedule": "10 min single dose (cells); 10 min/week for 6 weeks to >4 months (mice); 5 x 10 min over 13 days (quail); apply near peak TRPC1 expression"
+  },
+  "evidence": "in vitro and mouse, one lab lineage (NUS/Franco-Obregon); no independent replication retrieved",
+  "confidence": "moderate that a TRPC1-dependent response exists in that lab's system; low on driver; low on translation",
+  "refs": [
+   "31518158",
+   "33644848",
+   "32875708",
+   "32627872",
+   "40508230",
+   "39061719",
+   "39594815",
+   "37892906"
+  ],
+  "caveat": "Yap 2019 full text returned empty, so waveform details are unverified. No amplitude series: minimum effective and ineffective B are not defined."
+ },
+ {
+  "id": "ros_redox",
+  "name": "ROS generation and scavenging (SOD, catalase, antioxidant response)",
+  "level": "redox",
+  "driver": "B (static fields are sufficient); time variation modifies but is not required",
+  "driver_note": "Static fields (dB/dt = 0, E = 0) change ROS, mitochondrial Ca and MMP at 0.1-20 mT and also when the ambient field is removed (<5 uT). At equal peak B, static and 50 Hz fields differ in outcome (Alipour 2022 pHi and viability; Wang 2018 ATP), so dB/dt is a modifier. Direction is context dependent: ROS rises in unstressed cells, falls in pre-stressed cells (Merighi, Liao). No paper varied dB/dt at constant B for a therapy waveform.",
+  "windows": {
+   "B_mT": {
+    "static_min_effective_uT": 100,
+    "static_sign_flip": "100-400 uT down, 500 uT up (Van Huizen)",
+    "gurhan_H2O2": "up 100/200, down 300/400, up 500/600 uT",
+    "bekhite_up": "0.4-2 mT vs 10 mT inhibitory",
+    "alipour_static_and_50Hz": 20,
+    "wolf_50Hz": [
+     0.5,
+     1.0
+    ],
+    "patruno_50Hz": 1.0,
+    "sherrard_pulsed": [
+     1.8,
+     2.0
+    ],
+    "merighi_igea": 1.5,
+    "goh_60Hz": [
+     10,
+     16
+    ]
+   },
+   "dBdt_Ts": {
+    "wolf": [
+     0.16,
+     0.31
+    ],
+    "patruno": 0.31,
+    "alipour": 6.3,
+    "goh": [
+     3.8,
+     5.3
+    ],
+    "sherrard": 7.0,
+    "basis": "computed; Sherrard assumes triangular rise over half of a 0.5 ms pulse; Merighi ~2 T/s from pick-up-coil inputs that could not be re-verified"
+   },
+   "E_Vm": {
+    "range_r1cm": [
+     0.00016,
+     0.031
+    ],
+    "basis": "computed, 1 cm radius; all below the 0.1 V/m Weaver-Astumian broad-band limit"
+   },
+   "nulls": "Nieminen 2024: 100 and 500 uT, 50 Hz, no ROS change; Fei 2019: 0-4 mT pre-exposed medium no ROS; Goh 2025: 10-16 mT ROS unchanged and not required; Wang 2018: ATP changes uncorrelated with ROS/MMP"
+  },
+  "evidence": "in vitro, several lineages; mostly abstract-level",
+  "confidence": "moderate that 0.1-20 mT can change ROS under some conditions; low on sign and reproducibility; low on role of dB/dt",
+  "refs": [
+   "15777847",
+   "30278045",
+   "30729158",
+   "33735454",
+   "19788349",
+   "22465345",
+   "35867630",
+   "39684558",
+   "40650273",
+   "39939866",
+   "39642656",
+   "24334533",
+   "38924721",
+   "31111909",
+   "39903967",
+   "30074140",
+   "36378418",
+   "21887222"
+  ],
+  "caveat": "DCF dyes are non-specific. Sherrard's field-cancelling coil also removes dB/dt, so B and dB/dt are not separated even there. Bajtos 2025 (16.5 Hz, 10 uT window, 0.5 Hz or 250 nT reverses sign) is unreplicated and matches neither electron nor proton Larmor frequency."
+ },
+ {
+  "id": "nrf2_ho1",
+  "name": "Nrf2 / HO-1 antioxidant response",
+  "level": "transcription",
+  "driver": "follows ROS (secondary); inherits B-driven logic",
+  "driver_note": "Static 20 mT also raises Nrf2, so induction is not specific to time-varying fields. Shortest exposure tested 1 h at 1 mT (50 Hz); HO-1 peaks at 6 h.",
+  "windows": {
+   "B_mT": {
+    "patruno": 1.0,
+    "alipour": 20
+   },
+   "f_Hz": 50,
+   "dBdt_Ts": {
+    "patruno": 0.31,
+    "alipour_50Hz": 6.3,
+    "basis": "computed"
+   },
+   "time_course": "HO-1 mRNA and protein peak at 6 h; nuclear Nrf2 needs Akt and ERK"
+  },
+  "evidence": "in vitro THP-1, MSC; mouse NAFLD (parameters not in abstract)",
+  "confidence": "low-moderate",
+  "refs": [
+   "33023074",
+   "35867630",
+   "37217972",
+   "41729317",
+   "42183935",
+   "40325210"
+  ]
+ },
+ {
+  "id": "mito_respiration_atp",
+  "name": "Mitochondrial respiration, membrane potential, ATP",
+  "level": "organelle",
+  "driver": "static B and orientation can shift bioenergetics; time variation modulates",
+  "driver_note": "Inconsistent direction: respiration up at 1.5 mT (Yap, Tai); glycolytic shift at 4 mT/80 Hz (Liao); MMP preserved under insult (Merighi); hypomagnetic field lowers MMP and ATP, and acts directly on isolated mitochondria (Fu 2016); Usselman 2016 RF at Zeeman resonance, perpendicular vs parallel orientation gives ECAR +100 % vs OCR +54 %.",
+  "windows": {
+   "B_mT": {
+    "liao": 4.0,
+    "wang2018_static_50_120Hz": 6.0,
+    "calabro_static": 2.0,
+    "pargoo_static_optimum": 20
+   },
+   "f_Hz": {
+    "liao": 80,
+    "wang2018": [
+     0,
+     50,
+     120
+    ]
+   },
+   "dBdt_Ts": {
+    "liao_if_sine": 2.0,
+    "wang_50Hz": 1.9,
+    "wang_120Hz": 4.5,
+    "basis": "computed"
+   }
+  },
+  "evidence": "heterogeneous cell types and assays",
+  "confidence": "low",
+  "refs": [
+   "31518158",
+   "32627872",
+   "39939866",
+   "30074140",
+   "27003876",
+   "38586825",
+   "32149540",
+   "38527284",
+   "27995996",
+   "42804655"
+  ]
+ },
+ {
+  "id": "radical_pair",
+  "name": "Radical-pair mechanism (flavin / superoxide, cryptochrome)",
+  "level": "spin chemistry",
+  "driver": "B (instantaneous value and orientation); ELF frequency/dB/dt irrelevant because spin coherence is ns-us",
+  "driver_note": "A 10-100 Hz field is quasi-static for a radical pair, so yield follows instantaneous B and the cycle average, not dB/dt. Frequency-selective effects need RF at the Larmor frequency (28.02 MHz/mT, 1.40 MHz at 50 uT) at 1-10 uT (Usselman, Castello, Gurhan 2023; Vacha 2009 onset 12-18 nT at 1.2 MHz). ELF resonance would need a near-zero bias (electron Larmor ~28 Hz at 1 nT) which a bipolar waveform crosses only briefly.",
+  "windows": {
+   "B_threshold": "sensitivity demonstrated at <=50 uT in model chemistry; ETF flavoenzyme 20 nT vs 50 uT gave H2O2 -13 %, O2.- +10 %",
+   "B_mT": {
+    "sherrard_cryptochrome_pulsed": [
+     1.8,
+     2.0
+    ],
+    "van_huizen_static_uT": [
+     100,
+     500
+    ]
+   },
+   "binhi_criterion": {
+    "gammaH_tau_at_50uT": [
+     0.09,
+     0.9
+    ],
+    "at_1mT": [
+     1.8,
+     18
+    ],
+    "at_1p5mT": [
+     2.6,
+     26
+    ],
+    "basis": "computed with gamma 1.76e11 rad/s/T, kappa*tau neglected, tau 10-100 ns"
+   },
+   "expected_magnitude": "order 10 % shift in ROS product ratios, not a switch"
+  },
+  "evidence": "chemistry and cell-free (strong); cells (single lineage); behavioural (cockroach)",
+  "confidence": "low-moderate that RPM contributes at uT-mT; low that it explains PEMF therapy",
+  "refs": [
+   "18449197",
+   "19129499",
+   "27216936",
+   "25399679",
+   "35919980",
+   "40826580",
+   "19837889",
+   "38370016",
+   "27995996",
+   "24681944",
+   "25251337",
+   "37648766",
+   "40575091",
+   "30278045",
+   "31028046"
+  ],
+  "caveat": "Wang 2019 (human EEG) argues polarity sensitivity excludes an axial radical-pair compass. Hore 2012 PNAS and Adair 1991 abstracts not retrievable."
+ },
+ {
+  "id": "magnetite_mechano",
+  "name": "Biogenic magnetite torque / mechanosensitive channels (Piezo1, TRP)",
+  "level": "biophysical",
+  "driver": "B (torque scales with B, not dB/dt)",
+  "driver_note": "Computed m·B/kT for a single-domain magnetite cube (Ms 4.8e5 A/m): 30 nm 3.0, 50 nm 14, 80 nm 57 at 1 mT; 50 nm gives 0.7 at 50 uT. Kirschvink 1992 found >=5e6 crystals/g in human brain tissue. In the Kirschvink-Dobson model AC below ~10 Hz has minimal effect, pulsed or DC can force gates.",
+  "windows": {
+   "B_mT": "0.5-5 mT gives 7-70 kT for a 50 nm crystal (computed)",
+   "f_Hz": ">~10 Hz per model; no PEMF-therapy measurement"
+  },
+  "evidence": "theory plus magnetite measurement; no PEMF-specific Piezo1 data (search returned 0)",
+  "confidence": "low",
+  "refs": [
+   "1502184",
+   "8886000",
+   "20086054",
+   "27529126",
+   "31373554",
+   "38956320",
+   "31799540",
+   "31028046"
+  ],
+  "caveat": "Meister 2016 shows ferritin-based magnetogenetics fails by 5-10 orders of magnitude. Engineered nanomagnet papers (Choi, Hao) do not show endogenous activation."
+ },
+ {
+  "id": "diamagnetic_zeeman_icr",
+  "name": "Diamagnetic anisotropy, Zeeman splitting and cyclotron resonance",
+  "level": "biophysical",
+  "driver": "B (static); irrelevant at mT",
+  "driver_note": "Orientation needs ~1 T (membranes), 8-14 T (cell alignment), 9 T (EGFR kinase), 16 T (Tau phase separation); orientation energy scales as B^2, so 5 mT carries 2.5e-5 of the 1 T value. mu_B·B/kT = 2.2e-6 at 1 mT. Ca2+ cyclotron: 0.766 Hz/uT, i.e. ~380-3800 Hz at 0.5-5 mT, not 10-100 Hz.",
+  "windows": {
+   "B_T": [
+    1,
+    16
+   ]
+  },
+  "evidence": "strong-field studies",
+  "confidence": "high that it is inapplicable at mT; low for the ICR report (single, unreplicated)",
+  "refs": [
+   "8573700",
+   "15382419",
+   "9843957",
+   "27223425",
+   "37228640"
+  ]
+ },
+ {
+  "id": "thermal_noise_limit",
+  "name": "Weaver-Astumian limit applied to 0.5-5 mT, 10-100 Hz coils",
+  "level": "dosimetry",
+  "driver": "E (induced)",
+  "driver_note": "Cells can respond directly to ~0.1 V/m broad-band, or ~1e-4 V/m if narrow-band or signal-averaged. Macroscopic E for the coil range (culture well 1 cm, tissue loop 5 cm) is 0.16-79 mV/m: 1.3-3 orders below the broad-band limit and 1.6-790x above the narrow-band limit. A broad-band direct E detector is therefore excluded; a narrow-band or signal-averaging detector is not excluded at the 1.5 mT/50 Hz and 5 mT/100 Hz end.",
+  "windows": {
+   "E_Vm": {
+    "broadband_limit": 0.1,
+    "narrowband_limit": 0.0001,
+    "table": [
+     {
+      "case": "0.5 mT, 10 Hz",
+      "dBdt": 0.031,
+      "E_r1cm": 0.00016,
+      "E_r5cm": 0.00079
+     },
+     {
+      "case": "1.5 mT, 15 Hz",
+      "dBdt": 0.14,
+      "E_r1cm": 0.0007,
+      "E_r5cm": 0.0035
+     },
+     {
+      "case": "1.5 mT, 50 Hz",
+      "dBdt": 0.47,
+      "E_r1cm": 0.0024,
+      "E_r5cm": 0.012
+     },
+     {
+      "case": "5 mT, 100 Hz",
+      "dBdt": 3.1,
+      "E_r1cm": 0.016,
+      "E_r5cm": 0.079
+     },
+     {
+      "case": "1.5 mT IGEA pulse",
+      "dBdt": 2,
+      "E_r1cm": 0.01,
+      "E_r5cm": 0.05
+     }
+    ],
+    "basis": "computed, uniform B, circular path; the r = 10 um single-cell column is NOT what a cell experiences"
+   }
+  },
+  "evidence": "theory (Weaver & Astumian 1990)",
+  "confidence": "high for the physics; no narrow-band detector has been demonstrated",
+  "refs": [
+   "2300806",
+   "9905119",
+   "22307585"
+  ],
+  "caveat": "Adair 1991 abstract unavailable, numbers not quoted."
+ }
+]
