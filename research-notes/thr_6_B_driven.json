@@ -1,0 +1,4430 @@
+{
+ "scope": "thr_6_B_driven: mechanisms where field amplitude B or B-direction (or B relative to a static B0), rather than dB/dt or induced E, is the putative driver: radical pair / cryptochrome / flavin; ion cyclotron and ion parametric resonance incl. combined fields and Prato snail/mouse work; biogenic magnetite; static-field (SMF) diamagnetic/gradient effects and SMF pain trials; Lorentz/Hall/MHD; B-dependent dose-response, static-bias effects and credibility of microtesla ELF effects; plus a decision-test record contrasting B-driven and E-driven designs.",
+ "targets": [
+  {
+   "id": "rp_flavin_ros_static_plus_rf",
+   "name": "Radical-pair (flavin/superoxide) ROS partitioning by weak static field plus RF/Zeeman-resonant field",
+   "level": "biochemical",
+   "modalities": [
+    "wound/inflammation resolution",
+    "vascular/angiogenesis"
+   ],
+   "driver": "B_AC_over_B0",
+   "driver_explanation": "In the NIST/Nevada/Montana line of work the response needs a static field of about 45 uT AND an oscillating field of about 10 uT rms at 5-10 MHz oriented perpendicular to it; the response depends on orientation and on the RF being near the Zeeman/hyperfine condition, i.e. on the ratio and geometry of B_AC to B0, not on RF induction. For scale, the RF dB/dt is very large (computed 6e2-9e2 T/s peak) yet the cell-scale induced E is only mV/m (computed, r=10 um assumed), so induction is not a plausible driver in these designs, and therapeutic PEMF (kHz-range, mT) does not match the RF/Zeeman conditions. Theory papers (Kattnig 2016; Brocklehurst 1996) argue spin relaxation and radical lifetime limit such effects, and the extension to broadband pulsed fields is speculative.",
+   "discriminating_evidence": [
+    {
+     "pmid": "24681944",
+     "refkey": null,
+     "design_feature": "Static 45 uT plus 7 MHz RF at 10 uT rms vs static-only control (rat PASMC)",
+     "finding": "Superoxide fell and H2O2 rose only with the combined static+RF exposure; sham used only for DC (abstract + partial full text)."
+    },
+    {
+     "pmid": "25251337",
+     "refkey": null,
+     "design_feature": "Static 45 uT vertical, RF 5 or 10 MHz at 10 uT rms perpendicular to static, vs static-only controls (HT1080)",
+     "finding": "10 MHz plus static cut cell number up to 30% (day 2) and raised H2O2 55% at 8 h versus static-only controls; 5 MHz also tested."
+    },
+    {
+     "pmid": "27995996",
+     "refkey": null,
+     "design_feature": "RF at Zeeman resonance, varied field orientation (HUVEC)",
+     "finding": "ROS partitioning and bioenergetics changed with oscillating-field orientation, as expected for coherent singlet-triplet mixing and not for induced currents."
+    },
+    {
+     "pmid": "15141211",
+     "refkey": null,
+     "design_feature": "7 MHz field applied at 0, 24 and 48 degrees to the geomagnetic field (robins)",
+     "finding": "Orientation was normal when the RF was parallel to the geomagnetic field and lost at 24 and 48 degrees, so the effect depends on angle between B_AC and B0 (resonance-like), not on RF amplitude alone."
+    },
+    {
+     "pmid": "27020113",
+     "refkey": null,
+     "design_feature": "Spin-relaxation simulation, Arabidopsis cryptochrome-1",
+     "finding": "Radical-pair lifetimes near microseconds are optimal and relaxation is too fast for the long coherence needed to explain RF disruption; counter-evidence from theory."
+    },
+    {
+     "pmid": "8601753",
+     "refkey": null,
+     "design_feature": "Radical-pair theory of environmental-strength fields",
+     "finding": "Low-field effects depend on radical lifetime and chemistry; freely diffusing radical pairs unlikely to give significant biological effects."
+    }
+   ],
+   "thresholds": [
+    {
+     "role": "lowest_effective",
+     "endpoint": "Lower superoxide / higher H2O2 (ROS partitioning)",
+     "preparation": "Rat pulmonary arterial smooth muscle cells, in vitro",
+     "evidence_type": "invitro",
+     "B_pk_mT": 0.01414,
+     "B_note": "Reported 10 uT rms; peak = rms x sqrt(2), computed.",
+     "freq_Hz": 7000000.0,
+     "waveform": "sine RF, perpendicular to static field",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "not stated in abstract",
+     "schedule": "",
+     "dBdt_T_s": 622.0,
+     "dBdt_basis": "computed",
+     "E_V_m": 0.00311,
+     "E_basis": "computed",
+     "E_geometry": "Single-cell scale, assumed r = 10 um (my assumption, not from paper); dish-scale E not computed",
+     "static_B0_uT": 45,
+     "pmid": "24681944",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "dB/dt = 2*pi*7e6*1.414e-5. Only one RF amplitude (10 uT rms) reported in the abstract, so no dose-response and no lowest-effective level can be inferred."
+    },
+    {
+     "role": "lowest_effective",
+     "endpoint": "Reduced proliferation (up to 30% fewer cells) and +55% H2O2",
+     "preparation": "HT1080 fibrosarcoma cells, in vitro",
+     "evidence_type": "invitro",
+     "B_pk_mT": 0.01414,
+     "B_note": "Reported 10 uT rms; peak computed.",
+     "freq_Hz": 10000000.0,
+     "waveform": "sine RF perpendicular to 45 uT static",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "8 h for H2O2 (+55%); cell number measured through day 2",
+     "schedule": "",
+     "dBdt_T_s": 889.0,
+     "dBdt_basis": "computed",
+     "E_V_m": 0.00445,
+     "E_basis": "computed",
+     "E_geometry": "Single-cell scale, assumed r = 10 um (my assumption)",
+     "static_B0_uT": 45,
+     "pmid": "25251337",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "5 MHz was also tested; the abstract quotes the 30% reduction for 10 MHz only."
+    },
+    {
+     "role": "optimal",
+     "endpoint": "Zeeman (Larmor) frequency of a free electron spin, g = 2",
+     "preparation": "Theory / my calculation",
+     "evidence_type": "theory",
+     "B_pk_mT": null,
+     "B_note": "",
+     "freq_Hz": 1260000.0,
+     "waveform": "n/a",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": 45,
+     "pmid": "",
+     "refkey": null,
+     "source_depth": "fulltext",
+     "note": "Computed: gamma_e/2pi = 28.02 MHz per mT, so 1.26 MHz at 45 uT; 7 MHz corresponds to B0 = 0.25 mT, i.e. the 7 MHz RF in Usselman 2014 and Ritz 2004 is about 5x the free-electron Larmor frequency of the ~45 uT static field (hyperfine couplings, not the Larmor frequency alone, set the resonance in a radical pair). The brief's '~1.4 MHz/mT' appears to be a unit slip: it is about 1.4 MHz at 50 uT."
+    }
+   ],
+   "window_summary": "Reported effective RF: about 10 uT rms (about 14 uT peak), 5-10 MHz, on a 45 uT static field, perpendicular geometry. Computed dB/dt about 4e2-9e2 T/s peak but cell-scale E only about mV/m. Requires B0; no amplitude dose-response available.",
+   "replication_status": "single group (Martino/Usselman lineage); concept supported independently only in birds (Ritz 2004); unresolved physical objections",
+   "confidence": "low",
+   "caveats": "Only one RF amplitude in the abstracts; exposure durations not in abstract; plausibility is contested; none of this uses therapeutic PEMF waveforms. Existing library refs hore2016, barnes2015 and wang2017 cover RPM theory but were not re-read in this pass."
+  },
+  {
+   "id": "rp_mfe_mT_scale_flavin",
+   "name": "Radical-pair magnetic field effect at mT amplitudes (flavin photochemistry, cryptochrome)",
+   "level": "biochemical",
+   "modalities": [
+    "neuro-modulation/neuroprotection"
+   ],
+   "driver": "B_amplitude",
+   "driver_explanation": "In vitro flavin/cell photochemistry shows a magnetic-field effect whose size depends on the instantaneous field amplitude B and saturates at a few mT to tens of mT (B1/2 = 18.0 mT in HeLa autofluorescence; effects at 100 mT in Drosophila neurons); the effect is a property of static or slowly varying B, not of dB/dt. Because radical-pair lifetimes are microseconds (Kattnig 2016) while PEMF pulse widths are hundreds of microseconds to ms, a PEMF peak field in the 1-50 mT range would act on a light-activated radical pair as a quasi-static field during each pulse (my inference, not tested for pulses in these papers). All these systems need photoexcitation, so relevance to non-illuminated deep tissue is uncertain.",
+   "discriminating_evidence": [
+    {
+     "pmid": "33397812",
+     "refkey": null,
+     "design_feature": "Field sweep up to 25 mT, single-cell fluorescence kinetics (HeLa)",
+     "finding": "Autofluorescence changed with static field, half-saturation 18.0 mT, saturation 3.7%; consistent with triplet-born radical pair."
+    },
+    {
+     "pmid": "29724094",
+     "refkey": null,
+     "design_feature": "FAD photochemistry vs pH 2.3-8.0 in water",
+     "finding": "Magnetic field effects persist at physiological pH at about 25% of the pH 2.3 sensitivity."
+    },
+    {
+     "pmid": "27798129",
+     "refkey": null,
+     "design_feature": "100 mT applied with blue light, motoneuron electrophysiology with ectopic cryptochrome",
+     "finding": "Depolarisation, input-resistance rise and firing were potentiated by the field only in combination with blue-light cryptochrome activation; single field strength tested."
+    },
+    {
+     "pmid": "18449197",
+     "refkey": null,
+     "design_feature": "Model carotenoid-porphyrin-fullerene triad, 50 uT or less",
+     "finding": "Radical-pair lifetime changed at geomagnetic-strength fields with anisotropy; proof of principle, not a biological readout."
+    }
+   ],
+   "thresholds": [
+    {
+     "role": "plateau",
+     "endpoint": "Change in autofluorescence (flavin radical-pair magnetic field effect)",
+     "preparation": "HeLa cells, single-cell imaging",
+     "evidence_type": "invitro",
+     "B_pk_mT": 25,
+     "B_note": "Maximum field tested ('25 mT and less'); static field.",
+     "freq_Hz": 0,
+     "waveform": "static",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "not stated in abstract",
+     "schedule": "",
+     "dBdt_T_s": 0,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "33397812",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "B1/2 = 18.0 mT and saturation amplitude 3.7% reported (so the response is near saturation at 25 mT). dB/dt = 0 for a static field by definition."
+    },
+    {
+     "role": "optimal",
+     "endpoint": "Potentiation of blue-light cryptochrome-dependent firing",
+     "preparation": "Drosophila larval motoneurons with ectopic cryptochrome",
+     "evidence_type": "animal",
+     "B_pk_mT": 100,
+     "B_note": "Single field strength tested ('100 mT'), so this is not a threshold.",
+     "freq_Hz": 0,
+     "waveform": "static",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "27798129",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Light is required."
+    }
+   ],
+   "window_summary": "B-driven, saturating around 18-25 mT in HeLa flavin photochemistry (B1/2 = 18.0 mT); dB/dt = 0 in these static designs. Requires light for the radical pair; no data on pulsed mT fields here.",
+   "replication_status": "independent groups (Tokyo, Manchester, Oxford model) but different systems; no tests with PEMF waveforms",
+   "confidence": "medium",
+   "caveats": "In vitro/illuminated systems; extrapolation to PEMF therapy is inferential. Giachello tested one field only."
+  },
+  {
+   "id": "cryptochrome_dependent_elf_pemf_responses",
+   "name": "Cryptochrome-dependent responses to ELF/pulsed fields (ROS, circadian, behaviour, plant growth)",
+   "level": "cellular",
+   "modalities": [
+    "neuro-modulation/neuroprotection",
+    "wound/inflammation resolution"
+   ],
+   "driver": "B_amplitude",
+   "driver_explanation": "The best discriminating design is Fedele 2014: in a shielded apparatus a 300 uT static field, 3 Hz and 50 Hz fields all produced the same circadian-period shortening in Drosophila, and 3 Hz was effective from 90 to 1000 uT; a static field has dB/dt = 0 (and 50 Hz at 300 uT would have about 17-fold larger dB/dt than 3 Hz, computed), so B amplitude, not dB/dt or induced E, is the operative variable there. Plant data (500 uT static) are likewise B-driven. Sherrard 2018 used a 10 Hz pulsed device of about 2 mT peak, cryptochrome knock-out and a mu-metal control; those controls prove field-dependence and cryptochrome-dependence but do not discriminate B from dB/dt, because shielding or an antiparallel coil removes both B and the induced E together. Lohof 2022 reports that low-intensity rTMS repair depends on the stimulation pattern and on cryptochrome (abstract only).",
+   "discriminating_evidence": [
+    {
+     "pmid": "25473952",
+     "refkey": null,
+     "design_feature": "Static 300 uT vs 3 Hz vs 50 Hz in a shielded Schuderer apparatus with sham; 90, 300, 1000 uT at 3 Hz; CRY mutants; blue vs 500 nm light",
+     "finding": "Static, 3 Hz and 50 Hz gave the same period effect (dB/dt differs from 0 to computed 0.094 T/s), so B, not dB/dt; effect is CRY- and blue-light-dependent; hyperactivity not significant at 1 mT; 500 nm light reversed the sign; mouse SCN slices showed no effect at 50-500 uT, 50 Hz."
+    },
+    {
+     "pmid": "30278045",
+     "refkey": null,
+     "design_feature": "Cry1/2 knock-out/knock-down, DmCry expression, mu-metal (1 mm, field reduced about 85%), antiparallel-wound coil with same current",
+     "finding": "ROS rose within 15 min in Cry-expressing cells and cells lacking Cry did not respond; mu-metal and antiparallel coil abolished it. Shielding and antiparallel coil remove B and induced E together, so B vs dB/dt/E is not resolved."
+    },
+    {
+     "pmid": "35023064",
+     "refkey": null,
+     "design_feature": "LI-rTMS pattern comparison in cerebellum, Cry dependence",
+     "finding": "Repair depended on stimulation pattern and Cry, not on induced-current excitation (abstract only)."
+    },
+    {
+     "pmid": "16955271",
+     "refkey": null,
+     "design_feature": "Static 33-44 uT vs 500 uT, blue vs red light, cry mutants (Arabidopsis)",
+     "finding": "500 uT enhanced blue-light, cryptochrome-dependent hypocotyl inhibition; no effect in the dark, under red light or in cry mutants."
+    },
+    {
+     "pmid": "30194534",
+     "refkey": null,
+     "design_feature": "500 uT given only in dark intervals vs continuous",
+     "finding": "Effect arises during flavin reoxidation in the dark."
+    },
+    {
+     "pmid": "32065192",
+     "refkey": null,
+     "design_feature": "500 uT only during 5 min light vs only during 10 min dark",
+     "finding": "Field applied only during light had no effect; dark-interval exposure was effective."
+    },
+    {
+     "pmid": "30278038",
+     "refkey": null,
+     "design_feature": "Commentary",
+     "finding": "Frames the Sherrard result as potentially linking animal magnetoreception, therapeutic PEMF and environmental-EMF concerns; calls for caution given field history."
+    }
+   ],
+   "thresholds": [
+    {
+     "role": "optimal",
+     "endpoint": "Cry-dependent ROS rise, slowed growth, gene expression changes, larval avoidance",
+     "preparation": "HEK293 / Sf21-DmCry / MEF cells and Drosophila larvae, PEMF device GEM EC10701",
+     "evidence_type": "invitro",
+     "B_pk_mT": 2.0,
+     "B_note": "Reported peak about 1.8-2 mT (coil 9 x 5.5 cm, 200 turns, dish 1 cm above coil); single amplitude, no dose-response.",
+     "freq_Hz": 10,
+     "waveform": "pulsed (device waveform; pulse about 0.5 ms)",
+     "pulse_width_ms": 0.5,
+     "burst": "",
+     "exposure": "ROS after 15 min; gene expression after 3 h; growth after 48 h",
+     "schedule": "",
+     "dBdt_T_s": 4.0,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "30278045",
+     "refkey": null,
+     "source_depth": "fulltext",
+     "note": "dB/dt computed as B_pk/pulse width = 2 mT / 0.5 ms = 4 T/s, a LOWER bound because actual edges may be shorter. Authors state the device is not a therapeutic one. E not computed (coil/dish geometry not fully specified)."
+    },
+    {
+     "role": "lowest_effective",
+     "endpoint": "Circadian period shortening (3 Hz)",
+     "preparation": "Drosophila melanogaster, shielded apparatus",
+     "evidence_type": "animal",
+     "B_pk_mT": 0.09,
+     "B_note": "Reported 90 uT; amplitude not stated as rms or peak; treated here as nominal peak.",
+     "freq_Hz": 3,
+     "waveform": "sine",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "circadian recording (days)",
+     "schedule": "",
+     "dBdt_T_s": 0.0017,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "25473952",
+     "refkey": null,
+     "source_depth": "fulltext",
+     "note": "dB/dt = 2*pi*3*9e-5."
+    },
+    {
+     "role": "optimal",
+     "endpoint": "Circadian period shortening and hyperactivity",
+     "preparation": "Drosophila melanogaster",
+     "evidence_type": "animal",
+     "B_pk_mT": 0.3,
+     "B_note": "Reported 300 uT; rms/peak not stated; same effect for static, 3 Hz and 50 Hz.",
+     "freq_Hz": 0,
+     "waveform": "static (and 3 Hz, 50 Hz sine)",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "25473952",
+     "refkey": null,
+     "source_depth": "fulltext",
+     "note": "For the static field dB/dt = 0 yet the effect is the same as 3 Hz (computed dB/dt 0.00565 T/s) and 50 Hz (computed 0.0942 T/s) at 300 uT: decisive for B over dB/dt in this assay."
+    },
+    {
+     "role": "loss_above",
+     "endpoint": "Hyperactivity phenotype (not significant at 1 mT, 3 Hz)",
+     "preparation": "Drosophila melanogaster",
+     "evidence_type": "animal",
+     "B_pk_mT": 1.0,
+     "B_note": "Reported 1000 uT, 3 Hz; period effect still seen.",
+     "freq_Hz": 3,
+     "waveform": "sine",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0.0188,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "25473952",
+     "refkey": null,
+     "source_depth": "fulltext",
+     "note": "Only the hyperactivity endpoint lost significance at 1 mT."
+    },
+    {
+     "role": "lowest_effective",
+     "endpoint": "Enhanced cryptochrome-dependent hypocotyl inhibition, CRY2 degradation",
+     "preparation": "Arabidopsis seedlings",
+     "evidence_type": "invitro",
+     "B_pk_mT": 0.5,
+     "B_note": "Reported 500 uT vs ambient 33-44 uT; only this contrast tested, so not a true threshold.",
+     "freq_Hz": 0,
+     "waveform": "static",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "16955271",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Needs blue light; absent in cry mutants."
+    }
+   ],
+   "window_summary": "Cryptochrome-dependent effects in Drosophila appear at 90-1000 uT regardless of frequency (0, 3 or 50 Hz), i.e. B-amplitude-driven (computed dB/dt from 0 to about 0.094 T/s). Pulsed ~2 mT peak fields (computed dB/dt >= 4 T/s) also act via Cry but B vs dB/dt was not separated.",
+   "replication_status": "multiple independent groups (Leicester/Cambridge; Paris/Florida; Manchester) but each system single-lab; no independent replication of the Sherrard mammalian-cell ROS result found in this search (search not exhaustive)",
+   "confidence": "medium",
+   "caveats": "Light required (blue). Fedele reports the effect as hCRY2-, not Trp-triad-dependent, which complicates a classical RPM reading; mouse SCN slices were null. Amplitude rms/peak not given in Fedele. Mu-metal and antiparallel-coil controls do not discriminate B from E."
+  },
+  {
+   "id": "icr_ipr_ca_resonance",
+   "name": "Ion cyclotron / ion parametric resonance (Ca2+ and other ions) in combined static + AC fields",
+   "level": "membrane/ion channel",
+   "modalities": [
+    "bone & cartilage repair",
+    "neuro-modulation/neuroprotection",
+    "pain relief"
+   ],
+   "driver": "B_AC_over_B0",
+   "driver_explanation": "The ICR/IPR hypothesis says the response depends on the AC frequency relative to f_c = qB0/(2*pi*m) and on the ratio B_AC/B0 (Lednev 1991; Blanchard & Blackman 1994), not on dB/dt or induced E. Supporting designs vary B0, f and B_AC independently and test orientation: PC-12 neurite outgrowth followed IPR predictions at 45 Hz/36.6 uT and 25 Hz/20.3 uT with an off-resonance control (Blackman 1994); chick brain Ca2+ efflux required B_dc perpendicular to B_ac at constant E (Blackman 1990); rat behaviour followed proportional DC and AC scaling at 50 and 500 uT (Zhadin 1999). Against it, several well-designed attempts found nothing (Parkinson 1989; Coulton 1993), one diatom study was irreproducible (Reese 1991), and physics critiques show classical cyclotron orbits cannot survive collisions (Sandweiss 1990: gyration radius about 50 m, damping time below 1e-10 s; Halle 1988; Adair 1992). Machlup 2007 and Engstrom 1996 try to rescue the theory.",
+   "discriminating_evidence": [
+    {
+     "pmid": "8074739",
+     "refkey": null,
+     "design_feature": "Independent control of B_ac (7.7-46.8 uT rms), B_dc (36.6 uT or 2 uT off-resonance), f (45 vs 25 Hz) in a multi-coil system",
+     "finding": "All PC-12 neurite outgrowth responses matched IPR predictions, including the off-resonance condition."
+    },
+    {
+     "pmid": "2242051",
+     "refkey": null,
+     "design_feature": "Parallel vs perpendicular B_dc/B_ac at fixed 315 Hz, 61 nT rms, 15 V/m rms (in air)",
+     "finding": "Ca2+ efflux from chick brain only when perpendicular; orientation matters while E magnitude is the same."
+    },
+    {
+     "pmid": "1854354",
+     "refkey": null,
+     "design_feature": "Sample temperature varied during 16 Hz exposure",
+     "finding": "Outcome was enhancement, reduction or null depending on temperature history, which may explain poor reproducibility."
+    },
+    {
+     "pmid": "12929158",
+     "refkey": null,
+     "design_feature": "Cell-free plasma-membrane vesicles, 27-37 uT static x 7-72 Hz, 13-114 uT AC",
+     "finding": "Ca-45 efflux confirmed the Blanchard IPR model quantitatively in a purified membrane system."
+    },
+    {
+     "pmid": "9453705",
+     "refkey": null,
+     "design_feature": "Cell-free glutamic acid solution, 1-10 Hz sweep, B_ac 0.02-0.08 uT",
+     "finding": "Current peak (20-30%) at the cyclotron frequency, proportional to B0 and only at very low B_ac (higher amplitudes abolished it)."
+    },
+    {
+     "pmid": "10453066",
+     "refkey": null,
+     "design_feature": "Rats, DC 50 vs 500 uT with proportional AC frequency/amplitude",
+     "finding": "Ca2+ frequency lowered and Mg2+ frequency raised open-field activity at both DC levels."
+    },
+    {
+     "pmid": "3663247",
+     "refkey": null,
+     "design_feature": "Diatom motility, frequency and B_ac dose-response",
+     "finding": "Sharp resonance at predicted Ca2+ frequency, dose-response in B_ac, odd harmonics also effective."
+    },
+    {
+     "pmid": "2012618",
+     "refkey": null,
+     "design_feature": "16 Hz, 20.9 uT AC with 20.9 uT horizontal DC, diatoms",
+     "finding": "Field-associated increase seen at 0.25 mM Ca2+ but too irreproducible to test frequency dependence."
+    },
+    {
+     "pmid": "2712845",
+     "refkey": null,
+     "design_feature": "Fura-2 imaging in four cell lines, resonant and non-resonant fields",
+     "finding": "No change in cytosolic Ca2+ (null)."
+    },
+    {
+     "pmid": "8451278",
+     "refkey": null,
+     "design_feature": "Mouse lymphocytes, 16 and 50 Hz, DC shifted up to 25% either side, 60 min, ConA positive control",
+     "finding": "No change in intracellular Ca2+ (null)."
+    },
+    {
+     "pmid": "1590822",
+     "refkey": null,
+     "design_feature": "Theory critique",
+     "finding": "Four independent reasons why a Lednev-type mechanism cannot operate."
+    },
+    {
+     "pmid": "1700714",
+     "refkey": null,
+     "design_feature": "Theory critique",
+     "finding": "Gyration radius about 50 m at Earth-field cyclotron frequency; damping time below 1e-10 s versus about 1e-2 s needed."
+    },
+    {
+     "pmid": "2461205",
+     "refkey": null,
+     "design_feature": "Theory critique",
+     "finding": "Model violates classical mechanics; friction precludes effect."
+    },
+    {
+     "pmid": "9905119",
+     "refkey": "adair1991",
+     "design_feature": "Existing library ref (Adair 1991, constraints on weak ELF effects)",
+     "finding": "Listed for completeness; contents not re-read in this pass."
+    }
+   ],
+   "thresholds": [
+    {
+     "role": "optimal",
+     "endpoint": "Inhibition of NGF-stimulated neurite outgrowth following IPR-predicted pattern",
+     "preparation": "PC-12 cells, in vitro",
+     "evidence_type": "invitro",
+     "B_pk_mT": 0.0109,
+     "B_note": "Reported B_ac 77-468 mG rms (7.7-46.8 uT rms) at 45 Hz; peak = rms x sqrt(2), computed; value given is the low end, high end 0.0662 mT peak.",
+     "freq_Hz": 45,
+     "waveform": "sine AC parallel to DC",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0.00308,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": 36.6,
+     "pmid": "8074739",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "dB/dt computed at the low end; at the high end 2*pi*45*6.62e-5 = 0.0187 T/s. Off-resonance test used B_dc 2 uT with B_ac 0.79-2.1 uT rms; 25 Hz test used B_dc 20.3 uT with B_ac 7.8-18.1 uT rms. Exposure durations not in abstract."
+    },
+    {
+     "role": "lowest_effective",
+     "endpoint": "Ca2+ efflux enhancement (resonance-like) from chick brain tissue",
+     "preparation": "Chick forebrain tissue, in vitro",
+     "evidence_type": "invitro",
+     "B_pk_mT": 8.6e-05,
+     "B_note": "Reported 61 nT rms; peak computed.",
+     "freq_Hz": 315,
+     "waveform": "sine, B_ac perpendicular to B_dc",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0.000171,
+     "dBdt_basis": "computed",
+     "E_V_m": 15,
+     "E_basis": "reported",
+     "E_geometry": "15 V/m rms electric field in air (not tissue E); tissue field much lower",
+     "static_B0_uT": null,
+     "pmid": "2242051",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "B_dc not stated in the abstract. The effect appears with B_ac perpendicular to B_dc and not when parallel."
+    },
+    {
+     "role": "lowest_effective",
+     "endpoint": "Enhanced diatom motion at 0.25 mM Ca2+ (poorly reproducible)",
+     "preparation": "Amphora coffeaeformis on agar",
+     "evidence_type": "invitro",
+     "B_pk_mT": 0.0209,
+     "B_note": "Reported AC amplitude 20.9 uT (rms/peak not stated; treated as nominal peak).",
+     "freq_Hz": 16,
+     "waveform": "sine parallel to DC",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0.0021,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": 20.9,
+     "pmid": "2012618",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Authors report poor reproducibility."
+    },
+    {
+     "role": "lowest_effective",
+     "endpoint": "Cyclotron-resonance current peak (20-30% of DC)",
+     "preparation": "Cell-free aqueous glutamic acid",
+     "evidence_type": "invitro",
+     "B_pk_mT": 2e-05,
+     "B_note": "Reported B_ac 0.02 uT (low end); rms/peak not stated.",
+     "freq_Hz": null,
+     "waveform": "sine AC swept 1-10 Hz, parallel to DC",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "9453705",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Peak frequency proportional to static field; B_dc not in abstract."
+    },
+    {
+     "role": "loss_above",
+     "endpoint": "Cyclotron-resonance current peak vanishes at larger AC amplitude",
+     "preparation": "Cell-free aqueous glutamic acid",
+     "evidence_type": "invitro",
+     "B_pk_mT": 8e-05,
+     "B_note": "Effect arises only for B_ac of 0.02-0.08 uT; above 0.08 uT it is absent.",
+     "freq_Hz": null,
+     "waveform": "sine AC swept 1-10 Hz",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "9453705",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Inverted-U / window in AC amplitude as IPR predicts through Bessel-type dependence."
+    },
+    {
+     "role": "optimal",
+     "endpoint": "Ca-45 efflux modulation",
+     "preparation": "Purified plasma-membrane vesicles, 30 min, 32 C",
+     "evidence_type": "invitro",
+     "B_pk_mT": 0.114,
+     "B_note": "Upper end of tested peak AC range (13-114 uT peak); effective combinations not itemised in abstract.",
+     "freq_Hz": 72,
+     "waveform": "sine AC (7-72 Hz) with 27-37 uT static",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "30 min",
+     "schedule": "",
+     "dBdt_T_s": 0.0516,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": 32,
+     "pmid": "12929158",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "dB/dt computed for the extreme combination 72 Hz x 114 uT only (upper bound); static range 27-37 uT (midpoint 32 uT shown)."
+    },
+    {
+     "role": "optimal",
+     "endpoint": "Reduced locomotor/exploratory activity (Ca2+ frequency)",
+     "preparation": "Rats, open field",
+     "evidence_type": "animal",
+     "B_pk_mT": null,
+     "B_note": "Amplitudes not given in abstract; AC scaled proportionally to DC.",
+     "freq_Hz": null,
+     "waveform": "parallel DC + AC at ion cyclotron frequency",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": 50,
+     "pmid": "10453066",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Qualitatively the same at DC 50 uT and 500 uT (second DC level not representable in this field)."
+    }
+   ],
+   "window_summary": "Effects, where seen, occur at AC amplitudes of 0.02 uT to about 66 uT peak with B0 of 20-50 uT (Earth-like) and are not monotonic in B_ac (window). Computed dB/dt is only 1e-6 to 2e-2 T/s. Activator is B_ac relative to B0 and frequency, not dB/dt.",
+   "replication_status": "contested: positive claims from a few groups (Blackman/EPA, Zhadin, Fitzsimmons, Baureus Koch) vs multiple null replications (Parkinson, Coulton, Reese) and strong theoretical objections",
+   "confidence": "low",
+   "caveats": "Many positive studies are small and from the same labs; theory objections have not been resolved experimentally. Zhadin glutamic-acid result is in a cell-free solution, which is unusual. Liboff 2009/2010 (existing refs) argue for ICR-like geomagnetic regulation but were not re-read."
+  },
+  {
+   "id": "cmf_combined_field_bone_cells",
+   "name": "Combined static + low-frequency AC magnetic field (CMF) signalling in bone cells (Ca2+ flux, IGF-II)",
+   "level": "cellular",
+   "modalities": [
+    "bone & cartilage repair"
+   ],
+   "driver": "combined",
+   "driver_explanation": "Fitzsimmons and colleagues report that a combined AC/DC field at about 15 Hz, with a calculated induced potential gradient of only 1e-5 V/m in medium, increases Ca2+ flux, IGF-II receptor number and IGF-II release in osteoblast-like cells, with a narrow frequency peak (15.3-16.3 Hz, bandwidth about 1 Hz). The 1e-5 V/m E is far below usual cellular E thresholds, so the authors argue for resonance-type dynamics, cell shape and signal averaging rather than simple induction. This is an ICR/IPR-type B_AC/B0 dependence, but B_ac and B_dc values were not in the abstracts and the work is from a single lab.",
+   "discriminating_evidence": [
+    {
+     "pmid": "7866919",
+     "refkey": null,
+     "design_feature": "Frequency scan of CMF; calculated induced potential gradient 1e-5 V/m (abstract only)",
+     "finding": "Net Ca2+ flux peaked at 15.3-16.3 Hz with about 1 Hz bandwidth, i.e. resonance-like narrow window."
+    },
+    {
+     "pmid": "7639117",
+     "refkey": null,
+     "design_feature": "15.3 Hz CMF, 30 min, frequency-dependent",
+     "finding": "IGF-II receptor number rose, IGF-I receptors unchanged (abstract only)."
+    },
+    {
+     "pmid": "7789337",
+     "refkey": null,
+     "design_feature": "CMF 10 min, anti-IGF-II antibody control, cell-density variation",
+     "finding": "IGF-II release and 24 h DNA synthesis rose; anti-IGF-II blocked proliferation; effect larger at low cell density."
+    }
+   ],
+   "thresholds": [
+    {
+     "role": "lowest_effective",
+     "endpoint": "Increased net Ca2+ flux",
+     "preparation": "Human osteoblast-like (osteosarcoma) cells",
+     "evidence_type": "invitro",
+     "B_pk_mT": null,
+     "B_note": "",
+     "freq_Hz": 15.3,
+     "waveform": "combined AC + static",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": 1e-05,
+     "E_basis": "reported",
+     "E_geometry": "Calculated maximum potential gradient in culture medium (as reported in abstract)",
+     "static_B0_uT": null,
+     "pmid": "7866919",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Frequency window 15.3-16.3 Hz. B_ac and B_dc not available from the abstract (full text not retrieved). Back-estimate of B_ac (my computation, assumes 35 mm dish r = 17.5 mm and f = 15.3 Hz: B = 2E/(r*2*pi*f)) is about 1.2e-5 T (12 uT) pk, which is an assumption-laden estimate only."
+    },
+    {
+     "role": "optimal",
+     "endpoint": "Increased IGF-II receptor number",
+     "preparation": "TE-85 osteosarcoma cells",
+     "evidence_type": "invitro",
+     "B_pk_mT": null,
+     "B_note": "",
+     "freq_Hz": 15.3,
+     "waveform": "combined AC + static",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "30 min",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": 1e-05,
+     "E_basis": "reported",
+     "E_geometry": "Calculated maximum potential in culture medium",
+     "static_B0_uT": null,
+     "pmid": "7639117",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": ""
+    },
+    {
+     "role": "optimal",
+     "endpoint": "Increased IGF-II release and DNA synthesis",
+     "preparation": "TE-85 osteosarcoma cells",
+     "evidence_type": "invitro",
+     "B_pk_mT": null,
+     "B_note": "",
+     "freq_Hz": null,
+     "waveform": "combined AC + static",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "10 min exposure; effects measured 1 h and 24 h later",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "7789337",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Field amplitudes not in abstract."
+    }
+   ],
+   "window_summary": "Reported E about 1e-5 V/m at 15.3-16.3 Hz (about 1 Hz bandwidth); B_ac/B_dc not retrieved. Not a dB/dt-scaling effect (E is tiny); narrow frequency window.",
+   "replication_status": "single group (Loma Linda); no independent replication found in this search",
+   "confidence": "low",
+   "caveats": "Abstract-only data; amplitudes unknown; osteosarcoma lines; E value is a calculation by the authors and not a measurement."
+  },
+  {
+   "id": "snail_mouse_opioid_resonance_like",
+   "name": "Land-snail / mouse opioid-analgesia inhibition by ELF fields (resonance-like, light-dependent, Ca2+/NO)",
+   "level": "tissue-neural",
+   "modalities": [
+    "pain relief"
+   ],
+   "driver": "B_AC_over_B0",
+   "driver_explanation": "The Prato/Kavaliers snail work reports amplitude windows (nonlinear in B_ac over 0-547 uT at 60 Hz), frequency windows at fixed 141 uT (30-35, 60-90, 120-240 Hz), dependence on the parallel static field, and angle dependence between AC (299 uT peak) and DC (78 uT) fields. The authors argue this excludes induced current (it would be constant with angle at fixed B_ac) and excludes magnetite torque (maximum would be at 90 degrees), and favour a Lednev-type parametric resonance with Ca2+ or K+ settings, a light requirement and NO involvement. A parallel line in rodents used rotating 0.5 Hz fields (0.15-0.8 mT; computed dB/dt up to 2.5e-3 T/s) and Ca2+-channel drugs.",
+   "discriminating_evidence": [
+    {
+     "pmid": "7601344",
+     "refkey": null,
+     "design_feature": "Varied B_ac (0-547 uT peak), frequency (10-240 Hz at 141 uT), and static field at constant AC (snails)",
+     "finding": "Nonlinear amplitude dependence, three frequency windows, effect depends on static field; concluded direct detection, not induced current."
+    },
+    {
+     "pmid": "8860729",
+     "refkey": null,
+     "design_feature": "Angle between B_dc (78 uT) and B_ac (299 uT peak, 60 Hz) varied 0-90 degrees",
+     "finding": "Inhibition about 20% at 0 and 90 degrees and up to 50% at 50-70 degrees: not explained by constant induced current or by magnetite."
+    },
+    {
+     "pmid": "10797457",
+     "refkey": null,
+     "design_feature": "PRM-predicted parameter sets for Ca2+ and K+ ions, 141-414 uT peak, light vs dark, glibenclamide",
+     "finding": "Analgesia was decreased, unchanged or increased as predicted; K+ setting effect blocked by glibenclamide; abolished in the dark."
+    },
+    {
+     "pmid": "10501522",
+     "refkey": null,
+     "design_feature": "Light vs dark, NO precursor",
+     "finding": "Light-dependent potentiation of arginine's inhibitory effect."
+    },
+    {
+     "pmid": "9795129",
+     "refkey": null,
+     "design_feature": "NOS inhibitor L-NAME and NO donor SNAP with 15 min, 60 Hz, 141 uT peak",
+     "finding": "L-NAME reduced and SNAP enhanced the magnetic inhibition: NO/NOS involved."
+    },
+    {
+     "pmid": "2452251",
+     "refkey": null,
+     "design_feature": "0.5 Hz rotating field 1.5-8.0 G, Ca2+-channel agonists/antagonists (snail)",
+     "finding": "Field reduced opioid/stress analgesia; DHP and non-DHP drugs modulated it."
+    },
+    {
+     "pmid": "2446152",
+     "refkey": null,
+     "design_feature": "0.5 Hz rotating field, 60 min, mice, Ca2+-channel drugs",
+     "finding": "Field reduced morphine analgesia; Ca2+-channel drugs modulated the inhibition."
+    },
+    {
+     "pmid": "25962809",
+     "refkey": null,
+     "design_feature": "Author's review",
+     "finding": "Prato (2015) describes the field as not a balanced review and notes remaining work."
+    }
+   ],
+   "thresholds": [
+    {
+     "role": "optimal",
+     "endpoint": "Reduced opioid-mediated analgesia (nonlinear in B_ac)",
+     "preparation": "Land snail Cepaea nemoralis",
+     "evidence_type": "animal",
+     "B_pk_mT": 0.141,
+     "B_note": "Reported peak 141 uT (frequency scan) within a 0-547 uT amplitude scan at 60 Hz.",
+     "freq_Hz": 60,
+     "waveform": "sine AC plus parallel static field",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "15 min typical in this line of work (not in the 1995 abstract)",
+     "schedule": "",
+     "dBdt_T_s": 0.0532,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "7601344",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "dB/dt at 547 uT, 60 Hz = 0.206 T/s. Frequency windows at 141 uT: 30-35, 60-90, 120-240 Hz."
+    },
+    {
+     "role": "optimal",
+     "endpoint": "Analgesia reduction maximal at 50-70 degrees between AC and DC",
+     "preparation": "Land snail",
+     "evidence_type": "animal",
+     "B_pk_mT": 0.299,
+     "B_note": "Reported 299 uT peak, 60 Hz, with B_dc 78 uT.",
+     "freq_Hz": 60,
+     "waveform": "sine AC; angle to DC varied",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0.113,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": 78,
+     "pmid": "8860729",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "About 20% inhibition at 0 and 90 degrees, up to 50% at 50-70 degrees; with fixed B_ac, dB/dt is constant across angles."
+    },
+    {
+     "role": "optimal",
+     "endpoint": "Increase/decrease/no effect on analgesia per PRM prediction",
+     "preparation": "Land snail",
+     "evidence_type": "animal",
+     "B_pk_mT": 0.414,
+     "B_note": "Tested 141-414 uT peak; value shown is the upper end.",
+     "freq_Hz": null,
+     "waveform": "sine AC plus static set per PRM for Ca2+ or K+",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "10797457",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Frequencies and B_dc not in abstract."
+    },
+    {
+     "role": "optimal",
+     "endpoint": "Inhibition of enkephalinase-induced antinociception (NO dependent)",
+     "preparation": "Land snail",
+     "evidence_type": "animal",
+     "B_pk_mT": 0.141,
+     "B_note": "Reported 141 uT peak.",
+     "freq_Hz": 60,
+     "waveform": "sine",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "15 min",
+     "schedule": "",
+     "dBdt_T_s": 0.0532,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "9795129",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": ""
+    },
+    {
+     "role": "optimal",
+     "endpoint": "Reduced opioid analgesia (rotating field)",
+     "preparation": "Land snail",
+     "evidence_type": "animal",
+     "B_pk_mT": 0.8,
+     "B_note": "Rotating field magnitude 1.5-8.0 G = 0.15-0.8 mT; value is the upper end.",
+     "freq_Hz": 0.5,
+     "waveform": "rotating field (constant magnitude), 0.5 Hz",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "15-30 min",
+     "schedule": "",
+     "dBdt_T_s": 0.00251,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "2452251",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Computed dB/dt = 2*pi*0.5*B magnitude: 0.00251 T/s at 0.8 mT and 0.000471 T/s at 0.15 mT."
+    }
+   ],
+   "window_summary": "Snail effects at 0.14-0.55 mT peak, 60 Hz (computed dB/dt 0.05-0.2 T/s) with windows in B_ac, frequency, B_dc and angle; the angle test argues against a pure induced-current driver. Rodent rotating-field effects at 0.15-0.8 mT (computed 5e-4 to 2.5e-3 T/s).",
+   "replication_status": "single research group (London, Ontario); contested - a published comment disputes the PRM reading (Liboff 2002) and the group's own 2015 account is not a balanced review",
+   "confidence": "low",
+   "caveats": "Light, species and circadian state modulate outcomes; B_dc values and frequencies are missing from several abstracts; mechanism (PRM vs other) unresolved."
+  },
+  {
+   "id": "mouse_ambient_elf_detection_shielding_analgesia",
+   "name": "Mouse detection of ambient ELF magnetic field removal (mu-metal shielding analgesia) and B x f threshold",
+   "level": "tissue-neural",
+   "modalities": [
+    "pain relief"
+   ],
+   "driver": "dBdt_E",
+   "driver_explanation": "This is the clearest quantitative B-vs-dB/dt test in the scope. Mu-metal shielding for 1 h/day induces naloxone-reversible analgesia in mice, and reintroducing 30 or 120 Hz fields of 25-500 nT peak attenuates it. At a constant B_pk x f product of 6000 nT-Hz (12.5-100 Hz) the attenuation was constant, so the detector responds to the B x f product, i.e. dB/dt (or induced current), not to B amplitude; the threshold is at or below 1000 nT-Hz (computed dB/dt_pk about 6.3e-6 T/s). Independent replication (Choleris 2002, Pisa and London) shows that nulling only the static component (Helmholtz coils) or screening only E does not reproduce shielding, implying the very weak time-varying magnetic component matters. Blue/UV light is required, so a photoreceptor-based mechanism is proposed.",
+   "discriminating_evidence": [
+    {
+     "pmid": "21381048",
+     "refkey": null,
+     "design_feature": "Reintroduced 30 and 120 Hz fields (25-500 nT pk) and constant 6000 nT-Hz at 12.5, 25, 50, 100 Hz in a shielded box",
+     "finding": "Attenuation scaled with amplitude at fixed frequency and was constant at fixed B x f: dependence on nT-Hz (a dB/dt-like metric); threshold at or below 1000 nT-Hz."
+    },
+    {
+     "pmid": "11798436",
+     "refkey": null,
+     "design_feature": "Mu-metal shielding vs Helmholtz nulling of static B vs copper screening of E; replication in Pisa and London",
+     "finding": "Only mu-metal shielding reduced stress-induced analgesia; nulling static B or screening E did not, pointing to the weak time-varying component."
+    },
+    {
+     "pmid": "18583276",
+     "refkey": null,
+     "design_feature": "Red, blue, UV light during shielding",
+     "finding": "Red light had no effect; blue (465 nm) and UV (405 nm) abolished the shielding analgesia; blue threshold about 5e16 photons/s/m2."
+    },
+    {
+     "pmid": "15672364",
+     "refkey": null,
+     "design_feature": "1 h/day for 10 days, naloxone",
+     "finding": "Analgesia peaked on days 4-6 and was blocked by naloxone; comparable to 5 mg/kg morphine."
+    }
+   ],
+   "thresholds": [
+    {
+     "role": "lowest_effective",
+     "endpoint": "Attenuation of shielding analgesia (30 Hz)",
+     "preparation": "Male CD-1 mice, hot-plate, 1 h/day shielded exposure",
+     "evidence_type": "animal",
+     "B_pk_mT": 5e-05,
+     "B_note": "Reported 50 nT peak at 30 Hz (25 nT did not attenuate at 30 Hz).",
+     "freq_Hz": 30,
+     "waveform": "sine",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "1 h per day",
+     "schedule": "repeated daily",
+     "dBdt_T_s": 9.42e-06,
+     "dBdt_basis": "computed",
+     "E_V_m": 7.07e-08,
+     "E_basis": "computed",
+     "E_geometry": "Body-scale, assumed r = 15 mm mouse half-width (my assumption)",
+     "static_B0_uT": null,
+     "pmid": "21381048",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Product 50 nT x 30 Hz = 1500 nT-Hz."
+    },
+    {
+     "role": "lowest_effective",
+     "endpoint": "Attenuation of shielding analgesia (120 Hz)",
+     "preparation": "Male CD-1 mice",
+     "evidence_type": "animal",
+     "B_pk_mT": 2.5e-05,
+     "B_note": "Reported 25 nT peak; significant at all tested amplitudes at 120 Hz.",
+     "freq_Hz": 120,
+     "waveform": "sine",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "1 h per day",
+     "schedule": "",
+     "dBdt_T_s": 1.88e-05,
+     "dBdt_basis": "computed",
+     "E_V_m": 1.41e-07,
+     "E_basis": "computed",
+     "E_geometry": "Body-scale, assumed r = 15 mm (my assumption)",
+     "static_B0_uT": null,
+     "pmid": "21381048",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Product 25 nT x 120 Hz = 3000 nT-Hz."
+    },
+    {
+     "role": "lowest_effective",
+     "endpoint": "Detection threshold in B_pk x f",
+     "preparation": "Mice",
+     "evidence_type": "animal",
+     "B_pk_mT": null,
+     "B_note": "Product, not an amplitude: at or below 1000 nT-Hz (1e-3 mT-Hz).",
+     "freq_Hz": null,
+     "waveform": "sine",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 6.28e-06,
+     "dBdt_basis": "computed",
+     "E_V_m": 4.71e-08,
+     "E_basis": "computed",
+     "E_geometry": "Body-scale, assumed r = 15 mm (my assumption)",
+     "static_B0_uT": null,
+     "pmid": "21381048",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "dB/dt_pk = 2*pi*(B_pk x f) = 2*pi*1e-6 T/s."
+    },
+    {
+     "role": "plateau",
+     "endpoint": "Constant attenuation at constant B x f",
+     "preparation": "Mice",
+     "evidence_type": "animal",
+     "B_pk_mT": null,
+     "B_note": "6000 nT-Hz at 12.5, 25, 50 and 100 Hz.",
+     "freq_Hz": null,
+     "waveform": "sine",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 3.77e-05,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "21381048",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Decisive: same dB/dt, four different B amplitudes (480, 240, 120, 60 nT peak) -> same effect."
+    },
+    {
+     "role": "loss_above",
+     "endpoint": "No exposure abolished the effect (except perhaps 120 Hz, 500 nT)",
+     "preparation": "Mice",
+     "evidence_type": "animal",
+     "B_pk_mT": 0.0005,
+     "B_note": "500 nT peak at 120 Hz.",
+     "freq_Hz": 120,
+     "waveform": "sine",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0.000377,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "21381048",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Effect attenuated but not fully abolished at tested amplitudes."
+    }
+   ],
+   "window_summary": "Threshold in this assay is at or below B_pk x f = 1000 nT-Hz, computed dB/dt_pk about 6.3e-6 T/s (computed body-scale E about 5e-8 V/m with assumed r = 15 mm), from ambient 25-500 nT, 12.5-240 Hz fields. Driver is B x f (dB/dt-like), not B.",
+   "replication_status": "phenomenon replicated independently (Pisa + London, Choleris 2002, though both include Prato group); the B x f scaling is single-group",
+   "confidence": "medium",
+   "caveats": "These are removal-of-ambient-field experiments, an unusual regime; computed E uses an assumed geometry; mechanism unresolved (light/photoreceptor suggested). Existing library ref weaver1990 gives thermal-noise-limit context, not re-read here."
+  },
+  {
+   "id": "cnp_specific_pulsed_waveform_analgesia",
+   "name": "Specific pulsed ELF waveform (Cnp) analgesia: snails, mice, healthy humans, RA/fibromyalgia",
+   "level": "tissue-neural",
+   "modalities": [
+    "pain relief"
+   ],
+   "driver": "waveform_spectral",
+   "driver_explanation": "The group reports that analgesia depends on the specific waveform: in snails two other pulsed designs failed to induce analgesia while Cnp (about 100 uT peak, frequency modulated, 15 min) did, with partial opioid (delta, some mu) mediation. In mice, 100 uT Cnp was equivalent to roughly 5 mg/kg morphine. In humans, 30 min exposures raised experimental pain thresholds (double-blind, n=39 and 31) and reduced McGill pain ratings in 13 RA and 18 FM patients (up to 400 uT peak, below 3 kHz). The data point to waveform spectral content (not B amplitude or a single dB/dt) as the determinant, but the waveform is proprietary in the abstracts and dB/dt was not reported. The related Thomas 2007 RCT is an existing library ref.",
+   "discriminating_evidence": [
+    {
+     "pmid": "9111740",
+     "refkey": null,
+     "design_feature": "Cnp vs two other pulsed waveforms (snail)",
+     "finding": "Only Cnp produced analgesia; two other designs failed: waveform specificity."
+    },
+    {
+     "pmid": "9213364",
+     "refkey": null,
+     "design_feature": "Opioid receptor-selective antagonists/agonists",
+     "finding": "Reduced by naloxone, mu and delta antagonists, not kappa."
+    },
+    {
+     "pmid": "14698475",
+     "refkey": null,
+     "design_feature": "Cnp 100 uT, hot-plate, morphine co-treatment (mice)",
+     "finding": "Latency prolongation equivalent to about 5 mg/kg morphine; offset morphine hyperactivity."
+    },
+    {
+     "pmid": "15172106",
+     "refkey": null,
+     "design_feature": "Double-blind, sham, 30 min, heat-pain thresholds",
+     "finding": "Pain thresholds rose after active but not sham exposure; sensory thresholds unchanged; sex interaction."
+    },
+    {
+     "pmid": "16770449",
+     "refkey": null,
+     "design_feature": "Double-blind placebo-controlled, 30 min, RA n=13 and FM n=18",
+     "finding": "Significant pre-post x condition effect on McGill pain index in both groups; small trial."
+    },
+    {
+     "pmid": "18080043",
+     "refkey": "thomas2007",
+     "design_feature": "Existing library ref (Thomas 2007 RCT)",
+     "finding": "Contents not re-read in this pass."
+    }
+   ],
+   "thresholds": [
+    {
+     "role": "optimal",
+     "endpoint": "Antinociception ('analgesia')",
+     "preparation": "Land snail",
+     "evidence_type": "animal",
+     "B_pk_mT": 0.1,
+     "B_note": "Reported about 100 uT peak.",
+     "freq_Hz": null,
+     "waveform": "pulsed, frequency modulated ELF (Cnp)",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "15 min",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "9111740",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "dB/dt not reported (waveform proprietary)."
+    },
+    {
+     "role": "optimal",
+     "endpoint": "Hot-plate latency increase (about 5 mg/kg morphine equivalent)",
+     "preparation": "Male CF-1 mice",
+     "evidence_type": "animal",
+     "B_pk_mT": 0.1,
+     "B_note": "Reported 100 uT.",
+     "freq_Hz": null,
+     "waveform": "pulsed ELF (Cnp)",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "14698475",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Exposure time not in abstract."
+    },
+    {
+     "role": "optimal",
+     "endpoint": "Reduced McGill pain index",
+     "preparation": "RA (n=13) and FM (n=18) patients, double-blind RCT",
+     "evidence_type": "human_rct",
+     "B_pk_mT": 0.4,
+     "B_note": "Reported 'up to 400 uT peak; below 3 kHz'.",
+     "freq_Hz": null,
+     "waveform": "pulsed low-frequency",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "30 min, single session",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "16770449",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "dB/dt not reported; sine upper bound at 3 kHz x 0.4 mT would be 7.5 T/s but the waveform is not a pure sine, so no dB/dt is assigned."
+    },
+    {
+     "role": "optimal",
+     "endpoint": "Increased heat-pain threshold",
+     "preparation": "Healthy volunteers, double-blind",
+     "evidence_type": "human_rct",
+     "B_pk_mT": null,
+     "B_note": "",
+     "freq_Hz": null,
+     "waveform": "specific pulsed MF",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "30 min",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "15172106",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Field amplitude not in abstract."
+    }
+   ],
+   "window_summary": "Effective peak fields about 0.1 mT (snail, mouse) and up to 0.4 mT (human), 30 min in humans; dB/dt and E not reported. Waveform-specific.",
+   "replication_status": "single group (Lawson/Western); small trials; partial overlap with existing thomas2007 RCT",
+   "confidence": "low",
+   "caveats": "Waveform proprietary; sample sizes small; placebo not excluded (authors discuss). Positive-only evidence from one lab."
+  },
+  {
+   "id": "elf_bdose_ca_oscillations_jurkat",
+   "name": "50 Hz B dose-response of Ca2+ oscillations in T cells (Lindstrom vs Wey)",
+   "level": "membrane/ion channel",
+   "modalities": [
+    "wound/inflammation resolution"
+   ],
+   "driver": "B_amplitude",
+   "driver_explanation": "Lindstrom 1995 gave a dose-response in flux density at 50 Hz (threshold 0.04 mT, plateau 0.15 mT) and a frequency scan at 0.15 mT (5-100 Hz, peak 50 Hz), without a tuned DC field. B and f were varied but the paper does not separate B from f x B (dB/dt). A blinded repeat at 1.5 G (0.15 mT), 50 Hz (Wey 2000) found no effect (16.5% field, 14.6% sham, 14.2% no field), though the authors note they sampled cells differently (all cells, not pre-selected responders).",
+   "discriminating_evidence": [
+    {
+     "pmid": "7748202",
+     "refkey": null,
+     "design_feature": "Flux density scan at 50 Hz; frequency scan at 0.15 mT; fura-2 microfluorometry in single preselected cells",
+     "finding": "Threshold 0.04 mT, plateau 0.15 mT; broad frequency peak at 50 Hz."
+    },
+    {
+     "pmid": "10656853",
+     "refkey": null,
+     "design_feature": "Blinded, randomised, field/sham/no-field; positive control anti-CD3",
+     "finding": "Field 16.5% vs sham 14.6% vs no field 14.2%: no significant effect; cannot exclude responsive subpopulation."
+    }
+   ],
+   "thresholds": [
+    {
+     "role": "lowest_effective",
+     "endpoint": "Onset of [Ca2+]i oscillations",
+     "preparation": "Jurkat T-cell line",
+     "evidence_type": "invitro",
+     "B_pk_mT": 0.04,
+     "B_note": "Reported 0.04 mT; rms/peak not stated; treated as nominal peak.",
+     "freq_Hz": 50,
+     "waveform": "sine",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0.0126,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "7748202",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Threshold response: no effect below 0.04 mT."
+    },
+    {
+     "role": "plateau",
+     "endpoint": "[Ca2+]i oscillations",
+     "preparation": "Jurkat T-cell line",
+     "evidence_type": "invitro",
+     "B_pk_mT": 0.15,
+     "B_note": "Reported 0.15 mT; rms/peak not stated.",
+     "freq_Hz": 50,
+     "waveform": "sine",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0.0471,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "7748202",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Plateau at 0.15 mT; broad frequency peak at 50 Hz."
+    }
+   ],
+   "window_summary": "Single-lab claim of a 50 Hz threshold near 0.04 mT with plateau at 0.15 mT (computed dB/dt 1.3e-2 to 4.7e-2 T/s if values are peak); not replicated by a blinded attempt at 0.15 mT.",
+   "replication_status": "failed independent replication (Wey 2000, NIOSH) at the plateau amplitude",
+   "confidence": "low",
+   "caveats": "Cell pre-selection in the original; null in the repeat may reflect methodology rather than absence of effect."
+  },
+  {
+   "id": "env_elf_melatonin_tamoxifen_mcf7",
+   "name": "Environmental-level 50/60 Hz microtesla fields blocking melatonin/tamoxifen action in MCF-7 cells",
+   "level": "cellular",
+   "modalities": [],
+   "driver": "B_amplitude",
+   "driver_explanation": "Liburdy 1993 reported a threshold between about 2 and 12 mG (0.2-1.2 uT) for 60 Hz. Harland & Liburdy 1997 used a Faraday's-law design to separate B from induced E and associated the effect with the magnetic component, not the induced E. Ishido 2001 found 1.2 uT and 100 uT identical at 50 Hz (83-fold B and dB/dt difference, same effect), indicating saturation in B instead of scaling with dB/dt; Girgert 2005 saw maximal response at 1.2 uT (non-monotonic). Independent confirmation exists (Blackman 2001, EPA; Ishido, Girgert), but 1.2 uT is below the 2 uT level that Valberg 1997 regards as implausible for a physical effect, and the original lab's earlier 1992 FEBS paper has a published erratum.",
+   "discriminating_evidence": [
+    {
+     "pmid": "9383244",
+     "refkey": null,
+     "design_feature": "Faraday's-law design: B and induced E varied independently",
+     "finding": "Block of melatonin/tamoxifen action tracked the magnetic field, not the induced electric field."
+    },
+    {
+     "pmid": "11180258",
+     "refkey": null,
+     "design_feature": "Independent lab, blinded counts, 1.2 uT rms, 60 Hz, chambers with/without field",
+     "finding": "Replicated: melatonin 16.7% inhibition lost; tamoxifen 18.6/25% became 8.7/13.1%."
+    },
+    {
+     "pmid": "11408347",
+     "refkey": null,
+     "design_feature": "50 Hz at 1.2 uT vs 100 uT, 3-7 days",
+     "finding": "Same uncoupling of melatonin MT1a to adenylyl cyclase at both amplitudes."
+    },
+    {
+     "pmid": "16168388",
+     "refkey": null,
+     "design_feature": "Intensity-dependent tamoxifen dose-response shift, 50 Hz",
+     "finding": "Maximal response at 1.2 uT (non-monotonic)."
+    },
+    {
+     "pmid": "19882681",
+     "refkey": null,
+     "design_feature": "50 Hz, 1.2 uT, 48 h; transfected MT1 cells",
+     "finding": "Melatonin-induced CREB/BRCA-1 binding and gene expression disrupted."
+    },
+    {
+     "pmid": "8320637",
+     "refkey": null,
+     "design_feature": "60 Hz at about 2.4-2.5 mG vs about 12 mG",
+     "finding": "Block only at about 12 mG; threshold between 2 and 12 mG."
+    },
+    {
+     "pmid": "11255213",
+     "refkey": null,
+     "design_feature": "2 Hz, 0.3 mT PEMF with melatonin",
+     "finding": "No effect of the PEMF on melatonin action or invasion: PEMF in the therapeutic range is null in this assay."
+    },
+    {
+     "pmid": "9216613",
+     "refkey": null,
+     "design_feature": "Physics review",
+     "finding": "Effects of ELF fields at or below 2 uT considered implausible; above 10 uT only with time averaging plus a magnetic-moment transducer."
+    }
+   ],
+   "thresholds": [
+    {
+     "role": "no_effect_below",
+     "endpoint": "Melatonin growth inhibition preserved",
+     "preparation": "MCF-7 cells",
+     "evidence_type": "invitro",
+     "B_pk_mT": 0.000339,
+     "B_note": "Reported about 2.4 mG (0.24 uT) 'average'; assumed rms, peak computed (x sqrt(2)).",
+     "freq_Hz": 60,
+     "waveform": "sine",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0.000128,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "8320637",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Melatonin inhibition (18-27%) was intact at about 2.4-2.5 mG; threshold lies between 2 and 12 mG."
+    },
+    {
+     "role": "lowest_effective",
+     "endpoint": "Block of melatonin oncostatic action",
+     "preparation": "MCF-7 cells",
+     "evidence_type": "invitro",
+     "B_pk_mT": 0.0017,
+     "B_note": "Reported about 12 mG = 1.2 uT; assumed rms, peak computed.",
+     "freq_Hz": 60,
+     "waveform": "sine",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0.00064,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "8320637",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Continuous exposure; duration of experiments about 7 days (per companion papers)."
+    },
+    {
+     "role": "optimal",
+     "endpoint": "Block of melatonin and tamoxifen growth inhibition (independent replication)",
+     "preparation": "MCF-7 cells",
+     "evidence_type": "invitro",
+     "B_pk_mT": 0.0017,
+     "B_note": "Reported 1.2 uT rms; peak computed.",
+     "freq_Hz": 60,
+     "waveform": "sine",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "continuous to 7 days",
+     "schedule": "",
+     "dBdt_T_s": 0.00064,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "11180258",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": ""
+    },
+    {
+     "role": "plateau",
+     "endpoint": "Uncoupling of melatonin 1a receptor from adenylyl cyclase; same as at 1.2 uT",
+     "preparation": "MCF-7 cells",
+     "evidence_type": "invitro",
+     "B_pk_mT": 0.1414,
+     "B_note": "Reported 100 uT; assumed rms, peak computed.",
+     "freq_Hz": 50,
+     "waveform": "sine",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "3, 5 and 7 days",
+     "schedule": "",
+     "dBdt_T_s": 0.0444,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "11408347",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "83-fold larger B (and dB/dt) than 1.2 uT gives the same effect: B-saturating, not dB/dt-scaling. 1.2 uT, 50 Hz computed dB/dt = 0.000533 T/s."
+    },
+    {
+     "role": "optimal",
+     "endpoint": "Maximal tamoxifen dose-response shift",
+     "preparation": "MCF-7 clones",
+     "evidence_type": "invitro",
+     "B_pk_mT": 0.0017,
+     "B_note": "Reported 1.2 uT; assumed rms, peak computed.",
+     "freq_Hz": 50,
+     "waveform": "sine",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0.000533,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "16168388",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Authors describe a maximal response at 1.2 uT with intensity dependence below and above."
+    }
+   ],
+   "window_summary": "Reported effective 50/60 Hz field is 1.2 uT rms (1.7 uT peak, computed dB/dt about 5-6e-4 T/s), with a threshold between about 0.2 and 1.2 uT and the same effect at 100 uT. B-component associated by Faraday design; plateau/saturation suggests B or a B-dependent molecular transducer, not dB/dt.",
+   "replication_status": "replicated by 3 independent labs (EPA Blackman 2001, NIES Ishido 2001, Gottingen Girgert) vs a physics objection (Valberg 1997) and a null with a different, therapeutic-type PEMF (Leman 2001)",
+   "confidence": "medium",
+   "caveats": "No therapeutic modality - included as the credibility benchmark for micro-tesla ELF effects. Original 1992 FEBS paper from the Liburdy lab (PMID 1333413) has an erratum (PMID 10930587, FEBS Lett 478:304, 2000; content not seen), so the Liburdy-lab data warrant caution; the 1997 Harland paper is also from that lab."
+  },
+  {
+   "id": "chick_embryo_pulse_shape_ut_fields",
+   "name": "Chick embryo teratogenic effects of microtesla pulsed fields (rise time / pulse shape)",
+   "level": "tissue-neural",
+   "modalities": [],
+   "driver": "waveform_spectral",
+   "driver_explanation": "Ubeda 1983 exposed chick embryos to 100 Hz pulses at 0.4-104 uT: abnormalities appeared only at 1.0 and 13.9 uT with 100 us rise time (window), and shorter rise times (2 and 42 us) at 0.4 and 1.0 uT gave bigger effects, strongest at 1.0 uT/42 us. Computed dB/dt for 1.0 uT is 0.01 T/s (100 us), 0.024 T/s (42 us) and 0.5 T/s (2 us); the non-monotonic result (42 us > 2 us) shows pulse shape/spectral content matters beyond peak dB/dt. A six-laboratory replication (Berman 1990, 1 uT, 2 us edges, 100 pps) found a small pooled excess (about 25% vs 19%) but only 2 of 6 labs were individually significant.",
+   "discriminating_evidence": [
+    {
+     "pmid": "6654743",
+     "refkey": null,
+     "design_feature": "Same repetition rate, intensities 0.4-104 uT and rise times 100, 42, 2 us",
+     "finding": "Window in amplitude at 100 us rise; stronger effects with faster edges, maximal at 42 us."
+    },
+    {
+     "pmid": "2242052",
+     "refkey": null,
+     "design_feature": "Six independent labs, identical equipment, blinded scoring",
+     "finding": "Pooled anomalies about 25% vs 19% (highly significant) but only two labs significant and unexplained inter-lab variation."
+    }
+   ],
+   "thresholds": [
+    {
+     "role": "lowest_effective",
+     "endpoint": "Teratogenic changes (truncal nervous system)",
+     "preparation": "Chick embryo, first 48 h",
+     "evidence_type": "animal",
+     "B_pk_mT": 0.001,
+     "B_note": "Reported 1.0 uT; pulse amplitude basis (peak) assumed.",
+     "freq_Hz": 100,
+     "waveform": "pulsed, rise time 100 us",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "48 h",
+     "schedule": "",
+     "dBdt_T_s": 0.01,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "6654743",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "dB/dt computed as B/t_rise = 1e-6 T / 1e-4 s. At 42 us rise: 0.0238 T/s (strongest effect)."
+    },
+    {
+     "role": "optimal",
+     "endpoint": "Teratogenic changes (strongest)",
+     "preparation": "Chick embryo",
+     "evidence_type": "animal",
+     "B_pk_mT": 0.001,
+     "B_note": "Reported 1.0 uT, rise time 42 us.",
+     "freq_Hz": 100,
+     "waveform": "pulsed, rise time 42 us",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "48 h",
+     "schedule": "",
+     "dBdt_T_s": 0.0238,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "6654743",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": ""
+    },
+    {
+     "role": "optimal",
+     "endpoint": "Circulatory/foregut abnormalities",
+     "preparation": "Chick embryo",
+     "evidence_type": "animal",
+     "B_pk_mT": 0.0139,
+     "B_note": "Reported 13.9 uT, 100 us rise.",
+     "freq_Hz": 100,
+     "waveform": "pulsed, rise time 100 us",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "48 h",
+     "schedule": "",
+     "dBdt_T_s": 0.139,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "6654743",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": ""
+    },
+    {
+     "role": "no_effect_below",
+     "endpoint": "No teratogenic change at 100 us rise time",
+     "preparation": "Chick embryo",
+     "evidence_type": "animal",
+     "B_pk_mT": 0.0004,
+     "B_note": "Lowest tested intensity 0.4 uT (and intensities other than 1.0 and 13.9 uT up to 104 uT were not effective at 100 us).",
+     "freq_Hz": 100,
+     "waveform": "pulsed, rise time 100 us",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0.004,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "6654743",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Intermediate intensities tested are not itemised in the abstract."
+    },
+    {
+     "role": "optimal",
+     "endpoint": "Increased anomalies, multi-lab",
+     "preparation": "Chick embryo, six labs",
+     "evidence_type": "animal",
+     "B_pk_mT": 0.001,
+     "B_note": "Reported 1 uT peak.",
+     "freq_Hz": 100,
+     "waveform": "unipolar pulse, 500 us width, 2 us rise/fall",
+     "pulse_width_ms": 0.5,
+     "burst": "100 pulses/s",
+     "exposure": "48 h",
+     "schedule": "",
+     "dBdt_T_s": 0.5,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "2242052",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "dB/dt computed as B_pk/t_edge = 1e-6/2e-6 = 0.5 T/s. 25% vs 19% pooled."
+    }
+   ],
+   "window_summary": "Teratogenic window around 1-14 uT peak (100 Hz) with computed dB/dt of 0.01-0.5 T/s; effect depends on edge speed in a non-monotonic way (42 us > 2 us > 100 us at 1 uT). Replication across six labs was only partial.",
+   "replication_status": "multi-laboratory replication with marginal/variable outcome",
+   "confidence": "low",
+   "caveats": "Hazard-oriented, not a therapeutic readout; dB/dt values are computed by me from the stated rise times and amplitudes."
+  },
+  {
+   "id": "weak_static_field_redox_regeneration",
+   "name": "Weak/static and hypomagnetic field effects via ROS and redox (planarian regeneration, metabolic mice, flavoenzymes)",
+   "level": "cellular",
+   "modalities": [
+    "wound/inflammation resolution"
+   ],
+   "driver": "B_amplitude",
+   "driver_explanation": "Static fields have dB/dt = 0 by definition, so any effect is B-driven (or driven by a coincident static E). Van Huizen 2019 saw planarian regeneration go up or down with static field strength below 1 mT through ROS and Hsp70; Carter 2020 reported that a combined static magnetic (about 3 mT) plus static electric (about 7 kV/m) exposure improved glucose tolerance in mice, with 3.0 mT effective and 0.5 mT ineffective in hepatoma cells and mitochondrial SOD2 abolishing the effect; Austvold 2024 found ROS partitioning in a flavoenzyme differs between 20 nT and 50 uT. Binhi & Prato 2017 conclude that hypomagnetic effects show no consistent correlation with field magnitude, duration or type, arguing against a single common target.",
+   "discriminating_evidence": [
+    {
+     "pmid": "30729158",
+     "refkey": null,
+     "design_feature": "Static fields below 1 mT, RNAi of Hsp70, ROS measurement (planarian)",
+     "finding": "Regeneration increased or decreased depending on field strength; mediated by ROS and Hsp70."
+    },
+    {
+     "pmid": "33027675",
+     "refkey": null,
+     "design_feature": "Static B plus static E in mice (30 days), cell dose-response 0.5-5 mT, SOD2 rescue",
+     "finding": "3.0 mT lowered superoxide and raised H2O2 in Hepa1-6, 0.5 mT did not; SOD2 abolished the in vivo effect (full text grepped; E was co-applied so B vs E is not separated)."
+    },
+    {
+     "pmid": "38370016",
+     "refkey": null,
+     "design_feature": "Purified ETF flavoenzyme, 20 nT vs 50 uT static",
+     "finding": "13% less H2O2 and 10% more superoxide at 50 uT relative to 20 nT; matches RPM calculation."
+    },
+    {
+     "pmid": "28654641",
+     "refkey": null,
+     "design_feature": "Review of hypomagnetic experiments",
+     "finding": "No statistical correlation of the effect with field magnitude, inhomogeneity, exposure type or duration."
+    }
+   ],
+   "thresholds": [
+    {
+     "role": "lowest_effective",
+     "endpoint": "Lower mitochondrial superoxide, higher H2O2",
+     "preparation": "Hepa1-6 cells, in vitro",
+     "evidence_type": "invitro",
+     "B_pk_mT": 3.0,
+     "B_note": "Reported 3.0 mT static (0.5 mT ineffective); 5-10 kV/m static E co-applied in the full study.",
+     "freq_Hz": 0,
+     "waveform": "static",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "33027675",
+     "refkey": null,
+     "source_depth": "fulltext",
+     "note": "Mouse study used about 3 mT plus about 7 kV/m vertical static E for 30 days."
+    },
+    {
+     "role": "no_effect_below",
+     "endpoint": "No change in superoxide/H2O2",
+     "preparation": "Hepa1-6 cells",
+     "evidence_type": "invitro",
+     "B_pk_mT": 0.5,
+     "B_note": "Reported 0.5 mT.",
+     "freq_Hz": 0,
+     "waveform": "static",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "33027675",
+     "refkey": null,
+     "source_depth": "fulltext",
+     "note": ""
+    },
+    {
+     "role": "optimal",
+     "endpoint": "ROS partitioning shift (H2O2 -13%, O2 +10%)",
+     "preparation": "Recombinant human ETF flavoenzyme",
+     "evidence_type": "invitro",
+     "B_pk_mT": 0.05,
+     "B_note": "Reported 50 uT vs 20 nT; effect is the difference between the two.",
+     "freq_Hz": 0,
+     "waveform": "static",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": 50,
+     "pmid": "38370016",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": ""
+    }
+   ],
+   "window_summary": "Static-field effects reported from 20 nT-50 uT (flavoenzyme) through <1 mT (planarian) to about 3 mT (hepatoma cells, with coincident static E); dB/dt = 0 so the driver is B (or coincident E). Sign and size vary with field strength.",
+   "replication_status": "single groups; independent confirmation lacking",
+   "confidence": "low",
+   "caveats": "Heterogeneous endpoints; Carter combined B and static E; planarian amplitudes not in abstract; reviewers report no consistent hypomagnetic dose-response."
+  },
+  {
+   "id": "biogenic_magnetite_magnetosome_torque",
+   "name": "Biogenic magnetite / magnetosome and ferritin magnetomechanical transduction",
+   "level": "cellular",
+   "modalities": [
+    "neuro-modulation/neuroprotection"
+   ],
+   "driver": "B_amplitude",
+   "driver_explanation": "For magnetite-based transducers the interaction energy is mB (torque on a permanent moment) and scales with B amplitude; it does not depend on dB/dt except through viscous-lag filtering. A single-domain 50 nm magnetite cube (assumed M_s = 4.8e5 A/m, my assumption) has m = 6e-17 A m2, giving mB about 14 kT at 1 mT and 0.7 kT at 50 uT (computed at 310 K), so mT-level pulses could in principle align such particles whereas geomagnetic-strength fields cannot beat thermal noise unless chains or clusters are involved. Meister 2016 shows ferritin/MagR actuation claims are physically impossible (5-10 log units) and that only permanent-moment particles of about 30 nm and larger (magnetosomes) are plausible. Magnetite exists in human brain (kirschvink1992 in library; Gilder 2018 maps it to cerebellum and brain stem), and a strong pulse shifts bird headings via upper-beak magnetite (Wiltschko 2009).",
+   "discriminating_evidence": [
+    {
+     "pmid": "27529126",
+     "refkey": null,
+     "design_feature": "Physical analysis of ferritin/MagR claims (full text read)",
+     "finding": "Reported effects are 5-10 log units too large; ferritin torque 4 log units below kT at about 50 mT; permanent-moment (magnetosome-like) particles could work."
+    },
+    {
+     "pmid": "31373554",
+     "refkey": null,
+     "design_feature": "Alternative mechanisms proposed",
+     "finding": "Magneto-mechanical and magneto-thermal routes suggested for ferritin spin configurations (theory)."
+    },
+    {
+     "pmid": "26569474",
+     "refkey": null,
+     "design_feature": "Protein complex alignment assay",
+     "finding": "Reports spontaneous alignment of a MagR/Cry complex in fields; challenged by Meister."
+    },
+    {
+     "pmid": "19324756",
+     "refkey": null,
+     "design_feature": "Strong magnetic pulse, upper-beak anaesthesia (silvereye)",
+     "finding": "Pulse shifted headings by about 90 degrees; local anaesthesia of upper-beak skin prevented it."
+    },
+    {
+     "pmid": "15863473",
+     "refkey": null,
+     "design_feature": "Physical model of superparamagnetic clusters",
+     "finding": "Chains of SP clusters self-assemble in fields and are disrupted by strong oblique pulses; supports a pulse-effect mechanism."
+    },
+    {
+     "pmid": "30054530",
+     "refkey": null,
+     "design_feature": "Remanence mapping in 7 human brains",
+     "finding": "Magnetite concentrated in cerebellum and brain stem."
+    },
+    {
+     "pmid": "1502184",
+     "refkey": "kirschvink1992",
+     "design_feature": "Existing library ref (Kirschvink 1992, magnetite in human brain)",
+     "finding": "Contents not re-read."
+    },
+    {
+     "pmid": "8601753",
+     "refkey": null,
+     "design_feature": "Radical-pair theory context",
+     "finding": "Distinguishes spin chemistry from magnetite as separate transduction routes."
+    }
+   ],
+   "thresholds": [
+    {
+     "role": "lowest_effective",
+     "endpoint": "Interaction energy mB of a single-domain 50 nm magnetite cube vs kT (310 K)",
+     "preparation": "Theory / my calculation (assumed M_s = 4.8e5 A/m, not verified in the library)",
+     "evidence_type": "theory",
+     "B_pk_mT": 1.0,
+     "B_note": "Computed: m = M_s*V = 6e-17 A m2; mB = 6e-20 J = 14 kT at 1 mT (about 0.7 kT at 50 uT).",
+     "freq_Hz": 0,
+     "waveform": "static or quasi-static",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "",
+     "refkey": null,
+     "source_depth": "fulltext",
+     "note": "Assumptions: 50 nm cube, bulk magnetite M_s, 310 K; permanent-moment single-domain particles only (superparamagnetic particles need larger fields)."
+    },
+    {
+     "role": "no_effect_below",
+     "endpoint": "Ferritin torque / force far below kT",
+     "preparation": "Theory",
+     "evidence_type": "theory",
+     "B_pk_mT": 50,
+     "B_note": "At about 50 mT ferritin anisotropy torque is about 4 log units below kT; a 100-fold larger field could give torque comparable to kT; reported ferritin experiments used 0.05 T and 6.6 T/m.",
+     "freq_Hz": 0,
+     "waveform": "static",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "27529126",
+     "refkey": null,
+     "source_depth": "fulltext",
+     "note": "Even at 5 T the dipole-dipole force is about 4 log units too small."
+    }
+   ],
+   "window_summary": "Magnetite torque is a B-amplitude (not dB/dt) mechanism: mB about 14 kT at 1 mT and 0.7 kT at 50 uT for a 50 nm single-domain particle (computed); ferritin-based mechanisms are ruled out by Meister at mT-T levels.",
+   "replication_status": "single groups; physical plausibility strongly contested (Meister 2016) for ferritin/MagR, open for magnetosomes",
+   "confidence": "medium",
+   "caveats": "No direct PEMF-therapy experiment tests magnetite. M_s and particle size are my assumptions. Bird pulse experiments use much stronger/shorter pulses than therapeutic PEMF."
+  },
+  {
+   "id": "smf_diamagnetic_anisotropy_gradient_pain",
+   "name": "Static magnetic field (SMF): membrane diamagnetic anisotropy, gradient forces, and SMF pain trials",
+   "level": "membrane/ion channel",
+   "modalities": [
+    "pain relief",
+    "bone & cartilage repair"
+   ],
+   "driver": "B_amplitude",
+   "driver_explanation": "SMF effects have dB/dt = 0 except by motion, so they are B (or B x gradient) driven. Rosen 2003 argues moderate SMF (mT to hundreds of mT) reorient diamagnetically anisotropic membrane phospholipids and deform Ca2+ and Na+ channels; Zablotskii 2016 theory suggests about 1 T with gradient up to 1 GT/m could shift membrane potential (far from permanent-magnet therapy). Strong SMF (8 T) aligns osteoblasts and orients new bone (Kotani 2002). Clinical SMF pain trials are mixed: positive 450 G insoles in 375 DPN patients (Weintraub 2003) and 300-500 G in post-polio (Vallbona 1997), a modest bracelet effect of uncertain specificity (Harlow 2004), and a meta-analysis of nine VAS trials showing no effect (Pittler 2007). Colbert 2008/2009 show most trials lack adequate dosimetry (61%).",
+   "discriminating_evidence": [
+    {
+     "pmid": "14515021",
+     "refkey": null,
+     "design_feature": "Mechanistic review with patch clamp and temperature dependence",
+     "finding": "SMF effects on Ca2+/Na+ channels via phospholipid anisotropy with thermotropic phase-transition dependence."
+    },
+    {
+     "pmid": "12736891",
+     "refkey": null,
+     "design_feature": "Double-blind sham, 4 months, 375 DPN patients",
+     "finding": "Burning -12% vs -3%, numbness -10% vs +1% in months 3-4."
+    },
+    {
+     "pmid": "9365349",
+     "refkey": null,
+     "design_feature": "Double-blind, 45 min, n=50",
+     "finding": "Pain score fell 4.4 vs 1.1; 76% vs 19% exceeded placebo effect."
+    },
+    {
+     "pmid": "15604181",
+     "refkey": null,
+     "design_feature": "Three-arm RCT, 12 weeks, n=194",
+     "finding": "WOMAC A mean difference 1.3 (95% CI 0.05 to 2.55) standard vs dummy; uncertain specificity."
+    },
+    {
+     "pmid": "17893349",
+     "refkey": null,
+     "design_feature": "Meta-analysis of nine placebo-controlled VAS trials",
+     "finding": "WMD 2.1 mm (95% CI -1.8 to 5.9) - no significant pain reduction."
+    },
+    {
+     "pmid": "18955243",
+     "refkey": null,
+     "design_feature": "Review of 56 SMF human studies",
+     "finding": "34 (61%) lacked enough SMF dosimetry to replicate."
+    },
+    {
+     "pmid": "18532897",
+     "refkey": null,
+     "design_feature": "Dosimetry argument",
+     "finding": "Negative trials uninterpretable without target-tissue field; defines ten dosing parameters."
+    },
+    {
+     "pmid": "12369785",
+     "refkey": null,
+     "design_feature": "8 T SMF, 60 h, MC3T3-E1 and mouse ectopic bone",
+     "finding": "Cells aligned parallel to field, ALP and matrix up, proliferation unchanged; bone oriented parallel to field."
+    },
+    {
+     "pmid": "27857227",
+     "refkey": null,
+     "design_feature": "Theory",
+     "finding": "About 1 T with gradient up to 1 GT/m could change membrane potential."
+    }
+   ],
+   "thresholds": [
+    {
+     "role": "optimal",
+     "endpoint": "Reduced burning/numbness/foot pain (months 3-4)",
+     "preparation": "375 DPN patients, shoe insoles",
+     "evidence_type": "human_rct",
+     "B_pk_mT": 45,
+     "B_note": "Reported 450 G multipolar insoles; surface field (target-tissue field not stated in abstract).",
+     "freq_Hz": 0,
+     "waveform": "static",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "constant wear",
+     "schedule": "4 months",
+     "dBdt_T_s": 0,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "12736891",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": ""
+    },
+    {
+     "role": "optimal",
+     "endpoint": "Reduced McGill pain score",
+     "preparation": "50 postpolio patients, trigger-point magnets",
+     "evidence_type": "human_rct",
+     "B_pk_mT": 50,
+     "B_note": "Reported 300-500 G (30-50 mT); value is upper end.",
+     "freq_Hz": 0,
+     "waveform": "static",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "45 min",
+     "schedule": "",
+     "dBdt_T_s": 0,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "9365349",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": ""
+    },
+    {
+     "role": "optimal",
+     "endpoint": "Osteoblast alignment, ALP and mineralisation increase",
+     "preparation": "MC3T3-E1 cells and mouse BMP-2 pellets",
+     "evidence_type": "invitro",
+     "B_pk_mT": 8000,
+     "B_note": "Reported 8 T.",
+     "freq_Hz": 0,
+     "waveform": "static",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "60 h",
+     "schedule": "",
+     "dBdt_T_s": 0,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "12369785",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Proliferation unchanged."
+    },
+    {
+     "role": "optimal",
+     "endpoint": "Theoretical membrane-potential change",
+     "preparation": "Theory",
+     "evidence_type": "theory",
+     "B_pk_mT": 1000,
+     "B_note": "About 1 T with gradient up to 1 GT/m.",
+     "freq_Hz": 0,
+     "waveform": "static",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "27857227",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": ""
+    }
+   ],
+   "window_summary": "SMF therapy trials use 30-50 mT surface fields (computed dB/dt = 0) with conflicting outcomes; strong-field cellular effects require roughly 1-8 T and/or very high gradients.",
+   "replication_status": "contested - RCTs mixed; meta-analysis null; cellular effects rely on single groups",
+   "confidence": "low",
+   "caveats": "Surface vs target-tissue field not known; sham designs and blinding vary. Weintraub 2003 (this SMF trial, PMID 12736891) must not be confused with the existing weintraub2009 PEMF ref (PMID 19577022)."
+  },
+  {
+   "id": "lorentz_hall_mhd_negligible_at_pemf",
+   "name": "Lorentz force, Hall and magnetohydrodynamic effects (blood flow, vestibular)",
+   "level": "tissue-neural",
+   "modalities": [
+    "vascular/angiogenesis"
+   ],
+   "driver": "B_amplitude",
+   "driver_explanation": "Lorentz/MHD effects scale with B x velocity (induced field v x B) or J x B body force, not with dB/dt, and become significant only at tesla levels: Roberts 2011 found nystagmus proportional to static field in 3 T and 7 T scanners (little or none near 0.7 T) explained by Lorentz force on endolymph; Tenforde 2005 reports no hemodynamic effects at 1.5 T and SA-node current density above 100 mA/m2 only above 5 T; aortic flow reduction 1.3% (5 T), 4.9% (10 T), 10.4% (15 T); Kinouchi 1996 finds MHD flow reduction only above about 10 T. ICNIRP 2009 sets 2 T (head/trunk occupational), 8 T (limbs) and 400 mT (public). At PEMF mT levels my computed values are tiny: v x B with v = 0.5 m/s and B = 2 mT gives 1 mV/m, and a J x B body force with J = 0.5 A/m2 (E = 1 V/m, sigma = 0.5 S/m) at 2 mT is about 1e-3 N/m3, i.e. 1e-7 of gravity body force (rho*g = 1e4 N/m3).",
+   "discriminating_evidence": [
+    {
+     "pmid": "21945276",
+     "refkey": null,
+     "design_feature": "Static field 3 T vs 7 T, speed of table varied, polarity reversed, search coil EMI recording, labyrinthine-deficient controls (full text read)",
+     "finding": "Nystagmus scaled with static B, not with motion-induced voltage, reversed with polarity, absent without labyrinth; calculated Lorentz pressure 0.002-0.02 Pa at 7 T vs threshold 0.0001 Pa."
+    },
+    {
+     "pmid": "15556666",
+     "refkey": null,
+     "design_feature": "Review of animal and modelling data to 15 T",
+     "finding": "No hemodynamic changes at <=1.5 T; SA-node current density >100 mA/m2 above 5 T; flow reduction 1.3/4.9/10.4% at 5/10/15 T."
+    },
+    {
+     "pmid": "8742752",
+     "refkey": null,
+     "design_feature": "Finite-element Navier-Stokes of aortic flow",
+     "finding": "MHD flow reduction only above about 10 T."
+    },
+    {
+     "pmid": "19276710",
+     "refkey": null,
+     "design_feature": "ICNIRP static-field guidelines (document text fetched from icnirp.org)",
+     "finding": "2 T head/trunk occupational, 8 T limbs, 400 mT general public; vertigo ~1 T/s motion-induced; flow potentials >~0.1 T near heart; estimated induced E about 2 V/m for 0.5 m/s into 4 T."
+    },
+    {
+     "pmid": "8938025",
+     "refkey": "gabriel1996",
+     "design_feature": "Existing library ref (Gabriel 1996 tissue conductivity)",
+     "finding": "Tissue conductivity of order 0.1-1 S/m used as an order-of-magnitude assumption."
+    }
+   ],
+   "thresholds": [
+    {
+     "role": "no_effect_below",
+     "endpoint": "No hemodynamic changes",
+     "preparation": "Monkeys and dogs",
+     "evidence_type": "animal",
+     "B_pk_mT": 1500,
+     "B_note": "Reported static fields up to 1.5 T.",
+     "freq_Hz": 0,
+     "waveform": "static",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "15556666",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": ""
+    },
+    {
+     "role": "adverse",
+     "endpoint": "SA-node induced current density >100 mA/m2 predicted",
+     "preparation": "Human model",
+     "evidence_type": "theory",
+     "B_pk_mT": 5000,
+     "B_note": "Above 5 T.",
+     "freq_Hz": 0,
+     "waveform": "static",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "15556666",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Aortic flow reduction 1.3% (5 T), 4.9% (10 T), 10.4% (15 T)."
+    },
+    {
+     "role": "lowest_effective",
+     "endpoint": "Horizontal nystagmus (magnetic vestibular stimulation)",
+     "preparation": "Healthy humans in 3 T and 7 T MRI",
+     "evidence_type": "human_other",
+     "B_pk_mT": 3000,
+     "B_note": "Reported 3 T and 7 T; proportional to B; outside bore (~0.7 T) little or no nystagmus.",
+     "freq_Hz": 0,
+     "waveform": "static",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "21945276",
+     "refkey": null,
+     "source_depth": "fulltext",
+     "note": "Linear-scaling inference (my computation, not in paper): 0.0001 Pa threshold vs 0.002-0.02 Pa at 7 T would imply a threshold of order 0.035-0.35 T; treat as an extrapolation only."
+    },
+    {
+     "role": "safety_limit",
+     "endpoint": "Occupational head/trunk",
+     "preparation": "Standard",
+     "evidence_type": "standard",
+     "B_pk_mT": 2000,
+     "B_note": "2 T (spatial peak); up to 8 T for controlled work.",
+     "freq_Hz": 0,
+     "waveform": "static",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "19276710",
+     "refkey": null,
+     "source_depth": "fulltext",
+     "note": "Source: ICNIRP document text via icnirp.org (PubMed record has no abstract)."
+    },
+    {
+     "role": "safety_limit",
+     "endpoint": "Occupational limbs",
+     "preparation": "Standard",
+     "evidence_type": "standard",
+     "B_pk_mT": 8000,
+     "B_note": "Up to 8 T for limbs.",
+     "freq_Hz": 0,
+     "waveform": "static",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "19276710",
+     "refkey": null,
+     "source_depth": "fulltext",
+     "note": ""
+    },
+    {
+     "role": "safety_limit",
+     "endpoint": "General public, any part of the body",
+     "preparation": "Standard",
+     "evidence_type": "standard",
+     "B_pk_mT": 400,
+     "B_note": "400 mT (factor of 5 below 2 T).",
+     "freq_Hz": 0,
+     "waveform": "static",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "19276710",
+     "refkey": null,
+     "source_depth": "fulltext",
+     "note": ""
+    },
+    {
+     "role": "adverse",
+     "endpoint": "Induced field from Lorentz motion, computed",
+     "preparation": "Theory / my calculation",
+     "evidence_type": "theory",
+     "B_pk_mT": 2.0,
+     "B_note": "B = 2 mT, v = 0.5 m/s (blood or body motion, assumption).",
+     "freq_Hz": 0,
+     "waveform": "static or slow",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0,
+     "dBdt_basis": "computed",
+     "E_V_m": 0.001,
+     "E_basis": "computed",
+     "E_geometry": "E = v x B = 0.5 m/s x 2e-3 T = 1e-3 V/m; for 5 mT 2.5 mV/m; at 1 T 0.5 V/m",
+     "static_B0_uT": null,
+     "pmid": "",
+     "refkey": null,
+     "source_depth": "fulltext",
+     "note": "Compare ICNIRP's quoted ~2 V/m for walking into a 4 T magnet. Body force: J x B = 0.5 A/m2 x 2e-3 T = 1e-3 N/m3 vs rho*g = 1e4 N/m3 (ratio 1e-7); sigma = 0.5 S/m assumed."
+    }
+   ],
+   "window_summary": "Lorentz/Hall/MHD effects are negligible at PEMF peak fields of 1-50 mT (computed v x B about 1-25 mV/m, force ~1e-7 of gravity) and become measurable only at about 1-7 T (vestibular, proportional to B) and relevant to cardiovascular function above about 5 T.",
+   "replication_status": "multiple independent sources (clinical, animal, modelling, standards)",
+   "confidence": "high",
+   "caveats": "Computed estimates rely on assumed v = 0.5 m/s, sigma = 0.5 S/m and a J = 0.5 A/m2 at E = 1 V/m; Roberts 2011 threshold extrapolation is a linear guess. ICNIRP numbers come from a fetched summary of the guideline text and should be checked against the PDF if used in a calculator."
+  },
+  {
+   "id": "decision_tests_B_vs_dBdt_E",
+   "name": "Decision-test record: experiments that discriminate B-driven from dB/dt/E-driven effects",
+   "level": "cellular",
+   "modalities": [],
+   "driver": "unresolved",
+   "driver_explanation": "Discriminating designs in the library: (1) constant B with variable induced E using multi-ring Faraday geometry (Liburdy 1992: E at constant B governed Ca2+ influx; a pure E field gave the same effect), versus the same trick applied to MCF-7 growth (Harland & Liburdy 1997: B, not E, associated). (2) Static vs ELF equivalence (Fedele 2014: 0, 3, 50 Hz same effect, so B). (3) Constant B x f at different B and f (Prato 2011: constant effect, so dB/dt-like). (4) Selective removal of components (Choleris 2002: static nulling did not reproduce shielding; E screening did not either). (5) Orientation/angle tests at fixed amplitude (Prato 1996; Blackman 1990; Ritz 2004). (6) Dose-response saturation (Ishido 2001: 1.2 vs 100 uT same). Different endpoints therefore give different answers: the same lab line produced an E metric in one system and a B metric in another, so no single driver applies across targets.",
+   "discriminating_evidence": [
+    {
+     "pmid": "1333413",
+     "refkey": null,
+     "design_feature": "Multi-ring annular plate: induced E varied at constant 22 mT, 60 Hz, vs pure E exposure",
+     "finding": "Ca2+ influx tracked induced E (1.7 mV/cm = 0.17 V/m reported) and a pure E field of equal strength matched it (erratum exists)."
+    },
+    {
+     "pmid": "9383244",
+     "refkey": null,
+     "design_feature": "Faraday-law design for B vs induced E",
+     "finding": "Melatonin/tamoxifen block tracked B, not induced E."
+    },
+    {
+     "pmid": "25473952",
+     "refkey": null,
+     "design_feature": "Static vs 3 Hz vs 50 Hz at 300 uT",
+     "finding": "Same effect: B-driven (dB/dt from 0 to 0.094 T/s computed)."
+    },
+    {
+     "pmid": "21381048",
+     "refkey": null,
+     "design_feature": "Constant B x f at 4 frequencies",
+     "finding": "Constant attenuation: dB/dt-like."
+    },
+    {
+     "pmid": "11798436",
+     "refkey": null,
+     "design_feature": "Static nulling vs mu-metal vs E screening",
+     "finding": "Only shielding worked: time-varying B component."
+    },
+    {
+     "pmid": "8860729",
+     "refkey": null,
+     "design_feature": "Angle between AC and DC at fixed AC",
+     "finding": "Effect varies with angle, not with constant induced current."
+    },
+    {
+     "pmid": "11408347",
+     "refkey": null,
+     "design_feature": "1.2 vs 100 uT",
+     "finding": "Same effect at 83-fold different B and dB/dt: saturation."
+    }
+   ],
+   "thresholds": [
+    {
+     "role": "lowest_effective",
+     "endpoint": "Increase in Ca2+ influx in mitogen-activated thymocytes (induced E metric)",
+     "preparation": "Rat thymic lymphocytes, 37 C, 60 min",
+     "evidence_type": "invitro",
+     "B_pk_mT": 22.0,
+     "B_note": "Reported 22 mT, 60 Hz; rms/peak not stated; treated as nominal peak.",
+     "freq_Hz": 60,
+     "waveform": "sine",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "60 min",
+     "schedule": "",
+     "dBdt_T_s": 8.29,
+     "dBdt_basis": "computed",
+     "E_V_m": 0.17,
+     "E_basis": "reported",
+     "E_geometry": "Reported induced E 1.7 mV/cm (= 0.17 V/m) in the annular culture plate (dish scale)",
+     "static_B0_uT": null,
+     "pmid": "1333413",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Erratum exists (PMID 10930587). Computed back-radius r = 2E/(dB/dt) = 0.041 m (plate-scale consistency check, my computation)."
+    }
+   ],
+   "window_summary": "No universal driver: Ca2+ influx in lymphocytes followed induced E (0.17 V/m at 22 mT, 60 Hz; computed dB/dt 8.3 T/s), fly circadian and MCF-7 data follow B, mouse shielding analgesia follows B x f (dB/dt-like).",
+   "replication_status": "mixed - several individual decision tests, mostly single-lab",
+   "confidence": "medium",
+   "caveats": "Liburdy-lab studies (1992, 1993, 1997) share an author with a published erratum on the 1992 paper. Not every claimed mechanism has had a B-vs-E test."
+  },
+  {
+   "id": "plausibility_kT_and_standards_context",
+   "name": "Physical plausibility (kT, ELF theory) and exposure-standard context for B-driven mechanisms",
+   "level": "biochemical",
+   "modalities": [],
+   "driver": "unresolved",
+   "driver_explanation": "Valberg 1997 concludes residential-level ELF effects (<=2 uT) are implausible and that effects above 10 uT would be plausible only through temporal averaging plus a magnetic-moment transducer; resonance mechanisms conflict with accepted physics. Binhi & Rubin 2007 counter that the 'kT paradox' rests on assumptions that may not hold for magnetic nanoparticles, long-lived rotational states or radical-pair spins. Brocklehurst & McLauchlan 1996 and Kattnig 2016 bound radical-pair mechanisms by lifetimes and relaxation. The ICNIRP 2010 guideline (existing ref icnirp2010) treats induced E as the basic restriction (CNS 10-25 Hz: 0.05 V/m occupational, 0.01 V/m public rms) with reference B of 1 mT occupational and 0.2 mT general public (50/60 Hz, rms), i.e. standards operate on E, not on B. WHO EHC 238 (2007) and the SCENIHR 2015 opinion (not in PubMed; read via fetched summaries) state that no accepted biophysical mechanism explains low-level ELF health effects; WHO states established acute effects occur at well above 100 uT through induced E and currents.",
+   "discriminating_evidence": [
+    {
+     "pmid": "9216613",
+     "refkey": null,
+     "design_feature": "Physics review of mechanisms",
+     "finding": "<=2 uT implausible; >10 uT only with averaging plus magnetic-moment transducer (abstract only)."
+    },
+    {
+     "pmid": "17454082",
+     "refkey": null,
+     "design_feature": "Critique of the kT argument",
+     "finding": "Specific loopholes (nanoparticles, rotational states, radical pairs, proton moments) can in principle evade kT."
+    },
+    {
+     "pmid": "21068601",
+     "refkey": "icnirp2010",
+     "design_feature": "Existing library ref ICNIRP 2010 (guideline numbers from fetched icnirp.org text)",
+     "finding": "Basic restrictions on internal E (CNS 0.01 V/m public at 10-25 Hz) and reference B 0.2 mT public, 1 mT occupational at 50/60 Hz."
+    },
+    {
+     "pmid": "9905119",
+     "refkey": "adair1991",
+     "design_feature": "Existing library ref (Adair 1991)",
+     "finding": "Contents not re-read in this pass."
+    },
+    {
+     "pmid": "8601753",
+     "refkey": null,
+     "design_feature": "Radical-pair theory",
+     "finding": "Lifetime and chemistry limit freely diffusing pairs."
+    },
+    {
+     "pmid": "27020113",
+     "refkey": null,
+     "design_feature": "Relaxation simulations",
+     "finding": "Microsecond lifetimes optimal; long coherence unlikely."
+    }
+   ],
+   "thresholds": [
+    {
+     "role": "safety_limit",
+     "endpoint": "ICNIRP reference level, general public (rms)",
+     "preparation": "Standard",
+     "evidence_type": "standard",
+     "B_pk_mT": 0.283,
+     "B_note": "Reference level 0.2 mT rms at 50/60 Hz; peak = rms x sqrt(2), computed.",
+     "freq_Hz": 50,
+     "waveform": "sine",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0.0889,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "21068601",
+     "refkey": "icnirp2010",
+     "source_depth": "fulltext",
+     "note": "Fetched from icnirp.org guideline text. At 60 Hz the same 0.2 mT rms."
+    },
+    {
+     "role": "safety_limit",
+     "endpoint": "ICNIRP reference level, occupational (rms)",
+     "preparation": "Standard",
+     "evidence_type": "standard",
+     "B_pk_mT": 1.414,
+     "B_note": "Reference level 1 mT rms at 50/60 Hz; peak computed.",
+     "freq_Hz": 50,
+     "waveform": "sine",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0.444,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "21068601",
+     "refkey": "icnirp2010",
+     "source_depth": "fulltext",
+     "note": ""
+    },
+    {
+     "role": "safety_limit",
+     "endpoint": "ICNIRP basic restriction, CNS tissue of the head, 10-25 Hz, general public",
+     "preparation": "Standard",
+     "evidence_type": "standard",
+     "B_pk_mT": null,
+     "B_note": "",
+     "freq_Hz": null,
+     "waveform": "sine",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": 0.01,
+     "E_basis": "reported",
+     "E_geometry": "Internal E, rms, CNS tissue (10-25 Hz); occupational 0.05 V/m",
+     "static_B0_uT": null,
+     "pmid": "21068601",
+     "refkey": "icnirp2010",
+     "source_depth": "fulltext",
+     "note": "All tissues 1 Hz-3 kHz: 0.4 V/m public, 0.8 V/m occupational; magnetophosphene threshold ~5 mT at 20 Hz (retinal E ~50-100 mV/m); PNS ~4-6 V/m."
+    },
+    {
+     "role": "lowest_effective",
+     "endpoint": "Plausibility floor for ELF magnetic effects (physics review)",
+     "preparation": "Theory",
+     "evidence_type": "theory",
+     "B_pk_mT": 0.0,
+     "B_note": "Effects at <=2 uT judged implausible; >10 uT (0.01 mT) possibly plausible via averaging + moment transducer (not a measured threshold).",
+     "freq_Hz": null,
+     "waveform": "ELF",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "9216613",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Used only as a benchmark for credibility, not a dose-response."
+    }
+   ],
+   "window_summary": "Credibility benchmark: physics reviews put the plausibility boundary between about 2 and 10 uT; ICNIRP 2010 reference B is 0.2 mT (public) / 1 mT (occupational) rms at 50/60 Hz, derived from induced-E basic restrictions (0.01-0.05 V/m CNS at 10-25 Hz).",
+   "replication_status": "consensus bodies (WHO, SCENIHR) vs individual positive studies",
+   "confidence": "medium",
+   "caveats": "WHO EHC 238 and SCENIHR 2015 are not PubMed-indexed and were read through fetched summaries only; not added as refs. ICNIRP numbers came from a fetched summary of the PDF."
+  }
+ ],
+ "new_refs": [
+  {
+   "pmid": "24681944",
+   "first_author": "Usselman",
+   "authors_short": "Usselman RJ, Hill I, Singel DJ, Martino CF",
+   "year": 2014,
+   "title": "Spin biochemistry modulates reactive oxygen species (ROS) production by radio frequency magnetic fields",
+   "journal": "PLoS One",
+   "citation": "9(3):e93065",
+   "doi": "10.1371/journal.pone.0093065",
+   "pmcid": "PMC3969378",
+   "type": "invitro",
+   "systems": [
+    "vascular"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "+",
+   "summary": "Rat pulmonary artery smooth muscle cells in a 45 uT static field plus 7 MHz RF at 10 uT rms showed lower superoxide and higher H2O2; authors attribute this to flavin-semiquinone / superoxide radical-pair singlet-triplet modulation."
+  },
+  {
+   "pmid": "25251337",
+   "first_author": "Castello",
+   "authors_short": "Castello PR, Hill I, Sivo F, et al.",
+   "year": 2014,
+   "title": "Inhibition of cellular proliferation and enhancement of hydrogen peroxide production in fibrosarcoma cell line by weak radio frequency magnetic fields",
+   "journal": "Bioelectromagnetics",
+   "citation": "35(8):598-602",
+   "doi": "10.1002/bem.21858",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "+",
+   "summary": "HT1080 cells in a 45 uT vertical static field plus a perpendicular 5 or 10 MHz RF field of 10 uT rms: cell number fell by up to 30% (10 MHz, day 2) and H2O2 rose 55% after 8 h of 10 MHz exposure."
+  },
+  {
+   "pmid": "27995996",
+   "first_author": "Usselman",
+   "authors_short": "Usselman RJ, Chavarriaga C, Castello PR, et al.",
+   "year": 2016,
+   "title": "The Quantum Biology of Reactive Oxygen Species Partitioning Impacts Cellular Bioenergetics",
+   "journal": "Sci Rep",
+   "citation": "6:38543",
+   "doi": "10.1038/srep38543",
+   "pmcid": "PMC5172244",
+   "type": "invitro",
+   "systems": [
+    "vascular"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "+",
+   "summary": "In HUVEC, oscillating fields at the Zeeman-resonance condition shifted the superoxide/H2O2 product ratio, and the response depended on field orientation and altered respiration and glycolysis rates."
+  },
+  {
+   "pmid": "38370016",
+   "first_author": "Austvold",
+   "authors_short": "Austvold CK, Keable SM, Procopio M, Usselman RJ",
+   "year": 2024,
+   "title": "Quantitative measurements of reactive oxygen species partitioning in electron transfer flavoenzyme magnetic field sensing",
+   "journal": "Front Physiol",
+   "citation": "15:1348395",
+   "doi": "10.3389/fphys.2024.1348395",
+   "pmcid": "PMC10869518",
+   "type": "invitro",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "+",
+   "summary": "Recombinant human electron-transfer flavoprotein reoxidation, compared between 20 nT and 50 uT static fields, gave about 13% less H2O2 (singlet product) and 10% more superoxide (triplet product) relative to 50 uT, matching radical-pair yield calculations."
+  },
+  {
+   "pmid": "30278045",
+   "first_author": "Sherrard",
+   "authors_short": "Sherrard RM, Morellini N, Jourdan N, et al.",
+   "year": 2018,
+   "title": "Low-intensity electromagnetic fields induce human cryptochrome to modulate intracellular reactive oxygen species",
+   "journal": "PLoS Biol",
+   "citation": "16(10):e2006229",
+   "doi": "10.1371/journal.pbio.2006229",
+   "pmcid": "PMC6168118",
+   "type": "invitro",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "+",
+   "summary": "A 10 Hz pulsed field with about 2 mT peak (non-therapeutic device) raised ROS within 15 min in cryptochrome-expressing cells, slowed growth and altered gene expression; Drosophila larvae avoided the field only under blue light, and cryptochrome knock-out or mu-metal shielding abolished the effects."
+  },
+  {
+   "pmid": "30278038",
+   "first_author": "Landler",
+   "authors_short": "Landler L, Keays DA",
+   "year": 2018,
+   "title": "Cryptochrome: The magnetosensor with a sinister side?",
+   "journal": "PLoS Biol",
+   "citation": "16(10):e3000018",
+   "doi": "10.1371/journal.pbio.3000018",
+   "pmcid": "PMC6168117",
+   "type": "review",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "th",
+   "summary": "Commentary accompanying Sherrard et al. that frames the cryptochrome-ROS result as potentially linking animal magnetoreception, PEMF therapy and power-line epidemiology, while stressing the field's history of skepticism."
+  },
+  {
+   "pmid": "35023064",
+   "first_author": "Lohof",
+   "authors_short": "Lohof AM, Dufor T, Sherrard RM",
+   "year": 2022,
+   "title": "Neural Circuit Repair by Low-Intensity rTMS",
+   "journal": "Cerebellum",
+   "citation": "21(5):750-754",
+   "doi": "10.1007/s12311-021-01354-4",
+   "pmcid": null,
+   "type": "review",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "+",
+   "summary": "Review stating that low-intensity rTMS-driven cerebellar climbing-fibre repair depends on the stimulation pattern and on cryptochrome, and proposing action through cryptochrome signalling rather than induced currents (abstract only seen)."
+  },
+  {
+   "pmid": "33397812",
+   "first_author": "Ikeya",
+   "authors_short": "Ikeya N, Woodward JR",
+   "year": 2021,
+   "title": "Cellular autofluorescence is magnetic field sensitive",
+   "journal": "Proc Natl Acad Sci U S A",
+   "citation": "118(3)",
+   "doi": "10.1073/pnas.2018043118",
+   "pmcid": "PMC7826401",
+   "type": "invitro",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "+",
+   "summary": "Single-cell imaging of HeLa autofluorescence shows a magnetic-field effect up to 25 mT with half-saturation near 18.0 mT and a saturating amplitude of 3.7%, consistent with a triplet-born flavin radical pair."
+  },
+  {
+   "pmid": "29724094",
+   "first_author": "Antill",
+   "authors_short": "Antill LM, Woodward JR",
+   "year": 2018,
+   "title": "Flavin Adenine Dinucleotide Photochemistry Is Magnetic Field Sensitive at Physiological pH",
+   "journal": "J Phys Chem Lett",
+   "citation": "9(10):2691-2696",
+   "doi": "10.1021/acs.jpclett.8b01088",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "+",
+   "summary": "Time-resolved FAD photochemistry in water shows a magnetic field effect even at pH 8, where it is about 75% smaller than at pH 2.3."
+  },
+  {
+   "pmid": "25473952",
+   "first_author": "Fedele",
+   "authors_short": "Fedele G, Edwards MD, Bhutani S, et al.",
+   "year": 2014,
+   "title": "Genetic analysis of circadian responses to low frequency electromagnetic fields in Drosophila melanogaster",
+   "journal": "PLoS Genet",
+   "citation": "10(12):e1004804",
+   "doi": "10.1371/journal.pgen.1004804",
+   "pmcid": "PMC4256086",
+   "type": "animal",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "+",
+   "summary": "In a shielded apparatus, Drosophila circadian period and activity responded to 3-50 Hz fields in a cryptochrome- and blue-light-dependent way; a 300 uT static field, 3 Hz and 50 Hz fields produced the same period effect, but mouse SCN slices showed no effect."
+  },
+  {
+   "pmid": "27798129",
+   "first_author": "Giachello",
+   "authors_short": "Giachello CNG, Scrutton NS, Jones AR, Baines RA",
+   "year": 2016,
+   "title": "Magnetic Fields Modulate Blue-Light-Dependent Regulation of Neuronal Firing by Cryptochrome",
+   "journal": "J Neurosci",
+   "citation": "36(42):10742-10749",
+   "doi": "10.1523/JNEUROSCI.2140-16.2016",
+   "pmcid": "PMC5083005",
+   "type": "animal",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "+",
+   "summary": "A 100 mT field potentiated blue-light-driven depolarisation, input resistance rise and firing in Drosophila larval motoneurons ectopically expressing cryptochrome."
+  },
+  {
+   "pmid": "16955271",
+   "first_author": "Ahmad",
+   "authors_short": "Ahmad M, Galland P, Ritz T, Wiltschko R, Wiltschko W",
+   "year": 2007,
+   "title": "Magnetic intensity affects cryptochrome-dependent responses in Arabidopsis thaliana",
+   "journal": "Planta",
+   "citation": "225(3):615-624",
+   "doi": "10.1007/s00425-006-0383-0",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "plant"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "+",
+   "summary": "Raising the static field from 33-44 uT to 500 uT enhanced blue-light hypocotyl inhibition, anthocyanin accumulation and CRY2 degradation in Arabidopsis, not under red light or in cryptochrome mutants."
+  },
+  {
+   "pmid": "30194534",
+   "first_author": "Pooam",
+   "authors_short": "Pooam M, Arthaut LD, Burdick D, et al.",
+   "year": 2019,
+   "title": "Magnetic sensitivity mediated by the Arabidopsis blue-light receptor cryptochrome occurs during flavin reoxidation in the dark",
+   "journal": "Planta",
+   "citation": "249(2):319-332",
+   "doi": "10.1007/s00425-018-3002-y",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "plant"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "+",
+   "summary": "A 500 uT static field enhanced cryptochrome-1 responses even when applied only during the dark intervals between light pulses, placing the magnetically sensitive step in flavin reoxidation."
+  },
+  {
+   "pmid": "32065192",
+   "first_author": "Hammad",
+   "authors_short": "Hammad M, Albaqami M, Pooam M, et al.",
+   "year": 2020,
+   "title": "Cryptochrome mediated magnetic sensitivity in Arabidopsis occurs independently of light-induced electron transfer to the flavin",
+   "journal": "Photochem Photobiol Sci",
+   "citation": "19(3):341-352",
+   "doi": "10.1039/c9pp00469f",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "plant"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "+",
+   "summary": "With 5 min light / 10 min dark cycles, a 500 uT field worked when given only in the dark intervals but not when given only during the light, ruling out forward electron transfer as the magnetosensitive step."
+  },
+  {
+   "pmid": "15141211",
+   "first_author": "Ritz",
+   "authors_short": "Ritz T, Thalau P, Phillips JB, Wiltschko R, Wiltschko W",
+   "year": 2004,
+   "title": "Resonance effects indicate a radical-pair mechanism for avian magnetic compass",
+   "journal": "Nature",
+   "citation": "429(6988):177-180",
+   "doi": "10.1038/nature02534",
+   "pmcid": null,
+   "type": "animal",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "+",
+   "summary": "Migratory robins were disoriented by 0.1-10 MHz broadband or 7 MHz fields, and the 7 MHz effect depended on the angle to the geomagnetic field (normal orientation when parallel, disorientation at 24 and 48 degrees)."
+  },
+  {
+   "pmid": "19129499",
+   "first_author": "Rodgers",
+   "authors_short": "Rodgers CT, Hore PJ",
+   "year": 2009,
+   "title": "Chemical magnetoreception in birds: the radical pair mechanism",
+   "journal": "Proc Natl Acad Sci U S A",
+   "citation": "106(2):353-360",
+   "doi": "10.1073/pnas.0711968106",
+   "pmcid": "PMC2626707",
+   "type": "review",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "th",
+   "summary": "Physical-chemistry review of the chemical requirements for a radical-pair compass sensitive to an Earth-strength (about 50 uT) field and of cryptochrome as a candidate."
+  },
+  {
+   "pmid": "18449197",
+   "first_author": "Maeda",
+   "authors_short": "Maeda K, Henbest KB, Cintolesi F, et al.",
+   "year": 2008,
+   "title": "Chemical compass model of avian magnetoreception",
+   "journal": "Nature",
+   "citation": "453(7193):387-390",
+   "doi": "10.1038/nature06834",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "+",
+   "summary": "A carotenoid-porphyrin-fullerene model system showed radical-pair lifetime changes at 50 uT or less and an anisotropic response, demonstrating that chemistry can in principle sense geomagnetic-strength fields."
+  },
+  {
+   "pmid": "8601753",
+   "first_author": "Brocklehurst",
+   "authors_short": "Brocklehurst B, McLauchlan KA",
+   "year": 1996,
+   "title": "Free radical mechanism for the effects of environmental electromagnetic fields on biological systems",
+   "journal": "Int J Radiat Biol",
+   "citation": "69(1):3-24",
+   "doi": "10.1080/095530096146147",
+   "pmcid": null,
+   "type": "theory",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "th",
+   "summary": "Theory paper stressing that low-field radical-pair effects depend on radical lifetime and chemistry, and arguing that freely diffusing radical pairs are unlikely to give significant biological effects."
+  },
+  {
+   "pmid": "27020113",
+   "first_author": "Kattnig",
+   "authors_short": "Kattnig DR, Solov'yov IA, Hore PJ",
+   "year": 2016,
+   "title": "Electron spin relaxation in cryptochrome-based magnetoreception",
+   "journal": "Phys Chem Chem Phys",
+   "citation": "18(18):12443-12456",
+   "doi": "10.1039/c5cp06731f",
+   "pmcid": null,
+   "type": "theory",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "th",
+   "summary": "Simulations for Arabidopsis cryptochrome-1 imply optimal radical-pair lifetimes of microseconds and spin relaxation too fast to explain the long coherence invoked for RF disruption of the avian compass."
+  },
+  {
+   "pmid": "35919980",
+   "first_author": "Zadeh-Haghighi",
+   "authors_short": "Zadeh-Haghighi H, Simon C",
+   "year": 2022,
+   "title": "Magnetic field effects in biology from the perspective of the radical pair mechanism",
+   "journal": "J R Soc Interface",
+   "citation": "19(193):20220325",
+   "doi": "10.1098/rsif.2022.0325",
+   "pmcid": "PMC9346374",
+   "type": "review",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "th",
+   "summary": "Review of weak static, hypomagnetic and oscillating field effects in biology and of how far a radical-pair mechanism can explain them."
+  },
+  {
+   "pmid": "30729158",
+   "first_author": "Van Huizen",
+   "authors_short": "Van Huizen AV, Morton JM, Kinsey LJ, et al.",
+   "year": 2019,
+   "title": "Weak magnetic fields alter stem cell-mediated growth",
+   "journal": "Sci Adv",
+   "citation": "5(1):eaau7201",
+   "doi": "10.1126/sciadv.aau7201",
+   "pmcid": "PMC6353618",
+   "type": "animal",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "+",
+   "summary": "Static weak fields below 1 mT raised or lowered planarian regeneration depending on field strength, via ROS accumulation and Hsp70 expression."
+  },
+  {
+   "pmid": "28654641",
+   "first_author": "Binhi",
+   "authors_short": "Binhi VN, Prato FS",
+   "year": 2017,
+   "title": "Biological effects of the hypomagnetic field: An analytical review of experiments and theories",
+   "journal": "PLoS One",
+   "citation": "12(6):e0179340",
+   "doi": "10.1371/journal.pone.0179340",
+   "pmcid": "PMC5487043",
+   "type": "review",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "th",
+   "summary": "Extensive review concluding that hypomagnetic-field effects show no statistical correlation with field magnitude, inhomogeneity, exposure type or duration, arguing against a single common target."
+  },
+  {
+   "pmid": "33027675",
+   "first_author": "Carter",
+   "authors_short": "Carter CS, Huang SC, Searby CC, et al.",
+   "year": 2020,
+   "title": "Exposure to Static Magnetic and Electric Fields Treats Type 2 Diabetes",
+   "journal": "Cell Metab",
+   "citation": "32(4):561-574.e7",
+   "doi": "10.1016/j.cmet.2020.09.012",
+   "pmcid": "PMC7819711",
+   "type": "animal",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "+",
+   "summary": "Combined static magnetic (about 3 mT) and static electric (about 7 kV/m) fields lowered mitochondrial superoxide, shifted systemic redox and improved glucose tolerance in diabetic mice; in hepatoma cells 3.0 mT was effective and 0.5 mT was not; SOD2 abolished the effect."
+  },
+  {
+   "pmid": "17454082",
+   "first_author": "Binhi",
+   "authors_short": "Binhi VN, Rubin AB",
+   "year": 2007,
+   "title": "Magnetobiology: the kT paradox and possible solutions",
+   "journal": "Electromagn Biol Med",
+   "citation": "26(1):45-62",
+   "doi": "10.1080/15368370701205677",
+   "pmcid": null,
+   "type": "theory",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "magnetite",
+    "radical"
+   ],
+   "direction": "th",
+   "summary": "Argues the kT objection rests on assumptions that may not hold for magnetic nanoparticles, long-lived rotational states, radical-pair spins or proton moments in water."
+  },
+  {
+   "pmid": "9216613",
+   "first_author": "Valberg",
+   "authors_short": "Valberg PA, Kavet R, Rafferty CN",
+   "year": 1997,
+   "title": "Can low-level 50/60 Hz electric and magnetic fields cause biological effects?",
+   "journal": "Radiat Res",
+   "citation": "148(1):2-21",
+   "doi": null,
+   "pmcid": null,
+   "type": "review",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "induction",
+    "radical",
+    "magnetite"
+   ],
+   "direction": "th",
+   "summary": "Physics review concluding that effects of residential ELF fields at or below 2 uT are implausible and that effects above 10 uT would at most be plausible via temporal averaging plus a magnetic-moment transducer; resonance mechanisms conflict with accepted physics (abstract only)."
+  },
+  {
+   "pmid": "2039557",
+   "first_author": "Lednev",
+   "authors_short": "Lednev VV",
+   "year": 1991,
+   "title": "Possible mechanism for the influence of weak magnetic fields on biological systems",
+   "journal": "Bioelectromagnetics",
+   "citation": "12(2):71-75",
+   "doi": "10.1002/bem.2250120202",
+   "pmcid": null,
+   "type": "theory",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "icr"
+   ],
+   "direction": "th",
+   "summary": "Proposes that a Ca2+ ion bound in a protein acts as a charged oscillator whose transition probability changes under combined static and alternating fields, peaking when the AC frequency equals the ion cyclotron frequency or a harmonic."
+  },
+  {
+   "pmid": "8074738",
+   "first_author": "Blanchard",
+   "authors_short": "Blanchard JP, Blackman CF",
+   "year": 1994,
+   "title": "Clarification and application of an ion parametric resonance model for magnetic field interactions with biological systems",
+   "journal": "Bioelectromagnetics",
+   "citation": "15(3):217-238",
+   "doi": "10.1002/bem.2250150306",
+   "pmcid": null,
+   "type": "theory",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "icr"
+   ],
+   "direction": "th",
+   "summary": "Corrects and extends Lednev's model into an IPR model whose predicted response forms depend on Bac, Bdc, AC frequency and ion charge-to-mass ratio, and proposes direct tests."
+  },
+  {
+   "pmid": "8074739",
+   "first_author": "Blackman",
+   "authors_short": "Blackman CF, Blanchard JP, Benane SG, House DE",
+   "year": 1994,
+   "title": "Empirical test of an ion parametric resonance model for magnetic field interactions with PC-12 cells",
+   "journal": "Bioelectromagnetics",
+   "citation": "15(3):239-260",
+   "doi": "10.1002/bem.2250150307",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "icr"
+   ],
+   "direction": "+",
+   "summary": "NGF-stimulated neurite outgrowth in PC-12 cells was tested with 45 Hz Bac of 77-468 mG rms at 366 mG Bdc, an off-resonance condition, and 25 Hz at 203 mG Bdc; all responses matched IPR predictions."
+  },
+  {
+   "pmid": "8742757",
+   "first_author": "Engström",
+   "authors_short": "Engström S",
+   "year": 1996,
+   "title": "Dynamic properties of Lednev's parametric resonance mechanism",
+   "journal": "Bioelectromagnetics",
+   "citation": "17(1):58-70",
+   "doi": "10.1002/(SICI)1521-186X(1996)17:1<58::AID-BEM8>3.0.CO;2-5",
+   "pmcid": null,
+   "type": "theory",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "icr"
+   ],
+   "direction": "th",
+   "summary": "Dynamic model of the Lednev oscillator with thermal noise confirming its main results, requiring the excited-state lifetime to exceed the field period, and proposing a test depending only on the B1/B0 ratio."
+  },
+  {
+   "pmid": "17886011",
+   "first_author": "Machlup",
+   "authors_short": "Machlup S",
+   "year": 2007,
+   "title": "Ion parametric resonance: resolving the signal-to-noise-ratio paradox",
+   "journal": "Electromagn Biol Med",
+   "citation": "26(3):251-256",
+   "doi": "10.1080/15368370701413131",
+   "pmcid": null,
+   "type": "theory",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "icr"
+   ],
+   "direction": "th",
+   "summary": "Argues the IPR signal-to-noise paradox raised by Adair is resolved by coherent absorption of many ELF quanta that free a single trapped ion."
+  },
+  {
+   "pmid": "1590822",
+   "first_author": "Adair",
+   "authors_short": "Adair RK",
+   "year": 1992,
+   "title": "Criticism of Lednev's mechanism for the influence of weak magnetic fields on biological systems",
+   "journal": "Bioelectromagnetics",
+   "citation": "13(3):231-235",
+   "doi": "10.1002/bem.2250130307",
+   "pmcid": null,
+   "type": "theory",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "icr"
+   ],
+   "direction": "th",
+   "summary": "Physics critique giving four independent reasons why a Lednev-type cyclotron-frequency mechanism cannot operate in the geomagnetic field."
+  },
+  {
+   "pmid": "1700714",
+   "first_author": "Sandweiss",
+   "authors_short": "Sandweiss J",
+   "year": 1990,
+   "title": "On the cyclotron resonance model of ion transport",
+   "journal": "Bioelectromagnetics",
+   "citation": "11(2):203-205",
+   "doi": "10.1002/bem.2250110210",
+   "pmcid": null,
+   "type": "theory",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "icr"
+   ],
+   "direction": "th",
+   "summary": "Shows ions at the Earth-field cyclotron frequency would have gyration radii near 50 m and collision damping times below 1e-10 s versus the roughly 1e-2 s needed, so the cyclotron model violates basic physics."
+  },
+  {
+   "pmid": "2461205",
+   "first_author": "Halle",
+   "authors_short": "Halle B",
+   "year": 1988,
+   "title": "On the cyclotron resonance mechanism for magnetic field effects on transmembrane ion conductivity",
+   "journal": "Bioelectromagnetics",
+   "citation": "9(4):381-385",
+   "doi": "10.1002/bem.2250090408",
+   "pmcid": null,
+   "type": "theory",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "icr"
+   ],
+   "direction": "th",
+   "summary": "Argues that the original cyclotron-resonance model breaks classical mechanics and that dynamic friction in fluid media precludes significant magnetic effects on membrane ion transport."
+  },
+  {
+   "pmid": "3663247",
+   "first_author": "Smith",
+   "authors_short": "Smith SD, McLeod BR, Liboff AR, Cooksey K",
+   "year": 1987,
+   "title": "Calcium cyclotron resonance and diatom mobility",
+   "journal": "Bioelectromagnetics",
+   "citation": "8(3):215-227",
+   "doi": "10.1002/bem.2250080302",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "icr"
+   ],
+   "direction": "+",
+   "summary": "Diatom (Amphora) motility, a proxy for Ca2+ transport, showed a sharp resonance at the predicted Ca2+ cyclotron frequency, a dose-response to AC flux density and responses at odd harmonics."
+  },
+  {
+   "pmid": "2012618",
+   "first_author": "Reese",
+   "authors_short": "Reese JA, Frazier ME, Morris JE, Buschbom RL, Miller DL",
+   "year": 1991,
+   "title": "Evaluation of changes in diatom mobility after exposure to 16-Hz electromagnetic fields",
+   "journal": "Bioelectromagnetics",
+   "citation": "12(1):21-25",
+   "doi": "10.1002/bem.2250120104",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "icr"
+   ],
+   "direction": "+",
+   "summary": "A 16 Hz, 20.9 uT AC field parallel to a 20.9 uT horizontal DC field increased diatom motion at 0.25 mM Ca2+, but the response was not reproducible enough to test frequency dependence."
+  },
+  {
+   "pmid": "2712845",
+   "first_author": "Parkinson",
+   "authors_short": "Parkinson WC, Hanks CT",
+   "year": 1989,
+   "title": "Search for cyclotron resonance in cells in vitro",
+   "journal": "Bioelectromagnetics",
+   "citation": "10(2):129-145",
+   "doi": "10.1002/bem.2250100203",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "icr"
+   ],
+   "direction": "0",
+   "summary": "Fura-2 measurements in four cell lines (BALB/c3T3, L929, V-79, ROS) found no change in cytosolic Ca2+ under resonant or non-resonant ELF fields."
+  },
+  {
+   "pmid": "8451278",
+   "first_author": "Coulton",
+   "authors_short": "Coulton LA, Barker AT",
+   "year": 1993,
+   "title": "Magnetic fields and intracellular calcium: effects on lymphocytes exposed to conditions for 'cyclotron resonance'",
+   "journal": "Phys Med Biol",
+   "citation": "38(3):347-360",
+   "doi": "10.1088/0031-9155/38/3/002",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "icr"
+   ],
+   "direction": "0",
+   "summary": "Mouse lymphocytes exposed for 60 min to Ca2+ cyclotron-resonance conditions at 16 and 50 Hz (DC varied up to 25% either side) showed no change in intracellular Ca2+, while concanavalin A positive controls did."
+  },
+  {
+   "pmid": "2242051",
+   "first_author": "Blackman",
+   "authors_short": "Blackman CF, Benane SG, House DE, Elliott DJ",
+   "year": 1990,
+   "title": "Importance of alignment between local DC magnetic field and an oscillating magnetic field in responses of brain tissue in vitro and in vivo",
+   "journal": "Bioelectromagnetics",
+   "citation": "11(2):159-167",
+   "doi": "10.1002/bem.2250110207",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "icr"
+   ],
+   "direction": "+",
+   "summary": "In chick brain tissue, a 315 Hz field (61 nT rms, 15 V/m rms in air) released Ca2+ only when the AC and DC magnetic components were perpendicular, not parallel."
+  },
+  {
+   "pmid": "1854354",
+   "first_author": "Blackman",
+   "authors_short": "Blackman CF, Benane SG, House DE",
+   "year": 1991,
+   "title": "The influence of temperature during electric- and magnetic-field-induced alteration of calcium-ion release from in vitro brain tissue",
+   "journal": "Bioelectromagnetics",
+   "citation": "12(3):173-182",
+   "doi": "10.1002/bem.2250120305",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "icr"
+   ],
+   "direction": "±",
+   "summary": "At 16 Hz (14.1 V/m rms, 64 nT rms) chick brain Ca2+ efflux was enhanced, reduced or unchanged depending on sample temperature and its drift during exposure, which may explain poor inter-lab reproducibility."
+  },
+  {
+   "pmid": "8285915",
+   "first_author": "Blackman",
+   "authors_short": "Blackman CF, Most B",
+   "year": 1993,
+   "title": "A scheme for incorporating DC magnetic fields into epidemiological studies of EMF exposure",
+   "journal": "Bioelectromagnetics",
+   "citation": "14(5):413-431",
+   "doi": "10.1002/bem.2250140504",
+   "pmcid": null,
+   "type": "theory",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "icr"
+   ],
+   "direction": "th",
+   "summary": "Uses chick-brain Ca2+ data to define 'active' AC/DC combinations and proposes an exposure score; for 60 Hz and 50 Hz the highest scores fall at DC fields of 506 mG and 422 mG."
+  },
+  {
+   "pmid": "7748202",
+   "first_author": "Lindström",
+   "authors_short": "Lindström E, Lindström P, Berglund A, Lundgren E, Mild KH",
+   "year": 1995,
+   "title": "Intracellular calcium oscillations in a T-cell line after exposure to extremely-low-frequency magnetic fields with variable frequencies and flux densities",
+   "journal": "Bioelectromagnetics",
+   "citation": "16(1):41-47",
+   "doi": "10.1002/bem.2250160110",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "vgcc"
+   ],
+   "direction": "+",
+   "summary": "Jurkat cells showed Ca2+ oscillations to sinusoidal fields at 0.15 mT across 5-100 Hz with a broad peak at 50 Hz, and a threshold dose-response at 50 Hz with no effect below 0.04 mT and a plateau at 0.15 mT."
+  },
+  {
+   "pmid": "10656853",
+   "first_author": "Wey",
+   "authors_short": "Wey HE, Conover DP, Mathias P, Toraason M, Lotz WG",
+   "year": 2000,
+   "title": "50-Hertz magnetic field and calcium transients in Jurkat cells: results of a research and public information dissemination (RAPID) program study",
+   "journal": "Environ Health Perspect",
+   "citation": "108(2):135-140",
+   "doi": "10.1289/ehp.00108135",
+   "pmcid": "PMC1637897",
+   "type": "invitro",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "vgcc"
+   ],
+   "direction": "0",
+   "summary": "Blinded attempt to repeat Lindstrom with 1.5 G, 50 Hz in Jurkat cells found Ca2+ transient incidence of 16.5% (field), 14.6% (sham) and 14.2% (no field), not significantly different."
+  },
+  {
+   "pmid": "7866919",
+   "first_author": "Fitzsimmons",
+   "authors_short": "Fitzsimmons RJ, Ryaby JT, Magee FP, Baylink DJ",
+   "year": 1994,
+   "title": "Combined magnetic fields increased net calcium flux in bone cells",
+   "journal": "Calcif Tissue Int",
+   "citation": "55(5):376-380",
+   "doi": "10.1007/BF00299318",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "muscular"
+   ],
+   "mechs": [
+    "icr",
+    "camno"
+   ],
+   "direction": "+",
+   "summary": "A low-amplitude combined (AC plus DC) field inducing a calculated potential gradient of 1e-5 V/m increased net Ca2+ flux in human osteoblast-like cells with a frequency peak at 15.3-16.3 Hz and bandwidth near 1 Hz (abstract only)."
+  },
+  {
+   "pmid": "7639117",
+   "first_author": "Fitzsimmons",
+   "authors_short": "Fitzsimmons RJ, Ryaby JT, Magee FP, Baylink DJ",
+   "year": 1995,
+   "title": "IGF-II receptor number is increased in TE-85 osteosarcoma cells by combined magnetic fields",
+   "journal": "J Bone Miner Res",
+   "citation": "10(5):812-819",
+   "doi": "10.1002/jbmr.5650100519",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "muscular"
+   ],
+   "mechs": [
+    "icr"
+   ],
+   "direction": "+",
+   "summary": "A 15.3 Hz combined field (calculated maximum induced potential of 1e-5 V/m in medium) given for 30 min raised IGF-II receptor number frequency-dependently without changing IGF-I receptors."
+  },
+  {
+   "pmid": "7789337",
+   "first_author": "Fitzsimmons",
+   "authors_short": "Fitzsimmons RJ, Ryaby JT, Mohan S, Magee FP, Baylink DJ",
+   "year": 1995,
+   "title": "Combined magnetic fields increase insulin-like growth factor-II in TE-85 human osteosarcoma bone cell cultures",
+   "journal": "Endocrinology",
+   "citation": "136(7):3100-3106",
+   "doi": "10.1210/endo.136.7.7789337",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "muscular"
+   ],
+   "mechs": [
+    "icr"
+   ],
+   "direction": "+",
+   "summary": "Only 10 min of combined-field exposure raised IGF-II release and 24 h DNA synthesis in TE-85 cells, blocked by anti-IGF-II antibody and stronger at low cell density."
+  },
+  {
+   "pmid": "9453705",
+   "first_author": "Zhadin",
+   "authors_short": "Zhadin MN, Novikov VV, Barnes FS, Pergola NF",
+   "year": 1998,
+   "title": "Combined action of static and alternating magnetic fields on ionic current in aqueous glutamic acid solution",
+   "journal": "Bioelectromagnetics",
+   "citation": "19(1):41-45",
+   "doi": "10.1002/(SICI)1521-186X(1998)19:1<41::AID-BEM4>3.0.CO;2-4",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "icr"
+   ],
+   "direction": "+",
+   "summary": "In a cell-free glutamic acid solution, parallel DC and AC fields produced a 20-30% current peak at the cyclotron frequency (1-10 Hz sweep), proportional to the static field and present only at AC amplitudes of 0.02-0.08 uT."
+  },
+  {
+   "pmid": "10453066",
+   "first_author": "Zhadin",
+   "authors_short": "Zhadin MN, Deryugina ON, Pisachenko TM",
+   "year": 1999,
+   "title": "Influence of combined DC and AC magnetic fields on rat behavior",
+   "journal": "Bioelectromagnetics",
+   "citation": "20(6):378-386",
+   "doi": "10.1002/(SICI)1521-186X(199909)20:6<378::AID-BEM7>3.0.CO;2-0",
+   "pmcid": null,
+   "type": "animal",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "icr"
+   ],
+   "direction": "+",
+   "summary": "Rat open-field activity fell at the Ca2+ cyclotron frequency and rose at the Mg2+ frequency, qualitatively the same at 50 uT and 500 uT DC with proportionally scaled AC frequency and amplitude; other ions had no effect."
+  },
+  {
+   "pmid": "12929158",
+   "first_author": "Bauréus Koch",
+   "authors_short": "Bauréus Koch CLM, Sommarin M, Persson BRR, Salford LG, Eberhardt JL",
+   "year": 2003,
+   "title": "Interaction between weak low frequency magnetic fields and cell membranes",
+   "journal": "Bioelectromagnetics",
+   "citation": "24(6):395-402",
+   "doi": "10.1002/bem.10136",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "icr",
+    "vgcc"
+   ],
+   "direction": "+",
+   "summary": "Ca-45 efflux from purified plasma-membrane vesicles (30 min, 32 C) with 27-37 uT static and 7-72 Hz, 13-114 uT peak AC fields confirmed quantitatively the Blanchard resonance model."
+  },
+  {
+   "pmid": "11180258",
+   "first_author": "Blackman",
+   "authors_short": "Blackman CF, Benane SG, House DE",
+   "year": 2001,
+   "title": "The influence of 1.2 microT, 60 Hz magnetic fields on melatonin- and tamoxifen-induced inhibition of MCF-7 cell growth",
+   "journal": "Bioelectromagnetics",
+   "citation": "22(2):122-128",
+   "doi": "10.1002/1521-186X(200102)22:2<122::AID-BEM1015>3.0.CO;2-V",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "+",
+   "summary": "Independent replication: 1.2 uT rms, 60 Hz removed the 16.7% melatonin growth inhibition and cut tamoxifen inhibition from 18.6/25% to 8.7/13.1% (days 6/7) in MCF-7 cells, with blinded counts."
+  },
+  {
+   "pmid": "8320637",
+   "first_author": "Liburdy",
+   "authors_short": "Liburdy RP, Sloma TR, Sokolic R, Yaswen P",
+   "year": 1993,
+   "title": "ELF magnetic fields, breast cancer, and melatonin: 60 Hz fields block melatonin's oncostatic action on ER+ breast cancer cell proliferation",
+   "journal": "J Pineal Res",
+   "citation": "14(2):89-97",
+   "doi": "10.1111/j.1600-079x.1993.tb00491.x",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "+",
+   "summary": "60 Hz fields near 12 mG (1.2 uT) blocked melatonin's 18-27% growth inhibition of MCF-7 cells whereas about 2-2.5 mG did not, suggesting a threshold between 2 and 12 mG."
+  },
+  {
+   "pmid": "9383244",
+   "first_author": "Harland",
+   "authors_short": "Harland JD, Liburdy RP",
+   "year": 1997,
+   "title": "Environmental magnetic fields inhibit the antiproliferative action of tamoxifen and melatonin in a human breast cancer cell line",
+   "journal": "Bioelectromagnetics",
+   "citation": "18(8):555-562",
+   "doi": "10.1002/(SICI)1521-186X(1997)18:8<555::AID-BEM4>3.0.CO;2-1",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "+",
+   "summary": "Using a Faraday's-law design to separate the 1.2 uT magnetic field from the associated induced electric field, the authors found the magnetic component was associated with the block of tamoxifen and melatonin action."
+  },
+  {
+   "pmid": "11408347",
+   "first_author": "Ishido",
+   "authors_short": "Ishido M, Nitta H, Kabuto M",
+   "year": 2001,
+   "title": "Magnetic fields (MF) of 50 Hz at 1.2 microT as well as 100 microT cause uncoupling of inhibitory pathways of adenylyl cyclase mediated by melatonin 1a receptor in MF-sensitive MCF-7 cells",
+   "journal": "Carcinogenesis",
+   "citation": "22(7):1043-1048",
+   "doi": "10.1093/carcin/22.7.1043",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "+",
+   "summary": "In MF-sensitive MCF-7 cells, 3-7 day exposure to 100 uT blocked melatonin-induced cAMP inhibition, and 1.2 uT gave the same effect on melatonin signalling, i.e. no extra effect for an 83-fold larger field."
+  },
+  {
+   "pmid": "16168388",
+   "first_author": "Girgert",
+   "authors_short": "Girgert R, Schimming H, Korner W, Grundker C, Hanf V",
+   "year": 2005,
+   "title": "Induction of tamoxifen resistance in breast cancer cells by ELF electromagnetic fields",
+   "journal": "Biochem Biophys Res Commun",
+   "citation": "336(4):1144-1149",
+   "doi": "10.1016/j.bbrc.2005.08.243",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "+",
+   "summary": "50 Hz exposure shifted tamoxifen dose-response curves of two MCF-7 clones to higher concentrations, with a maximal shift at 1.2 uT."
+  },
+  {
+   "pmid": "19882681",
+   "first_author": "Girgert",
+   "authors_short": "Girgert R, Hanf V, Emons G, Grundker C",
+   "year": 2010,
+   "title": "Signal transduction of the melatonin receptor MT1 is disrupted in breast cancer cells by electromagnetic fields",
+   "journal": "Bioelectromagnetics",
+   "citation": "31(3):237-245",
+   "doi": "10.1002/bem.20554",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "+",
+   "summary": "A 48 h exposure to 1.2 uT, 50 Hz abolished melatonin-induced CREB binding to the BRCA-1 promoter and altered melatonin-regulated gene expression in MCF-7 cells."
+  },
+  {
+   "pmid": "11255213",
+   "first_author": "Leman",
+   "authors_short": "Leman ES, Sisken BF, Zimmer S, Anderson KW",
+   "year": 2001,
+   "title": "Studies of the interactions between melatonin and 2 Hz, 0.3 mT PEMF on the proliferation and invasion of human breast cancer cells",
+   "journal": "Bioelectromagnetics",
+   "citation": "22(3):178-184",
+   "doi": "10.1002/bem.36",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "0",
+   "summary": "A 2 Hz, 0.3 mT pulsed field did not alter melatonin's growth inhibition or the invasiveness of three breast cancer lines, unlike reports for 60 Hz power-line fields."
+  },
+  {
+   "pmid": "1333413",
+   "first_author": "Liburdy",
+   "authors_short": "Liburdy RP",
+   "year": 1992,
+   "title": "Calcium signaling in lymphocytes and ELF fields. Evidence for an electric field metric and a site of interaction involving the calcium ion channel",
+   "journal": "FEBS Lett",
+   "citation": "301(1):53-59",
+   "doi": "10.1016/0014-5793(92)80209-y",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "induction",
+    "vgcc"
+   ],
+   "direction": "+",
+   "summary": "Mitogen-stimulated rat thymocytes showed larger Ca2+ influx in a 22 mT, 60 Hz field (induced E 1.7 mV/cm); a multi-ring annular plate showed dependence on induced E at constant B, and a pure E field of equal strength acted similarly (note: an erratum to this paper exists)."
+  },
+  {
+   "pmid": "7601344",
+   "first_author": "Prato",
+   "authors_short": "Prato FS, Carson JJ, Ossenkopp KP, Kavaliers M",
+   "year": 1995,
+   "title": "Possible mechanisms by which extremely low frequency magnetic fields affect opioid function",
+   "journal": "FASEB J",
+   "citation": "9(9):807-814",
+   "doi": "10.1096/fasebj.9.9.7601344",
+   "pmcid": null,
+   "type": "animal",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "icr"
+   ],
+   "direction": "+",
+   "summary": "In snails, loss of opioid analgesia depended nonlinearly on 60 Hz peak amplitude (0-547 uT), showed frequency windows at 141 uT, and varied with the parallel static field, which the authors read as direct field detection rather than induced current."
+  },
+  {
+   "pmid": "8860729",
+   "first_author": "Prato",
+   "authors_short": "Prato FS, Kavaliers M, Carson JJ",
+   "year": 1996,
+   "title": "Behavioural evidence that magnetic field effects in the land snail, Cepaea nemoralis, might not depend on magnetite or induced electric currents",
+   "journal": "Bioelectromagnetics",
+   "citation": "17(2):123-130",
+   "doi": "10.1002/(SICI)1521-186X(1996)17:2<123::AID-BEM6>3.0.CO;2-5",
+   "pmcid": null,
+   "type": "animal",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "icr",
+    "magnetite"
+   ],
+   "direction": "+",
+   "summary": "With 78 uT static and 299 uT peak 60 Hz fields, varying the angle between them changed the analgesia reduction from about 20% (0 and 90 degrees) to about 50% (50-70 degrees); a constant induced current or a magnetite torque would not predict this."
+  },
+  {
+   "pmid": "10797457",
+   "first_author": "Prato",
+   "authors_short": "Prato FS, Kavaliers M, Thomas AW",
+   "year": 2000,
+   "title": "Extremely low frequency magnetic fields can either increase or decrease analgaesia in the land snail depending on field and light conditions",
+   "journal": "Bioelectromagnetics",
+   "citation": "21(4):287-301",
+   "doi": "10.1002/(SICI)1521-186X(200005)21:4<287::AID-BEM5>3.0.CO;2-N",
+   "pmcid": null,
+   "type": "animal",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "icr"
+   ],
+   "direction": "+",
+   "summary": "Snail fields of 141-414 uT peak set to Lednev PRM conditions for Ca2+ reduced, did not change, or increased opioid analgesia as predicted, K+ settings increased it (glibenclamide-sensitive), and all effects needed light."
+  },
+  {
+   "pmid": "10501522",
+   "first_author": "Kavaliers",
+   "authors_short": "Kavaliers M, Prato FS",
+   "year": 1999,
+   "title": "Light-dependent effects of magnetic fields on nitric oxide activation in the land snail",
+   "journal": "Neuroreport",
+   "citation": "10(9):1863-1867",
+   "doi": "10.1097/00001756-199906230-00012",
+   "pmcid": null,
+   "type": "animal",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "camno",
+    "radical"
+   ],
+   "direction": "+",
+   "summary": "Brief 60 Hz exposure potentiated, in a light-dependent way, the inhibitory effect of L-arginine on opioid analgesia in snails, implicating nitric oxide in light-dependent magnetic effects."
+  },
+  {
+   "pmid": "9795129",
+   "first_author": "Kavaliers",
+   "authors_short": "Kavaliers M, Choleris E, Prato FS, Ossenkopp K",
+   "year": 1998,
+   "title": "Evidence for the involvement of nitric oxide and nitric oxide synthase in the modulation of opioid-induced antinociception and the inhibitory effects of exposure to 60-Hz magnetic fields in the land snail",
+   "journal": "Brain Res",
+   "citation": "809(1):50-57",
+   "doi": "10.1016/s0006-8993(98)00844-0",
+   "pmcid": null,
+   "type": "animal",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "camno"
+   ],
+   "direction": "+",
+   "summary": "In snails, 15 min of 60 Hz, 141 uT peak reduced enkephalinase-induced antinociception; L-NAME reduced and an NO donor increased this magnetic inhibition."
+  },
+  {
+   "pmid": "9111740",
+   "first_author": "Thomas",
+   "authors_short": "Thomas AW, Kavaliers M, Prato FS, Ossenkopp KP",
+   "year": 1997,
+   "title": "Antinociceptive effects of a pulsed magnetic field in the land snail, Cepaea nemoralis",
+   "journal": "Neurosci Lett",
+   "citation": "222(2):107-110",
+   "doi": "10.1016/s0304-3940(97)13359-6",
+   "pmcid": null,
+   "type": "animal",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "endogenous"
+   ],
+   "direction": "+",
+   "summary": "A 15 min exposure to a specific frequency-modulated pulsed field of about 100 uT peak (Cnp) induced analgesia in snails, partly naloxone-sensitive, while two other pulsed waveforms were ineffective."
+  },
+  {
+   "pmid": "9213364",
+   "first_author": "Thomas",
+   "authors_short": "Thomas AW, Kavaliers M, Prato FS, Ossenkopp KP",
+   "year": 1997,
+   "title": "Pulsed magnetic field induced 'analgesia' in the land snail, Cepaea nemoralis, and the effects of mu, delta, and kappa opioid receptor agonists/antagonists",
+   "journal": "Peptides",
+   "citation": "18(5):703-709",
+   "doi": "10.1016/s0196-9781(97)00004-1",
+   "pmcid": null,
+   "type": "animal",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "endogenous"
+   ],
+   "direction": "+",
+   "summary": "Cnp-induced snail analgesia was reduced by naloxone, mu and delta antagonists but not a kappa antagonist, indicating partial delta (and some mu) opioid receptor mediation."
+  },
+  {
+   "pmid": "2452251",
+   "first_author": "Kavaliers",
+   "authors_short": "Kavaliers M, Ossenkopp KP",
+   "year": 1988,
+   "title": "Magnetic fields inhibit opioid-mediated 'analgesic' behaviours of the terrestrial snail, Cepaea nemoralis",
+   "journal": "J Comp Physiol A",
+   "citation": "162(4):551-558",
+   "doi": "10.1007/BF00612520",
+   "pmcid": null,
+   "type": "animal",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "vgcc"
+   ],
+   "direction": "+",
+   "summary": "A 0.5 Hz rotating field of 1.5-8.0 G (15-30 min) reduced opioid and stress-induced analgesia in snails, and Ca2+-channel antagonists/agonist modulated the effect."
+  },
+  {
+   "pmid": "2446152",
+   "first_author": "Kavaliers",
+   "authors_short": "Kavaliers M, Ossenkopp KP",
+   "year": 1987,
+   "title": "Calcium channel involvement in magnetic field inhibition of morphine-induced analgesia",
+   "journal": "Naunyn Schmiedebergs Arch Pharmacol",
+   "citation": "336(3):308-315",
+   "doi": "10.1007/BF00172683",
+   "pmcid": null,
+   "type": "animal",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "vgcc"
+   ],
+   "direction": "+",
+   "summary": "In mice, 60 min of a 0.5 Hz rotating field reduced morphine analgesia, with dihydropyridine and other Ca2+-channel drugs modulating the inhibition."
+  },
+  {
+   "pmid": "14698475",
+   "first_author": "Shupak",
+   "authors_short": "Shupak NM, Hensel JM, Cross-Mellor SK, et al.",
+   "year": 2004,
+   "title": "Analgesic and behavioral effects of a 100 microT specific pulsed extremely low frequency magnetic field on control and morphine treated CF-1 mice",
+   "journal": "Neurosci Lett",
+   "citation": "354(1):30-33",
+   "doi": "10.1016/j.neulet.2003.09.063",
+   "pmcid": null,
+   "type": "animal",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "endogenous"
+   ],
+   "direction": "+",
+   "summary": "A 100 uT specific pulsed field prolonged hot-plate latency in mice by an amount equivalent to about 5 mg/kg morphine and offset morphine-induced hyperactivity."
+  },
+  {
+   "pmid": "15172106",
+   "first_author": "Shupak",
+   "authors_short": "Shupak NM, Prato FS, Thomas AW",
+   "year": 2004,
+   "title": "Human exposure to a specific pulsed magnetic field: effects on thermal sensory and pain thresholds",
+   "journal": "Neurosci Lett",
+   "citation": "363(2):157-162",
+   "doi": "10.1016/j.neulet.2004.03.069",
+   "pmcid": null,
+   "type": "rct",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "endogenous"
+   ],
+   "direction": "+",
+   "summary": "In two double-blind studies (n=39, n=31), 30 min of a specific pulsed field raised experimental heat-pain thresholds but not sensory thresholds, with a gender interaction and possible placebo contribution."
+  },
+  {
+   "pmid": "16770449",
+   "first_author": "Shupak",
+   "authors_short": "Shupak NM, McKay JC, Nielson WR, Rollman GB, Prato FS, Thomas AW",
+   "year": 2006,
+   "title": "Exposure to a specific pulsed low-frequency magnetic field: a double-blind placebo-controlled study of effects on pain ratings in rheumatoid arthritis and fibromyalgia patients",
+   "journal": "Pain Res Manag",
+   "citation": "11(2):85-90",
+   "doi": "10.1155/2006/842162",
+   "pmcid": "PMC2585480",
+   "type": "rct",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "endogenous"
+   ],
+   "direction": "+",
+   "summary": "A single 30 min exposure (up to 400 uT peak, below 3 kHz) reduced McGill pain ratings versus sham in 13 rheumatoid arthritis and 18 fibromyalgia patients; small acute double-blind trial."
+  },
+  {
+   "pmid": "25962809",
+   "first_author": "Prato",
+   "authors_short": "Prato FS",
+   "year": 2015,
+   "title": "Non-thermal extremely low frequency magnetic field effects on opioid related behaviors: Snails to humans, mechanisms to therapy",
+   "journal": "Bioelectromagnetics",
+   "citation": "36(5):333-348",
+   "doi": "10.1002/bem.21918",
+   "pmcid": null,
+   "type": "review",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "icr",
+    "radical",
+    "endogenous"
+   ],
+   "direction": "th",
+   "summary": "Author's own account of 30 years of ELF-MF effects on nociception from snails to humans, explicitly not a balanced review, linking the work to animal orientation research."
+  },
+  {
+   "pmid": "21381048",
+   "first_author": "Prato",
+   "authors_short": "Prato FS, Desjardins-Holmes D, Keenliside LD, DeMoor JM, Robertson JA, Stodilka RZ, Thomas AW",
+   "year": 2011,
+   "title": "The detection threshold for extremely low frequency magnetic fields may be below 1000 nT-Hz in mice",
+   "journal": "Bioelectromagnetics",
+   "citation": "32(7):561-569",
+   "doi": "10.1002/bem.20661",
+   "pmcid": null,
+   "type": "animal",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "induction",
+    "endogenous"
+   ],
+   "direction": "+",
+   "summary": "Mu-metal-shielding analgesia in mice was attenuated by reintroduced 30 and 120 Hz fields of 25-500 nT peak in proportion to amplitude, and at a constant 6000 nT-Hz product (12.5-100 Hz) attenuation was constant, giving a detection threshold at or below 1000 nT-Hz."
+  },
+  {
+   "pmid": "18583276",
+   "first_author": "Prato",
+   "authors_short": "Prato FS, Desjardins-Holmes D, Keenliside LD, McKay JC, Robertson JA, Thomas AW",
+   "year": 2009,
+   "title": "Light alters nociceptive effects of magnetic field shielding in mice: intensity and wavelength considerations",
+   "journal": "J R Soc Interface",
+   "citation": "6(30):17-28",
+   "doi": "10.1098/rsif.2008.0156",
+   "pmcid": "PMC2610319",
+   "type": "animal",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "+",
+   "summary": "Shielding analgesia in mice was abolished by blue (465 nm) or UV light but not red light, with a blue-light threshold near 5e16 photons/s/m2, paralleling photoreceptor-based magnetoreception."
+  },
+  {
+   "pmid": "15672364",
+   "first_author": "Prato",
+   "authors_short": "Prato FS, Robertson JA, Desjardins D, Hensel J, Thomas AW",
+   "year": 2005,
+   "title": "Daily repeated magnetic field shielding induces analgesia in CD-1 mice",
+   "journal": "Bioelectromagnetics",
+   "citation": "26(2):109-117",
+   "doi": "10.1002/bem.20056",
+   "pmcid": null,
+   "type": "animal",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "endogenous"
+   ],
+   "direction": "+",
+   "summary": "One hour per day in a mu-metal box for 10 days produced analgesia peaking on days 4-6, comparable to 5 mg/kg morphine and abolished by naloxone."
+  },
+  {
+   "pmid": "11798436",
+   "first_author": "Choleris",
+   "authors_short": "Choleris E, Del Seppia C, Thomas AW, et al.",
+   "year": 2002,
+   "title": "Shielding, but not zeroing of the ambient magnetic field reduces stress-induced analgesia in mice",
+   "journal": "Proc R Soc B",
+   "citation": "269(1487):193-201",
+   "doi": "10.1098/rspb.2001.1866",
+   "pmcid": "PMC1690875",
+   "type": "animal",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "induction",
+    "endogenous"
+   ],
+   "direction": "+",
+   "summary": "Independently replicated in Pisa and London: mu-metal shielding reduced stress-induced analgesia, whereas nulling the static component with Helmholtz coils or shielding the electric field with copper did not, implicating the extremely weak time-varying component."
+  },
+  {
+   "pmid": "6654743",
+   "first_author": "Ubeda",
+   "authors_short": "Ubeda A, Leal J, Trillo MA, Jimenez MA, Delgado JM",
+   "year": 1983,
+   "title": "Pulse shape of magnetic fields influences chick embryogenesis",
+   "journal": "J Anat",
+   "citation": "137(Pt 3):513-536",
+   "doi": null,
+   "pmcid": "PMC1171845",
+   "type": "animal",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "induction"
+   ],
+   "direction": "+",
+   "summary": "Chick embryos exposed for 48 h to 100 Hz pulses of 0.4-104 uT had abnormalities only at 1.0 and 13.9 uT with 100 us rise times (a window), and shorter rise times (2 and 42 us) gave larger effects, strongest at 1.0 uT with 42 us."
+  },
+  {
+   "pmid": "2242052",
+   "first_author": "Berman",
+   "authors_short": "Berman E, Chacon L, House D, et al.",
+   "year": 1990,
+   "title": "Development of chicken embryos in a pulsed magnetic field",
+   "journal": "Bioelectromagnetics",
+   "citation": "11(2):169-187",
+   "doi": "10.1002/bem.2250110208",
+   "pmcid": null,
+   "type": "animal",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "induction"
+   ],
+   "direction": "±",
+   "summary": "Six-laboratory study (500 us pulses, 100 pps, 1 uT peak, 2 us edges, 48 h): pooled anomaly rate about 25% vs 19% (significant), but only two laboratories were individually significant and inter-lab variation was unexplained."
+  },
+  {
+   "pmid": "15863473",
+   "first_author": "Davila",
+   "authors_short": "Davila AF, Winklhofer M, Shcherbakov VP, Petersen N",
+   "year": 2005,
+   "title": "Magnetic pulse affects a putative magnetoreceptor mechanism",
+   "journal": "Biophys J",
+   "citation": "89(1):56-63",
+   "doi": "10.1529/biophysj.104.049346",
+   "pmcid": "PMC1366555",
+   "type": "theory",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "magnetite"
+   ],
+   "direction": "th",
+   "summary": "Physical model of superparamagnetic magnetite clusters predicting chain self-assembly into a compass needle, disruption by strong oblique pulses and reassembly over hours to days, matching bird pulse-treatment results."
+  },
+  {
+   "pmid": "19324756",
+   "first_author": "Wiltschko",
+   "authors_short": "Wiltschko W, Munro U, Ford H, Wiltschko R",
+   "year": 2009,
+   "title": "Avian orientation: the pulse effect is mediated by the magnetite receptors in the upper beak",
+   "journal": "Proc R Soc B",
+   "citation": "276(1665):2227-2232",
+   "doi": "10.1098/rspb.2009.0050",
+   "pmcid": "PMC2677601",
+   "type": "animal",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "magnetite"
+   ],
+   "direction": "+",
+   "summary": "A strong magnetic pulse shifted silvereye headings by about 90 degrees, and local anaesthesia of the upper beak skin prevented the shift, implicating superparamagnetic magnetite structures there."
+  },
+  {
+   "pmid": "30054530",
+   "first_author": "Gilder",
+   "authors_short": "Gilder SA, Wack M, Kaub L, et al.",
+   "year": 2018,
+   "title": "Distribution of magnetic remanence carriers in the human brain",
+   "journal": "Sci Rep",
+   "citation": "8:11363",
+   "doi": "10.1038/s41598-018-29766-z",
+   "pmcid": "PMC6063936",
+   "type": "human",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "magnetite"
+   ],
+   "direction": "+",
+   "summary": "Remanence measurements on 822 specimens from seven brains show magnetite concentrated in cerebellum and brain stem (about 2x the cerebral cortex)."
+  },
+  {
+   "pmid": "26569474",
+   "first_author": "Qin",
+   "authors_short": "Qin S, Yin H, Yang C, et al.",
+   "year": 2016,
+   "title": "A magnetic protein biocompass",
+   "journal": "Nat Mater",
+   "citation": "15(2):217-226",
+   "doi": "10.1038/nmat4484",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "magnetite",
+    "radical"
+   ],
+   "direction": "±",
+   "summary": "Reports a Drosophila iron-sulfur protein (MagR) forming a rod-like complex with cryptochrome that aligns with magnetic fields including the Earth's; physical plausibility was challenged by Meister (2016)."
+  },
+  {
+   "pmid": "27529126",
+   "first_author": "Meister",
+   "authors_short": "Meister M",
+   "year": 2016,
+   "title": "Physical limits to magnetogenetics",
+   "journal": "eLife",
+   "citation": "5:e17210",
+   "doi": "10.7554/eLife.17210",
+   "pmcid": "PMC5016093",
+   "type": "theory",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "magnetite"
+   ],
+   "direction": "th",
+   "summary": "Quantitative analysis finding ferritin/MagR magnetic-actuation claims fall short by 5-10 orders of magnitude; ferritin torque stays far below kT at 50 mT and even forces at 5 T are ~4 log units too small, whereas permanent-moment magnetosome-sized particles could work."
+  },
+  {
+   "pmid": "31373554",
+   "first_author": "Barbic",
+   "authors_short": "Barbic M",
+   "year": 2019,
+   "title": "Possible magneto-mechanical and magneto-thermal mechanisms of ion channel activation in magnetogenetics",
+   "journal": "eLife",
+   "citation": "8:e45807",
+   "doi": "10.7554/eLife.45807",
+   "pmcid": "PMC6693891",
+   "type": "theory",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "magnetite"
+   ],
+   "direction": "th",
+   "summary": "Considers a wider range of ferritin iron spin configurations and proposes several magneto-mechanical and magneto-thermal routes by which magnetogenetic channel activation might be physically possible."
+  },
+  {
+   "pmid": "14515021",
+   "first_author": "Rosen",
+   "authors_short": "Rosen AD",
+   "year": 2003,
+   "title": "Mechanism of action of moderate-intensity static magnetic fields on biological systems",
+   "journal": "Cell Biochem Biophys",
+   "citation": "39(2):163-173",
+   "doi": "10.1385/CBB:39:2:163",
+   "pmcid": null,
+   "type": "review",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "vgcc"
+   ],
+   "direction": "th",
+   "summary": "Proposes that moderate static fields act by reorienting diamagnetically anisotropic membrane phospholipids, deforming embedded channels (Ca2+ more than Na+) and altering activation kinetics, supported by patch-clamp work."
+  },
+  {
+   "pmid": "27857227",
+   "first_author": "Zablotskii",
+   "authors_short": "Zablotskii V, Polyakova T, Lunov O, Dejneka A",
+   "year": 2016,
+   "title": "How a High-Gradient Magnetic Field Could Affect Cell Life",
+   "journal": "Sci Rep",
+   "citation": "6:37407",
+   "doi": "10.1038/srep37407",
+   "pmcid": "PMC5114642",
+   "type": "theory",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "magnetite"
+   ],
+   "direction": "th",
+   "summary": "Theory that about 1 T with gradients up to 1 GT/m could change the cell membrane potential and channel gating probability via magnetic pressure and magneto-mechanical stress."
+  },
+  {
+   "pmid": "12369785",
+   "first_author": "Kotani",
+   "authors_short": "Kotani H, Kawaguchi H, Shimoaka T, et al.",
+   "year": 2002,
+   "title": "Strong static magnetic field stimulates bone formation to a definite orientation in vitro and in vivo",
+   "journal": "J Bone Miner Res",
+   "citation": "17(10):1814-1821",
+   "doi": "10.1359/jbmr.2002.17.10.1814",
+   "pmcid": null,
+   "type": "animal",
+   "systems": [
+    "muscular"
+   ],
+   "mechs": [
+    "magnetite"
+   ],
+   "direction": "+",
+   "summary": "An 8 T static field for 60 h aligned MC3T3-E1 osteoblasts parallel to the field, increased ALP and mineralisation without changing proliferation, and oriented BMP-induced ectopic bone parallel to the field in mice."
+  },
+  {
+   "pmid": "12736891",
+   "first_author": "Weintraub",
+   "authors_short": "Weintraub MI, Wolfe GI, Barohn RA, et al.",
+   "year": 2003,
+   "title": "Static magnetic field therapy for symptomatic diabetic neuropathy: a randomized, double-blind, placebo-controlled trial",
+   "journal": "Arch Phys Med Rehabil",
+   "citation": "84(5):736-746",
+   "doi": "10.1016/s0003-9993(03)00106-0",
+   "pmcid": null,
+   "type": "rct",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "endogenous"
+   ],
+   "direction": "+",
+   "summary": "In 375 patients wearing 450 G multipolar insoles for 4 months, burning fell 12% vs 3% (sham) and numbness/tingling 10% vs +1% in months 3-4; larger gains in those with severe baseline pain."
+  },
+  {
+   "pmid": "9365349",
+   "first_author": "Vallbona",
+   "authors_short": "Vallbona C, Hazlewood CF, Jurida G",
+   "year": 1997,
+   "title": "Response of pain to static magnetic fields in postpolio patients: a double-blind pilot study",
+   "journal": "Arch Phys Med Rehabil",
+   "citation": "78(11):1200-1203",
+   "doi": "10.1016/s0003-9993(97)90332-4",
+   "pmcid": null,
+   "type": "rct",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "endogenous"
+   ],
+   "direction": "+",
+   "summary": "In 50 postpolio patients, 45 min with a 300-500 G device over a trigger point cut pain by 4.4 points vs 1.1 for placebo (76% vs 19% exceeded placebo effect)."
+  },
+  {
+   "pmid": "15604181",
+   "first_author": "Harlow",
+   "authors_short": "Harlow T, Greaves C, White A, Brown L, Hart A, Ernst E",
+   "year": 2004,
+   "title": "Randomised controlled trial of magnetic bracelets for relieving pain in osteoarthritis of the hip and knee",
+   "journal": "BMJ",
+   "citation": "329(7480):1450-1454",
+   "doi": "10.1136/bmj.329.7480.1450",
+   "pmcid": "PMC535975",
+   "type": "rct",
+   "systems": [
+    "muscular"
+   ],
+   "mechs": [
+    "endogenous"
+   ],
+   "direction": "±",
+   "summary": "In 194 patients wearing standard, weak or dummy bracelets for 12 weeks, WOMAC A pain fell 1.3 points more with standard magnets than dummy (95% CI 0.05 to 2.55), with uncertain specificity versus placebo."
+  },
+  {
+   "pmid": "17893349",
+   "first_author": "Pittler",
+   "authors_short": "Pittler MH, Brown EM, Ernst E",
+   "year": 2007,
+   "title": "Static magnets for reducing pain: systematic review and meta-analysis of randomized trials",
+   "journal": "CMAJ",
+   "citation": "177(7):736-742",
+   "doi": "10.1503/cmaj.061344",
+   "pmcid": "PMC1976658",
+   "type": "meta",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "endogenous"
+   ],
+   "direction": "0",
+   "summary": "Meta-analysis of nine placebo-controlled VAS trials found no significant pain reduction from static magnets (weighted mean difference 2.1 mm, 95% CI -1.8 to 5.9)."
+  },
+  {
+   "pmid": "18955243",
+   "first_author": "Colbert",
+   "authors_short": "Colbert AP, Wahbeh H, Harling N, et al.",
+   "year": 2009,
+   "title": "Static magnetic field therapy: a critical review of treatment parameters",
+   "journal": "Evid Based Complement Alternat Med",
+   "citation": "6(2):133-139",
+   "doi": "10.1093/ecam/nem131",
+   "pmcid": "PMC2686626",
+   "type": "review",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "endogenous"
+   ],
+   "direction": "th",
+   "summary": "Review of 56 human SMF studies finding that 34 (61%) reported too little dosimetry to allow replication and proposing a minimum reporting set."
+  },
+  {
+   "pmid": "18532897",
+   "first_author": "Colbert",
+   "authors_short": "Colbert AP, Markov MS, Souder JS",
+   "year": 2008,
+   "title": "Static magnetic field therapy: dosimetry considerations",
+   "journal": "J Altern Complement Med",
+   "citation": "14(5):577-582",
+   "doi": "10.1089/acm.2007.0827",
+   "pmcid": null,
+   "type": "review",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "endogenous"
+   ],
+   "direction": "th",
+   "summary": "Argues negative SMF trials are uninterpretable when field at the target tissue is not characterised and lists ten essential dosimetry parameters."
+  },
+  {
+   "pmid": "19276710",
+   "first_author": "ICNIRP",
+   "authors_short": "ICNIRP",
+   "year": 2009,
+   "title": "Guidelines on limits of exposure to static magnetic fields",
+   "journal": "Health Phys",
+   "citation": "96(4):504-514",
+   "doi": "10.1097/01.HP.0000343164.27920.4a",
+   "pmcid": null,
+   "type": "standard",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "induction"
+   ],
+   "direction": "th",
+   "summary": "ICNIRP static-field guidance (no abstract in PubMed); numbers used here come from the ICNIRP document text retrieved from icnirp.org."
+  },
+  {
+   "pmid": "8742752",
+   "first_author": "Kinouchi",
+   "authors_short": "Kinouchi Y, Yamaguchi H, Tenforde TS",
+   "year": 1996,
+   "title": "Theoretical analysis of magnetic field interactions with aortic blood flow",
+   "journal": "Bioelectromagnetics",
+   "citation": "17(1):21-32",
+   "doi": "10.1002/(SICI)1521-186X(1996)17:1<21::AID-BEM3>3.0.CO;2-8",
+   "pmcid": null,
+   "type": "theory",
+   "systems": [
+    "vascular"
+   ],
+   "mechs": [
+    "induction"
+   ],
+   "direction": "th",
+   "summary": "Finite-element Navier-Stokes analysis of aortic flow in a static field gives induced voltages and current densities, with magnetohydrodynamic flow reduction only above about 10 T."
+  },
+  {
+   "pmid": "15556666",
+   "first_author": "Tenforde",
+   "authors_short": "Tenforde TS",
+   "year": 2005,
+   "title": "Magnetically induced electric fields and currents in the circulatory system",
+   "journal": "Prog Biophys Mol Biol",
+   "citation": "87(2-3):279-288",
+   "doi": "10.1016/j.pbiomolbio.2004.08.003",
+   "pmcid": null,
+   "type": "review",
+   "systems": [
+    "vascular"
+   ],
+   "mechs": [
+    "induction"
+   ],
+   "direction": "th",
+   "summary": "Animals at up to 1.5 T showed no hemodynamic change; models predict SA-node current density above 100 mA/m2 above 5 T and aortic flow reductions of 1.3%, 4.9% and 10.4% at 5, 10 and 15 T."
+  },
+  {
+   "pmid": "21945276",
+   "first_author": "Roberts",
+   "authors_short": "Roberts DC, Marcelli V, Gillen JS, Carey JP, Della Santina CC, Zee DS",
+   "year": 2011,
+   "title": "MRI magnetic field stimulates rotational sensors of the brain",
+   "journal": "Curr Biol",
+   "citation": "21(19):1635-1640",
+   "doi": "10.1016/j.cub.2011.08.029",
+   "pmcid": "PMC3379966",
+   "type": "human",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "induction"
+   ],
+   "direction": "+",
+   "summary": "Healthy subjects in 3 T and 7 T scanners developed nystagmus proportional to static field and independent of motion-induced voltage, polarity- and orientation-dependent, absent in labyrinthine-deficient patients, explained by a Lorentz force on endolymph."
+  }
+ ],
+ "cross_cutting_notes": "1) Decision tests. Designs that discriminate B from dB/dt/E and were run: Liburdy 1992 (Faraday multi-ring plate: Ca2+ influx followed induced E, 1.7 mV/cm = 0.17 V/m at 22 mT 60 Hz; erratum exists); Harland & Liburdy 1997 (MCF-7: B, not E); Fedele 2014 (static = 3 Hz = 50 Hz at 300 uT: B); Prato 2011 (constant B x f: dB/dt-like); Choleris 2002 (static nulling and E screening do not reproduce shielding); Prato 1996 and Blackman 1990 (angle/orientation dependence at fixed amplitude); Ishido 2001 (1.2 uT = 100 uT: saturation, so not dB/dt-scaling). Sherrard 2018's mu-metal and antiparallel-coil controls do NOT discriminate B from E because both remove B and induced E together. 2) Larmor frequency: the brief's '~1.4 MHz/mT' is a unit slip; free-electron Larmor is 28.0 MHz/mT, about 1.26 MHz at 45 uT and 1.4 MHz at 50 uT; 7 MHz RF (Usselman, Ritz) is about 5x the Larmor frequency of the ~45 uT static field. 3) Therapeutic relevance: B-driven mechanisms in this scope operate at much lower B (0.02 uT to 0.5 mT) than typical PEMF peaks (1-50 mT) or need static B0 plus orientation; the radical-pair mT-scale effects (B1/2 = 18 mT) are the one place where PEMF peak fields overlap, but they need light-activated flavin and have not been tested with pulses. 4) Credibility context (not added as refs because not in PubMed; read via fetched summaries): WHO EHC 238 (2007) restates IARC 2B for >0.3-0.4 uT childhood leukaemia and says no accepted mechanism and established acute effects only well above 100 uT via induced E and currents; SCENIHR 2015 (final opinion page) says no mechanisms identified and no experimental support for the leukaemia association. ICNIRP 2010 (existing ref icnirp2010) numbers were taken from a fetched summary of the guideline text. 5) Gaps: Fitzsimmons CMF B_ac/B_dc not retrieved (abstracts only); Hore 2012 comment, Lednev 1995 comment, Liboff 2002 comment and a Russian-language Deriugina 1996 precursor were seen but not added (no abstracts or duplicates of added refs); Dobson 2008 and Kirschvink 1996 (microwave magnetite) were judged out of scope; existing refs hore2016, barnes2015, wang2017, kirschvink1992, adair1991, liboff2009, liboff2010, pall2013, pall2022, weaver1990, gabriel1996, thomas2007 were cited but not re-read in this pass. 6) weintraub2009 (existing, PMID 19577022) is the PEMF diabetic-neuropathy study; the SMF insole RCT added here is Weintraub 2003 (PMID 12736891). 7) Liburdy-lab caution: the 1992 FEBS paper (PMID 1333413) carries an erratum (PMID 10930587, FEBS Lett 478(3):304, 2000), content not seen; the 1993 and 1997 MCF-7 papers share the senior author but were independently supported by Blackman 2001, Ishido 2001 and Girgert 2005/2010."
+}

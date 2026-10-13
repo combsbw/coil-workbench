@@ -1,0 +1,2993 @@
+{
+ "scope": "Adenosine A2A/A3 receptors, inflammation/immune signalling (NF-kB, cytokines, macrophages, lymphocytes, neutrophils, mast cells, microglia), TRPC1-mitochondrial targets and ELF safety side",
+ "targets": [
+  {
+   "id": "adenosine_A2A_A3_upregulation",
+   "name": "Adenosine A2A / A3 receptor up-regulation (Bmax, cAMP, anti-inflammatory signalling)",
+   "level": "biochemical",
+   "modalities": [
+    "wound/inflammation resolution",
+    "bone & cartilage repair",
+    "pain relief",
+    "neuro-modulation/neuroprotection"
+   ],
+   "driver": "unresolved",
+   "driver_explanation": "Within the Ferrara/IGEA work the receptor-density effect is dose-like in amplitude and exposure time: in human neutrophils 0.2 and 0.5 mT were insufficient, 1 mT gave a significant A2A increase and 1.5-3.5 mT was a plateau (secondary source: Varani 2017 review of Varani 2002/2003), and in rat cortex 1.5 mT needed about 4 h whereas 3 mT gave the same ~2-fold rise after 2 h (Varani 2012 abstract). Amplitude was varied at fixed 75 Hz and 1.3 ms pulse, so B and dB/dt (and E) co-vary and the studies cannot separate them; frequency, pulse width and waveform were never varied. Receptor involvement itself does not seem waveform-specific: an independent group using a PhysioStim-like waveform (3.85 kHz pulses, 10 T/s slew, 4 h/day) found that CRISPR loss of A2A/A3 blunted PEMF-driven osteoblast differentiation (Kar 2021), but receptor density was not measured there. The A2A/A3 up-regulation literature is essentially one consortium; one independent tendon-cell study did not reach significance (Colombini 2020).",
+   "discriminating_evidence": [
+    {
+     "pmid": "11976268",
+     "refkey": "varani2002",
+     "design_feature": "Amplitude, time and temperature varied at fixed 75 Hz / 1.3 ms; human neutrophils (abstract only; amplitude series via Varani 2017 review)",
+     "finding": "A2A Bmax 126+-10 -> 215+-15 fmol/mg after 1 h; effect intensity-, time- and temperature-dependent; Kd unchanged. Review: no effect at 0.2-0.5 mT, effect from 1 mT, plateau 1.5-3.5 mT, rise between 30 and 120 min, stable to 240 min."
+    },
+    {
+     "pmid": "22012856",
+     "refkey": "varani2012",
+     "design_feature": "Amplitude x exposure-time matrix (1.5 vs 3 mT; 2/4/6 h) in rat cortex and cortical neurons (abstract only)",
+     "finding": "Cortical A2A about doubled at both amplitudes, but 1.5 mT needed 4 h and 3 mT needed 2 h; effect transient in intact organ, constant in isolated membranes (1.9- and 2.2-fold after 2 h). A1 and A2A mRNA unchanged. Verifies the \"doubling at 1.5-3 mT\" statement (2.0-fold) and shows an amplitude-time trade-off."
+    },
+    {
+     "pmid": "23741498",
+     "refkey": "vincenzi2013",
+     "design_feature": "Single amplitude (1.5 mT chondrocytes, 2.5 mT osteoblasts), single 24 h duration; probe-coil measurement of induced voltage (full text)",
+     "finding": "A2A and A3 mRNA/protein/Bmax about 2.1-2.3x, Kd, A1 and A2B unchanged; functional gain in cAMP responses and PGE2/IL-6/IL-8/NF-kB suppression. No amplitude or frequency comparison; but full methods allow dB/dt to be computed."
+    },
+    {
+     "pmid": "33630907",
+     "refkey": null,
+     "design_feature": "Independent group, different waveform (PhysioStim-like, 3.85 kHz, 10 T/s slew, 4 h/day for up to 16 days); CRISPR knock-out/knock-in of Adora2A and Adora3 in MC3T3-E1 (full text)",
+     "finding": "Adora3 disruption markedly blunted PEMF-induced alkaline phosphatase and several osteoblast genes; Adora2A disruption delayed it and blunted cFos/Pthr1; Adora3 knock-in restored the response. Shows A2A/A3 dependence for a waveform with ~5x the Ferrara dB/dt, but did not measure receptor density; no B value given."
+    },
+    {
+     "pmid": "32998161",
+     "refkey": "colombini2020",
+     "design_feature": "Independent group, same nominal 1.5 mT / 75 Hz / 10% duty, 48 h, human tendon cells (full text)",
+     "finding": "A2A Bmax rose 28.7 -> 53.3 fmol/mg (84.4 -> 135.8 with IL-1b) but not significantly; ADORA2A mRNA fell with IL-1b + PEMF (feedback); PGE2 and IL-6 fell only slightly. Partial null or cell-type/duration dependence."
+    },
+    {
+     "pmid": "42737802",
+     "refkey": null,
+     "design_feature": "Independent Korean group, different device (Corefacial), UVB fibroblasts, abstract only",
+     "finding": "PEMF restored A2AAR/PKA/cAMP and reduced IL-1b/NF-kB/MMP; authors state the data are consistent with but do not prove A2AAR involvement. PEMF parameters not in the abstract."
+    }
+   ],
+   "thresholds": [
+    {
+     "role": "no_effect_below",
+     "endpoint": "A2A receptor density (Bmax) in human neutrophils",
+     "preparation": "Human neutrophils (Varani 2002/2003 as summarised in Varani 2017 review)",
+     "evidence_type": "invitro",
+     "B_pk_mT": 0.5,
+     "B_note": "Highest amplitude with no significant effect (0.2 and 0.5 mT tested), per review text; peak vs average not specified",
+     "freq_Hz": 75,
+     "waveform": "quasi-rectangular pulses (Ferrara/IGEA)",
+     "pulse_width_ms": 1.3,
+     "burst": "~10% duty",
+     "exposure": "1 h",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "28255202",
+     "refkey": null,
+     "source_depth": "fulltext",
+     "note": "Secondary source (review); primary methods of Varani 2002 not read (abstract only; PMC retrieval blocked). Frequency and pulse width are the Ferrara standard, not verified from the primary paper."
+    },
+    {
+     "role": "lowest_effective",
+     "endpoint": "A2A receptor density in human neutrophils",
+     "preparation": "Human neutrophils",
+     "evidence_type": "invitro",
+     "B_pk_mT": 1.0,
+     "B_note": "Reported amplitude per review; peak vs mean not specified",
+     "freq_Hz": 75,
+     "waveform": "quasi-rectangular pulses (Ferrara/IGEA)",
+     "pulse_width_ms": 1.3,
+     "burst": "~10% duty",
+     "exposure": "30-120 min (rise); elevated by 90 min, stable to 240 min",
+     "schedule": "",
+     "dBdt_T_s": 1.36,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "not computed (neutrophil suspension geometry unknown)",
+     "static_B0_uT": null,
+     "pmid": "28255202",
+     "refkey": "varani2002",
+     "source_depth": "fulltext",
+     "note": "dB/dt computed ONLY by linear scaling of the measured 2.04 T/s at 1.5 mT (same coil/waveform assumed): 1.0/1.5 x 2.04 = 1.36 T/s. Primary-paper dose-response data not read."
+    },
+    {
+     "role": "plateau",
+     "endpoint": "A2A receptor density in human neutrophils",
+     "preparation": "Human neutrophils",
+     "evidence_type": "invitro",
+     "B_pk_mT": 1.5,
+     "B_note": "Lower edge of the 1.5-3.5 mT plateau (upper edge 3.5 mT), per review text",
+     "freq_Hz": 75,
+     "waveform": "quasi-rectangular pulses (Ferrara/IGEA)",
+     "pulse_width_ms": 1.3,
+     "burst": "~10% duty",
+     "exposure": "1-4 h",
+     "schedule": "",
+     "dBdt_T_s": 2.04,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "28255202",
+     "refkey": "varani2002",
+     "source_depth": "fulltext",
+     "note": "Computed from the 1.5 mT Vincenzi 2013 probe-coil measurement (2.04 T/s); 3.5 mT would scale to ~4.8 T/s if the waveform is unchanged (computed, not reported). Two-fold receptor density went with ~4-fold agonist potency gain and enhanced superoxide inhibition (review)."
+    },
+    {
+     "role": "lowest_effective",
+     "endpoint": "A2A Bmax ~2-fold in intact rat cerebral cortex",
+     "preparation": "Rat cortex (intact tissue) and cortical neurons",
+     "evidence_type": "animal",
+     "B_pk_mT": 1.5,
+     "B_note": "Amplitude as stated in abstract; peak vs mean not specified",
+     "freq_Hz": null,
+     "waveform": "pulsed (Ferrara system; frequency/pulse width not stated in the abstract)",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "4 h (2.0-fold in intact cortex); 6 h 1.4- to 1.8-fold",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "22012856",
+     "refkey": "varani2012",
+     "source_depth": "abstract_only",
+     "note": "At 1.5 mT the effect needed ~4 h. Effect was transient in the whole organ. Isolated membranes: 1.9-fold after 2 h at 1.5 mT, constant thereafter."
+    },
+    {
+     "role": "plateau",
+     "endpoint": "A2A Bmax in rat cortex/cortical neurons",
+     "preparation": "Rat cortex and cortical neurons",
+     "evidence_type": "animal",
+     "B_pk_mT": 3.0,
+     "B_note": "Amplitude as stated in abstract",
+     "freq_Hz": null,
+     "waveform": "pulsed (Ferrara system; frequency/pulse width not stated in the abstract)",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "2 h (2.0- and 2.2-fold); 4 h 1.6- and 1.9-fold",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "22012856",
+     "refkey": "varani2012",
+     "source_depth": "abstract_only",
+     "note": "Same ~2-fold ceiling reached in half the time at 2x the amplitude; effect declines with longer exposure in whole organ (1.6- to 1.9-fold at 4 h)."
+    },
+    {
+     "role": "optimal",
+     "endpoint": "A2A and A3 Bmax ~2.1-2.3x, cAMP and PGE2/IL-6/IL-8 modulation",
+     "preparation": "T/C-28a2 human chondrocytes",
+     "evidence_type": "invitro",
+     "B_pk_mT": 1.5,
+     "B_note": "1.5 +- 0.1 mT, measured in air with a Hall probe (+-1% uniformity); peak",
+     "freq_Hz": 75,
+     "waveform": "quasi-rectangular / near-triangular pulse (edge ~0.74 ms implied)",
+     "pulse_width_ms": 1.3,
+     "burst": "duty ~10%",
+     "exposure": "24 h",
+     "schedule": "",
+     "dBdt_T_s": 2.04,
+     "dBdt_basis": "computed",
+     "E_V_m": 0.044,
+     "E_basis": "computed",
+     "E_geometry": "Dish/flask-scale peak E at the edge: (r/2)*dB/dt with r = 0.043 m (flask 9.2 x 8.2 cm, Merighi 2024), field assumed normal to the monolayer; NOT cell-scale",
+     "static_B0_uT": null,
+     "pmid": "23741498",
+     "refkey": "vincenzi2013",
+     "source_depth": "fulltext",
+     "note": "Operating point, not a determined optimum: only one amplitude/duration was tested. Computed dB/dt = V/(N*A) = 2.0e-3 V /(50 x pi x (2.5e-3 m)^2) = 2.04 T/s from the reported induced voltage 2.0+-0.5 mV in a 50-turn, 0.5 cm ID probe coil. 1.5 mT / 2.04 T/s implies an edge time ~0.74 ms."
+    },
+    {
+     "role": "optimal",
+     "endpoint": "A2A and A3 Bmax ~2.2-2.4x",
+     "preparation": "hFOB 1.19 human osteoblasts",
+     "evidence_type": "invitro",
+     "B_pk_mT": 2.5,
+     "B_note": "2.5 +- 0.2 mT, Hall probe in air; peak",
+     "freq_Hz": 75,
+     "waveform": "quasi-rectangular pulses",
+     "pulse_width_ms": 1.3,
+     "burst": "duty ~10%",
+     "exposure": "24 h",
+     "schedule": "",
+     "dBdt_T_s": 3.4,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "23741498",
+     "refkey": "vincenzi2013",
+     "source_depth": "fulltext",
+     "note": "dB/dt scaled linearly from the 1.5 mT measurement (2.5/1.5 x 2.04 = 3.4 T/s) because the induced voltage was reported for the 2.0 mV set-up only; the exact coil setting for the osteoblast voltage is not separately stated. Only one amplitude tested."
+    },
+    {
+     "role": "lowest_effective",
+     "endpoint": "A2A Bmax and IL-1b-potentiated A2A (664-708 fmol/mg) with cAMP, PGE2, IL-6, IL-8 modulation",
+     "preparation": "Chondrocytes and osteoblasts +- IL-1b 1 ng/ml (48 h)",
+     "evidence_type": "invitro",
+     "B_pk_mT": 1.5,
+     "B_note": "",
+     "freq_Hz": 75,
+     "waveform": "pulsed",
+     "pulse_width_ms": 1.3,
+     "burst": "",
+     "exposure": "24 h",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "23741498",
+     "refkey": "vincenzi2013",
+     "source_depth": "fulltext",
+     "note": "PEMF plus IL-1b raised A2A Bmax to 664+-56 (chondrocytes) and 708+-62 (osteoblasts) fmol/mg: potentiation of the inflammatory-induced receptor expression."
+    },
+    {
+     "role": "loss_above",
+     "endpoint": "A2A receptor density (not significant) and mRNA (down-regulated with IL-1b)",
+     "preparation": "Human tendon cells +- IL-1b",
+     "evidence_type": "invitro",
+     "B_pk_mT": 1.5,
+     "B_note": "Nominal; not independently confirmed by me",
+     "freq_Hz": 75,
+     "waveform": "pulsed, 10% duty (coils 1000 turns)",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "48 h",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "32998161",
+     "refkey": "colombini2020",
+     "source_depth": "fulltext",
+     "note": "Not a threshold: the only non-significant Bmax change at the nominal Ferrara dose. Possible duration (48 h, feedback down-regulation of ADORA2A mRNA) or tendon-cell dependence. The paper cites 8-12 h as dose-dependent exposures in tendon cells."
+    },
+    {
+     "role": "lowest_effective",
+     "endpoint": "Neuroprotection / ROS reduction via A2A-linked pathways",
+     "preparation": "N9 microglia, SH-SY5Y, PC12",
+     "evidence_type": "invitro",
+     "B_pk_mT": 1.5,
+     "B_note": "1.5 +- 0.2 mT; peak",
+     "freq_Hz": 75,
+     "waveform": "pulsed",
+     "pulse_width_ms": 1.3,
+     "burst": "duty 0.1",
+     "exposure": "4-72 h; N9 microglia 24 h reduced ROS by 33-39%; 90 min preserved mitochondrial membrane potential",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "39684558",
+     "refkey": "merighi2024",
+     "source_depth": "fulltext",
+     "note": "Protection of SH-SY5Y viability appeared only 6 h after a 24 h exposure."
+    }
+   ],
+   "window_summary": "Receptor up-regulation: threshold ~1 mT (neutrophils; 0.2-0.5 mT ineffective), plateau 1.5-3.5 mT at 75 Hz / 1.3 ms; exposure must be at least 30-120 min in neutrophils and 2-4 h in rat cortex; common operating point 1.5-2.5 mT, 24 h. Computed dB/dt at 1.5 mT ~2.0 T/s (from a measured 2.0 mV probe voltage); dish-scale E ~0.04 V/m (computed). No frequency, pulse-width or dB/dt comparison exists.",
+   "replication_status": "Essentially a single consortium (Ferrara/Borea/Varani/Vincenzi/Gessi/Merighi with IGEA co-authors); independent support partial (Colombini 2020 not significant; Kar 2021 functional dependence only; Byun 2026 abstract-level). No independent null of Bmax found in PubMed searches.",
+   "confidence": "medium",
+   "caveats": "Varani 2002 and Yap 2019 primary methods could not be read (Europe PMC rate-limited). Neutrophil dose-response numbers are from a review. Rat cortex frequency/pulse width not in abstract. Peak vs mean B not specified in the abstracts. Computed dB/dt relies on one probe-coil voltage and an assumed uniform scaling; E is dish-scale only and orientation of the coil to the monolayer is ambiguous."
+  },
+  {
+   "id": "nfkb_cytokine_prostaglandin_axis",
+   "name": "NF-kB / TNF-a / IL-1b / IL-6 / PGE2 / COX-2 anti-inflammatory axis",
+   "level": "cellular",
+   "modalities": [
+    "wound/inflammation resolution",
+    "pain relief",
+    "bone & cartilage repair"
+   ],
+   "driver": "unresolved",
+   "driver_explanation": "Anti-inflammatory effects are reported over a very wide range: 4 uT at 5 Hz (Selvam), 1 mT at 50 Hz (Vianale), 1.5 mT at 75 Hz pulses (Ferrara) and ~4 mT square wave at 5-8 Hz (Ross), while the same readouts go the other way at 0.8-1 mT sine 50-60 Hz in macrophages (Kim 2017, Frahm 2006). The only within-study frequency comparison (Ross 2013, ~4 mT, 5-30 Hz) found effect at 5.1-7.8 Hz and none at 10.8 Hz and above at fixed amplitude, i.e. a frequency window that does not scale with dB/dt (dB/dt rises with f). No study varied B and dB/dt independently in these readouts. The best candidates for the discriminating variable are frequency/pulse pattern (Ross; Chen 2021) and amplitude windows (Wang 2017; Sukumar 2026), but each rests on single groups.",
+   "discriminating_evidence": [
+    {
+     "pmid": "23576877",
+     "refkey": "ross2013",
+     "design_feature": "Frequency series 5.1-30 Hz at fixed ~4 mT, 50% duty square wave, 1 h, LPS-challenged RAW264.7 (full text)",
+     "finding": "5.1 and 7.8 Hz: TNF-a about -37%; 5.1 Hz: NF-kB about -60%; 10.8, 15.6, 20.8, 23.4 and 30 Hz: no effect. Effect does not increase with dB/dt: window at lowest frequencies. Edge time not reported so dB/dt not computable."
+    },
+    {
+     "pmid": "26151161",
+     "refkey": null,
+     "design_feature": "5 Hz vs 13 Hz comparison in CHO mu-opioid cells (abstract only)",
+     "finding": "5 Hz stimulated a cAMP reduction larger than morphine (+23%), 13 Hz behaved like control. Supports narrow low-frequency window; same group."
+    },
+    {
+     "pmid": "17537462",
+     "refkey": "selvam2007",
+     "design_feature": "In vivo adjuvant arthritis, 4 uT at 5 Hz, 90 min (abstract only)",
+     "finding": "Lymphocyte PMCA activity and intracellular Ca2+ restored and PGE2 reduced at microtesla amplitude; indicates effects far below the mT regime (dB/dt computed ~1.3e-4 T/s)."
+    },
+    {
+     "pmid": "18410412",
+     "refkey": "vianale2008",
+     "design_feature": "1 mT, 50 Hz sine in HaCaT, 1 h and 72 h (abstract only)",
+     "finding": "NF-kB p65 nearly undetectable after 1 h; RANTES/MCP-1/MIP-1a/IL-8 down after 72 h; cell growth up at 48 h."
+    },
+    {
+     "pmid": "28370033",
+     "refkey": null,
+     "design_feature": "0.8 mT, 60 Hz in RAW264.7 (abstract only)",
+     "finding": "Opposite polarity: NO, TNF-a, IL-1b, IL-6 up, NF-kB nuclear translocation, NFAT2 and Ca2+ influx up; antioxidant treatment worsened it. Inverse effect at B similar to Vianale."
+    },
+    {
+     "pmid": "16598759",
+     "refkey": null,
+     "design_feature": "50 Hz, 1.0 mT; 0.05-1.0 mT for free radicals (abstract only)",
+     "finding": "IL-1b 12.3-fold at 24 h, phagocytosis 1.6-fold at 45 min; free-radical formation significant at all tested flux densities 0.05-1.0 mT (45 min)."
+    },
+    {
+     "pmid": "25199571",
+     "refkey": "taylor2015",
+     "design_feature": "Human post-operative dosing comparison (abstract only)",
+     "finding": "Q4 (20 min per 4 h) and Q2 (15 min per 2 h) schedules worked, a 5 min per 20 min schedule did not: schedule matters, more frequent short exposures lost the effect. Device parameters not given in abstract."
+    },
+    {
+     "pmid": "18640059",
+     "refkey": null,
+     "design_feature": "75 Hz, 1.5 mT, 24 h, bovine synovial fibroblasts +- adenosine deaminase (abstract)",
+     "finding": "EMF lowered TNF-a/LPS-stimulated PGE2 and COX-2; the EMF effect was lost when endogenous adenosine was removed with adenosine deaminase -> adenosine-dependent."
+    }
+   ],
+   "thresholds": [
+    {
+     "role": "lowest_effective",
+     "endpoint": "TNF-a (-37%) and NF-kB (-60% at 5.1 Hz)",
+     "preparation": "RAW264.7 + LPS, Helmholtz coils 14 cm diameter, 2400 turns",
+     "evidence_type": "invitro",
+     "B_pk_mT": 4.0,
+     "B_note": "Reported \"about 40 G\" = 4 mT; waveform amplitude (square wave), peak assumed",
+     "freq_Hz": 5.1,
+     "waveform": "square wave, 50% duty",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "1 h",
+     "schedule": "single exposure, cells challenged with LPS (3 h pre-challenge)",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "23576877",
+     "refkey": "ross2013",
+     "source_depth": "fulltext",
+     "note": "Edge time not reported, so dB/dt and E left null. 7.8 Hz also effective for TNF-a."
+    },
+    {
+     "role": "loss_above",
+     "endpoint": "TNF-a / NF-kB suppression disappears",
+     "preparation": "RAW264.7 + LPS",
+     "evidence_type": "invitro",
+     "B_pk_mT": 4.0,
+     "B_note": "",
+     "freq_Hz": 10.8,
+     "waveform": "square wave, 50% duty",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "1 h",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "23576877",
+     "refkey": "ross2013",
+     "source_depth": "fulltext",
+     "note": "No effect at 10.8, 15.6, 20.8, 23.4 or 30 Hz at the same amplitude (frequency window, not an amplitude window)."
+    },
+    {
+     "role": "lowest_effective",
+     "endpoint": "PMCA activity, lymphocyte Ca2+, PGE2 in adjuvant arthritis",
+     "preparation": "Rats with adjuvant arthritis",
+     "evidence_type": "animal",
+     "B_pk_mT": 0.004,
+     "B_note": "4 uT as given in abstract; peak vs rms not stated",
+     "freq_Hz": 5,
+     "waveform": "not stated",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "90 min",
+     "schedule": "",
+     "dBdt_T_s": 0.000126,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "17537462",
+     "refkey": "selvam2007",
+     "source_depth": "abstract_only",
+     "note": "Computed assuming a sine wave with 4 uT as peak: dB/dt = 2*pi*5*4e-6 = 1.26e-4 T/s. If 4 uT is rms multiply by 1.41. Waveform unknown, so treat as a lower bound only."
+    },
+    {
+     "role": "optimal",
+     "endpoint": "NF-kB p65 down (1 h), chemokines down (72 h), growth up (48 h)",
+     "preparation": "HaCaT keratinocytes",
+     "evidence_type": "invitro",
+     "B_pk_mT": 1.0,
+     "B_note": "1 mT as stated; peak vs rms not stated",
+     "freq_Hz": 50,
+     "waveform": "sinusoidal (50 Hz ELF)",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "1 h to 72 h",
+     "schedule": "",
+     "dBdt_T_s": 0.314,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "18410412",
+     "refkey": "vianale2008",
+     "source_depth": "abstract_only",
+     "note": "Computed assuming 1 mT is sine peak: 2*pi*50*1e-3 = 0.314 T/s. Operating point; no amplitude comparison."
+    },
+    {
+     "role": "optimal",
+     "endpoint": "PGE2 and COX-2 inhibition (TNF-a/LPS stimulated)",
+     "preparation": "Bovine synovial fibroblasts",
+     "evidence_type": "invitro",
+     "B_pk_mT": 1.5,
+     "B_note": "",
+     "freq_Hz": 75,
+     "waveform": "pulsed (Ferrara system)",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "24 h",
+     "schedule": "",
+     "dBdt_T_s": 2.04,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "18640059",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "dB/dt borrowed from the 1.5 mT measurement in Vincenzi 2013 (same group/coil design), not measured in this paper."
+    },
+    {
+     "role": "lowest_effective",
+     "endpoint": "PGE2, IL-6, IL-8 down, IL-10 up",
+     "preparation": "Human OA synovial fibroblasts + IL-1b",
+     "evidence_type": "invitro",
+     "B_pk_mT": null,
+     "B_note": "",
+     "freq_Hz": null,
+     "waveform": "",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "21830213",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Amplitude, frequency and duration not stated in the abstract; Ferrara system."
+    },
+    {
+     "role": "lowest_effective",
+     "endpoint": "IL-1b in CSF (up to 10-fold lower at 6 h)",
+     "preparation": "Rat traumatic brain injury",
+     "evidence_type": "animal",
+     "B_pk_mT": null,
+     "B_note": "",
+     "freq_Hz": null,
+     "waveform": "",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "22503903",
+     "refkey": "rasouli2012",
+     "source_depth": "abstract_only",
+     "note": "B and frequency not given in the abstract."
+    },
+    {
+     "role": "loss_above",
+     "endpoint": "Post-operative pain/narcotic benefit lost with 5 min per 20 min schedule",
+     "preparation": "Human post-operative patients",
+     "evidence_type": "human_rct",
+     "B_pk_mT": null,
+     "B_note": "",
+     "freq_Hz": null,
+     "waveform": "",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "5 min every 20 min failed; 20 min per 4 h and 15 min per 2 h worked",
+     "schedule": "VAS at 24 h 87% (failed) vs 74% of the 1 h value (effective)",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "25199571",
+     "refkey": "taylor2015",
+     "source_depth": "abstract_only",
+     "note": "Schedule-dependence (too-frequent short exposure lost the effect); B and frequency not given in the abstract."
+    },
+    {
+     "role": "adverse",
+     "endpoint": "Pro-inflammatory activation: NO, TNF-a, IL-1b, IL-6, NF-kB nuclear translocation, NFAT2, Ca2+ influx",
+     "preparation": "RAW264.7 macrophages",
+     "evidence_type": "invitro",
+     "B_pk_mT": 0.8,
+     "B_note": "0.8 mT as stated; peak vs rms not stated",
+     "freq_Hz": 60,
+     "waveform": "sinusoidal ELF",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0.302,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "28370033",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Computed assuming sine peak: 2*pi*60*0.8e-3 = 0.302 T/s."
+    },
+    {
+     "role": "adverse",
+     "endpoint": "IL-1b release 12.3-fold (24 h), phagocytosis 1.6-fold (45 min), free radicals (0.05-1.0 mT, 45 min)",
+     "preparation": "Mouse macrophages",
+     "evidence_type": "invitro",
+     "B_pk_mT": 1.0,
+     "B_note": "1.0 mT as stated; free radical rise also at 0.05 mT",
+     "freq_Hz": 50,
+     "waveform": "sinusoidal ELF",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "45 min to 24 h",
+     "schedule": "",
+     "dBdt_T_s": 0.314,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "16598759",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Computed assuming sine peak 1.0 mT. Apparently no genotoxicity (micronuclei unchanged at 12-48 h)."
+    }
+   ],
+   "window_summary": "Anti-inflammatory window is frequency/pattern-specific rather than a clear B or dB/dt window: effective at 5-8 Hz (~4 mT square wave), 50 Hz sine (1 mT), 75 Hz pulses (1.5 mT) and 5 Hz at 4 uT, but pro-inflammatory with 50-60 Hz sine at 0.8-1 mT in macrophages. Computed sine dB/dt of the effective and adverse cases overlaps (0.3 T/s), so dB/dt alone does not separate them.",
+   "replication_status": "Mixed: several groups report suppression (Ross, Vianale, Ferrara, Selvam) with different devices, but each parameter set is single-lab; contradictory pro-inflammatory results from independent labs (Kim 2017, Frahm 2006).",
+   "confidence": "low",
+   "caveats": "Most records abstract-only. Rohde 2015 (exudate IL-1b 5-fold higher in sham at 24 h; pain 2x at 5 h and 4x at 72 h) and Taylor 2015 do not give device parameters in the abstracts; device type not verified. Peak vs rms of ELF sine amplitudes not specified in several abstracts."
+  },
+  {
+   "id": "macrophage_polarisation_amplitude_pattern",
+   "name": "Macrophage M1/M2 polarisation (including inverse, pro-inflammatory effects)",
+   "level": "cellular",
+   "modalities": [
+    "wound/inflammation resolution",
+    "bone & cartilage repair",
+    "muscle/tendon recovery"
+   ],
+   "driver": "waveform_spectral",
+   "driver_explanation": "Chen 2021 compared 22 blinded fields at near-identical fundamental frequency (51.8 vs 52.3 Hz) and amplitude (6-282 uT at 6 mm) and found that the send/pause pulse-burst pattern flipped M1 vs M2 outcomes, which cannot be explained by B or by dB/dt computed from the fundamental alone. Amplitude windows are additionally suggested: Sukumar 2026 (pulse barrage, 0-3 mT) found maximal M1 activation at 3 mT after one 10-min exposure whereas earlier work at uT-1.5 mT was anti-inflammatory; Wang 2017 (15 Hz, 0.5-3 mT) found opposite effects on osteoclast-lineage RAW264.7 cells at 0.5 and 3 mT. Each is a single lab, and none separates B from dB/dt.",
+   "discriminating_evidence": [
+    {
+     "pmid": "34821733",
+     "refkey": null,
+     "design_feature": "22 blinded fields (Somagen), B 6-282 uT, fundamental 3.3-90.6 Hz, 7 or 30 min, PBMC-derived macrophages (full text)",
+     "finding": "Field A (51.8 Hz) M1-like (pSTAT1 x2.9, CD86 x2.0, ROS x1.4); field B (52.3 Hz) M2-like (arginase x2.6); differ in send-pause burst pattern, not in fundamental or amplitude. Extending 7 to 30 min did not raise marker effects, but cytokine secretion did."
+    },
+    {
+     "pmid": "42549352",
+     "refkey": "sukumar2026",
+     "design_feature": "Amplitude series 0, 0.5-3 mT drive, 15 Hz pulse barrage, single 10 min, 24 h read-out; TRPC1 and aminoglycoside/SKF-96365/2-APB blockers (full text)",
+     "finding": "3 mT (vs 0 and 2 mT) gave strongest M1 markers (iNOS, CD86 up; PPAR-gamma, arginase down) in RAW264.7 and BMDM and repolarised IL-4 M2 cells; blocked by TRPC1 inhibitors. In vivo 4T1 tumours: 3 mT, 30 min twice weekly, 3 of 4 mice tumour free at 2 weeks (n=4)."
+    },
+    {
+     "pmid": "28741320",
+     "refkey": null,
+     "design_feature": "Intensity series 0.5/1/2/3 mT at 15 Hz, 2 h/day for 7 days, RAW264.7 + RANKL (abstract)",
+     "finding": "0.5 mT inhibits osteoclast formation and resorption, 3 mT enhances resorption via apoptosis (BAX up): an explicit intensity window with opposite sign."
+    },
+    {
+     "pmid": "32596310",
+     "refkey": null,
+     "design_feature": "In vivo synovitis mice (DMM, air pouch), 1.5 mT, 75 Hz, 10% duty (abstract)",
+     "finding": "Reduced IL-1b/TNF-a, fewer neutrophils, more macrophages; enhanced efferocytosis with p38 phosphorylation inhibited."
+    },
+    {
+     "pmid": "32751697",
+     "refkey": null,
+     "design_feature": "Co-culture human tendon cells (IL-1b primed) and macrophages, parameters from earlier work (abstract only)",
+     "finding": "PEMF favoured a pro-regenerative macrophage phenotype and anti-inflammatory mediators, possibly via FAK signalling."
+    }
+   ],
+   "thresholds": [
+    {
+     "role": "lowest_effective",
+     "endpoint": "M1-like activation (CD86 x2.0, pSTAT1 x2.9, ROS x1.4)",
+     "preparation": "PBMC-derived human macrophages",
+     "evidence_type": "invitro",
+     "B_pk_mT": 0.282,
+     "B_note": "Up to 282 uT as the maximum of the 22-field set at 6 mm; per-field amplitude for field A not separately recorded by me",
+     "freq_Hz": 51.8,
+     "waveform": "burst/pulse pattern with fundamental 51.8 Hz (not sinusoidal)",
+     "pulse_width_ms": null,
+     "burst": "send-pause pattern (details in paper)",
+     "exposure": "7 or 30 min",
+     "schedule": "",
+     "dBdt_T_s": 0.092,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "34821733",
+     "refkey": null,
+     "source_depth": "fulltext",
+     "note": "Computed upper bound as a sine-equivalent: 2*pi*52*282e-6 = 0.092 T/s; the actual waveform is non-sinusoidal so true dB/dt can be higher. Field B at 52.3 Hz gave an M2-like profile."
+    },
+    {
+     "role": "optimal",
+     "endpoint": "Maximal M1 markers (iNOS, CD86), repolarisation of IL-4 M2 cells",
+     "preparation": "RAW264.7 and BMDM",
+     "evidence_type": "invitro",
+     "B_pk_mT": 3.0,
+     "B_note": "3 mT drive amplitude; 2 mT and 0 mT comparators",
+     "freq_Hz": 15,
+     "waveform": "pulse barrage: 20 x 150 us on/off pulses repeated for 6 ms, ~50 us rise to maximum",
+     "pulse_width_ms": 0.15,
+     "burst": "20 pulses per 6 ms barrage at 15 Hz",
+     "exposure": "single 10 min",
+     "schedule": "read-out at 24 h; NF-kB biphasic at 0.5 and 4 h",
+     "dBdt_T_s": 17,
+     "dBdt_basis": "reported",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "42549352",
+     "refkey": "sukumar2026",
+     "source_depth": "fulltext",
+     "note": "Reported \"~17 T/s\" for 0.5-3 mT drive amplitudes; but 3 mT/50 us = 60 T/s and 1.5 mT/50 us = 30 T/s (computed), so the reported value is inconsistent with the stated rise time; flagged. E not reported."
+    },
+    {
+     "role": "lowest_effective",
+     "endpoint": "Anti-inflammatory vs pro-inflammatory crossover",
+     "preparation": "RAW264.7 macrophages (cross-study)",
+     "evidence_type": "invitro",
+     "B_pk_mT": 1.5,
+     "B_note": "Paper states prior macrophage work in uT to 1.5 mT range was anti-inflammatory (narrative); not a measured crossover in one study",
+     "freq_Hz": 15,
+     "waveform": "",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "10 min",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "42549352",
+     "refkey": "sukumar2026",
+     "source_depth": "fulltext",
+     "note": "Placeholder for the amplitude polarity inversion; not independently measured. 2 mT was weaker than 3 mT."
+    },
+    {
+     "role": "lowest_effective",
+     "endpoint": "Osteoclast formation and resorption inhibition",
+     "preparation": "RAW264.7 + RANKL",
+     "evidence_type": "invitro",
+     "B_pk_mT": 0.5,
+     "B_note": "",
+     "freq_Hz": 15,
+     "waveform": "pulsed",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "2 h/day for 7 days",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "28741320",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Waveform and edge time not given in the abstract."
+    },
+    {
+     "role": "adverse",
+     "endpoint": "Osteoclast apoptosis (BAX up), enhanced resorption at high amplitude",
+     "preparation": "RAW264.7 + RANKL",
+     "evidence_type": "invitro",
+     "B_pk_mT": 3.0,
+     "B_note": "",
+     "freq_Hz": 15,
+     "waveform": "pulsed",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "2 h/day for 7 days",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "28741320",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Opposite sign from 0.5 mT; 1 and 2 mT not detailed in the abstract."
+    },
+    {
+     "role": "optimal",
+     "endpoint": "Efferocytosis up, IL-1b/TNF-a down, synovitis score down",
+     "preparation": "C57BL/6 mice DMM synovitis and air pouch",
+     "evidence_type": "animal",
+     "B_pk_mT": 1.5,
+     "B_note": "",
+     "freq_Hz": 75,
+     "waveform": "pulse waveform",
+     "pulse_width_ms": null,
+     "burst": "10% duty",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 2.04,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "32596310",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "dB/dt borrowed from the Ferrara 1.5 mT measurement; waveform shape per abstract only \"pulse waveform\"."
+    }
+   ],
+   "window_summary": "Polarity depends on pulse pattern and amplitude: M2/anti-inflammatory with uT-1.5 mT and 5-75 Hz stimuli, M1 with a 3 mT, 15 Hz pulse barrage (reported ~17 T/s, computed 30-60 T/s) and with certain 52 Hz burst patterns at <=282 uT. Not a B or dB/dt window.",
+   "replication_status": "Single groups for each pattern (Chen/Somagen; Sukumar/NUS; Wang/China); contradictory polarity between labs is the norm.",
+   "confidence": "low",
+   "caveats": "Inverse (pro-inflammatory) effects are context dependent (tumour/infection vs injury). The Sukumar 4T1 result has n=4. Phase 1 cancer-patient safety statement is from the paper, not independently verified."
+  },
+  {
+   "id": "trpc1_ca_pgc1a_mitochondria",
+   "name": "TRPC1-Ca2+-(calcineurin/NFAT, PCAF)-PGC-1a mitochondrial biogenesis (magnetic mitohormesis)",
+   "level": "membrane/ion channel",
+   "modalities": [
+    "muscle/tendon recovery",
+    "bone & cartilage repair",
+    "wound/inflammation resolution"
+   ],
+   "driver": "combined",
+   "driver_explanation": "The response is brief and low-dose (single 10 min, 1-1.5 mT pulses at 15 Hz in Franco-Obregon group studies) and is blocked by TRPC1 knock-down or aminoglycosides. Evidence against a purely induction-driven mechanism comes from the same group: downward-directed fields outperform upward-directed ones (Wong 2022), and the response is lost with growth in the dark, magnetic shielding or upward fields (Iversen 2025, CRY2-TRPC1 axis). Both point to a vector/orientation and light-linked (radical-pair-type) component. The authors also say pulses are chosen for clinically tolerable repeated delivery; the rationale for pulses is stated as \"unclear\" in the harmonisation review, with rise time, symmetry and direction seldom reported. The device reports are internally inconsistent about 1 vs 1.5 mT. B vs dB/dt was never separated by varying frequency at fixed B.",
+   "discriminating_evidence": [
+    {
+     "pmid": "31518158",
+     "refkey": "yap2019",
+     "design_feature": "Single 10 min exposure, 1.5 mT amplitude; CRISPR TRPC1 knock-down, TRPM7 siRNA, aminoglycoside block, ambient-field deprivation (abstract only)",
+     "finding": "TRPC1-mediated Ca2+ entry, NFAT, PCAF and PGC-1a up; mitochondrial respiration up; TRPC1 knock-down abolished it, TRPM7 siRNA did not; removing ambient field lowered TRPC1 expression."
+    },
+    {
+     "pmid": "35841726",
+     "refkey": null,
+     "design_feature": "Directionally specific field (downward vs upward), 1.5 mT, 10 min (abstract)",
+     "finding": "Downward-directed field produced a greater secretome/EV response and TRPC upregulation than upward-directed; streptomycin blocked; direct exposure caused mild oxidative stress."
+    },
+    {
+     "pmid": "39937022",
+     "refkey": null,
+     "design_feature": "Dark growth, magnetic shielding, field direction and CRY2 (abstract)",
+     "finding": "Sensitivity depends on light and CRY2, and is lost with shielding or upward-directed field: vector and radical-pair-type involvement, not dB/dt alone."
+    },
+    {
+     "pmid": "32875708",
+     "refkey": null,
+     "design_feature": "Cell-derived vesicles with and without TRPC1 knock-down (abstract)",
+     "finding": "Vesicles carrying TRPC1 respond to PEMF with TRPC1-mediated Ca2+ entry; knock-down vesicles do not and can transfer responsiveness to recipient cells."
+    },
+    {
+     "pmid": "39061719",
+     "refkey": null,
+     "design_feature": "Concurrent optical and magnetic stimulation (abstract)",
+     "finding": "Magnetic plus light: supra-additive proliferation, lower ROS, higher ATP; aminoglycosides block."
+    },
+    {
+     "pmid": "36262374",
+     "refkey": "stephenson2022",
+     "design_feature": "Randomised pilot ACLR (n=10 vs 10), 1 mT peak, 10 min weekly for 16 weeks (full text)",
+     "finding": "31P-MRS Pi/PCr, (Pi+PCr)/ATP, PDE/ATP improved and ceramides fell; discussion acknowledges magnetically induced oxidative stress could be harmful in inflamed, surgically injured tissue and a small developmental depression under direct exposure."
+    },
+    {
+     "pmid": "37892906",
+     "refkey": null,
+     "design_feature": "Narrative review of efficacy windows (full text)",
+     "finding": "States that low oxidative stress (lower amplitude, frequency or duration) gives the beneficial response and higher doses the opposite; 1.5 mT/10 min for myogenesis vs 3 mT/60 min for cancer-cell killing; potency lower if exposure is applied after log-phase expansion."
+    }
+   ],
+   "thresholds": [
+    {
+     "role": "lowest_effective",
+     "endpoint": "TRPC1-Ca2+-PGC-1a activation, mitochondriogenesis, respiration",
+     "preparation": "C2C12 myoblasts",
+     "evidence_type": "invitro",
+     "B_pk_mT": 1.5,
+     "B_note": "Amplitude stated as 1.5 mT; the device is described elsewhere as \"1 mT @ 15 Hz\", so amplitude is uncertain",
+     "freq_Hz": 15,
+     "waveform": "pulse barrage per Sukumar 2026 device description: 20 x 150 us on/off pulses repeated for 6 ms, ~50 us rise",
+     "pulse_width_ms": 0.15,
+     "burst": "",
+     "exposure": "single 10 min",
+     "schedule": "",
+     "dBdt_T_s": 30,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "31518158",
+     "refkey": "yap2019",
+     "source_depth": "abstract_only",
+     "note": "Computed 1.5 mT/50 us = 30 T/s only if the device waveform is the one described in Sukumar 2026 (assumption, not shown for Yap 2019). Full text not read."
+    },
+    {
+     "role": "optimal",
+     "endpoint": "Myogenesis / mitochondria / PGC-1a",
+     "preparation": "Mouse in vivo",
+     "evidence_type": "animal",
+     "B_pk_mT": 1.5,
+     "B_note": "1.5 mT as stated",
+     "freq_Hz": 15,
+     "waveform": "per group device",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "10 min",
+     "schedule": "weekly; 6 weeks (with exercise) to >4 months",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "32627872",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Pgc-1a up after 2 months alone; oxidative muscle and fatty-acid oxidation after >4 months. Exercise alone did not raise Pgc-1a in 6 weeks."
+    },
+    {
+     "role": "optimal",
+     "endpoint": "Human mitochondrial energetics (31P-MRS), ceramides",
+     "preparation": "ACL reconstruction patients (pilot RCT)",
+     "evidence_type": "human_rct",
+     "B_pk_mT": 1.0,
+     "B_note": "1 mT peak",
+     "freq_Hz": 15,
+     "waveform": "per Franco-Obregon device",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "10 min",
+     "schedule": "weekly x 16 weeks",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "36262374",
+     "refkey": "stephenson2022",
+     "source_depth": "fulltext",
+     "note": "n=10 per arm; no dB/dt reported."
+    },
+    {
+     "role": "loss_above",
+     "endpoint": "Myogenic potency reduced / oxidative stress emerges",
+     "preparation": "Myoblasts",
+     "evidence_type": "invitro",
+     "B_pk_mT": null,
+     "B_note": "",
+     "freq_Hz": null,
+     "waveform": "",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "37892906",
+     "refkey": null,
+     "source_depth": "fulltext",
+     "note": "Review states that higher amplitude, frequency or duration shifts the response toward oxidative stress; and that 3 mT/60 min kills cancer cells. No numeric dose-response within one study; potency is lost when exposure is applied after log-phase expansion."
+    },
+    {
+     "role": "adverse",
+     "endpoint": "Mild oxidative stress with direct exposure",
+     "preparation": "Myoblasts",
+     "evidence_type": "invitro",
+     "B_pk_mT": 1.5,
+     "B_note": "",
+     "freq_Hz": 15,
+     "waveform": "",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "10 min",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "35841726",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Directly exposed cells show mild oxidative stress while conditioned medium does not."
+    },
+    {
+     "role": "lowest_effective",
+     "endpoint": "Metabolic benefit in humans",
+     "preparation": "Type 2 diabetes patients (40 adults)",
+     "evidence_type": "human_other",
+     "B_pk_mT": null,
+     "B_note": "",
+     "freq_Hz": null,
+     "waveform": "",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "10 min per visit, alternate legs, 12 weekly sessions",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "41010617",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "No overall HbA1c/glucose/HOMA-IR change; subgroup with central obesity improved (HbA1c 7.5 -> 7.1%). B not given in the abstract. Well tolerated, no adverse events."
+    }
+   ],
+   "window_summary": "Brief (10 min) exposures at ~1-1.5 mT, 15 Hz pulses, weekly; direction-, light- and TRPC1-dependent. More exposure (3 mT/60 min) or later-phase exposure reverses the benefit in the same literature (review-level). Computed dB/dt of the device is 30-60 T/s if the 50 us rise applies; not independently verified.",
+   "replication_status": "Single group (Franco-Obregon, NUS; Iversen/Yap/Sukumar/Wong), with external TRPC/CRY-related biophysics unproven; small human pilots; the T2DM study was mostly null overall.",
+   "confidence": "low",
+   "caveats": "Yap 2019 full text not read (blocked); the 1.0 vs 1.5 mT inconsistency; rise time is borrowed from Sukumar 2026. Stephenson 2022 is a pilot with n=10 per arm."
+  },
+  {
+   "id": "mitochondria_ros_redox_other_labs",
+   "name": "Mitochondrial function, ROS and antioxidant (MnSOD) adaptation: other labs",
+   "level": "cellular",
+   "modalities": [
+    "neuro-modulation/neuroprotection",
+    "wound/inflammation resolution"
+   ],
+   "driver": "unresolved",
+   "driver_explanation": "Independent labs report adaptive antioxidant (MnSOD) induction and reduced ROS after repeated short PEMF exposures (Osera 2015, Falone 2016), reduced ROS with maintained mitochondrial membrane potential (Merighi 2024) and dose-dependent mitochondrial effects with exposure time (Ivanov 2026). A 30 kHz sine-burst device showed ATP-synthesis-linked respiration stimulation but failed to rescue NO-inhibited respiration (Zavadskis 2026). Another group found a shift from mitochondrial respiration to glycolysis at 4 mT and 80 Hz (Liao 2025). There is no B vs dB/dt discrimination; the data are of the exposure-time (dose) type.",
+   "discriminating_evidence": [
+    {
+     "pmid": "42078208",
+     "refkey": null,
+     "design_feature": "Exposure time series, 1 vs 5 min/h for 10 nights, broadband pulsed device (abstract)",
+     "finding": "Antioxidant potential +8% (n.s.) at minimum exposure vs +20.6% at maximum; thymocyte mitochondrial fluorescence +29% at the maximum only: dose-dependent."
+    },
+    {
+     "pmid": "41618092",
+     "refkey": null,
+     "design_feature": "Cultures, homogenates and isolated mitochondria; 1 ms, 30 kHz sine burst (abstract)",
+     "finding": "ATP-synthesis-linked respiration selectively stimulated; no rescue of NO-inhibited respiration; blue light did rescue."
+    },
+    {
+     "pmid": "39939866",
+     "refkey": null,
+     "design_feature": "L929 fibroblasts, 4 mT, 80 Hz (abstract)",
+     "finding": "Migration/viability up, shift to glycolysis, low ROS; vesicular transport up."
+    },
+    {
+     "pmid": "26940444",
+     "refkey": null,
+     "design_feature": "2 mT, 75 Hz, 15 min x 3 over 5 days, SK-N-BE(2) (abstract)",
+     "finding": "MnSOD-based protection up and ROS down after H2O2 challenge."
+    },
+    {
+     "pmid": "25708841",
+     "refkey": null,
+     "design_feature": "10 min x 4 per week (40 min total), SH-SY5Y (abstract)",
+     "finding": "MnSOD activity up and ROS down after 30 min H2O2; B not stated in the abstract."
+    },
+    {
+     "pmid": "40575091",
+     "refkey": null,
+     "design_feature": "10 uT oscillating field at 12-33 Hz on a 45 uT static field, HT-1080 cells (abstract)",
+     "finding": "Proliferation accelerated or inhibited depending on frequency near 16.5 Hz and a 0.5 Hz or 250 nT shift: radical-pair-type sensitivity; weak-field regime."
+    }
+   ],
+   "thresholds": [
+    {
+     "role": "lowest_effective",
+     "endpoint": "MnSOD activity up, ROS down after H2O2",
+     "preparation": "SH-SY5Y human neuroblastoma",
+     "evidence_type": "invitro",
+     "B_pk_mT": null,
+     "B_note": "",
+     "freq_Hz": null,
+     "waveform": "",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "4 x 10 min per week (40 min total)",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "25708841",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Amplitude and frequency not in the abstract."
+    },
+    {
+     "role": "optimal",
+     "endpoint": "MnSOD-based protection up, ROS down",
+     "preparation": "SK-N-BE(2) drug-resistant neuroblastoma",
+     "evidence_type": "invitro",
+     "B_pk_mT": 2.0,
+     "B_note": "2 mT as stated; peak vs average not stated",
+     "freq_Hz": 75,
+     "waveform": "pulsed",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "15 min",
+     "schedule": "3 sessions over 5 days",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "26940444",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Waveform and pulse width not in abstract."
+    },
+    {
+     "role": "optimal",
+     "endpoint": "Wound-model energy metabolism shift, migration, low ROS",
+     "preparation": "L929 fibroblasts",
+     "evidence_type": "invitro",
+     "B_pk_mT": 4.0,
+     "B_note": "4 mT as stated",
+     "freq_Hz": 80,
+     "waveform": "pulsed",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "39939866",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "\"Specific parameter\" 4 mT, 80 Hz; exposure time not in abstract."
+    },
+    {
+     "role": "lowest_effective",
+     "endpoint": "Thymocyte mitochondrial fluorescence (+29%), plasma antioxidant potential (+20.6%)",
+     "preparation": "BALB/c mice (60 animals, 5 groups)",
+     "evidence_type": "animal",
+     "B_pk_mT": null,
+     "B_note": "",
+     "freq_Hz": null,
+     "waveform": "",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "5 min/h for 10 nights (maximum); 1 min/h gave +8% (n.s.)",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "42078208",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Broadband weak pulsed device (TOR); B not in abstract."
+    },
+    {
+     "role": "plateau",
+     "endpoint": "ATP-synthesis-linked respiration up; no rescue of NO-inhibited respiration",
+     "preparation": "Cells, homogenates, isolated mitochondria",
+     "evidence_type": "invitro",
+     "B_pk_mT": null,
+     "B_note": "",
+     "freq_Hz": 30000,
+     "waveform": "1 ms, 30 kHz sine wave per pulse",
+     "pulse_width_ms": 1.0,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "41618092",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Independent mitochondria study with a very different waveform; B not in abstract."
+    },
+    {
+     "role": "lowest_effective",
+     "endpoint": "Growth modulation by 10 uT oscillating field",
+     "preparation": "HT-1080 fibrosarcoma cells",
+     "evidence_type": "invitro",
+     "B_pk_mT": 0.01,
+     "B_note": "10 uT (as stated)",
+     "freq_Hz": 16.5,
+     "waveform": "oscillating magnetic field on 45 uT static field",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0.00104,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": 45,
+     "pmid": "40575091",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Computed 2*pi*16.5*10e-6 = 1.04e-3 T/s assuming a sine of 10 uT peak. Frequency shifts of 0.5 Hz or field change of 250 nT altered the sign of the effect."
+    }
+   ],
+   "window_summary": "Repeated short exposures (10-15 min) at 2 mT/75 Hz and brief weekly 1-1.5 mT/15 Hz exposures both give antioxidant adaptation; time-dependence (Ivanov) and weak-field frequency sensitivity (Bajtos) are the only discriminating hints.",
+   "replication_status": "Independent labs exist (Osera/Falone, Liao, Zavadskis, Ivanov) but with non-matching parameters; no direct replication. Searches for Calabro, Gualdi and Kuhn mitochondrial PEMF papers returned no PubMed hits and were not included.",
+   "confidence": "low",
+   "caveats": "All abstract-only. Zavadskis 2026 and Ivanov 2026 are recent single reports."
+  },
+  {
+   "id": "immune_cell_ca_signalling",
+   "name": "Immune-cell Ca2+ signalling (lymphocytes/Jurkat, thymocytes; calcineurin/NFAT)",
+   "level": "membrane/ion channel",
+   "modalities": [
+    "wound/inflammation resolution"
+   ],
+   "driver": "dBdt_E",
+   "driver_explanation": "Liburdy 1992 is the cleanest B vs E discrimination in this scope: using a multi-ring annular culture plate based on Faraday induction, thymocyte Ca2+ influx (plateau phase of mitogen signalling) depended on the induced E at constant B, and a pure 60 Hz E-field matched a magnetically induced E-field of the same strength. Independent replication of 50 Hz Jurkat Ca2+ oscillations (Lindstrom 1993 at 0.1 mT) is mixed: Mattsson 2001 found a weaker response in Jurkat cells from three sources, and a blinded multi-laboratory repeat at 0.15 mT (Wey 2000) found no difference between field, sham and no-field. McCreary 2002 found effects only after correcting for cell-cycle and anti-CD3 covariates. A 4.75 T static + 0.7 mT pulsed NMR exposure raised Ca2+ in normal lymphocytes and lowered it in Jurkat cells without pro-inflammatory output (Aldinucci 2003).",
+   "discriminating_evidence": [
+    {
+     "pmid": "1333413",
+     "refkey": null,
+     "design_feature": "Multi-ring annular culture plate: E varied at constant B; pure E-field vs magnetically induced E (abstract)",
+     "finding": "Ca2+ influx increased in the plateau phase of mitogen signalling at 22 mT, 60 Hz, E = 1.7 mV/cm; scaled with induced E; pure E matched; Ca2+ channel implicated."
+    },
+    {
+     "pmid": "8344993",
+     "refkey": null,
+     "design_feature": "50 Hz, 0.1 mT sinusoidal, single-cell fura-2 imaging, Jurkat (abstract)",
+     "finding": "Acute Ca2+ oscillations that stopped when the field was off; comparable to anti-CD3 effect."
+    },
+    {
+     "pmid": "10656853",
+     "refkey": null,
+     "design_feature": "Blinded RAPID programme repeat, 1.5 G (0.15 mT) 50 Hz, 8 min; MF vs sham vs no field (abstract)",
+     "finding": "Transient incidence 16.5 / 14.6 / 14.2% (MF / sham / no field), no significant difference: null replication of Lindstrom."
+    },
+    {
+     "pmid": "11518497",
+     "refkey": null,
+     "design_feature": "Replication with 50 Hz, 0.15 mT in Jurkat E6-1 cells from three sources (abstract)",
+     "finding": "Responses were seen but at lower percentage than the original."
+    },
+    {
+     "pmid": "11948612",
+     "refkey": null,
+     "design_feature": "60 Hz 100 uT peak, 78 uT static, combined; covariate analysis (abstract)",
+     "finding": "Effects only appeared after cell-cycle and anti-CD3 correction."
+    },
+    {
+     "pmid": "12929155",
+     "refkey": null,
+     "design_feature": "4.75 T static + 0.7 mT pulsed NMR, 1 h, human lymphocytes and Jurkat (abstract)",
+     "finding": "Ca2+ up in normal lymphocytes, down in Jurkat; no pro-inflammatory cytokines."
+    },
+    {
+     "pmid": "8986359",
+     "refkey": null,
+     "design_feature": "Model paper: activation-dependent and biphasic responses (abstract)",
+     "finding": "Proposes that effects depend on cell activation state and may be biphasic, explaining irreproducibility."
+    }
+   ],
+   "thresholds": [
+    {
+     "role": "lowest_effective",
+     "endpoint": "Ca2+ influx in mitogen-activated thymocyte plateau phase",
+     "preparation": "Rat thymic lymphocytes, 37 C",
+     "evidence_type": "invitro",
+     "B_pk_mT": 22.0,
+     "B_note": "22 mT as stated in abstract (peak vs rms not stated)",
+     "freq_Hz": 60,
+     "waveform": "sinusoidal",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "60 min",
+     "schedule": "",
+     "dBdt_T_s": 8.29,
+     "dBdt_basis": "computed",
+     "E_V_m": 0.17,
+     "E_basis": "reported",
+     "E_geometry": "Abstract reports E induced = 1.7 mV/cm (x0.1 = 0.17 V/m); position in the annular plate not specified",
+     "static_B0_uT": null,
+     "pmid": "1333413",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Computed dB/dt = 2*pi*60*22e-3 = 8.29 T/s (assuming sine peak). The abstract reports the effect scaled with induced E at constant B."
+    },
+    {
+     "role": "lowest_effective",
+     "endpoint": "Ca2+ oscillations in Jurkat",
+     "preparation": "Jurkat T cells",
+     "evidence_type": "invitro",
+     "B_pk_mT": 0.1,
+     "B_note": "0.1 mT as stated (assumed peak)",
+     "freq_Hz": 50,
+     "waveform": "sinusoidal",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0.0314,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "8344993",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Computed 2*pi*50*0.1e-3 = 0.0314 T/s."
+    },
+    {
+     "role": "no_effect_below",
+     "endpoint": "Ca2+ transients (blinded multi-lab repeat)",
+     "preparation": "Jurkat cells",
+     "evidence_type": "invitro",
+     "B_pk_mT": 0.15,
+     "B_note": "1.5 G = 0.15 mT as stated",
+     "freq_Hz": 50,
+     "waveform": "sinusoidal (bifilar coil)",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "8 min",
+     "schedule": "",
+     "dBdt_T_s": 0.0471,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "10656853",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Null at the Lindstrom conditions: computed 2*pi*50*0.15e-3 = 0.0471 T/s."
+    },
+    {
+     "role": "lowest_effective",
+     "endpoint": "In vivo lymphocyte Ca2+/PMCA restoration",
+     "preparation": "Arthritic rats",
+     "evidence_type": "animal",
+     "B_pk_mT": 0.004,
+     "B_note": "4 uT as stated",
+     "freq_Hz": 5,
+     "waveform": "",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "90 min",
+     "schedule": "",
+     "dBdt_T_s": 0.000126,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "17537462",
+     "refkey": "selvam2007",
+     "source_depth": "abstract_only",
+     "note": "Computed assuming sine peak."
+    },
+    {
+     "role": "lowest_effective",
+     "endpoint": "Calcineurin up, NFATc1 nuclear translocation down, Ca2+ oscillations suppressed",
+     "preparation": "RAW264.7 + RANKL",
+     "evidence_type": "invitro",
+     "B_pk_mT": null,
+     "B_note": "",
+     "freq_Hz": null,
+     "waveform": "",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "27856256",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "B and frequency not in the abstract; the opposite sign (NFAT2 up) was seen at 0.8 mT 60 Hz in macrophages (Kim 2017)."
+    }
+   ],
+   "window_summary": "Effects reported from 0.1 mT at 50-60 Hz (computed dB/dt 0.03-0.05 T/s) up to 22 mT (reported E 0.17 V/m); independent replications at 0.1-0.15 mT were null or weak. The E-metric experiment is the only one that tests the driver directly.",
+   "replication_status": "Contested: single-lab positives (Lindstrom, Liburdy) with weak or null independent replications (Wey blinded repeat, Mattsson, McCreary).",
+   "confidence": "medium",
+   "caveats": "Abstract-only; Liburdy dose in B (22 mT) is high relative to therapeutic or environmental 50 Hz exposures; E magnitude 0.17 V/m is the reported value."
+  },
+  {
+   "id": "neutrophil_ros_mast_cell_microglia",
+   "name": "Innate immune cells: neutrophil ROS, mast-cell degranulation, microglia",
+   "level": "cellular",
+   "modalities": [
+    "wound/inflammation resolution",
+    "neuro-modulation/neuroprotection"
+   ],
+   "driver": "unresolved",
+   "driver_explanation": "Neutrophil superoxide inhibition is tied to A2A density and shows intensity, time and temperature dependence (Varani 2002), while ELF fields at 0.1 mT enhanced the PMA burst by 12.4% in rat neutrophils (Roy 1995), so polarity depends on the stimulus and the field. Mast cells showed no response at 5 mT, 60 Hz for 0.5-2 h (Price 1998, null). Microglia (N9) show reduced TNF-a/IL-1b via JNK (Merighi 2020) and reduced ROS (Merighi 2024) with the Ferrara 1.5 mT, 75 Hz protocol. No design separated B from dB/dt.",
+   "discriminating_evidence": [
+    {
+     "pmid": "11976268",
+     "refkey": "varani2002",
+     "design_feature": "Neutrophils (abstract only)",
+     "finding": "Receptor density and agonist potency increased; superoxide inhibition by A2A agonists enhanced; intensity-, time- and temperature-dependent."
+    },
+    {
+     "pmid": "7498533",
+     "refkey": null,
+     "design_feature": "0.1 mT, 60 Hz, primed rat peritoneal neutrophils, PMA, DCFH real time (abstract)",
+     "finding": "PMA-induced burst fluorescence +12.4% under field (n=5, P<0.02)."
+    },
+    {
+     "pmid": "9554697",
+     "refkey": null,
+     "design_feature": "5 mT, 60 Hz solenoid, rat peritoneal mast cells, 30 min to 2 h, 37 C (abstract)",
+     "finding": "No degranulation and no change in 48/80 sensitivity: null."
+    },
+    {
+     "pmid": "31400640",
+     "refkey": "merighi2020",
+     "design_feature": "N9 microglia (existing library)",
+     "finding": "TNF-a and IL-1b reduced via a JNK-dependent pathway."
+    },
+    {
+     "pmid": "39684558",
+     "refkey": "merighi2024",
+     "design_feature": "N9 microglia, SH-SY5Y; time series 4-72 h (full text)",
+     "finding": "ROS reduced 33-39% after 24 h in N9; 90 min preserved membrane potential."
+    }
+   ],
+   "thresholds": [
+    {
+     "role": "lowest_effective",
+     "endpoint": "PMA-induced oxidative burst +12.4%",
+     "preparation": "Rat peritoneal neutrophils",
+     "evidence_type": "invitro",
+     "B_pk_mT": 0.1,
+     "B_note": "0.1 mT as stated",
+     "freq_Hz": 60,
+     "waveform": "sinusoidal ELF",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0.0377,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "7498533",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Computed 2*pi*60*0.1e-3 = 0.0377 T/s (assuming peak). Direction is pro-oxidant."
+    },
+    {
+     "role": "no_effect_below",
+     "endpoint": "Histamine release / sensitivity to 48/80",
+     "preparation": "Rat peritoneal mast cells",
+     "evidence_type": "invitro",
+     "B_pk_mT": 5.0,
+     "B_note": "5 mT as stated",
+     "freq_Hz": 60,
+     "waveform": "sinusoidal solenoid",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "30 min to 2 h",
+     "schedule": "",
+     "dBdt_T_s": 1.885,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "9554697",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Null at 5 mT: computed 2*pi*60*5e-3 = 1.885 T/s."
+    },
+    {
+     "role": "lowest_effective",
+     "endpoint": "ROS reduction 33-39% (24 h) in microglia",
+     "preparation": "N9 microglia",
+     "evidence_type": "invitro",
+     "B_pk_mT": 1.5,
+     "B_note": "",
+     "freq_Hz": 75,
+     "waveform": "pulsed",
+     "pulse_width_ms": 1.3,
+     "burst": "duty 0.1",
+     "exposure": "4-72 h",
+     "schedule": "",
+     "dBdt_T_s": 2.04,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "39684558",
+     "refkey": "merighi2024",
+     "source_depth": "fulltext",
+     "note": "dB/dt from the 1.5 mT probe measurement (Vincenzi 2013)."
+    },
+    {
+     "role": "lowest_effective",
+     "endpoint": "A2A agonist-mediated superoxide inhibition",
+     "preparation": "Human neutrophils",
+     "evidence_type": "invitro",
+     "B_pk_mT": 1.0,
+     "B_note": "From Varani 2017 review",
+     "freq_Hz": 75,
+     "waveform": "pulsed",
+     "pulse_width_ms": 1.3,
+     "burst": "",
+     "exposure": ">=1 h",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "11976268",
+     "refkey": "varani2002",
+     "source_depth": "abstract_only",
+     "note": ""
+    }
+   ],
+   "window_summary": "Ferrara protocol (1.5 mT, 75 Hz, 1.3 ms) reduces ROS/cytokines in neutrophils and microglia; 60 Hz sine fields at 0.1 mT increase neutrophil burst, and 5 mT does not affect mast cells.",
+   "replication_status": "Single group for the protective effects; ELF pro-oxidant and null results from separate labs.",
+   "confidence": "low",
+   "caveats": "Abstract-only for most records."
+  },
+  {
+   "id": "safety_icnirp_epidemiology",
+   "name": "Safety side: ICNIRP/IARC limits and the 0.3-0.4 uT childhood-leukaemia association",
+   "level": "tissue-neural",
+   "modalities": [
+    "wound/inflammation resolution"
+   ],
+   "driver": "unresolved",
+   "driver_explanation": "ICNIRP 2010 limits are expressed as induced E in the CNS (basic restriction) and B (reference level), i.e. they are induction-based. The childhood-leukaemia association is for 24 h average residential magnetic field categories of 0.3-0.4 uT and above (about three orders of magnitude below therapeutic mT levels); it is an epidemiological association, not shown to be causal, and the mechanism (B, dB/dt, E, contact currents, or confounding) is unknown. IARC 2002 classified ELF magnetic fields as possibly carcinogenic (2B) on this basis.",
+   "discriminating_evidence": [
+    {
+     "pmid": "10944614",
+     "refkey": null,
+     "design_feature": "Pooled analysis of 9 studies (abstract)",
+     "finding": "For <0.4 uT (99.2% of children) estimates were near the null; for >=0.4 uT (44 cases, 62 controls) RR 2.00 (1.27-3.13); selection bias may explain part."
+    },
+    {
+     "pmid": "11055621",
+     "refkey": null,
+     "design_feature": "Pooled analysis of 12 studies (abstract)",
+     "finding": ">0.3 uT vs 0-0.1 uT OR 1.7 (1.2-2.3); 0.1-0.2 and 0.2-0.3 uT showed little or no association; US population-attributable fraction 3% (-2% to 8%)."
+    },
+    {
+     "pmid": "20877339",
+     "refkey": null,
+     "design_feature": "Seven post-2000 studies, 10,865 cases (abstract)",
+     "finding": "ORs vs <0.1 uT: 1.07 (0.81-1.41) for 0.1-0.2; 1.16 (0.69-1.93) for 0.2-0.3; 1.44 (0.88-2.36) for >=0.3 uT."
+    },
+    {
+     "pmid": "29808013",
+     "refkey": null,
+     "design_feature": "Power-line proximity pooled analysis (abstract)",
+     "finding": "OR 1.33 (0.92-1.93) for <50 m from 200+ kV lines; no association with calculated magnetic field."
+    },
+    {
+     "pmid": "34481821",
+     "refkey": null,
+     "design_feature": "Pooled analysis of four recent studies (abstract)",
+     "finding": "OR 1.01 for >=0.4 uT vs <0.1 uT; the meta-analysis of the three pooled analyses gave 1.45 (0.95-2.20)."
+    }
+   ],
+   "thresholds": [
+    {
+     "role": "adverse",
+     "endpoint": "Childhood leukaemia (association, 24 h average residential field)",
+     "preparation": "Children, case-control pooled analysis",
+     "evidence_type": "human_other",
+     "B_pk_mT": 0.0004,
+     "B_note": "0.4 uT category cut-point of the 24 h average residential field (time-weighted mean, NOT a peak; if sinusoidal the peak would be ~1.41x an rms value)",
+     "freq_Hz": 50,
+     "waveform": "residential 50/60 Hz",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0.000126,
+     "dBdt_basis": "computed",
+     "E_V_m": 6.3e-06,
+     "E_basis": "computed",
+     "E_geometry": "(r/2)*dB/dt with r = 0.1 m (rough head/torso scale, assumed)",
+     "static_B0_uT": null,
+     "pmid": "10944614",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Computed 2*pi*50*0.4e-6 = 1.26e-4 T/s assuming 0.4 uT is sine amplitude. Association only; RR 2.00 (1.27-3.13) for >=0.4 uT (44 cases, 62 controls). 99.2% of children were below 0.4 uT."
+    },
+    {
+     "role": "adverse",
+     "endpoint": "Childhood leukaemia (association)",
+     "preparation": "Children, 12-study pooled analysis",
+     "evidence_type": "human_other",
+     "B_pk_mT": 0.0003,
+     "B_note": "0.3 uT category cut-point (time-weighted mean field)",
+     "freq_Hz": 50,
+     "waveform": "",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 9.4e-05,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "11055621",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "Computed 2*pi*50*0.3e-6 = 9.4e-5 T/s. OR 1.7 (1.2-2.3) vs 0-0.1 uT; no clear association below 0.3 uT."
+    },
+    {
+     "role": "adverse",
+     "endpoint": "Childhood leukaemia (association)",
+     "preparation": "Children, post-2000 studies",
+     "evidence_type": "human_other",
+     "B_pk_mT": 0.0003,
+     "B_note": ">=0.3 uT category",
+     "freq_Hz": 50,
+     "waveform": "",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "20877339",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "OR 1.44 (0.88-2.36); weaker in recent studies, imprecise."
+    },
+    {
+     "role": "safety_limit",
+     "endpoint": "ICNIRP 2010 general-public reference level for B",
+     "preparation": "Standard",
+     "evidence_type": "standard",
+     "B_pk_mT": 0.283,
+     "B_note": "200 uT rms at 50 Hz = 0.283 mT peak (converted); occupational 1000 uT rms. Values from a garbled PDF extraction: to be re-verified against the original",
+     "freq_Hz": 50,
+     "waveform": "sinusoidal rms",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": 0.0889,
+     "dBdt_basis": "computed",
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "21068601",
+     "refkey": "icnirp2010",
+     "source_depth": "abstract_only",
+     "note": "Computed from the peak: 2*pi*50*0.283e-3 = 0.0889 T/s. At 10 Hz the public reference is 500 uT rms. Pulsed therapy at 1.5 mT peak and 75 Hz is numerically ~5x the public peak value but pulse shape and duty cycle must be assessed with the induced-E restriction, not B alone."
+    },
+    {
+     "role": "safety_limit",
+     "endpoint": "ICNIRP 2010 CNS basic restriction (induced E, rms)",
+     "preparation": "Standard",
+     "evidence_type": "standard",
+     "B_pk_mT": null,
+     "B_note": "",
+     "freq_Hz": 50,
+     "waveform": "",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": 0.02,
+     "E_basis": "reported",
+     "E_geometry": "General public 0.02 V/m rms at 50 Hz; occupational 0.1 V/m; 10-25 Hz public 0.01 V/m, occupational 0.05 V/m (from a garbled PDF extraction; verify)",
+     "static_B0_uT": null,
+     "pmid": "21068601",
+     "refkey": "icnirp2010",
+     "source_depth": "abstract_only",
+     "note": "Computed dish-scale E for the Ferrara 1.5 mT pulses (~0.044 V/m) is the same order as this restriction; the cell dish is not tissue and the comparison is only a magnitude check."
+    },
+    {
+     "role": "safety_limit",
+     "endpoint": "IARC 2002 classification",
+     "preparation": "Standard",
+     "evidence_type": "standard",
+     "B_pk_mT": null,
+     "B_note": "",
+     "freq_Hz": null,
+     "waveform": "",
+     "pulse_width_ms": null,
+     "burst": "",
+     "exposure": "",
+     "schedule": "",
+     "dBdt_T_s": null,
+     "dBdt_basis": null,
+     "E_V_m": null,
+     "E_basis": null,
+     "E_geometry": "",
+     "static_B0_uT": null,
+     "pmid": "12071196",
+     "refkey": null,
+     "source_depth": "abstract_only",
+     "note": "ELF magnetic fields classed as 2B (possibly carcinogenic) based on the childhood-leukaemia association (stated in Zaryabova 2013 abstract; the IARC monograph abstract itself was not available). WHO EHC 238 (2007) and NTP 1998 were not retrievable from PubMed and are not verified."
+    }
+   ],
+   "window_summary": "Epidemiological association appears at 24 h mean residential fields of about 0.3-0.4 uT and above (OR 1.4-2.0, imprecise, weaker in recent studies); ICNIRP public reference 200 uT rms at 50 Hz and CNS induced-E restriction 0.02 V/m rms. Therapeutic pulsed mT fields are 3-4 orders of magnitude above the epidemiological category field.",
+   "replication_status": "Pooled analyses consistently show elevated but imprecise ORs at >=0.3-0.4 uT; recent pooled data show attenuation (OR 1.01 for >=0.4 uT in four recent studies); causality is not established.",
+   "confidence": "medium",
+   "caveats": "Association, not causation; selection bias and confounding (e.g. traffic, wire code) are discussed in the primary papers. A typical residential 50/60 Hz field magnitude is not quoted from a verified abstract here (Ahlbom reports 99.2% of children below 0.4 uT); ICNIRP numbers need re-verification. The IARC monograph abstract was not accessible."
+  }
+ ],
+ "new_refs": [
+  {
+   "pmid": "28255202",
+   "first_author": "Varani",
+   "authors_short": "Varani K, Vincenzi F, Ravani A, et al.",
+   "year": 2017,
+   "title": "Adenosine Receptors as a Biological Pathway for the Anti-Inflammatory and Beneficial Effects of Low Frequency Low Energy Pulsed Electromagnetic Fields.",
+   "journal": "Mediators of inflammation",
+   "citation": "2017:2740963",
+   "doi": "10.1155/2017/2740963",
+   "pmcid": "PMC5309410",
+   "type": "review",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "adenosine"
+   ],
+   "direction": "+",
+   "summary": "Review of the A2A/A3 adenosine receptor route for PEMF anti-inflammatory action; the neutrophil data it summarises give no effect at 0.2-0.5 mT, effect from 1 mT, plateau 1.5-3.5 mT and a rise over 30-120 min, with two-fold receptor density giving ~4-fold agonist potency."
+  },
+  {
+   "pmid": "21830213",
+   "first_author": "Ongaro",
+   "authors_short": "Ongaro A, Varani K, Masieri FF, et al.",
+   "year": 2012,
+   "title": "Electromagnetic fields (EMFs) and adenosine receptors modulate prostaglandin E(2) and cytokine release in human osteoarthritic synovial fibroblasts.",
+   "journal": "Journal of cellular physiology",
+   "citation": "227(6):2461-9",
+   "doi": "10.1002/jcp.22981",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "adenosine"
+   ],
+   "direction": "+",
+   "summary": "Human OA synovial fibroblasts exposed to EMF showed selective A2A/A3 up-regulation with cAMP changes, lower PGE2, IL-6 and IL-8 and higher IL-10, mediated by the receptors; no effect on matrix-degrading enzymes. Exposure parameters not in the abstract."
+  },
+  {
+   "pmid": "18640059",
+   "first_author": "De Mattei",
+   "authors_short": "De Mattei M, Varani K, Masieri FF, et al.",
+   "year": 2008,
+   "title": "Adenosine analogs and electromagnetic fields inhibit prostaglandin E2 release in bovine synovial fibroblasts.",
+   "journal": "Osteoarthritis and cartilage",
+   "citation": "17(2):252-62",
+   "doi": "10.1016/j.joca.2008.06.002",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "adenosine"
+   ],
+   "direction": "+",
+   "summary": "Bovine synovial fibroblasts exposed to 75 Hz, 1.5 mT for 24 h had lower TNF-a/LPS-stimulated PGE2 and COX-2; the EMF effect was lost when endogenous adenosine was removed with adenosine deaminase, supporting A2A up-regulation as the mediator."
+  },
+  {
+   "pmid": "14599547",
+   "first_author": "Varani",
+   "authors_short": "Varani K, Gessi S, Merighi S, et al.",
+   "year": 2003,
+   "title": "Alteration of A(3) adenosine receptors in human neutrophils and low frequency electromagnetic fields.",
+   "journal": "Biochemical pharmacology",
+   "citation": "66(10):1897-906",
+   "doi": "10.1016/s0006-2952(03)00454-4",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "adenosine"
+   ],
+   "direction": "+",
+   "summary": "Human neutrophils exposed to PEMF showed unchanged A3 affinity (KD 2.36 vs 2.45 nM) but higher receptor density (Bmax 451 to 736 fmol/mg protein); abstract gives no B value."
+  },
+  {
+   "pmid": "33126773",
+   "first_author": "Vincenzi",
+   "authors_short": "Vincenzi F, Pasquini S, Setti S, et al.",
+   "year": 2020,
+   "title": "Pulsed Electromagnetic Fields Stimulate HIF-1α-Independent VEGF Release in 1321N1 Human Astrocytes Protecting Neuron-Like SH-SY5Y Cells from Oxygen-Glucose Deprivation.",
+   "journal": "International journal of molecular sciences",
+   "citation": "21(21)",
+   "doi": "10.3390/ijms21218053",
+   "pmcid": "PMC7663527",
+   "type": "invitro",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "adenosine"
+   ],
+   "direction": "+",
+   "summary": "PEMF induced a time-dependent, HIF-1a-independent VEGF release in human astrocytes whose conditioned medium protected SH-SY5Y cells after oxygen-glucose deprivation; exposure parameters not in the abstract."
+  },
+  {
+   "pmid": "30656694",
+   "first_author": "Gessi",
+   "authors_short": "Gessi S, Merighi S, Bencivenni S, et al.",
+   "year": 2019,
+   "title": "Pulsed electromagnetic field and relief of hypoxia-induced neuronal cell death: The signaling pathway.",
+   "journal": "Journal of cellular physiology",
+   "citation": "234(9):15089-15097",
+   "doi": "10.1002/jcp.28149",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "adenosine"
+   ],
+   "direction": "+",
+   "summary": "In hypoxic PC12 cells PEMF reduced death through rapid p38 activation (30 min), HSP70, CREB phosphorylation (24 h) and later BDNF/Bcl-2 changes (48 h)."
+  },
+  {
+   "pmid": "27639248",
+   "first_author": "Vincenzi",
+   "authors_short": "Vincenzi F, Ravani A, Pasquini S, et al.",
+   "year": 2016,
+   "title": "Pulsed Electromagnetic Field Exposure Reduces Hypoxia and Inflammation Damage in Neuron-Like and Microglial Cells.",
+   "journal": "Journal of cellular physiology",
+   "citation": "232(5):1200-1208",
+   "doi": "10.1002/jcp.25606",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "nervous",
+    "immune"
+   ],
+   "mechs": [
+    "adenosine"
+   ],
+   "direction": "+",
+   "summary": "PEMF reduced hypoxia-induced cell death, apoptosis, HIF-1a and ROS in SH-SY5Y, PC12 and N9 microglia (24-48 h) and lowered TNF-a, IL-1b, IL-6 and IL-8 release from LPS-stimulated N9 cells."
+  },
+  {
+   "pmid": "40650273",
+   "first_author": "Merighi",
+   "authors_short": "Merighi S, Fernandez M, Nigro M, et al.",
+   "year": 2025,
+   "title": "PEMFs Restore Mitochondrial and CREB/BDNF Signaling in Oxidatively Stressed PC12 Cells Targeting Neurodegeneration.",
+   "journal": "International journal of molecular sciences",
+   "citation": "26(13)",
+   "doi": "10.3390/ijms26136495",
+   "pmcid": "PMC12250253",
+   "type": "invitro",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "adenosine"
+   ],
+   "direction": "+",
+   "summary": "PEMF restored mitochondrial and CREB/BDNF signalling in oxidatively stressed PC12 cells (Ferrara group)."
+  },
+  {
+   "pmid": "26151161",
+   "first_author": "Ross",
+   "authors_short": "Ross CL, Teli T, Harrison BS",
+   "year": 2015,
+   "title": "Effect of electromagnetic field on cyclic adenosine monophosphate (cAMP) in a human mu-opioid receptor cell model.",
+   "journal": "Electromagnetic biology and medicine",
+   "citation": "35(3):206-13",
+   "doi": "10.3109/15368378.2015.1043556",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "+",
+   "summary": "In CHO cells with human mu-opioid receptors a 5 Hz EMF reduced stimulated cAMP more than morphine (about 23% more), whereas 13 Hz behaved like control; supports a narrow low-frequency window. B not in abstract."
+  },
+  {
+   "pmid": "27228272",
+   "first_author": "Ross",
+   "authors_short": "Ross CL, Teli T, Harrison BS",
+   "year": 2016,
+   "title": "Electromagnetic Field Devices and Their Effects on Nociception and Peripheral Inflammatory Pain Mechanisms.",
+   "journal": "Alternative therapies in health and medicine",
+   "citation": "22(3):52-64",
+   "doi": null,
+   "pmcid": null,
+   "type": "review",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "+",
+   "summary": "Review of electromagnetic-field devices in nociception and peripheral inflammation (Ross)."
+  },
+  {
+   "pmid": "34471827",
+   "first_author": "Ross",
+   "authors_short": "Ross CL, Zhou Y, McCall CE, et al.",
+   "year": 2019,
+   "title": "The Use of Pulsed Electromagnetic Field to Modulate Inflammation and Improve Tissue Regeneration: A Review.",
+   "journal": "Bioelectricity",
+   "citation": "1(4):247-259",
+   "doi": "10.1089/bioe.2019.0026",
+   "pmcid": "PMC8370292",
+   "type": "review",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "+",
+   "summary": "Review of PEMF modulation of inflammation and tissue repair (Ross and collaborators), including frequency-specific work."
+  },
+  {
+   "pmid": "34821733",
+   "first_author": "Chen",
+   "authors_short": "Chen Y, Menger MM, Braun BJ, et al.",
+   "year": 2021,
+   "title": "Modulation of Macrophage Activity by Pulsed Electromagnetic Fields in the Context of Fracture Healing.",
+   "journal": "Bioengineering (Basel, Switzerland)",
+   "citation": "8(11)",
+   "doi": "10.3390/bioengineering8110167",
+   "pmcid": "PMC8615107",
+   "type": "invitro",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "±",
+   "summary": "Twenty-two blinded Somagen fields (6-282 uT, fundamental 3.3-90.6 Hz, 7 or 30 min) acted on PBMC-derived macrophages; fields of 51.8 Hz and 52.3 Hz with different send-pause burst patterns drove M1-like and M2-like profiles respectively, showing waveform dependence at matched frequency and amplitude."
+  },
+  {
+   "pmid": "28741320",
+   "first_author": "Wang",
+   "authors_short": "Wang P, Liu J, Yang Y, et al.",
+   "year": 2017,
+   "title": "Differential intensity-dependent effects of pulsed electromagnetic fields on RANKL-induced osteoclast formation, apoptosis, and bone resorbing ability in RAW264.7 cells.",
+   "journal": "Bioelectromagnetics",
+   "citation": "38(8):602-612",
+   "doi": "10.1002/bem.22070",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "±",
+   "summary": "RAW264.7 cells with RANKL exposed to 15 Hz PEMF at 0.5, 1, 2 and 3 mT (2 h/day for 7 days): 0.5 mT suppressed osteoclast formation and bone resorption, 3 mT enhanced resorption through apoptosis and higher BAX, defining an intensity window."
+  },
+  {
+   "pmid": "28370033",
+   "first_author": "Kim",
+   "authors_short": "Kim SJ, Jang YW, Hyung KE, et al.",
+   "year": 2017,
+   "title": "Extremely low-frequency electromagnetic field exposure enhances inflammatory response and inhibits effect of antioxidant in RAW 264.7 cells.",
+   "journal": "Bioelectromagnetics",
+   "citation": "38(5):374-385",
+   "doi": "10.1002/bem.22049",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "+",
+   "summary": "A 60 Hz, 0.8 mT field increased NO, TNF-a, IL-1b and IL-6, NF-kB nuclear translocation, NFAT2 and Ca2+ influx in RAW264.7 macrophages and reduced antioxidant effectiveness: a pro-inflammatory ELF result."
+  },
+  {
+   "pmid": "16598759",
+   "first_author": "Frahm",
+   "authors_short": "Frahm J, Lantow M, Lupke M, et al.",
+   "year": 2006,
+   "title": "Alteration in cellular functions in mouse macrophages after exposure to 50 Hz magnetic fields.",
+   "journal": "Journal of cellular biochemistry",
+   "citation": "99(1):168-77",
+   "doi": "10.1002/jcb.20920",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "+",
+   "summary": "A 50 Hz, 1.0 mT field raised mouse macrophage phagocytosis 1.6-fold at 45 min and IL-1b release up to 12.3-fold at 24 h; free-radical formation rose at every flux density tested (0.05-1.0 mT, 45 min) without micronucleus change."
+  },
+  {
+   "pmid": "30942408",
+   "first_author": "Pi",
+   "authors_short": "Pi Y, Liang H, Yu Q, et al.",
+   "year": 2019,
+   "title": "Low‑frequency pulsed electromagnetic field inhibits RANKL‑induced osteoclastic differentiation in RAW264.7 cells by scavenging reactive oxygen species.",
+   "journal": "Molecular medicine reports",
+   "citation": "19(5):4129-4136",
+   "doi": "10.3892/mmr.2019.10079",
+   "pmcid": "PMC6470919",
+   "type": "invitro",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "-",
+   "summary": "Low-frequency PEMF inhibited RANKL-induced osteoclastic differentiation in RAW264.7 cells via ROS scavenging."
+  },
+  {
+   "pmid": "29749519",
+   "first_author": "Lei",
+   "authors_short": "Lei Y, Su J, Xu H, et al.",
+   "year": 2018,
+   "title": "Pulsed electromagnetic fields inhibit osteoclast differentiation in RAW264.7 macrophages via suppression of the protein kinase B/mammalian target of rapamycin signaling pathway.",
+   "journal": "Molecular medicine reports",
+   "citation": "18(1):447-454",
+   "doi": "10.3892/mmr.2018.8999",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "-",
+   "summary": "PEMF inhibited osteoclast differentiation in RAW264.7 cells through the Akt/mTOR pathway."
+  },
+  {
+   "pmid": "27856256",
+   "first_author": "Zhang",
+   "authors_short": "Zhang J, Xu H, Han Z, et al.",
+   "year": 2016,
+   "title": "Pulsed electromagnetic field inhibits RANKL-dependent osteoclastic differentiation in RAW264.7 cells through the Ca-calcineurin-NFATc1 signaling pathway.",
+   "journal": "Biochemical and biophysical research communications",
+   "citation": "482(2):289-295",
+   "doi": "10.1016/j.bbrc.2016.11.056",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "vgcc"
+   ],
+   "direction": "-",
+   "summary": "PEMF suppressed RANKL-dependent osteoclast formation in RAW264.7 cells by damping Ca2+ oscillations, raising calcineurin activity and blocking NFATc1 nuclear translocation."
+  },
+  {
+   "pmid": "32596310",
+   "first_author": "Ouyang",
+   "authors_short": "Ouyang J, Zhang B, Kuang L, et al.",
+   "year": 2020,
+   "title": "Pulsed Electromagnetic Field Inhibits Synovitis via Enhancing the Efferocytosis of Macrophages.",
+   "journal": "BioMed research international",
+   "citation": "2020:4307385",
+   "doi": "10.1155/2020/4307385",
+   "pmcid": "PMC7273431",
+   "type": "animal",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "adenosine"
+   ],
+   "direction": "+",
+   "summary": "In mouse DMM and air-pouch synovitis, PEMF (pulse waveform, 1.5 mT, 75 Hz, 10% duty) lowered IL-1b and TNF-a, reduced neutrophils, increased macrophages and efferocytosis, with p38 phosphorylation inhibited."
+  },
+  {
+   "pmid": "32751697",
+   "first_author": "Vinhas",
+   "authors_short": "Vinhas A, Almeida AF, Gonçalves AI, et al.",
+   "year": 2020,
+   "title": "Magnetic Stimulation Drives Macrophage Polarization in Cell to-Cell Communication with IL-1β Primed Tendon Cells.",
+   "journal": "International journal of molecular sciences",
+   "citation": "21(15)",
+   "doi": "10.3390/ijms21155441",
+   "pmcid": "PMC7432806",
+   "type": "invitro",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "+",
+   "summary": "In co-cultures of IL-1b-primed human tendon cells and macrophages, PEMF favoured a pro-regenerative macrophage phenotype and anti-inflammatory mediators, possibly through FAK signalling."
+  },
+  {
+   "pmid": "15352165",
+   "first_author": "Simkó",
+   "authors_short": "Simkó M, Mattsson MO",
+   "year": 2004,
+   "title": "Extremely low frequency electromagnetic fields as effectors of cellular responses in vitro: possible immune cell activation.",
+   "journal": "Journal of cellular biochemistry",
+   "citation": "93(1):83-92",
+   "doi": "10.1002/jcb.20198",
+   "pmcid": null,
+   "type": "review",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "th",
+   "summary": "Review framing ELF fields as effectors of free-radical-mediated cellular activation in immune cells."
+  },
+  {
+   "pmid": "42737802",
+   "first_author": "Byun",
+   "authors_short": "Byun KA, Lee JI, Oh S, et al.",
+   "year": 2026,
+   "title": "Pulsed Electromagnetic Field Exposure Attenuates Ultraviolet B-Induced Dermal Collagen Loss in Association with A2A Adenosine Receptor Signaling.",
+   "journal": "International journal of molecular sciences",
+   "citation": "27(17)",
+   "doi": "10.3390/ijms27177904",
+   "pmcid": "PMC13566763",
+   "type": "invitro",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "adenosine"
+   ],
+   "direction": "+",
+   "summary": "Independent Korean study: PEMF restored A2AAR, PKA and cAMP in UVB-injured fibroblasts and reduced IL-1b/NF-kB/MMP markers and collagen loss in vitro and in vivo; the authors say the data are consistent with but do not prove A2AAR involvement; parameters not in the abstract."
+  },
+  {
+   "pmid": "42304062",
+   "first_author": "Pisano",
+   "authors_short": "Pisano C, Signore FD, Marracino P, et al.",
+   "year": 2026,
+   "title": "Atomistic insights into the magnetic-field modulation of the [Formula: see text] adenosine receptor.",
+   "journal": "Scientific reports",
+   "citation": "16(1)",
+   "doi": "10.1038/s41598-026-55027-5",
+   "pmcid": "PMC13534643",
+   "type": "theory",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "adenosine"
+   ],
+   "direction": "th",
+   "summary": "Atomistic simulations of magnetic-field modulation of the A2A adenosine receptor (Sapienza and IGEA authors); theoretical support only."
+  },
+  {
+   "pmid": "33630907",
+   "first_author": "Kar",
+   "authors_short": "Kar NS, Ferguson D, Zhang N, et al.",
+   "year": 2021,
+   "title": "Pulsed-electromagnetic-field induced osteoblast differentiation requires activation of genes downstream of adenosine receptors A2A and A3.",
+   "journal": "PloS one",
+   "citation": "16(2):e0247659",
+   "doi": "10.1371/journal.pone.0247659",
+   "pmcid": "PMC7906300",
+   "type": "invitro",
+   "systems": [
+    "muscular"
+   ],
+   "mechs": [
+    "adenosine"
+   ],
+   "direction": "+",
+   "summary": "In MC3T3-E1 cells exposed to a PhysioStim-like waveform (3.85 kHz pulses, 10 T/s slew, 4 h/day for up to 16 days), CRISPR disruption of Adora3 blunted PEMF-driven alkaline phosphatase and osteoblast genes, Adora2A disruption delayed and partly blunted them, and Adora3 knock-in rescued; independent evidence that both receptors are needed."
+  },
+  {
+   "pmid": "39937022",
+   "first_author": "Iversen",
+   "authors_short": "Iversen JN, Tai YK, Wu KY, et al.",
+   "year": 2025,
+   "title": "Magnetically Stimulated Myogenesis Recruits a CRY2-TRPC1 Photosensitive Signaling Axis.",
+   "journal": "Cells",
+   "citation": "14(3)",
+   "doi": "10.3390/cells14030231",
+   "pmcid": "PMC11817702",
+   "type": "invitro",
+   "systems": [
+    "muscular"
+   ],
+   "mechs": [
+    "trpc1",
+    "radical"
+   ],
+   "direction": "+",
+   "summary": "A CRY2-TRPC1 photosensitive axis underlies magnetic myogenesis; sensitivity was lost by growth in the dark, magnetic shielding or upward-directed fields."
+  },
+  {
+   "pmid": "35841726",
+   "first_author": "Wong",
+   "authors_short": "Wong CJK, Tai YK, Yap JLY, et al.",
+   "year": 2022,
+   "title": "Brief exposure to directionally-specific pulsed electromagnetic fields stimulates extracellular vesicle release and is antagonized by streptomycin: A potential regenerative medicine and food industry paradigm.",
+   "journal": "Biomaterials",
+   "citation": "287:121658",
+   "doi": "10.1016/j.biomaterials.2022.121658",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "muscular"
+   ],
+   "mechs": [
+    "trpc1"
+   ],
+   "direction": "+",
+   "summary": "A single 10 min exposure at 1.5 mT produced a myogenic secretome; downward-directed fields outperformed upward-directed fields, TRPC upregulation was seen, direct exposure gave mild oxidative stress and streptomycin blocked the effect."
+  },
+  {
+   "pmid": "32875708",
+   "first_author": "Kurth",
+   "authors_short": "Kurth F, Tai YK, Parate D, et al.",
+   "year": 2020,
+   "title": "Cell-Derived Vesicles as TRPC1 Channel Delivery Systems for the Recovery of Cellular Respiratory and Proliferative Capacities.",
+   "journal": "Advanced biosystems",
+   "citation": "4(11):e2000146",
+   "doi": "10.1002/adbi.202000146",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "muscular"
+   ],
+   "mechs": [
+    "trpc1"
+   ],
+   "direction": "+",
+   "summary": "Cell-derived vesicles from C2C12 myoblasts carry TRPC1 and respond to PEMF with TRPC1-mediated Ca2+ entry; TRPC1 knock-down vesicles do not, and wild-type vesicles restore PEMF-induced respiration and proliferation in knock-down cells."
+  },
+  {
+   "pmid": "32627872",
+   "first_author": "Tai",
+   "authors_short": "Tai YK, Ng C, Purnamawati K, et al.",
+   "year": 2020,
+   "title": "Magnetic fields modulate metabolism and gut microbiome in correlation with Pgc-1α expression: Follow-up to an in vitro magnetic mitohormetic study.",
+   "journal": "FASEB journal : official publication of the Federation of American Societies for Experimental Biology",
+   "citation": "34(8):11143-11167",
+   "doi": "10.1096/fj.201903005RR",
+   "pmcid": null,
+   "type": "animal",
+   "systems": [
+    "muscular"
+   ],
+   "mechs": [
+    "trpc1"
+   ],
+   "direction": "+",
+   "summary": "Mice given 1.5 mT, 10 min weekly PEMF (with or without exercise) showed higher muscle and adipose Pgc-1a after 6 weeks with exercise and after 2 months alone, with oxidative muscle and fatty-acid oxidation after >4 months."
+  },
+  {
+   "pmid": "37892906",
+   "first_author": "Franco-Obregón",
+   "authors_short": "Franco-Obregón A",
+   "year": 2023,
+   "title": "Harmonizing Magnetic Mitohormetic Regenerative Strategies: Developmental Implications of a Calcium-Mitochondrial Axis Invoked by Magnetic Field Exposure.",
+   "journal": "Bioengineering (Basel, Switzerland)",
+   "citation": "10(10)",
+   "doi": "10.3390/bioengineering10101176",
+   "pmcid": "PMC10604793",
+   "type": "review",
+   "systems": [
+    "muscular"
+   ],
+   "mechs": [
+    "trpc1"
+   ],
+   "direction": "th",
+   "summary": "Review of magnetic mitohormesis stating efficacy windows (1.5 mT/10 min for myogenesis vs 3 mT/60 min for cancer-cell killing), that waveform symmetry, rise time and direction are rarely reported, and that exposure after log-phase expansion reduces myogenic potency."
+  },
+  {
+   "pmid": "39061719",
+   "first_author": "Iversen",
+   "authors_short": "Iversen JN, Fröhlich J, Tai YK, et al.",
+   "year": 2024,
+   "title": "Synergistic Cellular Responses Conferred by Concurrent Optical and Magnetic Stimulation Are Attenuated by Simultaneous Exposure to Streptomycin: An Antibiotic Dilemma.",
+   "journal": "Bioengineering (Basel, Switzerland)",
+   "citation": "11(7)",
+   "doi": "10.3390/bioengineering11070637",
+   "pmcid": "PMC11274164",
+   "type": "invitro",
+   "systems": [
+    "muscular"
+   ],
+   "mechs": [
+    "trpc1"
+   ],
+   "direction": "+",
+   "summary": "Combined optical and magnetic stimulation gave supra-additive proliferation and ATP, lower ROS and higher TRPC1 protein; aminoglycosides blocked."
+  },
+  {
+   "pmid": "39120305",
+   "first_author": "Franco-Obregón",
+   "authors_short": "Franco-Obregón A, Tai YK",
+   "year": 2024,
+   "title": "Are Aminoglycoside Antibiotics TRPing Your Metabolic Switches?",
+   "journal": "Cells",
+   "citation": "13(15)",
+   "doi": "10.3390/cells13151273",
+   "pmcid": "PMC11311832",
+   "type": "review",
+   "systems": [
+    "muscular"
+   ],
+   "mechs": [
+    "trpc1"
+   ],
+   "direction": "th",
+   "summary": "Commentary on aminoglycoside antibiotics as TRP-channel antagonists that block magnetic mitohormetic signalling."
+  },
+  {
+   "pmid": "42737597",
+   "first_author": "Iversen",
+   "authors_short": "Iversen JN, Franco-Obregón A",
+   "year": 2026,
+   "title": "Magnetic Mitohormesis as a Potential Non-Invasive Restorative Therapy for X-Linked Muscular Dystrophies.",
+   "journal": "International journal of molecular sciences",
+   "citation": "27(17)",
+   "doi": "10.3390/ijms27177700",
+   "pmcid": "PMC13566868",
+   "type": "review",
+   "systems": [
+    "muscular"
+   ],
+   "mechs": [
+    "trpc1"
+   ],
+   "direction": "th",
+   "summary": "Perspective on magnetic mitohormesis as a therapy for X-linked muscle disease (Iversen); source of the 15 Hz, 1 vs 1.5 mT device description."
+  },
+  {
+   "pmid": "25708841",
+   "first_author": "Osera",
+   "authors_short": "Osera C, Amadio M, Falone S, et al.",
+   "year": 2015,
+   "title": "Pre-exposure of neuroblastoma cell line to pulsed electromagnetic field prevents H2 O2 -induced ROS production by increasing MnSOD activity.",
+   "journal": "Bioelectromagnetics",
+   "citation": "36(3):219-32",
+   "doi": "10.1002/bem.21900",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "+",
+   "summary": "SH-SY5Y cells pre-exposed to short repeated PEMF (4 x 10 min per week, 40 min total) had higher MnSOD activity and lower ROS after H2O2; B not stated in the abstract."
+  },
+  {
+   "pmid": "26940444",
+   "first_author": "Falone",
+   "authors_short": "Falone S, Marchesi N, Osera C, et al.",
+   "year": 2016,
+   "title": "Pulsed electromagnetic field (PEMF) prevents pro-oxidant effects of H2O2 in SK-N-BE(2) human neuroblastoma cells.",
+   "journal": "International journal of radiation biology",
+   "citation": "92(5):281-6",
+   "doi": "10.3109/09553002.2016.1150619",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "nervous"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "+",
+   "summary": "Drug-resistant SK-N-BE(2) cells exposed to 2 mT, 75 Hz (15 min x 3 over 5 days) had higher MnSOD protection and lower ROS after H2O2."
+  },
+  {
+   "pmid": "40575091",
+   "first_author": "Bajtoš",
+   "authors_short": "Bajtoš M, Dang N, Lopez de Mingo I, et al.",
+   "year": 2025,
+   "title": "The proliferation rates of HT-1080 human fibrosarcoma cells can be accelerated or inhibited by weak static and extremely low frequency magnetic fields.",
+   "journal": "Frontiers in public health",
+   "citation": "13:1535155",
+   "doi": "10.3389/fpubh.2025.1535155",
+   "pmcid": "PMC12199451",
+   "type": "invitro",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "icr",
+    "radical"
+   ],
+   "direction": "±",
+   "summary": "HT-1080 cells in a 45 uT static field with a 10 uT oscillating field at 12-33 Hz showed growth acceleration or inhibition near 16.5 Hz, sensitive to a 0.5 Hz shift or 250 nT field change."
+  },
+  {
+   "pmid": "39849096",
+   "first_author": "Zandieh",
+   "authors_short": "Zandieh A, Shariatpanahi SP, Ravassipour AA, et al.",
+   "year": 2025,
+   "title": "An amplification mechanism for weak ELF magnetic fields quantum-bio effects in cancer cells.",
+   "journal": "Scientific reports",
+   "citation": "15(1):2964",
+   "doi": "10.1038/s41598-025-87235-w",
+   "pmcid": "PMC11757740",
+   "type": "theory",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "th",
+   "summary": "Model of a Complex III radical-pair amplification mechanism for weak ELF magnetic field effects in cancer cells."
+  },
+  {
+   "pmid": "1333413",
+   "first_author": "Liburdy",
+   "authors_short": "Liburdy RP",
+   "year": 1992,
+   "title": "Calcium signaling in lymphocytes and ELF fields. Evidence for an electric field metric and a site of interaction involving the calcium ion channel.",
+   "journal": "FEBS letters",
+   "citation": "301(1):53-9",
+   "doi": "10.1016/0014-5793(92)80209-y",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "induction",
+    "vgcc"
+   ],
+   "direction": "+",
+   "summary": "Rat thymocyte Ca2+ influx in the plateau phase of mitogen signalling rose at 22 mT, 60 Hz (induced E 1.7 mV/cm); an annular plate showed dependence on induced E at constant B and a pure E-field matched, pointing to an electric-field metric and a Ca2+ channel site."
+  },
+  {
+   "pmid": "8344993",
+   "first_author": "Lindström",
+   "authors_short": "Lindström E, Lindström P, Berglund A, et al.",
+   "year": 1993,
+   "title": "Intracellular calcium oscillations induced in a T-cell line by a weak 50 Hz magnetic field.",
+   "journal": "Journal of cellular physiology",
+   "citation": "156(2):395-8",
+   "doi": "10.1002/jcp.1041560223",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "vgcc"
+   ],
+   "direction": "+",
+   "summary": "Jurkat T cells exposed to 50 Hz, 0.1 mT showed Ca2+ oscillations that stopped when the field was off, comparable in size to anti-CD3 stimulation."
+  },
+  {
+   "pmid": "11518497",
+   "first_author": "Mattsson",
+   "authors_short": "Mattsson MO, Lindström E, Still M, et al.",
+   "year": 2001,
+   "title": "[Ca2+](i) rise in Jurkat E6-1 cell lines from different sources as a response to 50 Hz magnetic field exposure as a reproducible effect and independent of poly-L-lysine treatment.",
+   "journal": "Cell biology international",
+   "citation": "25(9):901-7",
+   "doi": "10.1006/cbir.2001.0774",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "vgcc"
+   ],
+   "direction": "0",
+   "summary": "Replication at 50 Hz, 0.15 mT in Jurkat E6-1 cells from three sources found a lower fraction of responding cells than the original report."
+  },
+  {
+   "pmid": "10656853",
+   "first_author": "Wey",
+   "authors_short": "Wey HE, Conover DP, Mathias P, et al.",
+   "year": 2000,
+   "title": "50-Hertz magnetic field and calcium transients in Jurkat cells: results of a research and public information dissemination (RAPID) program study.",
+   "journal": "Environmental health perspectives",
+   "citation": "108(2):135-40",
+   "doi": "10.1289/ehp.00108135",
+   "pmcid": "PMC1637897",
+   "type": "invitro",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "vgcc"
+   ],
+   "direction": "0",
+   "summary": "Blinded multi-laboratory repeat of Lindstrom (1.5 G, 50 Hz, 8 min) found transient incidence 16.5, 14.6 and 14.2% for field, sham and no-field, not significantly different."
+  },
+  {
+   "pmid": "11948612",
+   "first_author": "McCreary",
+   "authors_short": "McCreary CR, Thomas AW, Prato FS",
+   "year": 2002,
+   "title": "Factors confounding cytosolic calcium measurements in Jurkat E6.1 cells during exposure to ELF magnetic fields.",
+   "journal": "Bioelectromagnetics",
+   "citation": "23(4):315-28",
+   "doi": "10.1002/bem.10019",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "vgcc"
+   ],
+   "direction": "0",
+   "summary": "Jurkat Ca2+ responses to 60 Hz 100 uT with 78 uT static fields appeared only after correction for cell-cycle and anti-CD3 covariates."
+  },
+  {
+   "pmid": "1397839",
+   "first_author": "Walleczek",
+   "authors_short": "Walleczek J",
+   "year": 1992,
+   "title": "Electromagnetic field effects on cells of the immune system: the role of calcium signaling.",
+   "journal": "FASEB journal : official publication of the Federation of American Societies for Experimental Biology",
+   "citation": "6(13):3177-85",
+   "doi": "10.1096/fasebj.6.13.1397839",
+   "pmcid": null,
+   "type": "review",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "vgcc"
+   ],
+   "direction": "th",
+   "summary": "Review of field effects on immune cells with calcium signalling as the proposed route."
+  },
+  {
+   "pmid": "8986359",
+   "first_author": "Eichwald",
+   "authors_short": "Eichwald C, Walleczek J",
+   "year": 1996,
+   "title": "Activation-dependent and biphasic electromagnetic field effects: model based on cooperative enzyme kinetics in cellular signaling.",
+   "journal": "Bioelectromagnetics",
+   "citation": "17(6):427-35",
+   "doi": "10.1002/(SICI)1521-186X(1996)17:6<427::AID-BEM1>3.0.CO;2-5",
+   "pmcid": null,
+   "type": "theory",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "vgcc"
+   ],
+   "direction": "th",
+   "summary": "Model of activation-dependent and biphasic field effects on Ca2+ signalling in immune cells."
+  },
+  {
+   "pmid": "12929155",
+   "first_author": "Aldinucci",
+   "authors_short": "Aldinucci C, Garcia JB, Palmi M, et al.",
+   "year": 2003,
+   "title": "The effect of exposure to high flux density static and pulsed magnetic fields on lymphocyte function.",
+   "journal": "Bioelectromagnetics",
+   "citation": "24(6):373-9",
+   "doi": "10.1002/bem.10111",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "vgcc"
+   ],
+   "direction": "±",
+   "summary": "One hour in a 4.75 T static plus 0.7 mT pulsed NMR field raised Ca2+ in normal lymphocytes and lowered it (with lower proliferation) in Jurkat cells, without pro-inflammatory cytokine changes."
+  },
+  {
+   "pmid": "7498533",
+   "first_author": "Roy",
+   "authors_short": "Roy S, Noda Y, Eckert V, et al.",
+   "year": 1995,
+   "title": "The phorbol 12-myristate 13-acetate (PMA)-induced oxidative burst in rat peritoneal neutrophils is increased by a 0.1 mT (60 Hz) magnetic field.",
+   "journal": "FEBS letters",
+   "citation": "376(3):164-6",
+   "doi": "10.1016/0014-5793(95)01266-x",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "radical"
+   ],
+   "direction": "+",
+   "summary": "A 60 Hz, 0.1 mT field increased the PMA-induced oxidative burst of rat neutrophils by 12.4% (n=5)."
+  },
+  {
+   "pmid": "9554697",
+   "first_author": "Price",
+   "authors_short": "Price JA, Strattan RD",
+   "year": 1998,
+   "title": "Analysis of the effect of a 60 Hz AC field on histamine release by rat peritoneal mast cells.",
+   "journal": "Bioelectromagnetics",
+   "citation": "19(3):192-8",
+   "doi": "10.1002/(sici)1521-186x(1998)19:3<192::aid-bem7>3.0.co;2-x",
+   "pmcid": null,
+   "type": "invitro",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "0",
+   "summary": "Rat peritoneal mast cells exposed to 5 mT, 60 Hz for 30 min-2 h showed no degranulation and no change in compound 48/80 sensitivity."
+  },
+  {
+   "pmid": "10944614",
+   "first_author": "Ahlbom",
+   "authors_short": "Ahlbom A, Day N, Feychting M, et al.",
+   "year": 2000,
+   "title": "A pooled analysis of magnetic fields and childhood leukaemia.",
+   "journal": "British journal of cancer",
+   "citation": "83(5):692-8",
+   "doi": "10.1054/bjoc.2000.1376",
+   "pmcid": "PMC2363518",
+   "type": "meta",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "th",
+   "summary": "Pooled analysis of nine studies: for fields below 0.4 uT (99.2% of children) estimates were near null, for 0.4 uT and above RR 2.00 (1.27-3.13) from 44 cases and 62 controls, with selection bias a possible explanation."
+  },
+  {
+   "pmid": "11055621",
+   "first_author": "Greenland",
+   "authors_short": "Greenland S, Sheppard AR, Kaune WT, et al.",
+   "year": 2000,
+   "title": "A pooled analysis of magnetic fields, wire codes, and childhood leukemia. Childhood Leukemia-EMF Study Group.",
+   "journal": "Epidemiology (Cambridge, Mass.)",
+   "citation": "11(6):624-34",
+   "doi": "10.1097/00001648-200011000-00003",
+   "pmcid": null,
+   "type": "meta",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "th",
+   "summary": "Pooled analysis of twelve studies: >0.3 uT vs 0-0.1 uT OR 1.7 (1.2-2.3), little or no association for 0.1-0.3 uT, US population-attributable fraction 3% (-2% to 8%)."
+  },
+  {
+   "pmid": "20877339",
+   "first_author": "Kheifets",
+   "authors_short": "Kheifets L, Ahlbom A, Crespi CM, et al.",
+   "year": 2010,
+   "title": "Pooled analysis of recent studies on magnetic fields and childhood leukaemia.",
+   "journal": "British journal of cancer",
+   "citation": "103(7):1128-35",
+   "doi": "10.1038/sj.bjc.6605838",
+   "pmcid": "PMC2965855",
+   "type": "meta",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "th",
+   "summary": "Pooled analysis of seven post-2000 studies (10,865 cases): ORs vs <0.1 uT 1.07, 1.16 and 1.44 (0.88-2.36) for 0.1-0.2, 0.2-0.3 and >=0.3 uT; weaker than earlier pooled analyses and imprecise."
+  },
+  {
+   "pmid": "29808013",
+   "first_author": "Amoon",
+   "authors_short": "Amoon AT, Crespi CM, Ahlbom A, et al.",
+   "year": 2018,
+   "title": "Proximity to overhead power lines and childhood leukaemia: an international pooled analysis.",
+   "journal": "British journal of cancer",
+   "citation": "119(3):364-373",
+   "doi": "10.1038/s41416-018-0097-7",
+   "pmcid": "PMC6068168",
+   "type": "meta",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "th",
+   "summary": "Pooled analysis of power-line proximity: OR 1.33 (0.92-1.93) within 50 m of 200+ kV lines with no association for calculated magnetic field."
+  },
+  {
+   "pmid": "34481821",
+   "first_author": "Amoon",
+   "authors_short": "Amoon AT, Swanson J, Magnani C, et al.",
+   "year": 2021,
+   "title": "Pooled analysis of recent studies of magnetic fields and childhood leukemia.",
+   "journal": "Environmental research",
+   "citation": "204(Pt A):111993",
+   "doi": "10.1016/j.envres.2021.111993",
+   "pmcid": null,
+   "type": "meta",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "0",
+   "summary": "Pooled analysis of four recent studies (24,994 cases): OR 1.01 for >=0.4 uT vs <0.1 uT; the meta-analysis of the three pooled analyses gave 1.45 (0.95-2.20)."
+  },
+  {
+   "pmid": "29574256",
+   "first_author": "Amoon",
+   "authors_short": "Amoon AT, Oksuzyan S, Crespi CM, et al.",
+   "year": 2018,
+   "title": "Residential mobility and childhood leukemia.",
+   "journal": "Environmental research",
+   "citation": "164:459-466",
+   "doi": "10.1016/j.envres.2018.03.016",
+   "pmcid": "PMC7491916",
+   "type": "human",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "th",
+   "summary": "Residential-mobility analysis: calculated fields >=0.4 uT gave OR 1.71 (0.65-4.52) in non-movers and about 1.98 after propensity adjustment, illustrating exposure-misclassification issues."
+  },
+  {
+   "pmid": "28900736",
+   "first_author": "Kheifets",
+   "authors_short": "Kheifets L, Crespi CM, Hooper C, et al.",
+   "year": 2017,
+   "title": "Residential magnetic fields exposure and childhood leukemia: a population-based case-control study in California.",
+   "journal": "Cancer causes & control : CCC",
+   "citation": "28(10):1117-1123",
+   "doi": "10.1007/s10552-017-0951-6",
+   "pmcid": "PMC5706765",
+   "type": "human",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "0",
+   "summary": "California population-based study: the highest exposure group had OR 1.50 (0.70-3.23)."
+  },
+  {
+   "pmid": "17485729",
+   "first_author": "Schüz",
+   "authors_short": "Schüz J, Svendsen AL, Linet MS, et al.",
+   "year": 2007,
+   "title": "Nighttime exposure to electromagnetic fields and childhood leukemia: an extended pooled analysis.",
+   "journal": "American journal of epidemiology",
+   "citation": "166(3):263-9",
+   "doi": "10.1093/aje/kwm080",
+   "pmcid": null,
+   "type": "human",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "th",
+   "summary": "Nighttime-exposure analysis: >=0.4 uT OR 1.93 (1.11-3.35)."
+  },
+  {
+   "pmid": "12071196",
+   "first_author": "IARC Working Group",
+   "authors_short": "IARC Working Group",
+   "year": 2002,
+   "title": "Non-ionizing radiation, Part 1: static and extremely low-frequency (ELF) electric and magnetic fields.",
+   "journal": "IARC monographs on the evaluation of carcinogenic risks to humans",
+   "citation": "80:1-395",
+   "doi": null,
+   "pmcid": "PMC5098132",
+   "type": "standard",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "th",
+   "summary": "IARC Monograph evaluation of static and ELF electric and magnetic fields (Part 1); classification as possibly carcinogenic (2B) is reported by secondary sources; abstract not available here."
+  },
+  {
+   "pmid": "23675624",
+   "first_author": "Zaryabova",
+   "authors_short": "Zaryabova V, Shalamanova T, Israel M",
+   "year": 2013,
+   "title": "Pilot study of extremely low frequency magnetic fields emitted by transformers in dwellings. Social aspects.",
+   "journal": "Electromagnetic biology and medicine",
+   "citation": "32(2):209-17",
+   "doi": "10.3109/15368378.2013.776431",
+   "pmcid": null,
+   "type": "human",
+   "systems": [
+    "measurement"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "th",
+   "summary": "Measurement study of ELF magnetic fields near transformers; its abstract states that IARC 2002 classed ELF magnetic fields as 2B and that WHO EHC 238 (2007) confirmed this."
+  },
+  {
+   "pmid": "16023006",
+   "first_author": "Fini",
+   "authors_short": "Fini M, Giavaresi G, Torricelli P, et al.",
+   "year": 2005,
+   "title": "Pulsed electromagnetic fields reduce knee osteoarthritic lesion progression in the aged Dunkin Hartley guinea pig.",
+   "journal": "Journal of orthopaedic research : official publication of the Orthopaedic Research Society",
+   "citation": "23(4):899-908",
+   "doi": "10.1016/j.orthres.2005.01.008",
+   "pmcid": null,
+   "type": "animal",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "adenosine"
+   ],
+   "direction": "+",
+   "summary": "Aged Dunkin-Hartley guinea pigs with osteoarthritis given PEMF 6 h/day for 3 months had reduced chondropathy progression and thicker cartilage, linked to chondrocyte metabolism and adenosine A2a activity."
+  },
+  {
+   "pmid": "33970582",
+   "first_author": "Cadossi",
+   "authors_short": "Cadossi R, Massari L, Racine-Avila J, et al.",
+   "year": 2020,
+   "title": "Pulsed Electromagnetic Field Stimulation of Bone Healing and Joint Preservation: Cellular Mechanisms of Skeletal Response.",
+   "journal": "Journal of the American Academy of Orthopaedic Surgeons. Global research & reviews",
+   "citation": "4(5):e1900155",
+   "doi": "10.5435/JAAOSGlobal-D-19-00155",
+   "pmcid": "PMC7434032",
+   "type": "review",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "adenosine"
+   ],
+   "direction": "+",
+   "summary": "Review of PEMF stimulation of bone healing and joint preservation, including the adenosine receptor mechanism and the clinical record."
+  },
+  {
+   "pmid": "40428093",
+   "first_author": "Kaadan",
+   "authors_short": "Kaadan A, Salati S, Cadossi R, et al.",
+   "year": 2025,
+   "title": "Regulation of Inflammatory Responses by Pulsed Electromagnetic Fields.",
+   "journal": "Bioengineering (Basel, Switzerland)",
+   "citation": "12(5)",
+   "doi": "10.3390/bioengineering12050474",
+   "pmcid": "PMC12109083",
+   "type": "review",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "adenosine"
+   ],
+   "direction": "+",
+   "summary": "Review of PEMF regulation of inflammation (NF-kB, MAPK, adenosine A2A) in soft tissue, cartilage and joint healing with clinical examples."
+  },
+  {
+   "pmid": "41618092",
+   "first_author": "Zavadskis",
+   "authors_short": "Zavadskis S, Gasser AS, Karas M, et al.",
+   "year": 2026,
+   "title": "Interaction of pulsed low frequency electromagnetic field (PEMF) with mitochondria.",
+   "journal": "Scientific reports",
+   "citation": "16(1):6681",
+   "doi": "10.1038/s41598-026-37527-6",
+   "pmcid": "PMC12914018",
+   "type": "invitro",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "±",
+   "summary": "A single low-energy 1 ms, 30 kHz sine-burst device selectively stimulated ATP-synthesis-linked respiration in cells, homogenates and isolated mitochondria but did not rescue NO-inhibited respiration (blue light did)."
+  },
+  {
+   "pmid": "39939866",
+   "first_author": "Liao",
+   "authors_short": "Liao F, Li Y, Zhang Z, et al.",
+   "year": 2025,
+   "title": "Pulsed electromagnetic fields modulate energy metabolism during wound healing process: an in vitro model study.",
+   "journal": "BMC complementary medicine and therapies",
+   "citation": "25(1):50",
+   "doi": "10.1186/s12906-025-04792-3",
+   "pmcid": "PMC11823022",
+   "type": "invitro",
+   "systems": [
+    "general"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "+",
+   "summary": "PEMF at 4 mT and 80 Hz promoted L929 migration and viability, shifted metabolism from mitochondrial respiration to glycolysis, kept ROS low and increased vesicular transport."
+  },
+  {
+   "pmid": "41010617",
+   "first_author": "Tseng",
+   "authors_short": "Tseng FS, Lim GH, Bee YM, et al.",
+   "year": 2025,
+   "title": "Investigating the Metabolic Benefits of Magnetic Mitohormesis in Patients with Type 2 Diabetes Mellitus.",
+   "journal": "Journal of clinical medicine",
+   "citation": "14(18)",
+   "doi": "10.3390/jcm14186413",
+   "pmcid": "PMC12470278",
+   "type": "human",
+   "systems": [
+    "muscular"
+   ],
+   "mechs": [
+    "trpc1"
+   ],
+   "direction": "0",
+   "summary": "Exploratory 12-session weekly 10 min PEMF (magnetic mitohormesis) in 40 adults with type 2 diabetes showed no overall HbA1c, glucose or HOMA-IR change; HbA1c fell 7.5 to 7.1% in the central-obesity subgroup; no adverse events."
+  },
+  {
+   "pmid": "42078208",
+   "first_author": "Ivanov",
+   "authors_short": "Ivanov DV, Bondarchuk EV, Turkanov IF, et al.",
+   "year": 2026,
+   "title": "Remote stimulation of mitochondria and the antioxidant potential of thymocytes by weak non-ionizing non-thermal broadband pulsed electromagnetic fields in mouse.",
+   "journal": "Frontiers in physiology",
+   "citation": "17:1798354",
+   "doi": "10.3389/fphys.2026.1798354",
+   "pmcid": "PMC13128423",
+   "type": "animal",
+   "systems": [
+    "immune"
+   ],
+   "mechs": [
+    "effectors"
+   ],
+   "direction": "+",
+   "summary": "Mice exposed to a weak broadband pulsed device for 10 nights showed a dose-dependent rise in plasma antioxidant potential (+8% n.s. at 1 min/h, +20.6% at 5 min/h) and thymocyte mitochondrial fluorescence (+29% at the highest exposure)."
+  }
+ ],
+ "cross_cutting_notes": "Dose variable by group: Ferrara/IGEA uses 1.3 ms pulses at 75 Hz (computed ~2 T/s at 1.5 mT from a measured 2.0 mV probe voltage; dish-scale E ~0.04 V/m); Ross uses 5-30 Hz square waves at ~4 mT; Franco-Obregon/NUS uses 15 Hz pulse barrages (rise ~50 us; reported ~17 T/s inconsistent with 3 mT/50 us = 60 T/s); Kar 2021 used 3.85 kHz pulses at 10 T/s slew. A2A/A3 involvement appears across these very different dB/dt values (2 to 60 T/s), which argues against dB/dt as the sole trigger, but B and dB/dt were never decoupled. The only direct E-vs-B experiment in scope is Liburdy 1992 (thymocyte Ca2+, E reported 0.17 V/m at 22 mT, 60 Hz). Mast-cell and Jurkat Ca2+ nulls were found; independent nulls of A2A Bmax were not found. Not found in PubMed with simple searches: Calabro, Gualdi, Kuhn mitochondrial PEMF papers. Methods of Varani 2002 and Yap 2019 were not read (Europe PMC HTTP 429); Byun 2026 has a PMC full text (PMC13566763) that was not read. Epidemiology is reported strictly as association; a typical residential field value is not supplied because no verified abstract states one. Sub-note: the Sukumar 2026 statement that prior macrophage work at uT-1.5 mT was anti-inflammatory is a narrative statement, not a measured crossover. Li 2019 (high-voltage E-field pulses) and Piredda 2026 (>2 T multifrequency pulses) were screened out as not therapeutic magnetic-field studies."
+}
