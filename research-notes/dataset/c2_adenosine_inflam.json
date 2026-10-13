@@ -1,0 +1,227 @@
+[
+ {
+  "id": "a2a_receptor",
+  "name": "A2A adenosine receptor upregulation",
+  "level": "receptor",
+  "driver": "unresolved (B and dB/dt collinear; dose behaves as amplitude x time)",
+  "driver_note": "Every Ferrara/IGEA dataset used one fixed pulse shape (1.3 ms, 75 Hz), so B and dB/dt scale together. In rat cortex 3 mT x 2 h gave the same fold change as 1.5 mT x 4 h. Frequency was never varied.",
+  "windows": {
+   "B_mT": {
+    "effective": 1.5,
+    "tested_tissue": [
+     1.5,
+     3.0
+    ],
+    "neutrophil_plateau_claim": [
+     1.5,
+     3.5
+    ],
+    "upper_bound": "none established"
+   },
+   "dBdt_Ts": {
+    "ferrara_pulse": 2.04,
+    "basis": "computed from recalled probe inputs (50 turns, 0.5 cm ID, 2 mV); inputs are UNVERIFIED, treat as order of magnitude"
+   },
+   "E_Vm": {
+    "r_0p5_to_5cm": [
+     0.0051,
+     0.051
+    ],
+    "basis": "computed, uniform B circular path; well geometry not reported"
+   },
+   "f_Hz": 75,
+   "pulse_ms": 1.3,
+   "time_course": "neutrophils ~1 h; rat cortex peak 4 h at 1.5 mT, 2 h at 3 mT, transient (1.4-fold at 6 h)",
+   "fold_change": "Bmax 126 -> 215 fmol/mg (1.7x), Kd unchanged; cortex 2.0-fold (tissue), 1.9-2.2-fold (membranes)"
+  },
+  "evidence": "in vitro / ex vivo radioligand binding, one lab network",
+  "confidence": "moderate for effect at 1.5 mT with this pulse; low for any sub-1 mT threshold; speculative for B vs dB/dt",
+  "refs": [
+   "11976268",
+   "22012856",
+   "28255202",
+   "32998161"
+  ],
+  "caveat": "Varani 2002 low-dose threshold (0.5-1 mT) and plateau (1.5-3.5 mT) came from a full-text page and are NOT verified against the table. mRNA unchanged, so not simple transcriptional upregulation. 32998161 (Colombini/Vinhas group, tendon cells) shows only part of the binding comparison significant. No independent replication."
+ },
+ {
+  "id": "a3_receptor",
+  "name": "A3 adenosine receptor upregulation",
+  "level": "receptor",
+  "driver": "unresolved",
+  "driver_note": "Co-reported with A2A in synoviocytes, chondrocytes, osteoblasts, tumour lines and neurons at the same 75 Hz / 1.3 ms signal. No A3-specific amplitude series.",
+  "windows": {
+   "B_mT": {
+    "chondrocytes": 1.5,
+    "osteoblasts": 2.5
+   },
+   "f_Hz": 75,
+   "pulse_ms": 1.3,
+   "basis": "group standard, not stated in every abstract"
+  },
+  "evidence": "in vitro, one lab network; no nulls found (lab concentration, not robustness)",
+  "confidence": "low-moderate",
+  "refs": [
+   "21830213",
+   "23741498",
+   "22761760",
+   "27639248"
+  ]
+ },
+ {
+  "id": "nfkb_cytokines",
+  "name": "NF-kB and cytokine suppression (IL-1b, TNF-a, IL-6, IL-8, PGE2)",
+  "level": "signalling",
+  "driver": "pulse pattern / frequency; amplitude evidence thin",
+  "driver_note": "Chen 2021: two fields with fundamentals 51.8 and 52.3 Hz differing only in send-pause grouping polarised macrophages in opposite directions (blinded screen of 22 fields). Xu 2022: at fixed 1 mT the 75 Hz condition was best (full ordering of 15/45/75 Hz is not supported by the abstract). Taylor 2014: same device, different duty schedule, works versus fails.",
+  "windows": {
+   "B_mT": {
+    "ferrara": 1.5,
+    "xu": 1.0,
+    "liu_rat_OA": 3.82,
+    "wang_pathway_window": "0.5 inhibits, 3 enhances osteoclast resorption (RAW264.7, 15 Hz)",
+    "kim_pro_inflammatory": 0.8
+   },
+   "f_Hz": {
+    "ferrara": 75,
+    "liu": 8,
+    "zou": 2,
+    "xu": [
+     15,
+     45,
+     75
+    ],
+    "kim": 60
+   },
+   "dBdt_Ts": {
+    "ferrara": 2.04,
+    "xu_75Hz_sine": 0.47,
+    "liu_8Hz_sine": 0.19,
+    "kim_60Hz_sine": 0.3,
+    "basis": "computed; sinusoid assumed where waveform not stated"
+   },
+   "E_Vm": {
+    "liu_r1cm": 0.00096,
+    "kim_r1cm": 0.0015,
+    "basis": "computed, r = 1 cm"
+   },
+   "schedule": {
+    "liu": "40 min/day 5 d/week 12 weeks",
+    "taylor": "20 min per 4 h or 15 min per 2 h works; 5 min per 20 min fails",
+    "parate": "single 10 min dose beat repeats (MSC chondrogenesis, 2 mT, 15 Hz, 6 ms bursts)"
+   }
+  },
+  "evidence": "in vitro in primed cells; rat/mouse OA models; human trials mixed",
+  "confidence": "moderate that 1-4 mT pulses can lower IL-1b/IL-6/PGE2 in primed cells; low for numbers",
+  "refs": [
+   "21830213",
+   "23741498",
+   "32596310",
+   "39953605",
+   "34994274",
+   "28173722",
+   "28370033",
+   "21448989",
+   "34821733",
+   "36377077",
+   "28741320",
+   "28842627",
+   "25199571"
+  ],
+  "caveat": "Context dependent: naive RAW264.7 at 0.8 mT/60 Hz sine showed PRO-inflammatory output (Kim 2017) and Lin 2011 (not Ferrara-group) found raised NO in LPS macrophages at 1.5 mT/75 Hz. 36377077 (Xu, AMSC exosomes, Cartilage) and 36854553 are separate papers. Zou 2017 intensity given in A/m, not convertible to B."
+ },
+ {
+  "id": "macrophage_polarisation",
+  "name": "Macrophage / microglia polarisation",
+  "level": "cellular",
+  "driver": "pulse grouping / timing (Chen 2021); B and dB/dt not decomposed",
+  "driver_note": "Identical fundamental, different send-pause: opposite polarisation. Strongest discriminator for pattern over amplitude in this dataset.",
+  "windows": {
+   "f_Hz": [
+    51.8,
+    52.3
+   ],
+   "B_mT": "not reported in abstract",
+   "microglia_ferrara": "1.3 ms / 75 Hz"
+  },
+  "evidence": "in vitro blinded screen plus Ferrara-network microglia work",
+  "confidence": "low-moderate",
+  "refs": [
+   "34821733",
+   "32751697",
+   "31400640",
+   "39684558",
+   "36048344",
+   "32596310"
+  ],
+  "caveat": "Direction on microglial phagocytosis differs by context (down with LPS in Merighi 2019, up after ICH in Yang 2022)."
+ },
+ {
+  "id": "analgesia_adenosine_no",
+  "name": "PEMF analgesia (NO pathway, post-op pain, OA pain)",
+  "level": "systems",
+  "driver": "unresolved; time-varying properties implicated (schedule, pulse width, frequency), no controlled dB/dt test",
+  "driver_note": "Rat 5 mT / 50 Hz analgesia peaks day 7 and is NO-pathway dependent (sine dB/dt 1.57 T/s computed). Prato 2011 shielded-mouse effect scales with B x f, threshold at or below ~1000 nT x Hz (dB/dt 6.3 uT/s computed, E ~3e-8 V/m), a microtesla regime unrelated to OA doses. Post-operative RF-pulsed regimens give the best sham-controlled signal. Sorrell: 42 us vs 38 us pulse width trends only.",
+  "windows": {
+   "B_mT": {
+    "rat_analgesia": 5.0,
+    "wuschech_OA": 105,
+    "bagnato_RF": "27.12 MHz, not ELF",
+    "prato_nT": "25-500 nT"
+   },
+   "dBdt_Ts": {
+    "rat": 1.57,
+    "wuschech": [
+     2.6,
+     7.9
+    ],
+    "prato": 6.3e-06,
+    "leyva_high_slew_class": ">60 kT/s (EMTT)",
+    "leyva_low_class": "<5 mT",
+    "basis": "computed for sine; authors class thresholds are narrative"
+   },
+   "E_Vm": {
+    "rat_r1cm": 0.0079,
+    "wuschech_r1cm": [
+     0.013,
+     0.04
+    ],
+    "prato_r1cm": 3e-08,
+    "basis": "computed"
+   },
+   "f_Hz": {
+    "rat": 50,
+    "wuschech": [
+     4,
+     12
+    ],
+    "prato": [
+     10,
+     240
+    ]
+   },
+   "schedule": "rat: 4 x 30 min/day, 15 days; wuschech: 2 x 5 min/day, 18 days; Bagnato 12 h/day 1 month"
+  },
+  "evidence": "rat studies; RCTs split (Thamsborg, Ozguclu, Pipitone null; Wuschech, Bagnato positive; Cochrane pain MD 15.1/100 with reporting-bias concerns, function and QoL n.s.)",
+  "confidence": "low overall; moderate that some post-op pulsed-RF regimens reduce early pain",
+  "refs": [
+   "31408675",
+   "28836499",
+   "21381048",
+   "24338431",
+   "15979009",
+   "20473540",
+   "11900312",
+   "26705327",
+   "26562074",
+   "20527063",
+   "25919263",
+   "18506512",
+   "25199571",
+   "29950893",
+   "16770449",
+   "42652114"
+  ],
+  "caveat": "No ELF B or dB/dt analgesic threshold can be set from this evidence. Xiang 2022 is a protocol only. Leyva 2026 dichotomy is a narrative synthesis the authors call exploratory. Wuschech was partly randomised."
+ }
+]
