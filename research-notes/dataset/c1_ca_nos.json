@@ -36,9 +36,9 @@
     "basis": "computed (sine peak assumption; Petecchia is 2 mT / 1.3 ms crude ramp)"
    },
    "E_Vm": {
-    "liburdy": 0.017,
-    "walleczek_at_6p5mT": 0.0069,
-    "basis": "reported (1.7 mV/cm, 0.69 mV/cm converted to V/m)"
+    "liburdy": 0.17,
+    "walleczek_at_6p5mT": 0.069,
+    "basis": "reported 1.7 mV/cm and 0.69 mV/cm (1 mV/cm = 0.1 V/m)"
    },
    "f_Hz": {
     "lindstrom_optimum": 50,
@@ -156,8 +156,8 @@
   "driver_note": "Reduced PTH-stimulated cAMP at induced E <= 1 mV/cm (Luben); raised cAMP at 0.6 mT/50 Hz and 2 mT/15 Hz in osteoblasts via the cilium and sAC; Schnoke found CREB and ERK not activated by PEMF.",
   "windows": {
    "E_Vm": {
-    "luben": 0.01,
-    "basis": "reported upper bound, 1 mV/cm"
+    "luben": 0.1,
+    "basis": "reported upper bound 1 mV/cm = 0.1 V/m"
    },
    "B_mT": {
     "wang2019": 0.6,

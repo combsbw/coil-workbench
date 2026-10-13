@@ -40,8 +40,8 @@
    },
    "E_Vm": {
     "tsai_computed_from_stated_formula": [
-     0.00032,
-     0.0016
+     0.0032,
+     0.016
     ],
     "tsai_NOT_ok": "the original note quoted 1.5-7.6 uV/cm, which is inconsistent with its own formula (32-160 uV/cm); do not reuse",
     "torricelli_r1p5cm": 0.013,
@@ -162,11 +162,11 @@
    },
    "E_Vm": {
     "chang2003": [
-     4.8e-05,
-     0.000122
+     0.00048,
+     0.00122
     ],
-    "chang2006": 3e-05,
-    "basis": "reported, rms uV/cm converted to V/m"
+    "chang2006": 0.0003,
+    "basis": "reported rms uV/cm (1 uV/cm = 1e-4 V/m)"
    },
    "duration_threshold": "1 h inactive, 8-16 h active (Chang 2006)",
    "schedule": "rat OVX 8 h/day 10 wk (Jing 2013); whole-body 12 wk (Zhou 2017); early start protected vertebra and femur, late start vertebra only"
